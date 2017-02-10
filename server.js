@@ -5,15 +5,15 @@ var port = process.env.PORT || 8080;
 var app = express();
 
 app.set(port);
-app.use(express.static(__dirname + '/html/'));
+app.use(express.static(__dirname+'/html/'));
 
 app.get('/', function(request, response){
-  response.sendFile('mapa.html');
+  response.sendFile('/html/index.html');
 });
 
 
 
 app.listen(port, function ()
  {
-   console.log("Escuchando por el puerto "+ port)
-})
+   console.log("Escuchando por el puerto "+ port);
+});
