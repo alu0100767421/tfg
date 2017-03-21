@@ -1,0 +1,24 @@
+body {
+  font: 12px sans-serif;
+}
+
+path {
+  stroke-width: 1px;
+  stroke: #000000;
+  fill: #0080ff;
+  cursor: pointer;
+}
+
+path:hover, path.highlighted {
+  fill: #80ff00;
+}
+
+div.tooltip {
+  position: absolute;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  font-weight: bold;
+  padding: 4px 8px;
+  display: none;
+}
