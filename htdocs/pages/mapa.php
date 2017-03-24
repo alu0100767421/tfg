@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Sistema Geográfico de Paleontología de Canarias</title>
-
-  <link type="text/css" rel="stylesheet" href="../css/bootstrap-theme.min.css">
-  <!--<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css">-->
   <link rel="icon" type="/image/png" href="../images/logoULL/logotipo-secundario.jpg" />
   <link type="text/css" rel="stylesheet" href="../css/mapa.css"/>
 
