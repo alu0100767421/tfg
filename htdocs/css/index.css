@@ -21,12 +21,10 @@ body{
 .titulo{
   width: 70%;
   height: 70%;
-  position: relative;
 }
 
 .titulo h1{
-  font-size: 60px;
-  font-style: oblique;
+  font-size: 300%;
   color: #ffffff;
 
 }
@@ -35,4 +33,19 @@ body{
   width: 30%;
   height: 40%;
   background-color: white;
+}
+
+#imagen-menu{
+  width: 30px;
+  height: 30px;
+}
+
+.formulario{
+  background-color: white;
+  border-radius: 10px;
+  margin-left: 1%;
+}
+
+.botones-formulario{
+  margin-bottom: 5%;
 }
