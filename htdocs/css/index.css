@@ -1,0 +1,38 @@
+html{
+  position: relative;
+  min-height: 100%;
+
+}
+
+
+body{
+  background-image: url("../images/imagen1.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.cuerpo{
+  margin-top: 15%;
+  margin-left: 10%;
+  height: 40%;
+  width: 70%;
+}
+
+.titulo{
+  width: 70%;
+  height: 70%;
+  position: relative;
+}
+
+.titulo h1{
+  font-size: 60px;
+  font-style: oblique;
+  color: #ffffff;
+
+}
+
+.acceso{
+  width: 30%;
+  height: 40%;
+  background-color: white;
+}
