@@ -30,7 +30,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><a href="index.php">Inicio</a></li>
-            <li><a href="index.php">Mapa</a></li>
+            <li><a href="pages/mapa.php">Mapa</a></li>
           </ul>
         </div>
 
