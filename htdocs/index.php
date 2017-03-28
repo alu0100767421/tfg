@@ -1,3 +1,13 @@
+<?php
+
+  /*$link = require("pages/connect_bbdd.php");
+
+  $consulta = 'SELECT USUARIOS FROM USUARIOS;';
+  $users = pg_query($link, $consulta) or die(pg_error($link));
+*/
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -6,7 +16,7 @@
 
     <title>Sistema Geográfico de Paleontología de Canarias</title>
 
-    <link rel="icon" type="/image/png" href="images/logoULL/logotipo-secundario.jpg" />
+    <link rel="icon" type="/image/png" href="images/logoULL/logotipo-secundario-ULL.png" />
     <link type="text/css" rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="css/index.css"/>
 
@@ -24,11 +34,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="https://www.ull.es/"><img id="imagen-menu" alt="ULL" src="images/logoULL/logotipo-secundario-ULL.png"></a>
+          <a class="navbar-brand" href="https://www.ull.es/"><img id="imagen-menu" alt="ULL" src="images/logoULL/logotipo-principal-recortada.png"></a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
+          <ul class="nav navbar-nav navbar-right">
             <li><a href="index.php">Inicio</a></li>
             <li><a href="pages/mapa.php">Mapa</a></li>
           </ul>
@@ -54,7 +64,20 @@
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Usuario</label>
-              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Usuario">
+              <select class="form-control">
+                <option disabled selected>Elija su usuario</option>
+
+                <?php
+                  while($usu = pg_fetch_assoc($users)){
+                    $user = $usu['usuario'];
+                    echo "<option type='text' value='$user' name='$user'>$user</option>";
+                  }
+                  pg_free_result($users);
+                 ?>
+
+              </select>
+
+              <!--<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Usuario">-->
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Contraseña</label>

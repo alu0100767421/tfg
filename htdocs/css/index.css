@@ -36,8 +36,8 @@ body{
 }
 
 #imagen-menu{
-  width: 30px;
-  height: 30px;
+  width: 30%;
+  height: auto;
 }
 
 .formulario{
