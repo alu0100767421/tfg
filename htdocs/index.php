@@ -1,10 +1,10 @@
 <?php
 
-  /*$link = require("pages/connect_bbdd.php");
+  $link = require("pages/connect_bbdd.php");
 
-  $consulta = 'SELECT USUARIOS FROM USUARIOS;';
-  $users = pg_query($link, $consulta) or die(pg_error($link));
-*/
+  $consulta = "SELECT nombre FROM usuarios;";
+  $users = pg_query($link, $consulta);
+  echo pg_last_error();
 
 ?>
 
@@ -56,7 +56,7 @@
 
       <div class="row ">
         <div class="col-lg-3 col-md-6 col-xs-12 col-sm-12 formulario">
-          <form>
+          <form action="pages/autenticacion_usuarios.php" method="post">
             <div class="row">
               <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
                 <h4>Acceso Administración</h4>
@@ -64,12 +64,12 @@
             </div>
             <div class="form-group">
               <label for="exampleInputEmail1">Usuario</label>
-              <select class="form-control">
+              <select name="users[]" class="form-control">
                 <option disabled selected>Elija su usuario</option>
 
                 <?php
                   while($usu = pg_fetch_assoc($users)){
-                    $user = $usu['usuario'];
+                    $user = $usu['nombre'];
                     echo "<option type='text' value='$user' name='$user'>$user</option>";
                   }
                   pg_free_result($users);
@@ -81,11 +81,11 @@
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Contraseña</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+              <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Contraseña">
             </div>
             <div class="row botones-formulario">
               <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
-                <button type="submit" class="btn btn-success">Enviar</button><br>
+                <button type="submit" class="btn btn-success">Acceder</button><br>
               </div>
               <div class=" col-lg-3 col-md-3 col-xs-12 col-sm-3">
                 <a class="btn btn-info" href="pages/mapa.php" role="button">Acceso libre al mapa</a>

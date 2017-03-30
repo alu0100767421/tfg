@@ -1,15 +1,11 @@
 <?php
 
-
-
-  $link = pg_connect("host=localhost dbname=paleontologia");
+  $link = pg_connect("host=localhost dbname=paleontologia user=postgres password=postgres");
   if(!$link){
-    printf("Error: No se puede establecer la conexión con la base de datos. %s\n", pg_connect_error());
+    printf("Error: No se puede establecer la conexión con la base de datos.\n");
     exit;
   }
   else{
-    //pg_select_db($link, "paleontologia");
     return $link;
   }
-
  ?>
