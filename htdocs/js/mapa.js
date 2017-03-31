@@ -1,13 +1,13 @@
 
 //Map dimensions (in pixels)
-var width = 1500,
-    height = 700;
+var width = 800,
+    height = 500;
 
 //Map projection
 var projection = d3.geo.mercator()
-    .scale(16912.207581640487)
+    .scale(9019.844043541592)
     .center([-15.747476639999999,28.530921143001386]) //projection center
-    .translate([width/2,height/2]) //translate to center the map in view
+    .translate([width/2,height/2]); //translate to center the map in view
 
 //Generate paths based on projection
 var path = d3.geo.path()
@@ -57,8 +57,8 @@ function clicked(d,i) {
     var b = path.bounds(d);
     x = centroid[0];
     y = centroid[1];
-    k = .8 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height);
-    centered = d
+    k = 0.8 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height);
+    centered = d;
   } else {
     x = width / 2;
     y = height / 2;

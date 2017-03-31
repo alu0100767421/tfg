@@ -1,3 +1,9 @@
+<?php
+
+  $link = require("connect_bbdd.php");
+  echo pg_last_error();
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,6 +11,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Sistema Geográfico de Paleontología de Canarias</title>
+
   <link rel="icon" type="/image/png" href="../images/logoULL/logotipo-secundario.jpg" />
   <link type="text/css" rel="stylesheet" href="../css/mapa.css"/>
 
@@ -12,16 +19,18 @@
 
 <body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
-
-  <div id="#mapa">
-
+  <nav>
+    <h1>aqui va un menu</h1>
+  </nav>
+  <div class="columna1" id="#mapa">
+    <h3>Islas Canarias</h3>
   </div>
 
-
-
+  <div class="columna2">
+    <h3>Sistema Paleontológico</h3>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript" src="../js/mapa.js"></script>
-  <!--<script src="jquery-3.1.1.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
--->
+
 </body>
 </html>

@@ -22,3 +22,18 @@ div.tooltip {
   padding: 4px 8px;
   display: none;
 }
+
+
+.columna1 {
+  width: 60%;
+  height: 100%;
+  background-color: #fff500;
+  float: left;
+}
+
+.columna2{
+  width: 40%;
+  height: 100%;
+  background-color: #ff0000;
+  float: right;
+}
