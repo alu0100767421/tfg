@@ -1,37 +1,44 @@
 
-//Map dimensions (in pixels)
-var width = 800,
-    height = 500;
+d3.select(window).on('resize', resize);
 
-//Map projection
+
+//Creamos unas dimensiones específicas para el mapa
+  var viewportWidth = $("#mapa").width();
+  var viewportHeight = $("#mapa").height()/2;
+  var width = viewportWidth * 0.97;
+  var height = width/1.85;
+
+
+//Projeccion del mapa
 var projection = d3.geo.mercator()
-    .scale(9019.844043541592)
-    .center([-15.747476639999999,28.530921143001386]) //projection center
-    .translate([width/2,height/2]); //translate to center the map in view
+    .scale([width*10]) //escala
+    .center([-15.747476639999999,28.530921143001386])//para que se centre
+    .translate([width/2,height/2]);
 
 //Generate paths based on projection
-var path = d3.geo.path()
-    .projection(projection);
+var path = d3.geo.path().projection(projection);
 
-//Create an SVG
-var svg = d3.select("body").append("svg")
+
+//Creamos el SVG
+var svg = d3.select("#mapa").append("svg")
     .attr("width", width)
     .attr("height", height);
 
-//Group for the map features
+
+
+//Grupo de características
 var features = svg.append("g")
     .attr("class","features");
 
-//Create a tooltip, hidden at the start
-var tooltip = d3.select("body").append("div").attr("class","tooltip");
 
-//Keeps track of currently zoomed feature
+var tooltip = d3.select("#mapa").append("div").attr("class","tooltip");
+
+
 var centered;
 
 d3.json("recintos_municipales_inspire_canarias_wgs84.geojson",function(error,geodata) {
-  if (error) return console.log(error); //unknown error, check the console
-
-  //Create a path for each map feature in the data
+  if (error) return console.log(error);
+  
   features.selectAll("path")
     .data(geodata.features)
     .enter()
@@ -44,15 +51,37 @@ d3.json("recintos_municipales_inspire_canarias_wgs84.geojson",function(error,geo
 
 });
 
-// Zoom to feature on click
+
+
+
+function resize() {
+
+
+  var viewportWidth = $("#mapa").width();
+  var viewportHeight = $("#mapa").height()/2;
+  var width = viewportWidth * 0.97;
+  var height = width/1.85;
+
+   projection
+    	.scale([width*10])
+      .center([-15.747476639999999,28.530921143001386]) //projection center
+   		.translate([width/2,height*2]);
+
+
+   d3.select("#mapa").attr("width",width).attr("height",height);
+   d3.select("svg").attr("width",width).attr("height",height);
+
+   d3.selectAll("path").attr('d', path);
+}
+
+// Zoom al clickar
 function clicked(d,i) {
 
-  //Add any other onClick events here
+
 
   var x, y, k;
 
   if (d && centered !== d) {
-    // Compute the new map center and scale to zoom to
     var centroid = path.centroid(d);
     var b = path.bounds(d);
     x = centroid[0];
@@ -66,26 +95,21 @@ function clicked(d,i) {
     centered = null;
   }
 
-  // Highlight the new feature
+
   features.selectAll("path")
       .classed("highlighted",function(d) {
           return d === centered;
       })
-      .style("stroke-width", 1 / k + "px"); // Keep the border width constant
+      .style("stroke-width", 1 / k + "px");
 
-  //Zoom and re-center the map
-  //Uncomment .transition() and .duration() to make zoom gradual
   features
       //.transition()
       //.duration(500)
       .attr("transform","translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")");
 }
 
-
-//Position of the tooltip relative to the cursor
 var tooltipOffset = {x: 5, y: -25};
 
-//Create a tooltip, hidden at the start
 function showTooltip(d) {
   moveTooltip();
 
@@ -93,13 +117,11 @@ function showTooltip(d) {
       .text(d.properties.NAMEUNIT);
 }
 
-//Move the tooltip to track the mouse
 function moveTooltip() {
   tooltip.style("top",(d3.event.pageY+tooltipOffset.y)+"px")
       .style("left",(d3.event.pageX+tooltipOffset.x)+"px");
 }
 
-//Create a tooltip, hidden at the start
 function hideTooltip() {
   tooltip.style("display","none");
 }
