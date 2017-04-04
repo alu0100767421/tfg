@@ -1,0 +1,25 @@
+html{
+  position: relative;
+  min-height: 100%;
+
+}
+
+
+nav{
+
+}
+
+
+#imagen-menu{
+  width: 30%;
+  height: auto;
+}
+
+.panel{
+  background-color: #822e81;
+}
+
+
+.contenido{
+  background-color: #c9c9c9;
+}
