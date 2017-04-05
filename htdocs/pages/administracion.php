@@ -49,29 +49,37 @@
     <div class="containter">
       <!--MENU LATERAL -->
       <div class="row">
-        <div class="col-lg-2 col-md-4 col-xs-12 col-sm-12 panel">
-          <ul class="list-unstyled">
+        <div class="col-lg-2 col-md-4 col-xs-6 col-sm-6 ">
+          <ul class="list-unstyled panel">
             <li><a href="administracion.php">Inicio</a></li>
             <li><a href="#">Consultar BBDD</a></li>
             <li><a href="#">Añadir BBDD</a></li>
-            <li><a href="#">Gestión Usuarios</a></li>
+            <li><a href="gestion_usuarios.php">Gestión Usuarios</a></li>
           </ul>
-
-        </div>
-        <div class="col-lg-9 col-md-8 col-xs-12 col-sm-12 contenido">
-          <h2>Contenido</h2>
-        </div>
-      </div>
-      <div class="row">
-        <form action="cerrar_sesion.php" method="post">
-          <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-            <button type="submit" class="btn btn-danger boton">Cerrar Sesión</button><br>
+          <div class="row">
+            <form action="cerrar_sesion.php" method="post">
+              <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                <button type="submit" class="btn btn-danger boton">Cerrar Sesión</button><br>
+              </div>
+            </form>
           </div>
-        </form>
+        </div>
+        <div class="col-lg-offset-3 col-lg-7 col-md-offset-3 col-md-7 col-xs-offset-3 col-xs-7 col-sm-offset-3 col-sm-7 contenido">
+          <img src="../images/logoULL/logotipo-secundario.jpg" alt="Universidad de La Laguna" id="imagen-fondo">
+        </div>
       </div>
+
     </div>
 
+    <div class="navbar navbar-inverse navbar-fixed-bottom">
+       <div class="container">
+         <p class="navbar-text pull-left">© 2017 Alexander Cole Mora
+              <a href="https://www.ull.es/" target="_blank" >Universidad de La Laguna</a>
+         </p>
+       </div>
 
+
+     </div>
 
 
 

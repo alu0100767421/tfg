@@ -1,7 +1,6 @@
 html{
   position: relative;
-  min-height: 100%;
-  max-width: 100%;
+
 }
 
 #imagen-menu{
@@ -13,16 +12,18 @@ html{
 .panel{
   background-color: #9c66b5;
   height: 200%;
+  padding-bottom: 5%;
+  padding-top: 2%;
 }
 
-.panel ul li a{
+.panel li a{
   color: #ffffff;
 }
-.panel ul li a:hover{
+.panel li a:hover{
   font-size: 100%;
   color: #000000;
 }
-.panel ul li{
+.panel li{
   padding-top: 5%;
   margin-left: 2%;
 }
@@ -33,4 +34,10 @@ html{
 /*panel de la derecha*/
 .contenido{
 
+}
+
+#imagen-fondo{
+  width: 50%;
+  height: 50%;
+  opacity: 0.5;
 }
