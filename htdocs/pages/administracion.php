@@ -1,7 +1,9 @@
 <?php
-
+  session_start();
   $link = require("connect_bbdd.php");
 
+  if(isset($_SESSION['nombre'])) {
+    $username = $_SESSION['nombre'];
 
 ?>
 
@@ -45,20 +47,28 @@
     </nav>
 
     <div class="containter">
-      <div class="col-lg-2 col-md-4 col-xs-12 col-sm-12 panel">
+      <!--MENU LATERAL -->
+      <div class="row">
+        <div class="col-lg-2 col-md-4 col-xs-12 col-sm-12 panel">
+          <ul class="list-unstyled">
+            <li><a href="administracion.php">Inicio</a></li>
+            <li><a href="#">Consultar BBDD</a></li>
+            <li><a href="#">Añadir BBDD</a></li>
+            <li><a href="#">Gestión Usuarios</a></li>
+          </ul>
 
-        <ul>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Consultar BBDD</a></li>
-          <li><a href="#">Añadir BBDD</a></li>
-          <li><a href="#">Gestión Usuarios</a></li>
-
-        </ul>
+        </div>
+        <div class="col-lg-9 col-md-8 col-xs-12 col-sm-12 contenido">
+          <h2>Contenido</h2>
+        </div>
       </div>
-      <div class="col-lg-10 col-md-8 col-xs-12 col-sm-12 contenido">
-        <h2>Contenido</h2>
+      <div class="row">
+        <form action="cerrar_sesion.php" method="post">
+          <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+            <button type="submit" class="btn btn-danger boton">Cerrar Sesión</button><br>
+          </div>
+        </form>
       </div>
-
     </div>
 
 
@@ -70,3 +80,9 @@
   <script type="text/javascript" src="../js/administracion.js"></script>
   </body>
 </html>
+
+<?php
+   }else {
+       header("Location: ../index.php");
+   }
+?>

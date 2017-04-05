@@ -1,25 +1,36 @@
 html{
   position: relative;
   min-height: 100%;
-
+  max-width: 100%;
 }
-
-
-nav{
-
-}
-
 
 #imagen-menu{
   width: 30%;
   height: auto;
 }
 
+/* Panel de la izquierda*/
 .panel{
-  background-color: #822e81;
+  background-color: #9c66b5;
+  height: 200%;
 }
 
+.panel ul li a{
+  color: #ffffff;
+}
+.panel ul li a:hover{
+  font-size: 100%;
+  color: #000000;
+}
+.panel ul li{
+  padding-top: 5%;
+  margin-left: 2%;
+}
+.boton{
+  margin-left: 0.5%;
+}
 
+/*panel de la derecha*/
 .contenido{
-  background-color: #c9c9c9;
+
 }
