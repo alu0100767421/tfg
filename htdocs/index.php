@@ -26,7 +26,6 @@
     <!--INICIO DE MENU-->
     <nav class="navbar navbar-default">
       <div class="container-fluid">
-
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
@@ -43,10 +42,11 @@
             <li><a href="pages/mapa.php">Mapa</a></li>
           </ul>
         </div>
-
       </div>
     </nav>
     <!--FIN DE MENU-->
+
+
     <div class="cuerpo">
       <div class="row">
         <div class="col-lg-2 col-md-4 col-xs-2 col-sm-2 titulo">
@@ -96,6 +96,17 @@
 
 
 
+
+      </div>
+    </div>
+
+    <!--Footer-->
+    <br><br><br><br><br>
+    <div class="navbar navbar-inverse navbar-fixed-bottom">
+      <div class="container">
+        <p class="navbar-text pull-left">© 2017 Alexander Cole Mora
+          <a href="https://www.ull.es/" target="_blank" >Universidad de La Laguna</a>
+        </p>
       </div>
     </div>
 

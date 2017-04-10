@@ -1,6 +1,9 @@
 html{
   position: relative;
+}
 
+body {
+    overflow-x: hidden;
 }
 
 #imagen-menu{
@@ -18,10 +21,12 @@ html{
 
 .panel li a{
   color: #ffffff;
+  font-weight: bold;
 }
 .panel li a:hover{
   font-size: 100%;
   color: #000000;
+  text-decoration:none;
 }
 .panel li{
   padding-top: 5%;
