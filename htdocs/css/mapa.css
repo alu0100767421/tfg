@@ -1,5 +1,10 @@
+html{
+  position: relative;
+}
+
 body {
   font: 12px sans-serif;
+  overflow-x: hidden;
 }
 
 path {

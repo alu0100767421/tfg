@@ -59,7 +59,15 @@
     </div>
   </div>
 
-
+  <!--Footer-->
+  <br><br><br><br><br>
+  <div class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="container">
+      <p class="navbar-text pull-left">© 2017 Alexander Cole Mora
+        <a href="https://www.ull.es/" target="_blank" >Universidad de La Laguna</a>
+      </p>
+    </div>
+  </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript" src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
