@@ -54,8 +54,8 @@
         <div class="col-lg-2 col-md-4 col-xs-8 col-sm-6 ">
           <ul class="list-unstyled panel">
             <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a href="administracion.php">&nbsp Inicio</a></li>
-            <li><span class="glyphicon glyphicon-user" aria-hidden="true"></span><a href="#">&nbsp Consultar BBDD</a></li>
-            <li><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a href="#">&nbsp Añadir BBDD</a></li>
+            <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="#">&nbsp Consultar BBDD</a></li>
+            <li><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a href="add_bbdd.php">&nbsp Añadir BBDD</a></li>
             <?php
               //echo "Este es el usuario $username";
               if ($username == "admin") {
@@ -72,7 +72,7 @@
             </form>
           </div>
         </div>
-        <div class="col-lg-offset-3 col-lg-7 col-md-offset-1 col-md-7 col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12 contenido">
+        <div class="col-lg-offset-3 col-lg-7 col-md-offset-1 col-md-7 col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12">
           <img src="../images/logoULL/logotipo-secundario.jpg" alt="Universidad de La Laguna" id="imagen-fondo">
         </div>
       </div>
