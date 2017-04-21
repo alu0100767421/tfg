@@ -83,35 +83,159 @@
               <form class="" action="" method="post">
                 <div class="row">
                   <div class="col-lg-2 form-group">
-                    <select name="Islas" class="form-control">
+                    <select name="Islas" id="Islas" class="form-control" onchange="isla(this.value)">
                       <option disabled selected>ISLA</option>
-                      <option type='text' value='LA PALMA' name='La Palma'>LA PALMA</option>
-                      <option type='text' value='La Gomera' name='La Gomera'>LA GOMERA</option>
-                      <option type='text' value='El Hierro' name='El Hierro'>EL HIERRO</option>
-                      <option type='text' value='Tenerife' name='Tenerife'>TENERIFE</option>
-                      <option type='text' value='Gran Canaria' name='Gran Canaria'>GRAN CANARIA</option>
-                      <option type='text' value='Fuerteventura' name='Fuerteventura'>FUERTEVENTURA</option>
-                      <option type='text' value='Lanzarote' name='Lanzarote'>LANZAROTE</option>
-                      <option type='text' value='La Graciosa' name='La Graciosa'>LA GRACIOSA</option>
-                      <option type='text' value='Lobos' name='Lobos'>LOBOS</option>
+                      <option type='text' value='LA PALMA' name='LA PALMA'>LA PALMA</option>
+                      <option type='text' value='LA GOMERA' name='LA GOMERA'>LA GOMERA</option>
+                      <option type='text' value='EL HIERRO' name='EL HIERRO'>EL HIERRO</option>
+                      <option type='text' value='TENERIFE' name='TENERIFE'>TENERIFE</option>
+                      <option type='text' value='GRAN CANARIA' name='GRAN CANARIA'>GRAN CANARIA</option>
+                      <option type='text' value='FUERTEVENTURA' name='FUERTEVENTURA'>FUERTEVENTURA</option>
+                      <option type='text' value='LANZAROTE' name='LANZAROTE'>LANZAROTE</option>
                     </select>
                   </div>
-                  <div class="col-lg-2 form-group">
-                    <select name="Municipios" class="form-control">
+                  <!-- MUNICIPIOS DE LA PALMA-->
+                  <div style="display:none" id="municipioslapalma" class="col-lg-2 form-group">
+                    <select name="MunicipiosLaPalma" id="MunicipiosLaPalma" class="form-control">
                       <option disabled selected>MUNICIPIOS</option>
+                      <option type='text' value='BARLOVENTO' name='BARLOVENTO'>BARLOVENTO</option>
+                      <option type='text' value='BRENA ALTA' name='BRENA ALTA'>BREÑA ALTA</option>
+                      <option type='text' value='BRENA BAJA' name='BRENA BAJA'>BREÑA BAJA</option>
+                      <option type='text' value='FUENCALIENTE' name='FUENCALIENTE'>FUENCALIENTE</option>
+                      <option type='text' value='GARAFÍA' name='GARAFÍA'>GARAFÍA</option>
+                      <option type='text' value='LOS LLANOS DE ARIDANE' name='LOS LLANOS DE ARIDANE'>LOS LLANOS DE ARIDANE</option>
+                      <option type='text' value='EL PASO' name='EL PASO'>EL PASO</option>
+                      <option type='text' value='PUNTA GORDA' name='PUNTA GORDA'>PUNTA GORDA</option>
+                      <option type='text' value='PUNTALLANA' name='PUNTALLANA'>PUNTALLANA</option>
+                      <option type='text' value='SAN ANDRES Y SAUCES' name='SAN ANDRES Y SAUCES'>SAN ANDRÉS Y SAUCES</option>
+                      <option type='text' value='SANTA CRUZ DE LA PALMA' name='SANTA CRUZ DE LA PALMA'>SANTA CRUZ DE LA PALMA</option>
+                      <option type='text' value='TAZACORTE' name='TAZACORTE'>TAZACORTE</option>
+                      <option type='text' value='TIJARAFE' name='TIJARAFE'>TIJARAFE</option>
+                      <option type='text' value='VILLA DE MAZO' name='VILLA DE MAZO'>VILLA DE MAZO</option>
+                    </select>
+                  </div>
+                  <!-- MUNICIPIOS DE LA GOMERA-->
+                  <div style="display:none" id="municipioslagomera" class="col-lg-2 form-group">
+                    <select name="MunicipiosLaGomera" id="MunicipiosLaGomera" class="form-control">
+                      <option disabled selected>MUNICIPIOS</option>
+                      <option type='text' value='AGULO' name='AGULO'>AGULO</option>
+                      <option type='text' value='ALAJERO' name='ALAJERO'>ALAJERÓ</option>
+                      <option type='text' value='HERMIGUA' name='HERMIGUA'>HERMIGUA</option>
+                      <option type='text' value='SAN SEBASTIAN DE LA GOMERA' name='SAN SEBASTIAN DE LA GOMERA'>SAN SEBASTIÁN DE LA GOMERA</option>
+                      <option type='text' value='VALLEHERMOSO' name='VALLEHERMOSO'>VALLEHERMOSO</option>
+                      <option type='text' value='VALLE GRAN REY' name='VALLE GRAN REY'>VALLE GRAN REY</option>
+                    </select>
+                  </div>
+                  <!-- MUNICIPIOS DE EL HIERRO-->
+                  <div style="display:none" id="municipioselhierro" class="col-lg-2 form-group">
+                    <select name="MunicipiosElHierro" id="MunicipiosElHierro" class="form-control">
+                      <option disabled selected>MUNICIPIOS</option>
+                      <option type='text' value='EL PINAR' name='EL PINAR'>EL PINAR</option>
+                      <option type='text' value='FRONTERA' name='FRONTERA'>FRONTERA</option>
+                      <option type='text' value='VALVERDE' name='VALVERDE'>VALVERVE</option>
+                    </select>
+                  </div>
+                  <!-- MUNICIPIOS DE TENERIFE-->
+                  <div style="display:none" id="municipiostenerife" class="col-lg-2 form-group">
+                    <select name="MunicipiosTenerife" id="MunicipiosTenerife" class="form-control">
+                      <option disabled selected>MUNICIPIOS</option>
+                      <option type='text' value='ADEJE' name='ADEJE'>ADEJE</option>
+                      <option type='text' value='ARAFO' name='ARAFO'>ARAFO</option>
+                      <option type='text' value='ARICO' name='ARICO'>ARICO</option>
+                      <option type='text' value='ARONA' name='ARONA'>ARONA</option>
+                      <option type='text' value='BUENAVISTA DEL NORTE' name='BUENAVISTA DEL NORTE'>BUENAVISTA DEL NORTE</option>
+                      <option type='text' value='CANDELARIA' name='CANDELARIA'>CANDELARIA</option>
+                      <option type='text' value='EL ROSARIO' name='EL ROSARIO'>EL ROSARIO</option>
+                      <option type='text' value='EL SAUZAL' name='EL SAUZAL'>EL SAUZAL</option>
+                      <option type='text' value='EL TANQUE' name='EL TANQUE'>EL TANQUE</option>
+                      <option type='text' value='FASNIA' name='FASNIA'>FASNIA</option>
+                      <option type='text' value='GARACHICO' name='GARACHICO'>GARACHICO</option>
+                      <option type='text' value='GRANADILLA DE ABONA' name='GRANADILLA DE ABONA'>GRANADILLA DE ABONA</option>
+                      <option type='text' value='GUIMAR' name='GUIMAR'>GÜIMAR</option>
                       <option type='text' value='GUIA DE ISORA' name='GUIA DE ISORA'>GUÍA DE ISORA</option>
+                      <option type='text' value='ICOD DE LOS VINOS' name='ICOD DE LOS VINOS'>ICOD DE LOS VINOS</option>
+                      <option type='text' value='LA GUANCHA' name='LA GUANCHA'>LA GUANCHA</option>
+                      <option type='text' value='LA MATANZA DE ACENTEJO' name='LA MATANZA DE ACENTEJO'>LA MATANZA DE ACENTEJO</option>
+                      <option type='text' value='LA OROTAVA' name='LA OROTAVA'>LA OROTAVA</option>
+                      <option type='text' value='LA VICTORIA DE ACENTEJO' name='LA VICTORIA DE ACENTEJO'>LA VICTORIA DE ACENTEJO</option>
+                      <option type='text' value='LOS REALEJOS' name='LOS REALEJOS'>LOS REALEJOS</option>
+                      <option type='text' value='LOS SILOS' name='LOS SILOS'>LOS SILOS</option>
+                      <option type='text' value='PUERTO DE LA CRUZ' name='PUERTO DE LA CRUZ'>PUERTO DE LA CRUZ</option>
+                      <option type='text' value='SAN CRISTOBAL DE LA LAGUNA' name='SAN CRISTOBAL DE LA LAGUNA'>SAN CRISTÓBAL DE LA LAGUNA</option>
+                      <option type='text' value='SAN JUAN DE LA RAMBLA' name='SAN JUAN DE LA RAMBLA'>SAN JUAN DE LA RAMBLA</option>
+                      <option type='text' value='SAN MIGUEL DE ABONA' name='SAN MIGUEL DE ABONA'>SAN MIGUEL DE ABONA</option>
+                      <option type='text' value='SANTA CRUZ DE TENERIFE' name='SANTA CRUZ DE TENERIFE'>SANTA CRUZ DE TENERIFE</option>
+                      <option type='text' value='SANTA URSULA' name='SANTA URSULA'>SANTA ÚRSULA</option>
+                      <option type='text' value='SANTIAGO DEL TEIDE' name='SANTIAGO DEL TEIDE'>SANTIAGO DEL TEIDE</option>
+                      <option type='text' value='TACORONTE' name='TACORONTE'>TACORONTE</option>
+                      <option type='text' value='TEGUESTE' name='TEGUESTE'>TEGUESTE</option>
+                      <option type='text' value='VILAFLOR' name='VILAFLOR'>VILAFLOR</option>
                     </select>
                   </div>
-                  <div class="col-lg-2 form-group">
-                    <select name="Localidad" class="form-control">
-                      <option disabled selected>LOCALIDAD</option>
-                      <option type='text' value='CHIO' name='CHIO'>CHÍO</option>
+                  <!-- MUNICIPIOS DE GRAN CANARIA-->
+                  <div style="display:none" id="municipiosgrancanaria" class="col-lg-2 form-group">
+                    <select name="MunicipiosGranCanaria" id="MunicipiosGranCanaria" class="form-control">
+                      <option disabled selected>MUNICIPIOS</option>
+                      <option type='text' value='AGAETE' name='AGAETE'>AGAETE</option>
+                      <option type='text' value='AGUINES' name='AGUINES'>AGÜINES</option>
+                      <option type='text' value='LA ALDEA DE SAN NICOLAS' name='LA ALDEA DE SAN NICOLAS'>LA ALDEA DE SAN NICOLÁS</option>
+                      <option type='text' value='ARTENARA' name='ARTENARA'>ARTENARA</option>
+                      <option type='text' value='ARUCAS' name='ARUCAS'>ARUCAS</option>
+                      <option type='text' value='FIRGAS' name='FIRGAS'>FIRGAS</option>
+                      <option type='text' value='GALDAR' name='GALDAR'>GÁLDAR</option>
+                      <option type='text' value='INGENIO' name='INGENIO'>INGENIO</option>
+                      <option type='text' value='MOGAN' name='MOGAN'>MOGÁN</option>
+                      <option type='text' value='MOYA' name='MOYA'>MOYA</option>
+                      <option type='text' value='LAS PALMAS DE GRAN CANARIA' name='LAS PALMAS DE GRAN CANARIA'>LAS PALMAS DE GRAN CANARIA</option>
+                      <option type='text' value='SAN BARTOLOME DE TIRAJANA' name='SAN BARTOLOME DE TIRAJANA'>SAN BARTOLOMÉ DE TIRAJANA</option>
+                      <option type='text' value='SANTA BRIGIDA' name='SANTA BRIGIDA'>SANTA BRÍGIDA</option>
+                      <option type='text' value='SANTA LUCIA DE TIRAJANA' name='SANTA LUCIA DE TIRAJANA'>SANTA LUCÍA DE TIRAJANA</option>
+                      <option type='text' value='SANTA MARIA DE GUIA DE GRAN CANARIA' name='SANTA MARIA DE GUIA DE GRAN CANARIA'>SANTA MARÍA DE GUÍA DE GRAN CANARIA</option>
+                      <option type='text' value='TEJEDA' name='TEJEDA'>TEJEDA</option>
+                      <option type='text' value='TELDE' name='TELDE'>TELDE</option>
+                      <option type='text' value='TEROR' name='TEROR'>TEROR</option>
+                      <option type='text' value='VALLESECO' name='VALLESECO'>VALLESECO</option>
+                      <option type='text' value='VALSEQUILLO DE GRAN CANARIA' name='VALSEQUILLO DE GRAN CANARIA'>VALSEQUILLO DE GRAN CANARIA</option>
+                      <option type='text' value='VEGA DE SAN MATEO' name='VEGA DE SAN MATEO'>VEGA DE SAN MATEO</option>
                     </select>
                   </div>
-                  <div class="col-lg-2 form-group">
+
+                  <!-- MUNICIPIOS DE FUERTEVENTURA-->
+                  <div style="display:none" id="municipiosfuerteventura" class="col-lg-2 form-group">
+                    <select name="MunicipiosFuerteventura" id="MunicipiosFuerteventura" class="form-control">
+                      <option disabled selected>MUNICIPIOS</option>
+                      <option type='text' value='ANTIGUA' name='ANTIGUA'>ANTIGUA</option>
+                      <option type='text' value='BETANCURIA' name='BETANCURIA'>BETANCURIA</option>
+                      <option type='text' value='LA OLIVA' name='LA OLIVA'>LA OLIVA</option>
+                      <option type='text' value='PAJARA' name='PAJARA'>PÁJARA</option>
+                      <option type='text' value='PUERTO DEL ROSARIO' name='PUERTO DEL ROSARIO'>PUERTO DEL ROSARIO</option>
+                      <option type='text' value='TUINEJE' name='TUINEJE'>TUINEJE</option>
+                    </select>
+                  </div>
+
+                  <!-- MUNICIPIOS DE LANZAROTE-->
+                  <div style="display:none" id="municipioslanzarote" class="col-lg-2 form-group">
+                    <select name="MunicipiosLanzarote" id="MunicipiosLanzarote" class="form-control">
+                      <option disabled selected>MUNICIPIOS</option>
+                      <option type='text' value='ARECIFE' name='ARECIFE'>ARECIFE</option>
+                      <option type='text' value='HARIA' name='HARIA'>HARÍA</option>
+                      <option type='text' value='SAN BARTOLOME' name='SAN BARTOLOME'>SAN BARTOLOMÉ</option>
+                      <option type='text' value='TEGUISE' name='TEGUISE'>TEGUISE</option>
+                      <option type='text' value='TIAS' name='TIAS'>TÍAS</option>
+                      <option type='text' value='TINAJO' name='TINAJO'>TINAJO</option>
+                      <option type='text' value='YAIZA' name='YAIZA'>YAIZA</option>
+                    </select>
+                  </div>
+
+
+
+                  <div style="display:none" class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="localidad" name="localidad" placeholder="LOCALIDAD">
+                  </div>
+                  <div style="display:none" class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="nombre_yacimiento" name="nombre_yacimiento" placeholder="NOMBRE YACIMIENTO">
                   </div>
-                  <div class="col-lg-2 form-group">
+                  <div style="display:none" class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="coordenada" name="coordenada" placeholder="COORDENADA">
                   </div>
                 </div>
