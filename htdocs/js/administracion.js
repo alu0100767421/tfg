@@ -72,3 +72,26 @@ function isla(val) {
   }
 
 }
+
+function municipio(val){
+  if(val!==""){
+    document.getElementById('localidad').style.display="block";
+    document.getElementById('nombre_yacimiento').style.display="block";
+    document.getElementById('coordenada').style.display="block";
+    document.getElementById('edad').style.display="block";
+    document.getElementById('altura').style.display="block";
+    document.getElementById('tipo_y').style.display="block";
+    document.getElementById('estado_conservacion').style.display="block";
+    document.getElementById('observaciones_y').style.display="block";
+  }
+  else{
+    document.getElementById('localidad').style.display="none";
+    document.getElementById('nombre_yacimiento').style.display="none";
+    document.getElementById('coordenada').style.display="none";
+    document.getElementById('edad').style.display="none";
+    document.getElementById('altura').style.display="none";
+    document.getElementById('tipo_y').style.display="none";
+    document.getElementById('estado_conservacion').style.display="none";
+    document.getElementById('observaciones_y').style.display="none";
+  }
+}

@@ -96,7 +96,7 @@
                   </div>
                   <!-- MUNICIPIOS DE LA PALMA-->
                   <div style="display:none" id="municipioslapalma" class="col-lg-2 form-group">
-                    <select name="MunicipiosLaPalma" id="MunicipiosLaPalma" class="form-control">
+                    <select name="MunicipiosLaPalma" id="MunicipiosLaPalma" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='BARLOVENTO' name='BARLOVENTO'>BARLOVENTO</option>
                       <option type='text' value='BRENA ALTA' name='BRENA ALTA'>BREÑA ALTA</option>
@@ -116,7 +116,7 @@
                   </div>
                   <!-- MUNICIPIOS DE LA GOMERA-->
                   <div style="display:none" id="municipioslagomera" class="col-lg-2 form-group">
-                    <select name="MunicipiosLaGomera" id="MunicipiosLaGomera" class="form-control">
+                    <select name="MunicipiosLaGomera" id="MunicipiosLaGomera" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='AGULO' name='AGULO'>AGULO</option>
                       <option type='text' value='ALAJERO' name='ALAJERO'>ALAJERÓ</option>
@@ -128,7 +128,7 @@
                   </div>
                   <!-- MUNICIPIOS DE EL HIERRO-->
                   <div style="display:none" id="municipioselhierro" class="col-lg-2 form-group">
-                    <select name="MunicipiosElHierro" id="MunicipiosElHierro" class="form-control">
+                    <select name="MunicipiosElHierro" id="MunicipiosElHierro" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='EL PINAR' name='EL PINAR'>EL PINAR</option>
                       <option type='text' value='FRONTERA' name='FRONTERA'>FRONTERA</option>
@@ -137,7 +137,7 @@
                   </div>
                   <!-- MUNICIPIOS DE TENERIFE-->
                   <div style="display:none" id="municipiostenerife" class="col-lg-2 form-group">
-                    <select name="MunicipiosTenerife" id="MunicipiosTenerife" class="form-control">
+                    <select name="MunicipiosTenerife" id="MunicipiosTenerife" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='ADEJE' name='ADEJE'>ADEJE</option>
                       <option type='text' value='ARAFO' name='ARAFO'>ARAFO</option>
@@ -174,7 +174,7 @@
                   </div>
                   <!-- MUNICIPIOS DE GRAN CANARIA-->
                   <div style="display:none" id="municipiosgrancanaria" class="col-lg-2 form-group">
-                    <select name="MunicipiosGranCanaria" id="MunicipiosGranCanaria" class="form-control">
+                    <select name="MunicipiosGranCanaria" id="MunicipiosGranCanaria" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='AGAETE' name='AGAETE'>AGAETE</option>
                       <option type='text' value='AGUINES' name='AGUINES'>AGÜINES</option>
@@ -202,7 +202,7 @@
 
                   <!-- MUNICIPIOS DE FUERTEVENTURA-->
                   <div style="display:none" id="municipiosfuerteventura" class="col-lg-2 form-group">
-                    <select name="MunicipiosFuerteventura" id="MunicipiosFuerteventura" class="form-control">
+                    <select name="MunicipiosFuerteventura" id="MunicipiosFuerteventura" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='ANTIGUA' name='ANTIGUA'>ANTIGUA</option>
                       <option type='text' value='BETANCURIA' name='BETANCURIA'>BETANCURIA</option>
@@ -215,7 +215,7 @@
 
                   <!-- MUNICIPIOS DE LANZAROTE-->
                   <div style="display:none" id="municipioslanzarote" class="col-lg-2 form-group">
-                    <select name="MunicipiosLanzarote" id="MunicipiosLanzarote" class="form-control">
+                    <select name="MunicipiosLanzarote" id="MunicipiosLanzarote" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='ARECIFE' name='ARECIFE'>ARECIFE</option>
                       <option type='text' value='HARIA' name='HARIA'>HARÍA</option>
@@ -229,44 +229,38 @@
 
 
 
-                  <div style="display:none" class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="localidad" name="localidad" placeholder="LOCALIDAD">
+                  <div style="display:none" id="localidad" class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="Localidad" name="localidad" placeholder="LOCALIDAD">
                   </div>
-                  <div style="display:none" class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="nombre_yacimiento" name="nombre_yacimiento" placeholder="NOMBRE YACIMIENTO">
+                  <div style="display:none" id="nombre_yacimiento" class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="Nombre_yacimiento" name="nombre_yacimiento" placeholder="NOMBRE YACIMIENTO">
                   </div>
-                  <div style="display:none" class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="coordenada" name="coordenada" placeholder="COORDENADA">
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="edad" name="edad" placeholder="EDAD">
-                  </div>
-                  <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="altura" name="altura" placeholder="ALTURA">
-                  </div>
-                  <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="tipo" name="tipo" placeholder="TIPO">
-                  </div>
-                  <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="paleologia" name="paleologia" placeholder="PALEOLOGÍA">
-                  </div>
-                  <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="estado_conservacion" name="estado_conservacion" placeholder="ESTADO CONSERVACIÓN">
+                  <div style="display:none" id="coordenada" class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="Coordenada" name="coordenada" placeholder="COORDENADA">
                   </div>
                 </div>
 
                 <div class="row">
-                  <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="excavaciones" name="excavaciones" placeholder="EXCAVACIONES">
+                  <div style="display:none" class="col-lg-2 form-group" id="edad">
+                    <input type="text" class="form-control" id="Edad" name="edad" placeholder="EDAD">
                   </div>
-                  <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="especies_dominantes" name="especies_dominantes" placeholder="ESPECIES DOMINANTES">
+                  <div style="display:none" class="col-lg-2 form-group" id="altura">
+                    <input type="text" class="form-control" id="Altura" name="altura" placeholder="ALTURA">
                   </div>
-                  <div class="col-lg-3 form-group">
+                  <div style="display:none" class="col-lg-2 form-group" id="tipo_y">
+                    <input type="text" class="form-control" id="Tipo_y" name="tipo_y" placeholder="TIPO">
+                  </div>
+                  <div style="display:none" class="col-lg-2 form-group" id="estado_conservacion">
+                    <input type="text" class="form-control" id="Estado_conservacion" name="estado_conservacion" placeholder="ESTADO CONSERVACIÓN">
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div style="display:none" class="col-lg-3 form-group" id="observaciones_y">
+                    <textarea class="form-control" rows="5" id="observaciones_y" name="observaciones_y" placeholder="OBSERVACIONES"></textarea>
+                    <!--
                     <input type="text" class="form-control" id="observaciones" name="observaciones" placeholder="OBSERVACIONES">
+                    -->
                   </div>
                 </div>
                 <div class="row">
@@ -288,6 +282,9 @@
                     <input type="text" class="form-control" id="nombre_especie" name="nombre_especie" placeholder="NOMBRE">
                   </div>
                   <div class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="tipo_especie" name="tipo_especie" placeholder="TIPO">
+                  </div>
+                  <div class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="yacimiento_especie" name="yacimiento_especie" placeholder="YACIMIENTO">
                   </div>
                   <div class="col-lg-2 form-group">
@@ -296,9 +293,6 @@
                       <option type='text' value='si' name=''>SÍ</option>
                       <option type='text' value='no' name=''>NO</option>
                     </select>
-                  </div>
-                  <div class="col-lg-3 form-group">
-                    <input type="text" class="form-control" id="observaciones_especie" name="observaciones_especie" placeholder="OBSERVACIONES">
                   </div>
                 </div>
                 <div class="row">
@@ -310,6 +304,37 @@
             </div>
           </div>
           <!--Fin de Especies-->
+          <!--Excavaciones-->
+          <div class="row">
+            <div class="col-lg-12">
+              <br><br><br><h4>Excavaciones</h4>
+              <form class="" action="" method="post">
+                <div class="row">
+                  <div class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="responsable" name="responsable" placeholder="RESPONSABLE">
+                  </div>
+                  <div class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="financiacion" name="financiacion" placeholder="FINANCIACION">
+                  </div>
+                  <div class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="yacimiento_ex" name="yacimiento_ex" placeholder="YACIMIENTO">
+                  </div>
+
+                </div>
+                <div class="row">
+                  <div class="col-lg-3 form-group">
+                    <textarea class="form-control" rows="5" id="observaciones_ex" name="observaciones_ex" placeholder="OBSERVACIONES"></textarea>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-2 col-md-3 col-xs-12 col-sm-3">
+                    <button type="submit" class="btn btn-success">Enviar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!--Fin de Excavaciones-->
         </div>
       </div>
 
