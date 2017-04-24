@@ -38,7 +38,7 @@ var centered;
 
 d3.json("recintos_municipales_inspire_canarias_wgs84.geojson",function(error,geodata) {
   if (error) return console.log(error);
-  
+
   features.selectAll("path")
     .data(geodata.features)
     .enter()
@@ -109,13 +109,17 @@ function clicked(d,i) {
 }
 
 var tooltipOffset = {x: 5, y: -25};
-
+var municipio_seleccionado;
 function showTooltip(d) {
   moveTooltip();
 
   tooltip.style("display","block")
       .text(d.properties.NAMEUNIT);
+  municipio_seleccionado=d.properties.NAMEUNIT;
+  document.getElementById('Municipio').value=municipio_seleccionado;
+  document.getElementById('Municipio2').value=municipio_seleccionado;
 }
+
 
 function moveTooltip() {
   tooltip.style("top",(d3.event.pageY+tooltipOffset.y)+"px")

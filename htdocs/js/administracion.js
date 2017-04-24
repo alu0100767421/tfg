@@ -1,11 +1,4 @@
 $(document).ready(function(){
-  $('.datepicker').datepicker({
-    todayBtn: true,
-    language: "es",
-    autoclose: true,
-    clearBtn: true,
-    todayHighlight: true
-  });
   $('#data-container input').datepicker({
     todayBtn: true,
     language: "es",

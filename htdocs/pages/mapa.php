@@ -46,18 +46,34 @@
     <div class="col-sm-12 col-md-8 col-lg-8" >
       <h3>Islas Canarias</h3>
       <div class="row">
+        <div id="municipio" class="col-lg-4 form-group">
+          <input type="text" class="form-control" id="Municipio" name="Municipio" placeholder="Municipio">
+        </div>
+      </div>
+      <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-8" id="mapa">
 
         </div>
-
       </div>
     </div>
 
 
     <div class="col-sm-12 col-md-4 col-lg-4">
       <h3>Sistema Paleontológico</h3>
+      <div class="row col-sm-12 col-md-12 col-lg-12">
+        <div class="row">
+          <div class="row col-sm-12 col-md-6 col-lg-6">
+            <h5>Yacimiento</h5>
+          </div>
+          <div class="row col-sm-12 col-md-6 col-lg-6">
+            <h5>Localidad</h5>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
+
 
   <!--Footer-->
   <br><br><br><br><br>
