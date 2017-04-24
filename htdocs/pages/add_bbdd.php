@@ -18,6 +18,8 @@
     <link rel="icon" type="/image/png" href="../images/logoULL/logotipo-secundario-ULL.png" />
     <link type="text/css" rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="../css/administracion.css"/>
+    <link type="text/css" rel="stylesheet" href="../bootstrap-3.3.7-dist/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
+
 
   </head>
   <body>
@@ -226,24 +228,23 @@
                       <option type='text' value='YAIZA' name='YAIZA'>YAIZA</option>
                     </select>
                   </div>
-
-
-
                   <div style="display:none" id="localidad" class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="Localidad" name="localidad" placeholder="LOCALIDAD">
                   </div>
+                </div>
+                <div class="row">
                   <div style="display:none" id="nombre_yacimiento" class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="Nombre_yacimiento" name="nombre_yacimiento" placeholder="NOMBRE YACIMIENTO">
                   </div>
                   <div style="display:none" id="coordenada" class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="Coordenada" name="coordenada" placeholder="COORDENADA">
                   </div>
-                </div>
-
-                <div class="row">
                   <div style="display:none" class="col-lg-2 form-group" id="edad">
                     <input type="text" class="form-control" id="Edad" name="edad" placeholder="EDAD">
                   </div>
+                </div>
+
+                <div class="row">
                   <div style="display:none" class="col-lg-2 form-group" id="altura">
                     <input type="text" class="form-control" id="Altura" name="altura" placeholder="ALTURA">
                   </div>
@@ -256,8 +257,8 @@
                 </div>
 
                 <div class="row">
-                  <div style="display:none" class="col-lg-3 form-group" id="observaciones_y">
-                    <textarea class="form-control" rows="5" id="observaciones_y" name="observaciones_y" placeholder="OBSERVACIONES"></textarea>
+                  <div style="display:none" class="col-lg-4 form-group" id="observaciones_y">
+                    <textarea class="form-control" rows="1" id="observaciones_y" name="observaciones_y" placeholder="OBSERVACIONES"></textarea>
                     <!--
                     <input type="text" class="form-control" id="observaciones" name="observaciones" placeholder="OBSERVACIONES">
                     -->
@@ -275,7 +276,7 @@
           <!--Especies-->
           <div class="row">
             <div class="col-lg-12">
-              <br><br><br><h4>Especies</h4>
+              <br><h4>Especies</h4>
               <form class="" action="" method="post">
                 <div class="row">
                   <div class="col-lg-2 form-group">
@@ -287,6 +288,8 @@
                   <div class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="yacimiento_especie" name="yacimiento_especie" placeholder="YACIMIENTO">
                   </div>
+                </div>
+                <div class="row">
                   <div class="col-lg-2 form-group">
                     <select name="Museo" class="form-control">
                       <option disabled selected>MUSEO</option>
@@ -307,7 +310,7 @@
           <!--Excavaciones-->
           <div class="row">
             <div class="col-lg-12">
-              <br><br><br><h4>Excavaciones</h4>
+              <br><h4>Excavaciones</h4>
               <form class="" action="" method="post">
                 <div class="row">
                   <div class="col-lg-2 form-group">
@@ -319,11 +322,16 @@
                   <div class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="yacimiento_ex" name="yacimiento_ex" placeholder="YACIMIENTO">
                   </div>
-
                 </div>
                 <div class="row">
-                  <div class="col-lg-3 form-group">
-                    <textarea class="form-control" rows="5" id="observaciones_ex" name="observaciones_ex" placeholder="OBSERVACIONES"></textarea>
+                  <div class="col-lg-2 form-group" id="data-container">
+                    <input id="fecha_inicio_ex" type="text" class="form-control" placeholder="FECHA INICIAL">
+                  </div>
+                  <div class="col-lg-2 form-group" id="data-container">
+                    <input id="fecha_final_ex" type="text" class="form-control" placeholder="FECHA FINAL">
+                  </div>
+                  <div class="col-lg-2 form-group">
+                    <textarea class="form-control" rows="1" id="observaciones_ex" name="observaciones_ex" placeholder="OBSERVACIONES"></textarea>
                   </div>
                 </div>
                 <div class="row">
@@ -335,6 +343,39 @@
             </div>
           </div>
           <!--Fin de Excavaciones-->
+          <!--Publicaciones-->
+          <div class="row">
+            <div class="col-lg-12">
+              <br><h4>Publicaciones</h4>
+              <form class="" action="" method="post">
+                <div class="row">
+                  <div class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="TITULO">
+                  </div>
+                  <div class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="autor" name="autor" placeholder="AUTOR">
+                  </div>
+                  <div class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="yacimiento_publi" name="yacimiento_publi" placeholder="YACIMIENTO">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-2 form-group" id="data-container">
+                    <input id="fecha_publi" type="text" class="form-control" placeholder="FECHA INICIAL">
+                  </div>
+                  <div class="col-lg-4 form-group">
+                    <textarea class="form-control" rows="1" id="observaciones_publi" name="observaciones_publi" placeholder="OBSERVACIONES"></textarea>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-2 col-md-3 col-xs-12 col-sm-3">
+                    <button type="submit" class="btn btn-success">Enviar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!--Fin de Publicaciones-->
         </div>
       </div>
 
@@ -352,6 +393,8 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript" src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../bootstrap-3.3.7-dist/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+  <script type="text/javascript" src="../bootstrap-3.3.7-dist/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js"></script>
   <script type="text/javascript" src="../js/administracion.js"></script>
   </body>
 </html>
