@@ -257,7 +257,7 @@
                 </div>
 
                 <div class="row">
-                  <div style="display:none" class="col-lg-4 form-group" id="observaciones_y">
+                  <div style="display:none" class="col-lg-6 form-group" id="observaciones_y">
                     <textarea class="form-control" rows="1" id="observaciones_y" name="observaciones_y" placeholder="OBSERVACIONES"></textarea>
                     <!--
                     <input type="text" class="form-control" id="observaciones" name="observaciones" placeholder="OBSERVACIONES">
@@ -296,6 +296,12 @@
                       <option type='text' value='si' name=''>SÍ</option>
                       <option type='text' value='no' name=''>NO</option>
                     </select>
+                  </div>
+                  <div class="col-lg-4 form-group" id="observaciones_es">
+                    <textarea class="form-control" rows="1" id="observaciones_es" name="observaciones_es" placeholder="OBSERVACIONES"></textarea>
+                    <!--
+                    <input type="text" class="form-control" id="observaciones" name="observaciones" placeholder="OBSERVACIONES">
+                    -->
                   </div>
                 </div>
                 <div class="row">
