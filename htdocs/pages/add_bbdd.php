@@ -82,7 +82,7 @@
           <div class="row">
             <div class="col-lg-12">
               <h4>Yacimiento</h4>
-              <form class="" action="" method="post">
+              <form class="" action="add_bbdd/add_yacimiento.php" method="post">
                 <div class="row">
                   <div class="col-lg-2 form-group">
                     <select name="Islas" id="Islas" class="form-control" onchange="isla(this.value)">
@@ -95,6 +95,7 @@
                       <option type='text' value='FUERTEVENTURA' name='FUERTEVENTURA'>FUERTEVENTURA</option>
                       <option type='text' value='LANZAROTE' name='LANZAROTE'>LANZAROTE</option>
                     </select>
+                    <input type="hidden" name="isla_seleccionada" id="isla_seleccionada">
                   </div>
                   <!-- MUNICIPIOS DE LA PALMA-->
                   <div style="display:none" id="municipioslapalma" class="col-lg-2 form-group">
@@ -228,6 +229,8 @@
                       <option type='text' value='YAIZA' name='YAIZA'>YAIZA</option>
                     </select>
                   </div>
+                  <input type="hidden" name="municipio_seleccionado" id="municipio_seleccionado">
+
                   <div style="display:none" id="localidad" class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="Localidad" name="localidad" placeholder="LOCALIDAD">
                   </div>

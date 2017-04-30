@@ -20,6 +20,7 @@ function isla(val) {
     document.getElementById('municipiosgrancanaria').style.display="none";
     document.getElementById('municipiosfuerteventura').style.display="none";
     document.getElementById('municipioslanzarote').style.display="none";
+    document.getElementById('isla_seleccionada').value=val;
   }
 
   if(val=="LA GOMERA"){
@@ -30,6 +31,7 @@ function isla(val) {
     document.getElementById('municipiosgrancanaria').style.display="none";
     document.getElementById('municipiosfuerteventura').style.display="none";
     document.getElementById('municipioslanzarote').style.display="none";
+    document.getElementById('isla_seleccionada').value=val;
   }
 
   if(val=="EL HIERRO"){
@@ -40,6 +42,7 @@ function isla(val) {
     document.getElementById('municipiosgrancanaria').style.display="none";
     document.getElementById('municipiosfuerteventura').style.display="none";
     document.getElementById('municipioslanzarote').style.display="none";
+    document.getElementById('isla_seleccionada').value=val;
   }
 
   if(val=="TENERIFE"){
@@ -50,6 +53,7 @@ function isla(val) {
     document.getElementById('municipiosgrancanaria').style.display="none";
     document.getElementById('municipiosfuerteventura').style.display="none";
     document.getElementById('municipioslanzarote').style.display="none";
+    document.getElementById('isla_seleccionada').value=val;
   }
   if(val=="GRAN CANARIA"){
     document.getElementById('municipioslagomera').style.display="none";
@@ -59,6 +63,7 @@ function isla(val) {
     document.getElementById('municipiosgrancanaria').style.display="block";
     document.getElementById('municipiosfuerteventura').style.display="none";
     document.getElementById('municipioslanzarote').style.display="none";
+    document.getElementById('isla_seleccionada').value=val;
   }
   if(val=="FUERTEVENTURA"){
     document.getElementById('municipioslagomera').style.display="none";
@@ -68,6 +73,7 @@ function isla(val) {
     document.getElementById('municipiosgrancanaria').style.display="none";
     document.getElementById('municipiosfuerteventura').style.display="block";
     document.getElementById('municipioslanzarote').style.display="none";
+    document.getElementById('isla_seleccionada').value=val;
   }
 
   if(val=="LANZAROTE"){
@@ -78,11 +84,13 @@ function isla(val) {
     document.getElementById('municipiosgrancanaria').style.display="none";
     document.getElementById('municipiosfuerteventura').style.display="none";
     document.getElementById('municipioslanzarote').style.display="block";
+    document.getElementById('isla_seleccionada').value=val;
   }
 
 }
 
 function municipio(val){
+  document.getElementById('municipio_seleccionado').value=val;
   if(val!==""){
     document.getElementById('localidad').style.display="block";
     document.getElementById('nombre_yacimiento').style.display="block";
