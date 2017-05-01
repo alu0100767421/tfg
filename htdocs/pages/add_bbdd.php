@@ -280,7 +280,7 @@
           <div class="row">
             <div class="col-lg-12">
               <br><h4>Especies</h4>
-              <form class="" action="" method="post">
+              <form class="" action="add_bbdd/add_especie.php" method="post">
                 <div class="row">
                   <div class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="nombre_especie" name="nombre_especie" placeholder="NOMBRE">
@@ -294,12 +294,13 @@
                 </div>
                 <div class="row">
                   <div class="col-lg-2 form-group">
-                    <select name="Museo" class="form-control">
+                    <select name="Museo" class="form-control" onchange="museo(this.value)">
                       <option disabled selected>MUSEO</option>
-                      <option type='text' value='si' name=''>SÍ</option>
-                      <option type='text' value='no' name=''>NO</option>
+                      <option type='text' value='SI' name='SI'>SÍ</option>
+                      <option type='text' value='NO' name='NO'>NO</option>
                     </select>
                   </div>
+                  <input type="hidden" name="museo_especie" id="museo_especie">
                   <div class="col-lg-4 form-group" id="observaciones_es">
                     <textarea class="form-control" rows="1" id="observaciones_es" name="observaciones_es" placeholder="OBSERVACIONES"></textarea>
                     <!--

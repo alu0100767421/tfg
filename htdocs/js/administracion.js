@@ -112,3 +112,9 @@ function municipio(val){
     document.getElementById('observaciones_y').style.display="none";
   }
 }
+
+function museo(val){
+  if(val!==""){
+    document.getElementById('museo_especie').value=val;
+  }
+}
