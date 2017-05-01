@@ -90,6 +90,8 @@
                     </select>
                     <input type="hidden" name="tipo_consulta" id="tipo_consulta">
                   </div>
+                </div>
+                <div style="display:none" class="row" id="consulta_yacimiento">
                   <div class="col-lg-2 form-group">
                     <select name="Islas" id="Islas" class="form-control" onchange="isla(this.value)">
                       <option disabled selected>ISLA</option>
@@ -236,6 +238,12 @@
                     </select>
                   </div>
                   <input type="hidden" name="municipio_seleccionado" id="municipio_seleccionado">
+                  <div class="col-lg-2 form-group" id="edad">
+                    <input type="text" class="form-control" id="Edad" name="edad" placeholder="EDAD">
+                  </div>
+                  <div class="col-lg-2 form-group" id="tipo_y">
+                    <input type="text" class="form-control" id="Tipo_y" name="tipo_y" placeholder="TIPO">
+                  </div>
                 </div>
                 <div class="row">
                   <div class="col-lg-2 col-md-3 col-xs-12 col-sm-3">
@@ -261,9 +269,11 @@
 
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script type="text/javascript" src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="../js/administracion.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-3.3.7-dist/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="../bootstrap-3.3.7-dist/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js"></script>
+    <script type="text/javascript" src="../js/consulta.js"></script>
   </body>
 </html>
 
