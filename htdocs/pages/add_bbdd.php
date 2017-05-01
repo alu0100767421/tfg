@@ -357,7 +357,7 @@
           <div class="row">
             <div class="col-lg-12">
               <br><h4>Publicaciones</h4>
-              <form class="" action="" method="post">
+              <form class="" action="add_bbdd/add_publicaciones.php" method="post">
                 <div class="row">
                   <div class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="titulo" name="titulo" placeholder="TITULO">
@@ -371,7 +371,7 @@
                 </div>
                 <div class="row">
                   <div class="col-lg-2 form-group" id="data-container">
-                    <input id="fecha_publi" type="text" class="form-control" placeholder="FECHA INICIAL">
+                    <input id="fecha_publi" type="text" class="form-control" name="fecha_publi" placeholder="FECHA PUBLICACION">
                   </div>
                   <div class="col-lg-4 form-group">
                     <textarea class="form-control" rows="1" id="observaciones_publi" name="observaciones_publi" placeholder="OBSERVACIONES"></textarea>
