@@ -321,7 +321,7 @@
           <div class="row">
             <div class="col-lg-12">
               <br><h4>Excavaciones</h4>
-              <form class="" action="" method="post">
+              <form class="" action="add_bbdd/add_excavacion.php" method="post">
                 <div class="row">
                   <div class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="responsable" name="responsable" placeholder="RESPONSABLE">
@@ -335,10 +335,10 @@
                 </div>
                 <div class="row">
                   <div class="col-lg-2 form-group" id="data-container">
-                    <input id="fecha_inicio_ex" type="text" class="form-control" placeholder="FECHA INICIAL">
+                    <input id="fecha_inicio_ex" type="text" class="form-control" name="fecha_inicio_ex" placeholder="FECHA INICIAL">
                   </div>
                   <div class="col-lg-2 form-group" id="data-container">
-                    <input id="fecha_final_ex" type="text" class="form-control" placeholder="FECHA FINAL">
+                    <input id="fecha_final_ex" type="text" class="form-control" name="fecha_final_ex" placeholder="FECHA FINAL">
                   </div>
                   <div class="col-lg-2 form-group">
                     <textarea class="form-control" rows="1" id="observaciones_ex" name="observaciones_ex" placeholder="OBSERVACIONES"></textarea>
