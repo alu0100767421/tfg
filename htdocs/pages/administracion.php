@@ -54,7 +54,7 @@
         <div class="col-lg-2 col-md-4 col-xs-8 col-sm-6 ">
           <ul class="list-unstyled panel">
             <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a href="administracion.php">&nbsp Inicio</a></li>
-            <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="#">&nbsp Consultar BBDD</a></li>
+            <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="consultar_bbdd.php">&nbsp Consultar BBDD</a></li>
             <li><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a href="add_bbdd.php">&nbsp Añadir BBDD</a></li>
             <?php
               //echo "Este es el usuario $username";

@@ -18,8 +18,6 @@
     <link rel="icon" type="/image/png" href="../images/logoULL/logotipo-secundario-ULL.png" />
     <link type="text/css" rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="../css/administracion.css"/>
-    <link type="text/css" rel="stylesheet" href="../bootstrap-3.3.7-dist/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
-
 
   </head>
   <body>
@@ -76,14 +74,22 @@
         </div>
         <!--FIN MENU LATERAL-->
         <div class="col-lg-10 col-md-8 col-xs-12 col-sm-6 contenido">
-          <h2>Añadir datos</h2>
-
+          <h2>Consultar datos</h2>
           <!--Yacimiento-->
           <div class="row">
             <div class="col-lg-12">
-              <h4>Yacimiento</h4>
               <form class="" action="add_bbdd/add_yacimiento.php" method="post">
                 <div class="row">
+                  <div id="consulta_seleccionada" name="consulta_seleccionada" class="col-lg-2 form-group">
+                    <select name="Consulta" id="Consulta" class="form-control" onchange="consulta(this.value)">
+                      <option disabled selected>CONSULTA</option>
+                      <option type='text' value='YACIMIENTO' name='YACIMIENTO'>YACIMIENTO</option>
+                      <option type='text' value='ESPECIE' name='ESPECIE'>ESPECIE</option>
+                      <option type='text' value='EXCAVACIONES' name='EXCAVACIONES'>EXCAVACIONES</option>
+                      <option type='text' value='PUBLICACIONES' name='PUBLICACIONES'>PUBLICACIONES</option>
+                    </select>
+                    <input type="hidden" name="tipo_consulta" id="tipo_consulta">
+                  </div>
                   <div class="col-lg-2 form-group">
                     <select name="Islas" id="Islas" class="form-control" onchange="isla(this.value)">
                       <option disabled selected>ISLA</option>
@@ -230,162 +236,16 @@
                     </select>
                   </div>
                   <input type="hidden" name="municipio_seleccionado" id="municipio_seleccionado">
-
-                  <div style="display:none" id="localidad" class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="Localidad" name="localidad" placeholder="LOCALIDAD">
-                  </div>
-                </div>
-                <div class="row">
-                  <div style="display:none" id="nombre_yacimiento" class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="Nombre_yacimiento" name="nombre_yacimiento" placeholder="NOMBRE YACIMIENTO">
-                  </div>
-                  <div style="display:none" id="coordenada" class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="Coordenada" name="coordenada" placeholder="COORDENADA">
-                  </div>
-                  <div style="display:none" class="col-lg-2 form-group" id="edad">
-                    <input type="text" class="form-control" id="Edad" name="edad" placeholder="EDAD">
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div style="display:none" class="col-lg-2 form-group" id="altura">
-                    <input type="text" class="form-control" id="Altura" name="altura" placeholder="ALTURA">
-                  </div>
-                  <div style="display:none" class="col-lg-2 form-group" id="tipo_y">
-                    <input type="text" class="form-control" id="Tipo_y" name="tipo_y" placeholder="TIPO">
-                  </div>
-                  <div style="display:none" class="col-lg-2 form-group" id="estado_conservacion">
-                    <input type="text" class="form-control" id="Estado_conservacion" name="estado_conservacion" placeholder="ESTADO CONSERVACIÓN">
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div style="display:none" class="col-lg-6 form-group" id="observaciones_y">
-                    <textarea class="form-control" rows="1" id="observaciones_y" name="observaciones_y" placeholder="OBSERVACIONES"></textarea>
-                    <!--
-                    <input type="text" class="form-control" id="observaciones" name="observaciones" placeholder="OBSERVACIONES">
-                    -->
-                  </div>
                 </div>
                 <div class="row">
                   <div class="col-lg-2 col-md-3 col-xs-12 col-sm-3">
-                    <button type="submit" class="btn btn-success">Enviar</button>
+                    <button type="submit" class="btn btn-success">Consultar</button>
                   </div>
                 </div>
               </form>
             </div>
           </div>
           <!--Fin de Yacimiento-->
-          <!--Especies-->
-          <div class="row">
-            <div class="col-lg-12">
-              <br><h4>Especies</h4>
-              <form class="" action="add_bbdd/add_especie.php" method="post">
-                <div class="row">
-                  <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="nombre_especie" name="nombre_especie" placeholder="NOMBRE">
-                  </div>
-                  <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="tipo_especie" name="tipo_especie" placeholder="TIPO">
-                  </div>
-                  <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="yacimiento_especie" name="yacimiento_especie" placeholder="YACIMIENTO">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-2 form-group">
-                    <select name="Museo" class="form-control" onchange="museo(this.value)">
-                      <option disabled selected>MUSEO</option>
-                      <option type='text' value='SI' name='SI'>SÍ</option>
-                      <option type='text' value='NO' name='NO'>NO</option>
-                    </select>
-                  </div>
-                  <input type="hidden" name="museo_especie" id="museo_especie">
-                  <div class="col-lg-4 form-group" id="observaciones_es">
-                    <textarea class="form-control" rows="1" id="observaciones_es" name="observaciones_es" placeholder="OBSERVACIONES"></textarea>
-                    <!--
-                    <input type="text" class="form-control" id="observaciones" name="observaciones" placeholder="OBSERVACIONES">
-                    -->
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-2 col-md-3 col-xs-12 col-sm-3">
-                    <button type="submit" class="btn btn-success">Enviar</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <!--Fin de Especies-->
-          <!--Excavaciones-->
-          <div class="row">
-            <div class="col-lg-12">
-              <br><h4>Excavaciones</h4>
-              <form class="" action="add_bbdd/add_excavacion.php" method="post">
-                <div class="row">
-                  <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="responsable" name="responsable" placeholder="RESPONSABLE">
-                  </div>
-                  <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="financiacion" name="financiacion" placeholder="FINANCIACION">
-                  </div>
-                  <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="yacimiento_ex" name="yacimiento_ex" placeholder="YACIMIENTO">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-2 form-group" id="data-container">
-                    <input id="fecha_inicio_ex" type="text" class="form-control" name="fecha_inicio_ex" placeholder="FECHA INICIAL">
-                  </div>
-                  <div class="col-lg-2 form-group" id="data-container">
-                    <input id="fecha_final_ex" type="text" class="form-control" name="fecha_final_ex" placeholder="FECHA FINAL">
-                  </div>
-                  <div class="col-lg-2 form-group">
-                    <textarea class="form-control" rows="1" id="observaciones_ex" name="observaciones_ex" placeholder="OBSERVACIONES"></textarea>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-2 col-md-3 col-xs-12 col-sm-3">
-                    <button type="submit" class="btn btn-success">Enviar</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <!--Fin de Excavaciones-->
-          <!--Publicaciones-->
-          <div class="row">
-            <div class="col-lg-12">
-              <br><h4>Publicaciones</h4>
-              <form class="" action="add_bbdd/add_publicaciones.php" method="post">
-                <div class="row">
-                  <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="TITULO">
-                  </div>
-                  <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="autor" name="autor" placeholder="AUTOR">
-                  </div>
-                  <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="yacimiento_publi" name="yacimiento_publi" placeholder="YACIMIENTO">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-2 form-group" id="data-container">
-                    <input id="fecha_publi" type="text" class="form-control" name="fecha_publi" placeholder="FECHA PUBLICACION">
-                  </div>
-                  <div class="col-lg-4 form-group">
-                    <textarea class="form-control" rows="1" id="observaciones_publi" name="observaciones_publi" placeholder="OBSERVACIONES"></textarea>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-lg-2 col-md-3 col-xs-12 col-sm-3">
-                    <button type="submit" class="btn btn-success">Enviar</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-          </div>
-          <!--Fin de Publicaciones-->
         </div>
       </div>
 
@@ -403,8 +263,6 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript" src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="../bootstrap-3.3.7-dist/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-  <script type="text/javascript" src="../bootstrap-3.3.7-dist/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js"></script>
   <script type="text/javascript" src="../js/administracion.js"></script>
   </body>
 </html>
