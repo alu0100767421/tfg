@@ -78,7 +78,7 @@
           <!--Yacimiento-->
           <div class="row">
             <div class="col-lg-12">
-              <form class="" action="add_bbdd/add_yacimiento.php" method="post">
+              <form class="" action="" method="post">
                 <div class="row">
                   <div id="consulta_seleccionada" name="consulta_seleccionada" class="col-lg-2 form-group">
                     <select name="Consulta" id="Consulta" class="form-control" onchange="consulta(this.value)">
