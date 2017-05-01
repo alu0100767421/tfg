@@ -13,22 +13,33 @@ function consulta(val){
   if(val!==""){
     if(val=="YACIMIENTO"){
       document.getElementById('consulta_yacimiento').style.display="block";
+      document.getElementById('consulta_especie').style.display="none";
+      document.getElementById('consulta_excavacion').style.display="none";
+      document.getElementById('consulta_publicacion').style.display="none";
     }
     else if(val=="ESPECIE"){
       document.getElementById('consulta_yacimiento').style.display="none";
-
+      document.getElementById('consulta_especie').style.display="block";
+      document.getElementById('consulta_excavacion').style.display="none";
+      document.getElementById('consulta_publicacion').style.display="none";
     }
     else if(val=="EXCAVACIONES"){
       document.getElementById('consulta_yacimiento').style.display="none";
-
+      document.getElementById('consulta_especie').style.display="none";
+      document.getElementById('consulta_excavacion').style.display="block";
+      document.getElementById('consulta_publicacion').style.display="none";
     }
     else if(val=="PUBLICACIONES"){
       document.getElementById('consulta_yacimiento').style.display="none";
-
+      document.getElementById('consulta_especie').style.display="none";
+      document.getElementById('consulta_excavacion').style.display="none";
+      document.getElementById('consulta_publicacion').style.display="block";
     }
     else{
       document.getElementById('consulta_yacimiento').style.display="none";
-
+      document.getElementById('consulta_especie').style.display="none";
+      document.getElementById('consulta_excavacion').style.display="none";
+      document.getElementById('consulta_publicacion').style.display="none";
     }
   }
 }

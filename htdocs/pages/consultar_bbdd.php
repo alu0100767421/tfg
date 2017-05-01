@@ -75,12 +75,12 @@
         <!--FIN MENU LATERAL-->
         <div class="col-lg-10 col-md-8 col-xs-12 col-sm-6 contenido">
           <h2>Consultar datos</h2>
-          <!--Yacimiento-->
           <div class="row">
             <div class="col-lg-12">
               <form class="" action="" method="post">
                 <div class="row">
                   <div id="consulta_seleccionada" name="consulta_seleccionada" class="col-lg-2 form-group">
+                    <h5>CONSULTAR SOBRE:</h5>
                     <select name="Consulta" id="Consulta" class="form-control" onchange="consulta(this.value)">
                       <option disabled selected>CONSULTA</option>
                       <option type='text' value='YACIMIENTO' name='YACIMIENTO'>YACIMIENTO</option>
@@ -91,6 +91,12 @@
                     <input type="hidden" name="tipo_consulta" id="tipo_consulta">
                   </div>
                 </div>
+                <div class="row">
+                  <div class="col-lg-2 form-group">
+                    <h5>PARÁMETROS DE BÚSQUEDA:</h5>
+                  </div>
+                </div>
+                <!--Yacimiento-->
                 <div style="display:none" class="row" id="consulta_yacimiento">
                   <div class="col-lg-2 form-group">
                     <select name="Islas" id="Islas" class="form-control" onchange="isla(this.value)">
@@ -245,6 +251,56 @@
                     <input type="text" class="form-control" id="Tipo_y" name="tipo_y" placeholder="TIPO">
                   </div>
                 </div>
+                <!--Fin de Yacimiento-->
+
+                <!--Especie-->
+                <div style="display:none" id="consulta_especie" class="row">
+                  <div class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="nombre_especie" name="nombre_especie" placeholder="NOMBRE">
+                  </div>
+                  <div class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="tipo_especie" name="tipo_especie" placeholder="TIPO">
+                  </div>
+                  <div class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="yacimiento_especie" name="yacimiento_especie" placeholder="YACIMIENTO">
+                  </div>
+                </div>
+                <!--Fin de Especie-->
+
+                <!--Excavaciones-->
+                <div style="display:none" class="row" id="consulta_excavacion">
+                  <div class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="responsable" name="responsable" placeholder="RESPONSABLE">
+                  </div>
+                  <div class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="financiacion" name="financiacion" placeholder="FINANCIACION">
+                  </div>
+                  <div class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="yacimiento_ex" name="yacimiento_ex" placeholder="YACIMIENTO">
+                  </div>
+                  <div class="col-lg-2 form-group" id="data-container">
+                    <input id="fecha_inicio_ex" type="text" class="form-control" name="fecha_inicio_ex" placeholder="FECHA INICIAL">
+                  </div>
+                  <div class="col-lg-2 form-group" id="data-container">
+                    <input id="fecha_final_ex" type="text" class="form-control" name="fecha_final_ex" placeholder="FECHA FINAL">
+                  </div>
+                </div>
+                <!--Fin de excavaciones-->
+
+                <!--Publicaciones-->
+                <div style="display:none" class="row" id="consulta_publicacion">
+                  <div class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="TITULO">
+                  </div>
+                  <div class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="autor" name="autor" placeholder="AUTOR">
+                  </div>
+                  <div class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="yacimiento_publi" name="yacimiento_publi" placeholder="YACIMIENTO">
+                  </div>
+                </div>
+                <!--Fin de Publicaciones-->
+
                 <div class="row">
                   <div class="col-lg-2 col-md-3 col-xs-12 col-sm-3">
                     <button type="submit" class="btn btn-success">Consultar</button>
@@ -253,7 +309,6 @@
               </form>
             </div>
           </div>
-          <!--Fin de Yacimiento-->
         </div>
       </div>
 
