@@ -28,8 +28,6 @@
         Fecha Publicacion:$fecha_publi Observacion:$observacion";
 
 
-
-
  }
  else {
    header("Location: ../../index.php");
