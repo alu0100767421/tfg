@@ -4,7 +4,7 @@
   $link = require("connect_bbdd.php");
   $username = $_POST['users'][0];
   $pass_encrypt = crypt($_POST['password'],'$6$rounds=5000$paddingseguridad$');
-  //echo $pass_encrypt;
+  //echo "$pass_encrypt";
   $consulta = "SELECT * FROM usuarios
                WHERE nombre='". $username ."' AND password='". $pass_encrypt ."';";
   $query_autentification = pg_query($link, $consulta) or die(pg_last_error());

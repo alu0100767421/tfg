@@ -76,8 +76,6 @@
                  ?>
 
               </select>
-
-              <!--<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Usuario">-->
             </div>
             <div class="form-group">
               <label for="exampleInputPassword1">Contraseña</label>
