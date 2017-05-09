@@ -8,7 +8,7 @@ d3.select(window).on('resize', resize);
   var width = viewportWidth * 0.97;
   var height = width/1.85;
 
-
+  var width_inicial=width;
 //Projeccion del mapa
 var projection = d3.geo.mercator()
     .scale([width*10]) //escala
@@ -46,7 +46,21 @@ d3.json("../mapas/mapa_modificado/recintos_municipales_inspire_canarias_wgs84.ge
     .attr("d",path)
     .on("mouseover",showTooltip)
     .on("click",clicked);
+
+    aa = [-16.79612159729004, 28.236800677752584];
+    bb = [-16.718788146972656, 28.229389972499913];
+    cc = [-18.01483154296875,  27.733376247402138];
+    // add circles to svg
+     svg.selectAll("circle")
+     .data([aa,bb,cc]).enter()
+     .append("circle")
+     .attr("cx", function (d) { console.log(projection(d)); return projection(d)[0]; })
+     .attr("cy", function (d) { return projection(d)[1]; })
+     .attr("r", "3px")
+     .attr("fill", "orange");
 });
+
+
 
 
 function resize() {
@@ -82,31 +96,12 @@ function clicked(d,i) {
     k = 0.8 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height);
     centered = d;
 
-    aa = [-16.79612159729004, 28.236800677752584];
-  	bb = [-16.718788146972656, 28.229389972499913];
-
-    // add circles to svg
-     svg.selectAll("circle")
-     .data([aa,bb]).enter()
-     .append("circle")
-     .attr("cx", function (d) { console.log(projection(d)); return projection(d)[0]; })
-     .attr("cy", function (d) { return projection(d)[1]; })
-     .attr("r", "3px")
-     .attr("fill", "black");
   } else {
     x = width / 2;
     y = height / 2;
     k = 1;
     centered = null;
   }
-
-/*var latitude = -16.79612159729004;
-var longitude = 28.236800677752584;
--16.718788146972656,
-          28.229389972499913
-
--16.783504486083984,
-28.209121334521924*/
 
 
 
@@ -116,13 +111,18 @@ var longitude = 28.236800677752584;
       })
       .style("stroke-width", 1 / k + "px");
 
+
+
+  //svg.selectAll("circle").remove();
+
+
   features
-      //.transition()
-      //.duration(500)
       .attr("transform","translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")");
+
+
+
 }
 
-var tooltipOffset = {x: 5, y: -25};
 var municipio_seleccionado;
 function showTooltip(d) {
 
