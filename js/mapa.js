@@ -8,7 +8,7 @@ d3.select(window).on('resize', resize);
   var width = viewportWidth * 0.97;
   var height = width/1.85;
 
-  var width_inicial=width;
+  var escala=width*10;
 //Projeccion del mapa
 var projection = d3.geo.mercator()
     .scale([width*10]) //escala
@@ -47,20 +47,38 @@ d3.json("../mapas/mapa_modificado/recintos_municipales_inspire_canarias_wgs84.ge
     .on("mouseover",showTooltip)
     .on("click",clicked);
 
-    aa = [-16.79612159729004, 28.236800677752584];
-    bb = [-16.718788146972656, 28.229389972499913];
-    cc = [-18.01483154296875,  27.733376247402138];
-    // add circles to svg
-     svg.selectAll("circle")
-     .data([aa,bb,cc]).enter()
-     .append("circle")
-     .attr("cx", function (d) { console.log(projection(d)); return projection(d)[0]; })
-     .attr("cy", function (d) { return projection(d)[1]; })
-     .attr("r", "3px")
-     .attr("fill", "orange");
+  puntos();
+
 });
 
 
+function puntos() {
+  aa = [-16.79612159729004, 28.236800677752584];
+  bb = [-16.718788146972656, 28.229389972499913];
+  cc = [-18.01483154296875,  27.733376247402138];
+  // add circles to svg
+   svg.selectAll("circle")
+   .data([aa,bb,cc]).enter()
+   .append("circle")
+   .attr("cx", function (d) { /*console.log(projection(d));*/ return projection(d)[0]; })
+   .attr("cy", function (d) { return projection(d)[1]; })
+   .attr("r", "4px")
+   .attr("fill", "orange");
+
+}
+
+function puntos_zoom() {
+  aa = [-16.79612159729004, 28.236800677752584];
+  bb = [-16.718788146972656, 28.229389972499913];
+
+  svg.selectAll("circle")
+  .data([aa,bb,cc]).enter()
+  .append("circle")
+  .attr("cx", function (d) { console.log(projection(d)); return projection(d)[0]; })
+  .attr("cy", function (d) { return projection(d)[1]; })
+  .attr("r", "3px")
+  .attr("fill", "orange");
+}
 
 
 function resize() {
@@ -89,8 +107,12 @@ function clicked(d,i) {
   var x, y, k;
 
   if (d && centered !== d) {
+    console.log(d);
+    console.log(centered);
     var centroid = path.centroid(d);
+    console.log(centroid);
     var b = path.bounds(d);
+    console.log(b);
     x = centroid[0];
     y = centroid[1];
     k = 0.8 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height);
@@ -119,6 +141,26 @@ function clicked(d,i) {
   features
       .attr("transform","translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")");
 
+  if(k!=1){
+    svg.selectAll("circle").remove();
+    //puntos_zoom();
+    console.log("k="+k);
+    console.log("x="+x);
+    console.log("y="+y);
+    console.log("escala="+escala);
+    console.log("width="+ width);
+    console.log("height="+ height);
+  }
+  else{
+    puntos();
+    console.log("k="+k);
+    console.log("x="+x);
+    console.log("y="+y);
+    console.log("escala="+escala);
+    console.log("width="+ width);
+    console.log("height="+ height);
+    console.log("\n");
+  }
 
 
 }
