@@ -107,12 +107,8 @@ function clicked(d,i) {
   var x, y, k;
 
   if (d && centered !== d) {
-    console.log(d);
-    console.log(centered);
     var centroid = path.centroid(d);
-    console.log(centroid);
     var b = path.bounds(d);
-    console.log(b);
     x = centroid[0];
     y = centroid[1];
     k = 0.8 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height);
