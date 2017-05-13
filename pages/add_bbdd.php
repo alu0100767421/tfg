@@ -234,20 +234,20 @@
                   <div style="display:none" id="localidad" class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="Localidad" name="localidad" placeholder="LOCALIDAD">
                   </div>
+                  <div style="display:none" id="latitud" class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="Latitud" name="latitud" placeholder="LATITUD">
+                  </div>
+                  <div style="display:none" id="longitud" class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="Longitud" name="longitud" placeholder="LONGITUD">
+                  </div>
                 </div>
                 <div class="row">
                   <div style="display:none" id="nombre_yacimiento" class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="Nombre_yacimiento" name="nombre_yacimiento" placeholder="NOMBRE YACIMIENTO">
                   </div>
-                  <div style="display:none" id="coordenada" class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="Coordenada" name="coordenada" placeholder="COORDENADA">
-                  </div>
                   <div style="display:none" class="col-lg-2 form-group" id="edad">
                     <input type="text" class="form-control" id="Edad" name="edad" placeholder="EDAD">
                   </div>
-                </div>
-
-                <div class="row">
                   <div style="display:none" class="col-lg-2 form-group" id="altura">
                     <input type="text" class="form-control" id="Altura" name="altura" placeholder="ALTURA">
                   </div>
