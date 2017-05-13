@@ -49,7 +49,7 @@
         <div  class="col-lg-1 form-group">
           <h5>Municipio:</h5>
         </div>
-        <div id="municipio" class="col-lg-2 form-group">
+        <div id="municipio" class="col-sm-12 col-md-5 col-lg-2 form-group">
           <input type="text" class="form-control" id="Municipio" name="Municipio" placeholder="Municipio">
         </div>
       </div>
