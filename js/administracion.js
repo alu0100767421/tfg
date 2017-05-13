@@ -100,7 +100,7 @@ function municipio(val){
     document.getElementById('edad').style.display="block";
     document.getElementById('altura').style.display="block";
     document.getElementById('tipo_y').style.display="block";
-    document.getElementById('estado_conservacion').style.display="block";
+    //document.getElementById('estado_conservacion').style.display="block";
     document.getElementById('observaciones_y').style.display="block";
   }
   else{
@@ -111,7 +111,7 @@ function municipio(val){
     document.getElementById('edad').style.display="none";
     document.getElementById('altura').style.display="none";
     document.getElementById('tipo_y').style.display="none";
-    document.getElementById('estado_conservacion').style.display="none";
+    //document.getElementById('estado_conservacion').style.display="none";
     document.getElementById('observaciones_y').style.display="none";
   }
 }

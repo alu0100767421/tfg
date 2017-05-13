@@ -241,6 +241,7 @@
                     <input type="text" class="form-control" id="Longitud" name="longitud" placeholder="LONGITUD">
                   </div>
                 </div>
+
                 <div class="row">
                   <div style="display:none" id="nombre_yacimiento" class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="Nombre_yacimiento" name="nombre_yacimiento" placeholder="NOMBRE YACIMIENTO">
@@ -254,9 +255,11 @@
                   <div style="display:none" class="col-lg-2 form-group" id="tipo_y">
                     <input type="text" class="form-control" id="Tipo_y" name="tipo_y" placeholder="TIPO">
                   </div>
+                  <!--
                   <div style="display:none" class="col-lg-2 form-group" id="estado_conservacion">
                     <input type="text" class="form-control" id="Estado_conservacion" name="estado_conservacion" placeholder="ESTADO CONSERVACIÓN">
                   </div>
+                  -->
                 </div>
 
                 <div class="row">
