@@ -62,7 +62,7 @@ function puntos() {
    .append("circle")
    .attr("cx", function (d) { /*console.log(projection(d));*/ return projection(d)[0]; })
    .attr("cy", function (d) { return projection(d)[1]; })
-   .attr("r", "4px")
+   .attr("r", "3px")
    .attr("fill", "orange");
 
 }

@@ -43,27 +43,27 @@
     </div>
   </nav>
   <div class="row">
-    <div class="col-sm-12 col-md-8 col-lg-8" >
-      <h3>Islas Canarias</h3>
+    <div class="col-sm-12 col-md-12 col-lg-8" >
+      <h3 class="margen_izquierdo">Islas Canarias</h3>
       <div class="row">
         <div  class="col-lg-1 form-group">
-          <h5>Municipio:</h5>
+          <h5 class="margen_izquierdo">Municipio:</h5>
         </div>
-        <div id="municipio" class="col-sm-12 col-md-5 col-lg-2 form-group">
-          <input type="text" class="form-control" id="Municipio" name="Municipio" placeholder="Municipio">
+        <div id="municipio" class="col-xs-7 col-sm-6 col-md-4 col-lg-3 form-group">
+          <input type="text" class="form-control margen_izquierdo input_municipio" id="Municipio" name="Municipio" placeholder="Seleccione un municipio">
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-8" id="mapa">
+        <div class="col-sm-12 col-md-12 col-lg-12" id="mapa" class="mapa">
 
         </div>
       </div>
     </div>
 
 
-    <div class="col-sm-12 col-md-4 col-lg-4">
-      <h3>Sistema Paleontológico</h3>
-      <div class="row col-sm-12 col-md-12 col-lg-12">
+    <div class="col-sm-12 col-md-12 col-lg-4">
+      <h3 class="margen_izquierdo">Sistema Paleontológico</h3>
+      <div class="row">
         <!--<div class="row">
           <div class="row col-sm-12 col-md-6 col-lg-6">
             <h5>Yacimiento</h5>
@@ -80,7 +80,7 @@
 
   <!--Footer-->
   <br><br><br><br><br>
-  <div class="navbar navbar-inverse navbar-fixed-bottom">
+  <div class="navbar navbar-inverse navbar-fixed-bottom footer">
     <div class="container">
       <p class="navbar-text pull-left">© 2017 Alexander Cole Mora
         <a href="https://www.ull.es/" target="_blank" >Universidad de La Laguna</a>
