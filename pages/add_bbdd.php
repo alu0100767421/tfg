@@ -99,7 +99,7 @@
                   </div>
 
                   <div style="display:block" id="municipiosvacio" class="col-lg-2 form-group">
-                    <select name="MunicipiosVacio" id="MunicipiosVacio" class="form-control" onchange="municipio(this.value)">
+                    <select name="MunicipiosVacio" id="MunicipiosVacio" class="form-control">
                       <option disabled selected>MUNICIPIOS</option>
                     </select>
                   </div>

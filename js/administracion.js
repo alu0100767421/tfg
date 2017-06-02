@@ -96,10 +96,10 @@ function isla(val) {
   }
 
 }
-/*
+
 function municipio(val){
   document.getElementById('municipio_seleccionado').value=val;
-  if(val!==""){
+  /*if(val!==""){
     document.getElementById('localidad').style.display="block";
     document.getElementById('nombre_yacimiento').style.display="block";
     document.getElementById('latitud').style.display="block";
@@ -120,8 +120,8 @@ function municipio(val){
     document.getElementById('tipo_y').style.display="none";
     //document.getElementById('estado_conservacion').style.display="none";
     document.getElementById('observaciones_y').style.display="none";
-  }
-}*/
+  }*/
+}
 
 function museo(val){
   if(val!==""){
