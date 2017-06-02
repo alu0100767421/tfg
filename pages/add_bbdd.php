@@ -97,6 +97,12 @@
                     </select>
                     <input type="hidden" name="isla_seleccionada" id="isla_seleccionada">
                   </div>
+
+                  <div style="display:block" id="municipiosvacio" class="col-lg-2 form-group">
+                    <select name="MunicipiosVacio" id="MunicipiosVacio" class="form-control" onchange="municipio(this.value)">
+                      <option disabled selected>MUNICIPIOS</option>
+                    </select>
+                  </div>
                   <!-- MUNICIPIOS DE LA PALMA-->
                   <div style="display:none" id="municipioslapalma" class="col-lg-2 form-group">
                     <select name="MunicipiosLaPalma" id="MunicipiosLaPalma" class="form-control" onchange="municipio(this.value)">
@@ -231,39 +237,34 @@
                   </div>
                   <input type="hidden" name="municipio_seleccionado" id="municipio_seleccionado">
 
-                  <div style="display:none" id="localidad" class="col-lg-2 form-group">
+                  <div id="localidad" class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="Localidad" name="localidad" placeholder="LOCALIDAD">
                   </div>
-                  <div style="display:none" id="latitud" class="col-lg-2 form-group">
+                  <div  id="latitud" class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="Latitud" name="latitud" placeholder="LATITUD">
                   </div>
-                  <div style="display:none" id="longitud" class="col-lg-2 form-group">
+                  <div  id="longitud" class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="Longitud" name="longitud" placeholder="LONGITUD">
                   </div>
                 </div>
 
                 <div class="row">
-                  <div style="display:none" id="nombre_yacimiento" class="col-lg-2 form-group">
+                  <div  id="nombre_yacimiento" class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="Nombre_yacimiento" name="nombre_yacimiento" placeholder="NOMBRE YACIMIENTO">
                   </div>
-                  <div style="display:none" class="col-lg-2 form-group" id="edad">
+                  <div class="col-lg-2 form-group" id="edad">
                     <input type="text" class="form-control" id="Edad" name="edad" placeholder="EDAD">
                   </div>
-                  <div style="display:none" class="col-lg-2 form-group" id="altura">
+                  <div class="col-lg-2 form-group" id="altura">
                     <input type="text" class="form-control" id="Altura" name="altura" placeholder="ALTURA">
                   </div>
-                  <div style="display:none" class="col-lg-2 form-group" id="tipo_y">
+                  <div class="col-lg-2 form-group" id="tipo_y">
                     <input type="text" class="form-control" id="Tipo_y" name="tipo_y" placeholder="TIPO">
                   </div>
-                  <!--
-                  <div style="display:none" class="col-lg-2 form-group" id="estado_conservacion">
-                    <input type="text" class="form-control" id="Estado_conservacion" name="estado_conservacion" placeholder="ESTADO CONSERVACIÓN">
-                  </div>
-                  -->
                 </div>
 
                 <div class="row">
-                  <div style="display:none" class="col-lg-6 form-group" id="observaciones_y">
+                  <div class="col-lg-6 form-group" id="observaciones_y">
                     <textarea class="form-control" rows="1" id="observaciones_y" name="observaciones_y" placeholder="OBSERVACIONES"></textarea>
                     <!--
                     <input type="text" class="form-control" id="observaciones" name="observaciones" placeholder="OBSERVACIONES">

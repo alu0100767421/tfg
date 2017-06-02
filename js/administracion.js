@@ -14,6 +14,7 @@ $(document).ready(function(){
 
 function isla(val) {
   if(val=="LA PALMA"){
+    document.getElementById('municipiosvacio').style.display="none";
     document.getElementById('municipioslapalma').style.display="block";
     document.getElementById('municipioslagomera').style.display="none";
     document.getElementById('municipioselhierro').style.display="none";
@@ -25,6 +26,7 @@ function isla(val) {
   }
 
   if(val=="LA GOMERA"){
+    document.getElementById('municipiosvacio').style.display="none";
     document.getElementById('municipioslapalma').style.display="none";
     document.getElementById('municipioslagomera').style.display="block";
     document.getElementById('municipioselhierro').style.display="none";
@@ -36,6 +38,7 @@ function isla(val) {
   }
 
   if(val=="EL HIERRO"){
+    document.getElementById('municipiosvacio').style.display="none";
     document.getElementById('municipioslagomera').style.display="none";
     document.getElementById('municipioslapalma').style.display="none";
     document.getElementById('municipioselhierro').style.display="block";
@@ -47,6 +50,7 @@ function isla(val) {
   }
 
   if(val=="TENERIFE"){
+    document.getElementById('municipiosvacio').style.display="none";
     document.getElementById('municipioslagomera').style.display="none";
     document.getElementById('municipioslapalma').style.display="none";
     document.getElementById('municipioselhierro').style.display="none";
@@ -57,6 +61,7 @@ function isla(val) {
     document.getElementById('isla_seleccionada').value=val;
   }
   if(val=="GRAN CANARIA"){
+    document.getElementById('municipiosvacio').style.display="none";
     document.getElementById('municipioslagomera').style.display="none";
     document.getElementById('municipioslapalma').style.display="none";
     document.getElementById('municipioselhierro').style.display="none";
@@ -67,6 +72,7 @@ function isla(val) {
     document.getElementById('isla_seleccionada').value=val;
   }
   if(val=="FUERTEVENTURA"){
+    document.getElementById('municipiosvacio').style.display="none";
     document.getElementById('municipioslagomera').style.display="none";
     document.getElementById('municipioslapalma').style.display="none";
     document.getElementById('municipioselhierro').style.display="none";
@@ -78,6 +84,7 @@ function isla(val) {
   }
 
   if(val=="LANZAROTE"){
+    document.getElementById('municipiosvacio').style.display="none";
     document.getElementById('municipioslagomera').style.display="none";
     document.getElementById('municipioslapalma').style.display="none";
     document.getElementById('municipioselhierro').style.display="none";
@@ -89,7 +96,7 @@ function isla(val) {
   }
 
 }
-
+/*
 function municipio(val){
   document.getElementById('municipio_seleccionado').value=val;
   if(val!==""){
@@ -114,7 +121,7 @@ function municipio(val){
     //document.getElementById('estado_conservacion').style.display="none";
     document.getElementById('observaciones_y').style.display="none";
   }
-}
+}*/
 
 function museo(val){
   if(val!==""){
