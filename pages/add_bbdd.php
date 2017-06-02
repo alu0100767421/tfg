@@ -98,7 +98,7 @@
                     <input type="hidden" name="isla_seleccionada" id="isla_seleccionada">
                   </div>
 
-                  <div style="display:block" id="municipiosvacio" class="col-lg-2 form-group">
+                  <div id="municipiosvacio" class="col-lg-2 form-group">
                     <select name="MunicipiosVacio" id="MunicipiosVacio" class="form-control">
                       <option disabled selected>MUNICIPIOS</option>
                     </select>
@@ -266,9 +266,6 @@
                 <div class="row">
                   <div class="col-lg-6 form-group" id="observaciones_y">
                     <textarea class="form-control" rows="1" id="observaciones_y" name="observaciones_y" placeholder="OBSERVACIONES"></textarea>
-                    <!--
-                    <input type="text" class="form-control" id="observaciones" name="observaciones" placeholder="OBSERVACIONES">
-                    -->
                   </div>
                 </div>
                 <div class="row">
@@ -280,6 +277,12 @@
             </div>
           </div>
           <!--Fin de Yacimiento-->
+
+
+
+
+
+
           <!--Especies-->
           <div class="row">
             <div class="col-lg-12">
@@ -293,24 +296,41 @@
                     <input type="text" class="form-control" id="tipo_especie" name="tipo_especie" placeholder="TIPO">
                   </div>
                   <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="yacimiento_especie" name="yacimiento_especie" placeholder="YACIMIENTO">
+                    <select name="Yacimientos_Especie" id="Yacimientos_Especie" class="form-control" onchange="especie(this.value)">
+                      <option disabled selected>YACIMIENTOS</option>
+                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
+                      <?php
+                        $consulta_yacimiento="SELECT yacimiento
+                                              FROM yacimiento
+                                              ORDER BY yacimiento ASC;";
+                        $resultado=pg_query($link,$consulta_yacimiento);
+                        echo pg_last_error();
+                        while($resultado2 = pg_fetch_assoc($resultado)){
+                          $aux = $resultado2['yacimiento'];
+                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
+                        }
+
+                      ?>
+                     </select>
                   </div>
-                </div>
-                <div class="row">
+                  <input type="hidden" name="yacimiento_especie" id="yacimiento_especie">
                   <div class="col-lg-2 form-group">
-                    <select name="Museo" class="form-control" onchange="museo(this.value)">
-                      <option disabled selected>MUSEO</option>
-                      <option type='text' value='SI' name='SI'>SÍ</option>
-                      <option type='text' value='NO' name='NO'>NO</option>
+                    <select name="Deposito" class="form-control" onchange="deposito(this.value)">
+                      <option disabled selected>DEPÓSITO</option>
+                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
+                      <?php
+                        $consulta_yacimiento="SELECT deposito
+                                              FROM deposito;";
+                        $resultado=pg_query($link,$consulta_yacimiento);
+                        echo pg_last_error();
+                        while($resultado2 = pg_fetch_assoc($resultado)){
+                          $aux = $resultado2['deposito'];
+                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
+                        }
+                      ?>
                     </select>
                   </div>
-                  <input type="hidden" name="museo_especie" id="museo_especie">
-                  <div class="col-lg-4 form-group" id="observaciones_es">
-                    <textarea class="form-control" rows="1" id="observaciones_es" name="observaciones_es" placeholder="OBSERVACIONES"></textarea>
-                    <!--
-                    <input type="text" class="form-control" id="observaciones" name="observaciones" placeholder="OBSERVACIONES">
-                    -->
-                  </div>
+                  <input type="hidden" name="deposito_especie" id="deposito_especie">
                 </div>
                 <div class="row">
                   <div class="col-lg-2 col-md-3 col-xs-12 col-sm-3">
@@ -321,6 +341,14 @@
             </div>
           </div>
           <!--Fin de Especies-->
+
+
+
+
+
+
+
+
           <!--Excavaciones-->
           <div class="row">
             <div class="col-lg-12">
@@ -357,6 +385,13 @@
             </div>
           </div>
           <!--Fin de Excavaciones-->
+
+
+
+
+
+
+
           <!--Publicaciones-->
           <div class="row">
             <div class="col-lg-12">

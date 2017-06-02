@@ -99,32 +99,16 @@ function isla(val) {
 
 function municipio(val){
   document.getElementById('municipio_seleccionado').value=val;
-  /*if(val!==""){
-    document.getElementById('localidad').style.display="block";
-    document.getElementById('nombre_yacimiento').style.display="block";
-    document.getElementById('latitud').style.display="block";
-    document.getElementById('longitud').style.display="block";
-    document.getElementById('edad').style.display="block";
-    document.getElementById('altura').style.display="block";
-    document.getElementById('tipo_y').style.display="block";
-    //document.getElementById('estado_conservacion').style.display="block";
-    document.getElementById('observaciones_y').style.display="block";
-  }
-  else{
-    document.getElementById('localidad').style.display="none";
-    document.getElementById('nombre_yacimiento').style.display="none";
-    document.getElementById('latitud').style.display="none";
-    document.getElementById('longitud').style.display="none";
-    document.getElementById('edad').style.display="none";
-    document.getElementById('altura').style.display="none";
-    document.getElementById('tipo_y').style.display="none";
-    //document.getElementById('estado_conservacion').style.display="none";
-    document.getElementById('observaciones_y').style.display="none";
-  }*/
+
 }
 
-function museo(val){
-  if(val!==""){
-    document.getElementById('museo_especie').value=val;
-  }
+function especie(val){
+  document.getElementById('yacimiento_especie').value=val;
+
+}
+
+function deposito(val){
+
+    document.getElementById('deposito_especie').value=val;
+
 }
