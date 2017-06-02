@@ -106,7 +106,7 @@
      }
 
 
-     //header("Location: ../add_bbdd.php");
+     header("Location: ../add_bbdd.php");
 
 
 
