@@ -362,8 +362,24 @@
                     <input type="text" class="form-control" id="financiacion" name="financiacion" placeholder="FINANCIACION">
                   </div>
                   <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="yacimiento_ex" name="yacimiento_ex" placeholder="YACIMIENTO">
+                    <select name="Yacimientos_Exacavacion" id="Yacimientos_Excavacion" class="form-control" onchange="excavacion(this.value)">
+                      <option disabled selected>YACIMIENTOS</option>
+                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
+                      <?php
+                        $consulta_yacimiento="SELECT yacimiento
+                                              FROM yacimiento
+                                              ORDER BY yacimiento ASC;";
+                        $resultado=pg_query($link,$consulta_yacimiento);
+                        echo pg_last_error();
+                        while($resultado2 = pg_fetch_assoc($resultado)){
+                          $aux = $resultado2['yacimiento'];
+                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
+                        }
+
+                      ?>
+                     </select>
                   </div>
+                  <input type="hidden" name="yacimiento_excavacion" id="yacimiento_excavacion">
                 </div>
                 <div class="row">
                   <div class="col-lg-2 form-group" id="data-container">
@@ -373,6 +389,25 @@
                     <input id="fecha_final_ex" type="text" class="form-control" name="fecha_final_ex" placeholder="FECHA FINAL">
                   </div>
                   <div class="col-lg-2 form-group">
+                    <select name="Deposito" class="form-control" onchange="deposito(this.value)">
+                      <option disabled selected>DEPÓSITO</option>
+                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
+                      <?php
+                        $consulta_yacimiento="SELECT deposito
+                                              FROM deposito;";
+                        $resultado=pg_query($link,$consulta_yacimiento);
+                        echo pg_last_error();
+                        while($resultado2 = pg_fetch_assoc($resultado)){
+                          $aux = $resultado2['deposito'];
+                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
+                        }
+                      ?>
+                    </select>
+                  </div>
+                  <input type="hidden" name="deposito_excavacion" id="deposito_excavacion">
+                </div>
+                <div class="row">
+                  <div class="col-lg-6 form-group">
                     <textarea class="form-control" rows="1" id="observaciones_ex" name="observaciones_ex" placeholder="OBSERVACIONES"></textarea>
                   </div>
                 </div>
