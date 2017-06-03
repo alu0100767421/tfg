@@ -240,11 +240,16 @@
                   <div id="localidad" class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="Localidad" name="localidad" placeholder="LOCALIDAD">
                   </div>
+                </div>
+                <div class="row">
                   <div  id="latitud" class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="Latitud" name="latitud" placeholder="LATITUD">
                   </div>
                   <div  id="longitud" class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="Longitud" name="longitud" placeholder="LONGITUD">
+                  </div>
+                  <div class="col-lg-2 form-group" id="altura">
+                    <input type="text" class="form-control" id="Altura" name="altura" placeholder="ALTURA">
                   </div>
                 </div>
 
@@ -254,9 +259,6 @@
                   </div>
                   <div class="col-lg-2 form-group" id="edad">
                     <input type="text" class="form-control" id="Edad" name="edad" placeholder="EDAD">
-                  </div>
-                  <div class="col-lg-2 form-group" id="altura">
-                    <input type="text" class="form-control" id="Altura" name="altura" placeholder="ALTURA">
                   </div>
                   <div class="col-lg-2 form-group" id="tipo_y">
                     <input type="text" class="form-control" id="Tipo_y" name="tipo_y" placeholder="TIPO">
@@ -314,6 +316,8 @@
                      </select>
                   </div>
                   <input type="hidden" name="yacimiento_especie" id="yacimiento_especie">
+                </div>
+                <div class="row">
                   <div class="col-lg-2 form-group">
                     <select name="Deposito" class="form-control" onchange="deposito(this.value)">
                       <option disabled selected>DEPÓSITO</option>
@@ -440,15 +444,28 @@
                     <input type="text" class="form-control" id="autor" name="autor" placeholder="AUTOR">
                   </div>
                   <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="yacimiento_publi" name="yacimiento_publi" placeholder="YACIMIENTO">
+                    <select name="Yacimientos_Publicacion" id="Yacimientos_Publicacion" class="form-control" onchange="publicacion(this.value)">
+                      <option disabled selected>YACIMIENTOS</option>
+                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
+                      <?php
+                        $consulta_yacimiento="SELECT yacimiento
+                                              FROM yacimiento
+                                              ORDER BY yacimiento ASC;";
+                        $resultado=pg_query($link,$consulta_yacimiento);
+                        echo pg_last_error();
+                        while($resultado2 = pg_fetch_assoc($resultado)){
+                          $aux = $resultado2['yacimiento'];
+                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
+                        }
+
+                      ?>
+                     </select>
                   </div>
+                  <input type="hidden" name="yacimiento_publicacion" id="yacimiento_publicacion">
                 </div>
                 <div class="row">
                   <div class="col-lg-2 form-group" id="data-container">
                     <input id="fecha_publi" type="text" class="form-control" name="fecha_publi" placeholder="FECHA PUBLICACION">
-                  </div>
-                  <div class="col-lg-4 form-group">
-                    <textarea class="form-control" rows="1" id="observaciones_publi" name="observaciones_publi" placeholder="OBSERVACIONES"></textarea>
                   </div>
                 </div>
                 <div class="row">
@@ -460,6 +477,31 @@
             </div>
           </div>
           <!--Fin de Publicaciones-->
+
+          <!--Inicio de deposito-->
+          <div class="row">
+            <div class="col-lg-12">
+              <br><h4>Deposito</h4>
+              <form class="" action="add_bbdd/add_deposito.php" method="post">
+                <div class="row">
+                  <div class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="deposito" name="deposito" placeholder="NOMBRE">
+                  </div>
+                  <div class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="pais" name="pais" placeholder="PAIS">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-2 col-md-3 col-xs-12 col-sm-3">
+                    <button type="submit" class="btn btn-success">Enviar</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!--Fin de deposito-->
+
+
         </div>
       </div>
 

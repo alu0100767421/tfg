@@ -116,3 +116,8 @@ function deposito(val){
     document.getElementById('deposito_excavacion').value=val;
 
 }
+
+function publicacion(val){
+  document.getElementById('yacimiento_publicacion').value=val;
+
+}
