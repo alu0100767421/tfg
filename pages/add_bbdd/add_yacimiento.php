@@ -100,7 +100,7 @@
     }
 
 
-    //header("Location: ../add_bbdd.php");
+    header("Location: ../anadir/yacimiento.php");
   }
   else {
     header("Location: ../../index.php");

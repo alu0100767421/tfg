@@ -1,14 +1,3 @@
-/*$(document).ready(function(){
-  $('#data-container input').datepicker({
-    todayBtn: true,
-    language: "es",
-    format: "yyyy-mm-dd",
-    autoclose: true,
-    clearBtn: true,
-    todayHighlight: true
-  });
-});
-
 
   $("#add").hover(function(){
       document.getElementById('submenu').style.display="block";
@@ -107,25 +96,5 @@ function isla(val) {
 
 function municipio(val){
   document.getElementById('municipio_seleccionado').value=val;
-
-}*/
-
-function especie(val){
-  document.getElementById('yacimiento_especie').value=val;
-
-}
-function excavacion(val){
-  document.getElementById('yacimiento_excavacion').value=val;
-
-}
-
-function deposito(val){
-    document.getElementById('deposito_especie').value=val;
-    document.getElementById('deposito_excavacion').value=val;
-
-}
-
-function publicacion(val){
-  document.getElementById('yacimiento_publicacion').value=val;
 
 }

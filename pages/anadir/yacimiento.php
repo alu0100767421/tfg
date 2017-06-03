@@ -40,8 +40,8 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="../index.php">Inicio</a></li>
-            <li><a href="mapa.php">Mapa</a></li>
+            <li><a href="../../index.php">Inicio</a></li>
+            <li><a href="../mapa.php">Mapa</a></li>
           </ul>
         </div>
 
@@ -55,9 +55,17 @@
       <div class="row">
         <div class="col-lg-2 col-md-4 col-xs-8 col-sm-6 ">
           <ul class="list-unstyled panel">
-            <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a href="administracion.php">&nbsp Inicio</a></li>
-            <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="consultar_bbdd.php">&nbsp Consultar BBDD</a></li>
-            <li><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a href="add_bbdd.php">&nbsp Añadir BBDD</a></li>
+            <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a href="../administracion.php">&nbsp Inicio</a></li>
+            <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="../consultar_bbdd.php">&nbsp Consultar BBDD</a></li>
+            <li id="add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a href="../add_bbdd.php">&nbsp Añadir BBDD</a>
+              <ul style="display:none" class="list-unstyled" id="submenu">
+                <li><a href="yacimiento.php">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Yacimiento</a></li>
+                <li><a href="">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Especie</a></li>
+                <li><a href="">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Excavacion</a></li>
+                <li><a href="">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Publicacion</a></li>
+                <li><a href="">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Depósito</a></li>
+              </ul>
+            </li>
             <?php
               //echo "Este es el usuario $username";
               if ($username == "admin") {
@@ -78,7 +86,7 @@
         <div class="col-lg-10 col-md-8 col-xs-12 col-sm-6 contenido">
           <!--Yacimiento-->
           <div class="row">
-            <div class="col-lg-offset-1 col-lg-10">
+            <div class="col-lg-offset-0 col-lg-10">
               <h2>Añadir Yacimientos</h2>
               <form class="" action="../add_bbdd/add_yacimiento.php" method="post">
                 <div class="row">
@@ -295,9 +303,8 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript" src="../../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="../../bootstrap-3.3.7-dist/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
-  <script type="text/javascript" src="../../bootstrap-3.3.7-dist/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js"></script>
   <script type="text/javascript" src="../../js/administracion.js"></script>
+  <script type="text/javascript" src="../../js/anadir/yacimiento.js"></script>
   </body>
 </html>
 
