@@ -41,7 +41,7 @@
      }
 
 
-     //header("Location: ../add_bbdd.php");
+     header("Location: ../anadir/deposito.php");
 
 
 
