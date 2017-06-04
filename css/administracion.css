@@ -6,11 +6,13 @@ body {
     overflow-x: hidden;
 }
 
-#imagen-menu{
-  width: 30%;
+.imagen-menu{
+  width: 100%;
   height: auto;
 }
-
+.navbar-brand{
+  width: 40%;
+}
 /* Panel de la izquierda*/
 .panel{
   background-color: #9c66b5;
@@ -42,7 +44,7 @@ body {
 }
 /*fin panel de la izquierda*/
 
-#imagen-fondo{
+.imagen-fondo{
   width: 50%;
   height: 50%;
   opacity: 0.5;

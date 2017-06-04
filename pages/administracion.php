@@ -33,7 +33,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="https://www.ull.es/"><img id="imagen-menu" alt="ULL" src="../images/logoULL/logotipo-principal-recortada.png"></a>
+          <a class="navbar-brand" href="https://www.ull.es/"><img class="imagen-menu" alt="ULL" title="Universidad de La Laguna" src="../images/logoULL/logotipo-principal-recortada.png"></a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -82,7 +82,7 @@
           </div>
         </div>
         <div class="col-lg-offset-3 col-lg-7 col-md-offset-1 col-md-7 col-xs-offset-0 col-xs-12 col-sm-offset-0 col-sm-12">
-          <img src="../images/logoULL/logotipo-secundario.jpg" alt="Universidad de La Laguna" id="imagen-fondo">
+          <img src="../images/logoULL/logotipo-secundario.jpg" alt="Universidad de La Laguna" title="Universidad de La Laguna" class="imagen-fondo">
         </div>
       </div>
 

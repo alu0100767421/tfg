@@ -35,7 +35,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="https://www.ull.es/"><img id="imagen-menu" alt="ULL" src="../../images/logoULL/logotipo-principal-recortada.png"></a>
+          <a class="navbar-brand" href="https://www.ull.es/"><img class="imagen-menu" alt="Universidad de La Laguna" title="Universidad de La Laguna" src="../../images/logoULL/logotipo-principal-recortada.png"></a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -69,13 +69,13 @@
             <?php
               //echo "Este es el usuario $username";
               if ($username == "admin") {
-                echo "<li><span class='glyphicon glyphicon-user' aria-hidden='true'></span><a href='gestion_usuarios.php'>Gestión Usuarios</a></li>";
+                echo "<li><span class='glyphicon glyphicon-user' aria-hidden='true'></span><a href='../gestion_usuarios.php'>Gestión Usuarios</a></li>";
               }
              ?>
           </ul>
 
           <div class="row">
-            <form action="cerrar_sesion.php" method="post">
+            <form action="../cerrar_sesion.php" method="post">
               <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
                 <button type="submit" class="btn btn-danger boton">Cerrar Sesión</button><br>
               </div>

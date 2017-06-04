@@ -23,7 +23,7 @@ body{
   height: 70%;
 }
 
-.titulo h1{
+h1{
   font-size: 300%;
   color: #ffffff;
 
@@ -35,9 +35,12 @@ body{
   background-color: white;
 }
 
-#imagen-menu{
-  width: 30%;
+.imagen-menu{
+  width: 100%;
   height: auto;
+}
+.navbar-brand{
+  width: 40%;
 }
 
 .formulario{
