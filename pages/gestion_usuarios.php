@@ -54,13 +54,21 @@
       <div class="row">
         <div class="col-lg-2 col-md-4 col-xs-6 col-sm-6 ">
           <ul class="list-unstyled panel">
-            <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a href="administracion.php">&nbsp Inicio</a></li>
-            <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="consultar_bbdd.php">&nbsp Consultar BBDD</a></li>
-            <li><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a href="add_bbdd.php">&nbsp Añadir BBDD</a></li>
+            <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a href="administracion.php">Inicio</a></li>
+            <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="consultar_bbdd.php">Consultar BBDD</a></li>
+            <li id="add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a href="add_bbdd.php">Añadir BBDD</a>
+              <ul style="display:none" class="list-unstyled" id="submenu">
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="anadir/yacimiento.php">Yacimiento</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="anadir/especie.php">Especie</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="anadir/excavacion.php">Excavación</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="anadir/publicacion.php">Publicación</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="anadir/deposito.php">Depósito</a></li>
+              </ul>
+            </li>
             <?php
               //echo "Este es el usuario $username";
               if ($username == "admin") {
-                echo "<li><span class='glyphicon glyphicon-user' aria-hidden='true'></span><a href='gestion_usuarios.php'>&nbsp Gestión Usuarios</a></li>";
+                echo "<li class='destacar'><span class='glyphicon glyphicon-user' aria-hidden='true'></span><a href='gestion_usuarios.php'>Gestión Usuarios</a></li>";
               }
              ?>
 

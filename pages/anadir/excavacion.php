@@ -55,21 +55,21 @@
       <div class="row">
         <div class="col-lg-2 col-md-4 col-xs-8 col-sm-6 ">
           <ul class="list-unstyled panel">
-            <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a href="../administracion.php">&nbsp Inicio</a></li>
-            <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="../consultar_bbdd.php">&nbsp Consultar BBDD</a></li>
-            <li id="add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a href="../add_bbdd.php">&nbsp Añadir BBDD</a>
-              <ul style="display:none" class="list-unstyled" id="submenu">
-                <li><a href="yacimiento.php">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Yacimiento</a></li>
-                <li><a href="especie.php">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Especie</a></li>
-                <li><a href="excavacion.php">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Excavacion</a></li>
-                <li><a href="publicacion.php">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Publicacion</a></li>
-                <li><a href="deposito.php">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Depósito</a></li>
+            <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a href="../administracion.php">Inicio</a></li>
+            <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="../consultar_bbdd.php">Consultar BBDD</a></li>
+            <li><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a href="../add_bbdd.php">Añadir BBDD</a>
+              <ul class="list-unstyled" id="submenu">
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="yacimiento.php">Yacimiento</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="especie.php">Especie</a></li>
+                <li class="destacar2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="excavacion.php">Excavación</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="publicacion.php">Publicación</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="deposito.php">Depósito</a></li>
               </ul>
             </li>
             <?php
               //echo "Este es el usuario $username";
               if ($username == "admin") {
-                echo "<li><span class='glyphicon glyphicon-user' aria-hidden='true'></span><a href='gestion_usuarios.php'>&nbsp Gestión Usuarios</a></li>";
+                echo "<li><span class='glyphicon glyphicon-user' aria-hidden='true'></span><a href='gestion_usuarios.php'>Gestión Usuarios</a></li>";
               }
              ?>
           </ul>

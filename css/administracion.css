@@ -22,6 +22,7 @@ body {
 .panel li a{
   color: #ffffff;
   font-weight: bold;
+  margin-left: 5%;
 }
 .panel li a:hover{
   font-size: 100%;
@@ -32,13 +33,27 @@ body {
   padding-top: 5%;
   margin-left: 2%;
 }
+.panel li ul span{
+  margin-left: 5%;
+
+}
 .boton{
   margin-left: 0.5%;
 }
-
+/*fin panel de la izquierda*/
 
 #imagen-fondo{
   width: 50%;
   height: 50%;
   opacity: 0.5;
+}
+
+.destacar a{
+  text-decoration: underline;
+}
+.destacar ul li a{
+  text-decoration: inherit;
+}
+.destacar2 a{
+  text-decoration: underline;
 }
