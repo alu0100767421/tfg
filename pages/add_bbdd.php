@@ -57,7 +57,15 @@
           <ul class="list-unstyled panel">
             <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a href="administracion.php">&nbsp Inicio</a></li>
             <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="consultar_bbdd.php">&nbsp Consultar BBDD</a></li>
-            <li><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a href="add_bbdd.php">&nbsp Añadir BBDD</a></li>
+            <li id="add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a href="../add_bbdd.php">&nbsp Añadir BBDD</a>
+              <ul style="display:none" class="list-unstyled" id="submenu">
+                <li><a href="anadir/yacimiento.php">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Yacimiento</a></li>
+                <li><a href="anadir/especie.php">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Especie</a></li>
+                <li><a href="anadir/excavacion.php">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Excavacion</a></li>
+                <li><a href="anadir/publicacion.php">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Publicacion</a></li>
+                <li><a href="anadir/deposito.php">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Depósito</a></li>
+              </ul>
+            </li>
             <?php
               //echo "Este es el usuario $username";
               if ($username == "admin") {

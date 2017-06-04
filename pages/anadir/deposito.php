@@ -35,7 +35,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="https://www.ull.es/"><img id="imagen-menu" alt="ULL" src="../../images/logoULL/logotipo-principal-recortada.png"></a>
+          <a class="navbar-brand" href="https://www.ull.es/"><img id="imagen-menu" alt="Universidad de La Laguna" title="Universidad de La Laguna"src="../../images/logoULL/logotipo-principal-recortada.png"></a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -84,61 +84,20 @@
         </div>
         <!--FIN MENU LATERAL-->
         <div class="col-lg-10 col-md-8 col-xs-12 col-sm-6 contenido">
-          <!--Yacimiento-->
+          <!--Excavacion-->
           <div class="row">
             <div class="col-lg-offset-0 col-lg-10">
-              <h2 class="titulos">Añadir Especies</h2>
-              <p>A continuación, podrá añadir a la base de datos una nueva especie, teniendo en cuenta algunas de sus características.</p>
-              <form class="" action="../add_bbdd/add_especie.php" method="post">
+              <h2 class="titulos">Añadir Depósito</h2>
+              <p>A continuación, podrá añadir a la base de datos un <b>nuevo depósito</b>, teniendo en cuenta algunas de sus características.</p>
+              <form class="" action="../add_bbdd/add_deposito.php" method="post">
                 <div class="row">
                   <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="nombre_especie" name="nombre_especie" placeholder="NOMBRE">
+                    <input type="text" class="form-control" id="deposito" name="deposito" placeholder="NOMBRE">
                   </div>
                   <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="tipo_especie" name="tipo_especie" placeholder="TIPO">
+                    <input type="text" class="form-control" id="pais" name="pais" placeholder="PAIS">
                   </div>
                 </div>
-
-                <div class="row">
-                  <div class="col-lg-2 form-group">
-                    <select name="Yacimientos_Especie" id="Yacimientos_Especie" class="form-control" onchange="especie(this.value)">
-                      <option disabled selected>YACIMIENTOS</option>
-                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
-                      <?php
-                        $consulta_yacimiento="SELECT yacimiento
-                                              FROM yacimiento
-                                              ORDER BY yacimiento ASC;";
-                        $resultado=pg_query($link,$consulta_yacimiento);
-                        echo pg_last_error();
-                        while($resultado2 = pg_fetch_assoc($resultado)){
-                          $aux = $resultado2['yacimiento'];
-                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
-                        }
-
-                      ?>
-                     </select>
-                  </div>
-                  <input type="hidden" name="yacimiento_especie" id="yacimiento_especie">
-
-                  <div class="col-lg-2 form-group">
-                    <select name="Deposito" class="form-control" onchange="deposito(this.value)">
-                      <option disabled selected>DEPÓSITO</option>
-                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
-                      <?php
-                        $consulta_yacimiento="SELECT deposito
-                                              FROM deposito;";
-                        $resultado=pg_query($link,$consulta_yacimiento);
-                        echo pg_last_error();
-                        while($resultado2 = pg_fetch_assoc($resultado)){
-                          $aux = $resultado2['deposito'];
-                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
-                        }
-                      ?>
-                    </select>
-                  </div>
-                  <input type="hidden" name="deposito_especie" id="deposito_especie">
-                </div>
-
                 <div class="row">
                   <div class="col-lg-2 col-md-3 col-xs-12 col-sm-3">
                     <button type="submit" class="btn btn-success">Enviar</button>
@@ -147,7 +106,7 @@
               </form>
             </div>
           </div>
-          <!--Fin de Yacimiento-->
+          <!--Fin de Excavacion-->
 
         </div>
       </div>
@@ -166,8 +125,10 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript" src="../../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../bootstrap-3.3.7-dist/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+  <script type="text/javascript" src="../../bootstrap-3.3.7-dist/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js"></script>
   <script type="text/javascript" src="../../js/administracion.js"></script>
-  <script type="text/javascript" src="../../js/anadir/especie.js"></script>
+  <script type="text/javascript" src="../../js/anadir/deposito.js"></script>
   </body>
 </html>
 

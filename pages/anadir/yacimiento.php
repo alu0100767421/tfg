@@ -60,10 +60,10 @@
             <li id="add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a href="../add_bbdd.php">&nbsp Añadir BBDD</a>
               <ul style="display:none" class="list-unstyled" id="submenu">
                 <li><a href="yacimiento.php">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Yacimiento</a></li>
-                <li><a href="">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Especie</a></li>
-                <li><a href="">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Excavacion</a></li>
-                <li><a href="">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Publicacion</a></li>
-                <li><a href="">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Depósito</a></li>
+                <li><a href="especie.php">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Especie</a></li>
+                <li><a href="excavacion.php">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Excavacion</a></li>
+                <li><a href="publicacion.php">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Publicacion</a></li>
+                <li><a href="deposito.php">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp Depósito</a></li>
               </ul>
             </li>
             <?php
@@ -87,7 +87,8 @@
           <!--Yacimiento-->
           <div class="row">
             <div class="col-lg-offset-0 col-lg-10">
-              <h2>Añadir Yacimientos</h2>
+              <h2 class="titulos">Añadir Yacimientos</h2>
+              <p>A continuación, podrá añadir a la base de datos un nuevo yacimiento, teniendo en cuenta algunas de sus características y su ubicación.</p>
               <form class="" action="../add_bbdd/add_yacimiento.php" method="post">
                 <div class="row">
                   <div class="col-lg-2 form-group">
@@ -246,6 +247,9 @@
                   <div id="localidad" class="col-lg-2 form-group">
                     <input type="text" class="form-control" id="Localidad" name="localidad" placeholder="LOCALIDAD">
                   </div>
+                  <div  id="nombre_yacimiento" class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="Nombre_yacimiento" name="nombre_yacimiento" placeholder="NOMBRE YACIMIENTO">
+                  </div>
                 </div>
                 <div class="row">
                   <div  id="latitud" class="col-lg-2 form-group">
@@ -257,24 +261,22 @@
                   <div class="col-lg-2 form-group" id="altura">
                     <input type="text" class="form-control" id="Altura" name="altura" placeholder="ALTURA">
                   </div>
-                </div>
-
-                <div class="row">
-                  <div  id="nombre_yacimiento" class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="Nombre_yacimiento" name="nombre_yacimiento" placeholder="NOMBRE YACIMIENTO">
-                  </div>
                   <div class="col-lg-2 form-group" id="edad">
                     <input type="text" class="form-control" id="Edad" name="edad" placeholder="EDAD">
                   </div>
+                </div>
+
+                <div class="row">
                   <div class="col-lg-2 form-group" id="tipo_y">
                     <input type="text" class="form-control" id="Tipo_y" name="tipo_y" placeholder="TIPO">
+                  </div>
+                  <div class="col-lg-6 form-group" id="observaciones_y">
+                    <textarea class="form-control" rows="1" id="observaciones_y" name="observaciones_y" placeholder="OBSERVACIONES"></textarea>
                   </div>
                 </div>
 
                 <div class="row">
-                  <div class="col-lg-6 form-group" id="observaciones_y">
-                    <textarea class="form-control" rows="1" id="observaciones_y" name="observaciones_y" placeholder="OBSERVACIONES"></textarea>
-                  </div>
+
                 </div>
                 <div class="row">
                   <div class="col-lg-2 col-md-3 col-xs-12 col-sm-3">

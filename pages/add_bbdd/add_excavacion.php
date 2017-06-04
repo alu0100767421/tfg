@@ -67,7 +67,7 @@ header("Content-type: text/plain");
        echo "no ha introducido algún valor importante\n";
      }
 
-     header("Location: ../add_bbdd.php");
+     header("Location: ../anadir/excavacion.php");
 
 
  }

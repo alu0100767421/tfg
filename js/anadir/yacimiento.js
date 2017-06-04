@@ -1,14 +1,4 @@
 
-  $("#add").hover(function(){
-      document.getElementById('submenu').style.display="block";
-  },function(){
-    document.getElementById('submenu').style.display="none";
-  });
-
-
-
-
-
 function isla(val) {
   if(val=="LA PALMA"){
     document.getElementById('municipiosvacio').style.display="none";

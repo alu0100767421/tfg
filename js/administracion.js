@@ -7,7 +7,7 @@
     clearBtn: true,
     todayHighlight: true
   });
-});
+});*/
 
 
   $("#add").hover(function(){
@@ -19,7 +19,7 @@
 
 
 
-
+/*
 function isla(val) {
   if(val=="LA PALMA"){
     document.getElementById('municipiosvacio').style.display="none";
@@ -108,7 +108,7 @@ function isla(val) {
 function municipio(val){
   document.getElementById('municipio_seleccionado').value=val;
 
-}*/
+}
 
 function especie(val){
   document.getElementById('yacimiento_especie').value=val;
@@ -128,4 +128,4 @@ function deposito(val){
 function publicacion(val){
   document.getElementById('yacimiento_publicacion').value=val;
 
-}
+}*/

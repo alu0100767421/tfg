@@ -69,6 +69,7 @@
      else{
        echo "No ha introducido un titulo o yacimiento\n";
      }
+     header("Location: ../anadir/publicacion.php");
 
  }
  else {
