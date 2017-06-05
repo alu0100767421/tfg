@@ -4,17 +4,26 @@
 
  header("Content-type: text/plain");
 
+ function Mayuscula_con_tilde($aux) {
+   $aux = strtr(strtoupper($aux),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
+   return $aux;
+ }
+
  if(isset($_SESSION['nombre'])) {
    $username = $_SESSION['nombre'];
 
      if(isset($_POST['nombre_especie']))
        $especie = $_POST['nombre_especie'];
+       if($especie!="")
+          $especie=Mayuscula_con_tilde($especie);
 
-     if(isset($_POST['tipo_especie'])){
+     if(isset($_POST['tipo_especie']))
        $tipo = $_POST['tipo_especie'];
-       if($tipo =="")
-          $tipo="NULL";
-     }
+       if($tipo !="")
+          $tipo=Mayuscula_con_tilde($tipo);
+       else {
+         $tipo="DESCONOCIDO";
+       }
 
      if(isset($_POST['yacimiento_especie']))
        $yacimiento = $_POST['yacimiento_especie'];

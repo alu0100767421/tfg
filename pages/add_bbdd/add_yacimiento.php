@@ -6,6 +6,11 @@
   if(isset($_SESSION['nombre'])) {
     $username = $_SESSION['nombre'];
 
+    function Mayuscula_con_tilde($aux) {
+      $aux = strtr(strtoupper($aux),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
+      return $aux;
+    }
+
     //si se escoge una isla se va a introducir un yacimiento
     if(isset($_POST['isla_seleccionada'])){
       $isla = $_POST['isla_seleccionada'];
@@ -15,10 +20,12 @@
 
       if(isset($_POST['localidad']))
         $localidad = $_POST['localidad'];
-
+        if($localidad!="")
+          $localidad= Mayuscula_con_tilde($localidad);
       if(isset($_POST['nombre_yacimiento']))
         $yacimiento = $_POST['nombre_yacimiento'];
-
+        if($yacimiento!="")
+          $yacimiento=Mayuscula_con_tilde($yacimiento);
       if(isset($_POST['latitud']))
         $latitud = $_POST['latitud'];
         if($latitud=="")
@@ -31,8 +38,11 @@
 
       if(isset($_POST['edad']))
         $edad = $_POST['edad'];
-        /*if($edad=="")
-          $edad=NULL;*/
+        if($edad!="")
+          $edad=Mayuscula_con_tilde($edad);
+        else {
+          $edad="DESCONOCIDO";
+        }
 
       if(isset($_POST['altura']))
         $altura = $_POST['altura'];
@@ -41,13 +51,19 @@
 
       if(isset($_POST['tipo_y']))
         $tipo = $_POST['tipo_y'];
-        /*if($tipo=="")
-          $tipo=NULL;*/
+        if($tipo!="")
+          $tipo=Mayuscula_con_tilde($tipo);
+        else {
+          $tipo="DESCONOCIDO";
+        }
 
       if(isset($_POST['observaciones_y']))
         $observacion = $_POST['observaciones_y'];
-        /*if($observacion=="")
-          $observacion=NULL;*/
+        if($observacion!="")
+          $observacion=Mayuscula_con_tilde($observacion);
+        else {
+          $observacion="SIN OBSERVACIÓN";
+        }
 
 
 

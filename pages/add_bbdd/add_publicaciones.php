@@ -4,17 +4,27 @@
 
  header("Content-type: text/plain");
 
+ function Mayuscula_con_tilde($aux) {
+   $aux = strtr(strtoupper($aux),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
+   return $aux;
+ }
+
  if(isset($_SESSION['nombre'])) {
    $username = $_SESSION['nombre'];
 
 
      if(isset($_POST['titulo']))
        $titulo = $_POST['titulo'];
+       if($titulo!="")
+          $titulo=Mayuscula_con_tilde($titulo);
 
      if(isset($_POST['autor']))
        $autor = $_POST['autor'];
        if($autor=="")
-          $autor="NULL";
+          $autor="DESCONOCIDO";
+       else {
+         $autor=Mayuscula_con_tilde($autor);
+       }
 
      if(isset($_POST['yacimiento_publicacion']))
        $yacimiento = $_POST['yacimiento_publicacion'];
@@ -22,7 +32,7 @@
      if(isset($_POST['fecha_publi']))
        $fecha = $_POST['fecha_publi'];
        if($fecha=="")
-          $fecha="NULL";
+          $fecha="DESCONOCIDO";
 
 
      echo "

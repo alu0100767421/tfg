@@ -4,6 +4,11 @@
 
 header("Content-type: text/plain");
 
+function Mayuscula_con_tilde($aux) {
+  $aux = strtr(strtoupper($aux),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
+  return $aux;
+}
+
  if(isset($_SESSION['nombre'])) {
    $username = $_SESSION['nombre'];
 
@@ -11,12 +16,18 @@ header("Content-type: text/plain");
      if(isset($_POST['responsable']))
        $responsable = $_POST['responsable'];
        if($responsable=="")
-          $responsable="NULL";
+          $responsable="DESCONOCIDO";
+        else
+          $responsable=Mayuscula_con_tilde($responsable);
+
 
      if(isset($_POST['financiacion']))
        $financiacion = $_POST['financiacion'];
        if($financiacion=="")
-          $financiacion="NULL";
+          $financiacion="DESCONOCIDO";
+       else
+         $financiacion=Mayuscula_con_tilde($financiacion);
+
 
      if(isset($_POST['yacimiento_excavacion']))
        $yacimiento = $_POST['yacimiento_excavacion'];
@@ -30,12 +41,15 @@ header("Content-type: text/plain");
      if(isset($_POST['deposito_excavacion']))
        $deposito = $_POST['deposito_excavacion'];
        if($deposito=="NINGUNO" || $deposito=="")
-          $deposito="NULL";
+          $deposito="DESCONOCIDO";
 
      if(isset($_POST['observaciones_ex']))
        $observacion = $_POST['observaciones_ex'];
        if($observacion=="")
-          $observacion="NULL";
+          $observacion="SIN OBSERVACIÓN";
+       else {
+         $observacion=Mayuscula_con_tilde($observacion);
+       }
 
 
      echo "

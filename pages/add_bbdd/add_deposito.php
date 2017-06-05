@@ -4,14 +4,22 @@
 
  header("Content-type: text/plain");
 
+ function Mayuscula_con_tilde($aux) {
+   $aux = strtr(strtoupper($aux),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
+   return $aux;
+ }
+
  if(isset($_SESSION['nombre'])) {
    $username = $_SESSION['nombre'];
 
      if(isset($_POST['deposito']))
        $deposito = $_POST['deposito'];
-
+       if($deposito!="")
+          $deposito=Mayuscula_con_tilde($deposito);
      if(isset($_POST['pais']))
        $pais = $_POST['pais'];
+       if($pais!="")
+          $pais=Mayuscula_con_tilde($pais);
 
      echo "
      Los datos introducidos son:
