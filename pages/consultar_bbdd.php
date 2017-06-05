@@ -1,7 +1,6 @@
 <?php
   session_start();
   $link = require("connect_bbdd.php");
-
   if(isset($_SESSION['nombre'])) {
     $username = $_SESSION['nombre'];
 
@@ -86,7 +85,7 @@
           <h2>Consultar datos</h2>
           <div class="row">
             <div class="col-lg-12">
-              <form class="" action="" method="post">
+              <!--<form class="" action="" method="post">-->
                 <div class="row">
                   <div id="consulta_seleccionada" name="consulta_seleccionada" class="col-lg-2 form-group">
                     <h5>CONSULTAR SOBRE:</h5>
@@ -96,6 +95,7 @@
                       <option type='text' value='ESPECIE' name='ESPECIE'>ESPECIE</option>
                       <option type='text' value='EXCAVACIONES' name='EXCAVACIONES'>EXCAVACIONES</option>
                       <option type='text' value='PUBLICACIONES' name='PUBLICACIONES'>PUBLICACIONES</option>
+                      <option type='text' value='DEPOSITO' name='DEPOSITO'>DEPÓSITO</option>
                     </select>
                     <input type="hidden" name="tipo_consulta" id="tipo_consulta">
                   </div>
@@ -119,6 +119,12 @@
                       <option type='text' value='LANZAROTE' name='LANZAROTE'>LANZAROTE</option>
                     </select>
                     <input type="hidden" name="isla_seleccionada" id="isla_seleccionada">
+                  </div>
+
+                  <div id="municipiosvacio" class="col-lg-2 form-group">
+                    <select name="MunicipiosVacio" id="MunicipiosVacio" class="form-control">
+                      <option disabled selected>MUNICIPIOS</option>
+                    </select>
                   </div>
                   <!-- MUNICIPIOS DE LA PALMA-->
                   <div style="display:none" id="municipioslapalma" class="col-lg-2 form-group">
@@ -310,14 +316,119 @@
                 </div>
                 <!--Fin de Publicaciones-->
 
-                <div class="row">
-                  <div class="col-lg-2 col-md-3 col-xs-12 col-sm-3">
-                    <button type="submit" class="btn btn-success">Consultar</button>
+                <!--Publicaciones-->
+                <div style="display:none" class="row" id="consulta_deposito">
+                  <div class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="deposito" name="deposito" placeholder="NOMBRE">
+                  </div>
+                  <div class="col-lg-2 form-group">
+                    <input type="text" class="form-control" id="pais" name="pais" placeholder="PAIS">
                   </div>
                 </div>
-              </form>
+                <!--Fin de Publicaciones-->
+
+                <div class="row">
+                  <div class="col-lg-1 col-md-3 col-xs-12 col-sm-3">
+                    <button type="submit" class="btn btn-success" onclick="consultas()">Consultar</button>
+                  </div>
+                  <div class="col-lg-1 col-md-3 col-xs-12 col-sm-3">
+                    <button type="submit" class="btn btn-danger" onclick="limpiar_cookie()">Limpiar</button>
+                  </div>
+                </div>
+              <!--</form>-->
             </div>
           </div>
+          <!-- AQUÍ EMPIEZAN LAS CONSULTAS-->
+
+          <?php
+            $link = require("connect_bbdd.php");
+
+            function Mayuscula_con_tilde($aux) {
+              $aux = strtr(strtoupper($aux),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
+              return $aux;
+            }
+
+
+            if(isset($_COOKIE['consulta'])){
+              $consulta=$_COOKIE['consulta'];
+              //echo "La consulta es de tipo: $consulta";
+            }
+
+
+            if($consulta==""){
+              setcookie("consulta", "", time() - 3600);
+              //echo " Cookie borrada";
+            }
+            else {
+
+
+
+              //CONSULTAS SOBRE DEPOSITO
+              if($consulta=="DEPOSITO"){
+                if(isset($_COOKIE['deposito'])){
+                  $deposito=$_COOKIE['deposito'];
+                  $deposito=Mayuscula_con_tilde($deposito);
+                }
+                if(isset($_COOKIE['pais'])){
+                  $pais=$_COOKIE['pais'];
+                  $pais= Mayuscula_con_tilde($pais);
+                }
+
+                //echo " El deposito es: $deposito";
+                //echo " El pais es: $pais";
+
+                if($deposito!="" && $pais!=""){
+                  $consulta="SELECT *
+                             FROM deposito
+                             WHERE deposito='".$deposito."' AND pais='".$pais."';";
+                  $deposito=pg_query($link,$consulta);
+                  if(pg_num_rows($deposito)>0){
+                    //echo "  Éxito de consulta";
+                    while($resultado=pg_fetch_assoc($deposito)){
+                      $deposit=$resultado['deposito'];
+                      $country=$resultado['pais'];
+                    }
+                    //echo"$deposit y $country";
+
+                    echo"
+                    <hr>
+                    <div class='row'>
+                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
+                        <h5><b>DEPÓSITO</b></h5>
+                      </div>
+                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
+                        <h5><b>PAÍS</b></h5>
+                      </div>
+                    </div>
+                    <div class='row'>
+                      <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
+                        <input type='text' class='form-control input_consulta' id='deposito_consultado' name='deposito_consultado' value='$deposit'>
+                      </div>
+                      <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
+                        <input type='text' class='form-control input_consulta' id='pais_consultado' name='pais_consultado' value='$pais'>
+                      </div>
+                      <div class='col-lg-1 col-md-2 col-xs-3 col-sm-3'>
+                        <button type='submit' class='btn btn-info' onclick='''>Modificar</button>
+                      </div>
+                      <div class='col-lg-1 col-md-1 col-xs-1 col-sm-1'>
+                        <button type='submit' class='btn btn-danger' onclick='''>Eliminar</button>
+                      </div>
+                    </div>
+                    ";
+                  }
+                  else{
+                    //echo " Fracaso de consulta";
+                  }
+                }
+
+              }//TERMINA LAS CONSULTAS DE DEPOSITO
+            }
+          ?>
+
+
+
+
+        <!--AQUÍ DEBEN DE TERMINAR LAS CONSULTAS-->
         </div>
       </div>
 
