@@ -197,12 +197,12 @@ function consultas(){
     if(deposito!=="")
       document.cookie='deposito='+deposito;
     else
-      document.cookie='deposito=""';
+      document.cookie='deposito=';
 
     if(pais!=="")
       document.cookie='pais='+pais;
     else
-      document.cookie='pais=""';
+      document.cookie='pais=';
 
     console.log('Deposito='+deposito+' Pais='+pais);
   }
@@ -220,6 +220,8 @@ function consultas(){
   window.location='../pages/consultar_bbdd.php';
 
 }
+
+
 
 function limpiar_cookie(){
   document.cookie='consulta=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
