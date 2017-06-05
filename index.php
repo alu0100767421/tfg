@@ -82,11 +82,11 @@
               <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Contraseña">
             </div>
             <div class="row botones-formulario">
-              <div class="col-lg-3 col-md-3 col-xs-12 col-sm-3">
+              <div class="col-lg-1 col-md-3 col-xs-12 col-sm-7">
                 <button type="submit" class="btn btn-success">Acceder</button><br>
               </div>
-              <div class=" col-lg-3 col-md-3 col-xs-12 col-sm-3">
-                <a class="btn btn-info" href="pages/mapa.php" role="button">Acceso libre al mapa</a>
+              <div class="col-lg-offset-8 col-lg-1 col-md-offset-4 col-md-3 col-xs-offset-0  col-xs-3 col-sm-3">
+                <a class="btn btn-info" href="pages/mapa.php" role="button">Mapa</a>
               </div>
             </div>
           </form>

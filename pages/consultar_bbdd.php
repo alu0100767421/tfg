@@ -53,8 +53,8 @@
       <div class="row">
         <div class="col-lg-2 col-md-4 col-xs-8 col-sm-6 ">
           <ul class="list-unstyled panel">
-            <li class="destacar"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a href="administracion.php">Inicio</a></li>
-            <li id="consultar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="consultar_bbdd.php">Consultar BBDD</a></li>
+            <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a href="administracion.php">Inicio</a></li>
+            <li id="consultar"  class="destacar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="consultar_bbdd.php">Consultar BBDD</a></li>
             <li id="add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a href="add_bbdd.php">Añadir BBDD</a>
               <ul style="display:none" class="list-unstyled" id="submenu">
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="anadir/yacimiento.php">Yacimiento</a></li>

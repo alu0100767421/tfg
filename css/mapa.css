@@ -30,9 +30,12 @@ path:hover, path.highlighted {
 }
 
 
-#imagen-menu{
-  width: 30%;
+.imagen-menu{
+  width: 100%;
   height: auto;
+}
+.navbar-brand{
+  width: 40%;
 }
 
 .columna1 {

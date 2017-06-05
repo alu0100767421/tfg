@@ -30,7 +30,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="https://www.ull.es/"><img class="imagen-menu" alt="ULL" src="../images/logoULL/logotipo-principal-recortada.png"></a>
+        <a class="navbar-brand" href="https://www.ull.es/"><img class="imagen-menu" alt="ULL" title="Universidad de La Laguna" src="../images/logoULL/logotipo-principal-recortada.png"></a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
