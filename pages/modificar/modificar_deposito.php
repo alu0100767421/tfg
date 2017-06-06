@@ -12,8 +12,8 @@
  if(isset($_SESSION['nombre'])) {
    $username = $_SESSION['nombre'];
 
-     if(isset($_POST['numero']))
-       $numero = $_POST['numero'];
+  /*   if(isset($_POST['modificar']))
+       $numero = $_POST['numero'];*/
 
      if(isset($_POST['deposito_consultado']))
        $deposito = $_POST['deposito_consultado'];
@@ -29,6 +29,7 @@
        $pais = $_POST['pais_consultado'];
        if($pais!="")
           $pais=Mayuscula_con_tilde($pais);
+
      if(isset($_POST['country']))
        $pais_viejo = $_POST['country'];
        if($pais_viejo!="")
@@ -43,7 +44,7 @@
      Pais:$pais
      Deposito Viejo:$deposito_viejo
      Pais Viejo:$pais_viejo\n";
-/*
+
      if(isset($_POST['modificar'])){
        if($deposito!="" && $pais!=""){
 
@@ -71,7 +72,7 @@
        else{
          echo "no ha introducido ningun pais o deposito\n";
        }
-     }*/
+     }
 
      //header("Location: ../consultar_bbdd.php");
 
