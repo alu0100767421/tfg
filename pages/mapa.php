@@ -35,7 +35,7 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="../index.php">Inicio</a></li>
+          <li><a href="administracion.php">Inicio</a></li>
           <li><a href="mapa.php">Mapa</a></li>
         </ul>
       </div>
