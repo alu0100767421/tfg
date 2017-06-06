@@ -15,7 +15,7 @@
   }
   pg_free_result($users);
   if($repetido == FALSE && $usuario != 'admin'){
-    $consulta = "INSERT INTO usuarios (nombre, password) VALUES ('". $usuario ."', '". $pass_encrypt ."');";
+    $consulta = "INSERT INTO usuarios (nombre, pass) VALUES ('". $usuario ."', '". $pass_encrypt ."');";
     $insertar = pg_query($link, $consulta);
     header("Location: ../gestion_usuarios.php");
 

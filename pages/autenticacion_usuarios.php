@@ -6,7 +6,7 @@
   $pass_encrypt = crypt($_POST['password'],'$6$rounds=5000$paddingseguridad$');
   //echo "$pass_encrypt";
   $consulta = "SELECT * FROM usuarios
-               WHERE nombre='". $username ."' AND password='". $pass_encrypt ."';";
+               WHERE nombre='". $username ."' AND pass='". $pass_encrypt ."';";
   $query_autentification = pg_query($link, $consulta) or die(pg_last_error());
   $row_cnt = pg_num_rows($query_autentification);
 
