@@ -401,20 +401,24 @@
                         <h5><b>PAÍS</b></h5>
                       </div>
                     </div>
-                    <div class='row'>
-                      <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                        <input type='text' class='form-control input_consulta' id='deposito_consultado' name='deposito_consultado' value='$deposit'>
+                    <form class='' action='modificar/modificar_deposito.php' method='post'>
+                      <div class='row'>
+                        <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
+                          <input type='text' class='form-control input_consulta' id='deposito_consultado' name='deposito_consultado' value='$deposit'>
+                          <input type='hidden' id='' name='deposit' value='$deposit'>
+                        </div>
+                        <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
+                          <input type='text' class='form-control input_consulta' id='pais_consultado' name='pais_consultado' value='$country'>
+                          <input type='hidden' id='' name='country' value='$country'>
+                        </div>
+                        <div class='col-lg-1 col-md-2 col-xs-3 col-sm-3'>
+                          <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
+                        </div>
+                        <div class='col-lg-1 col-md-1 col-xs-1 col-sm-1'>
+                          <button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>
+                        </div>
                       </div>
-                      <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                        <input type='text' class='form-control input_consulta' id='pais_consultado' name='pais_consultado' value='$country'>
-                      </div>
-                      <div class='col-lg-1 col-md-2 col-xs-3 col-sm-3'>
-                        <button type='submit' class='btn btn-info' onclick='''>Modificar</button>
-                      </div>
-                      <div class='col-lg-1 col-md-1 col-xs-1 col-sm-1'>
-                        <button type='submit' class='btn btn-danger' onclick='''>Eliminar</button>
-                      </div>
-                     </div>
+                    </form>
                     ";
                     }
                   else{
@@ -448,27 +452,40 @@
                         </div>
                       </div>
                     ";
+                    $aux=0;
                     while($resultado=pg_fetch_assoc($deposito)){
                       $deposit=$resultado['deposito'];
                       $country=$resultado['pais'];
+
+                      //echo "$aux";
+                      $deposit_aux="deposit" . $aux;
+                      $country_aux="country" .$aux;
+                      $aux++;
                       echo"
-                        <div class='row'>
-                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' class='form-control input_consulta' id='deposito_consultado' name='deposito_consultado' value='$deposit'>
+                        <form class='' action='modificar/modificar_deposito.php' method='post'>
+                          <div class='row'>
+                            <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
+                              <input type='text' class='form-control input_consulta' id='deposito_consultado' name='deposito_consultado' value='$deposit'>
+                              <input type='hidden' id='' name='$deposit_aux' value='$deposit'>
+                            </div>
+                            <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
+                              <input type='text' class='form-control input_consulta' id='pais_consultado' name='pais_consultado' value='$country'>
+                              <input type='hidden' id='' name='$country_aux' value='$country'>
+                            </div>
+                            <div class='col-lg-1 col-md-2 col-xs-3 col-sm-3'>
+                              <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
+                            </div>
+                            <div class='col-lg-1 col-md-1 col-xs-1 col-sm-1'>
+                              <button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>
+                            </div>
                           </div>
-                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' class='form-control input_consulta' id='pais_consultado' name='pais_consultado' value='$country'>
-                          </div>
-                          <div class='col-lg-1 col-md-2 col-xs-3 col-sm-3'>
-                            <button type='submit' class='btn btn-info' onclick='''>Modificar</button>
-                          </div>
-                          <div class='col-lg-1 col-md-1 col-xs-1 col-sm-1'>
-                            <button type='submit' class='btn btn-danger' onclick='''>Eliminar</button>
-                          </div>
-                        </div>
+                        </form>
                       ";
                     }
                     //echo"$deposit y $country";
+                    echo"
+                    <input type='hidden' id='' name='numero' value='$aux'>
+                    ";
                   }
                   else{
                     echo "
@@ -481,7 +498,7 @@
                     ";
                   }
                 }
-
+                //fin de hacer la consulta de todos
 
                 //if pais es vacío
                 elseif($pais==""){
@@ -506,20 +523,24 @@
                         <h5><b>PAÍS</b></h5>
                       </div>
                     </div>
-                    <div class='row'>
-                      <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                        <input type='text' class='form-control input_consulta' id='deposito_consultado' name='deposito_consultado' value='$deposit'>
+                    <form class='' action='modificar/modificar_deposito.php' method='post'>
+                      <div class='row'>
+                        <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
+                          <input type='text' class='form-control input_consulta' id='deposito_consultado' name='deposito_consultado' value='$deposit'>
+                          <input type='hidden' id='' name='deposit' value='$deposit'>
+                        </div>
+                        <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
+                          <input type='text' class='form-control input_consulta' id='pais_consultado' name='pais_consultado' value='$country'>
+                          <input type='hidden' id='' name='country' value='$country'>
+                        </div>
+                        <div class='col-lg-1 col-md-2 col-xs-3 col-sm-3'>
+                          <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
+                        </div>
+                        <div class='col-lg-1 col-md-1 col-xs-1 col-sm-1'>
+                          <button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>
+                        </div>
                       </div>
-                      <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                        <input type='text' class='form-control input_consulta' id='pais_consultado' name='pais_consultado' value='$country'>
-                      </div>
-                      <div class='col-lg-1 col-md-2 col-xs-3 col-sm-3'>
-                        <button type='submit' class='btn btn-info' onclick='''>Modificar</button>
-                      </div>
-                      <div class='col-lg-1 col-md-1 col-xs-1 col-sm-1'>
-                        <button type='submit' class='btn btn-danger' onclick='''>Eliminar</button>
-                      </div>
-                    </div>
+                    </form>
                     ";
                   }
                   else{
@@ -556,20 +577,24 @@
                       $deposit=$resultado['deposito'];
                       $country=$resultado['pais'];
                       echo"
+                      <form class='' action='modificar/modificar_deposito.php' method='post'>
                         <div class='row'>
                           <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                             <input type='text' class='form-control input_consulta' id='deposito_consultado' name='deposito_consultado' value='$deposit'>
+                            <input type='hidden' id='' name='deposit' value='$deposit'>
                           </div>
                           <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                             <input type='text' class='form-control input_consulta' id='pais_consultado' name='pais_consultado' value='$country'>
+                            <input type='hidden' id='' name='country' value='$country'>
                           </div>
                           <div class='col-lg-1 col-md-2 col-xs-3 col-sm-3'>
-                            <button type='submit' class='btn btn-info' onclick='''>Modificar</button>
+                            <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
                           </div>
                           <div class='col-lg-1 col-md-1 col-xs-1 col-sm-1'>
-                            <button type='submit' class='btn btn-danger' onclick='''>Eliminar</button>
+                            <button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>
                           </div>
-                        </div>
+                      </div>
+                      </form>
                       ";
                     }
                     //echo"$deposit y $country";
