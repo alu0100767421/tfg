@@ -1,252 +1,110 @@
-//CONSULTAS SOBRE DEPOSITO
-if($consulta=="DEPOSITO"){
+<?php
+ session_start();
+ $link = require("../connect_bbdd.php");
 
-  if(isset($_COOKIE['deposito'])){
-    $deposito=$_COOKIE['deposito'];
-    $deposito=Mayuscula_con_tilde($deposito);
-  }
-  if(isset($_COOKIE['pais'])){
-    $pais=$_COOKIE['pais'];
-    $pais= Mayuscula_con_tilde($pais);
-  }
+ header("Content-type: text/plain");
 
-  //echo " El deposito es: $deposito";
-  //echo " El pais es: $pais";
+ function Mayuscula_con_tilde($aux) {
+   $aux = strtr(strtoupper($aux),"àèìòùáéíóúçñäëïöü","ÀÈÌÒÙÁÉÍÓÚÇÑÄËÏÖÜ");
+   return $aux;
+ }
 
-  //si ha introducio pais y deposito
-  if($deposito!="" && $pais!=""){
+  if(isset($_SESSION['nombre'])) {
+    $username = $_SESSION['nombre'];
 
-    $consulta="SELECT *
-               FROM deposito
-               WHERE deposito='".$deposito."' AND pais='".$pais."';";
-    $deposito=pg_query($link,$consulta);
-    if(pg_num_rows($deposito)>0){
-      //echo "  Éxito de consulta";
-      while($resultado=pg_fetch_assoc($deposito)){
-        $deposit=$resultado['deposito'];
-        $country=$resultado['pais'];
-      }
-      //echo"$deposit y $country";
-      echo"
-      <hr>
-      <div class='row'>
-        <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-          <h5><b>DEPÓSITO</b></h5>
-        </div>
-        <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-          <h5><b>PAÍS</b></h5>
-        </div>
-      </div>
-      <form class='' action='modificar/modificar_deposito.php' method='post'>
-        <div class='row'>
-          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-            <input type='text' class='form-control input_consulta' id='deposito_consultado' name='deposito_consultado' value='$deposit'>
-            <input type='hidden' id='' name='deposit' value='$deposit'>
-          </div>
-          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-            <input type='text' class='form-control input_consulta' id='pais_consultado' name='pais_consultado' value='$country'>
-            <input type='hidden' id='' name='country' value='$country'>
-          </div>
-          <div class='col-lg-1 col-md-2 col-xs-3 col-sm-3'>
-            <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
-          </div>
-          <div class='col-lg-1 col-md-1 col-xs-1 col-sm-1'>
-            <button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>
-          </div>
-        </div>
-      </form>
-      ";
-      }
-    else{
-      echo "
-      <hr>
-      <div class='row'>
-        <div class='col-lg-10 col-md-4 col-sm-4 col-xs-4 form-group'>
-          <h5><b>No se ha encontrado datos en esta consulta</b></h5>
-        </div>
-      </div>
-      ";
+
+    if(isset($_POST['titulo_consultado']))
+     $titulo = $_POST['titulo_consultado'];
+     if($titulo!="")
+        $titulo=Mayuscula_con_tilde($titulo);
+     else
+        $titulo="DESCONOCIDO";
+
+    if(isset($_POST['id_publicacion']))
+      $id_publicacion = $_POST['id_publicacion'];
+
+    if(isset($_POST['autor_consultado']))
+     $autor = $_POST['autor_consultado'];
+     if($autor!="")
+        $autor=Mayuscula_con_tilde($autor);
+     else
+        $autor="DESCONOCIDO";
+
+    if(isset($_POST['yacimiento_publi_consultado']))
+     $yacimiento = $_POST['yacimiento_publi_consultado'];
+     if($yacimiento!="")
+        $yacimiento=Mayuscula_con_tilde($yacimiento);
+     else
+        $yacimiento="DESCONOCIDO";
+
+    if(isset($_POST['fecha_publi_consultado']))
+     $fecha = $_POST['fecha_publi_consultado'];
+
+
+    if(isset($_POST['title_viejo']))
+    $titulo_viejo = $_POST['title_viejo'];
+    if($titulo_viejo!="")
+       $titulo_viejo=Mayuscula_con_tilde($titulo_viejo);
+
+    if(isset($_POST['autor_viejo']))
+    $autor_viejo= $_POST['autor_viejo'];
+    if($autor_viejo!="")
+       $autor_viejo=Mayuscula_con_tilde($autor_viejo);
+
+    if(isset($_POST['yaci_publi_consultado_viejo']))
+    $yacimiento_viejo = $_POST['yaci_publi_consultado_viejo'];
+    if($yacimiento_viejo!="")
+       $yacimiento_viejo=Mayuscula_con_tilde($yacimiento_viejo);
+
+    if(isset($_POST['fecha_publi_consultado_viejo']))
+    $fecha_viejo = $_POST['fecha_publi_consultado_viejo'];
+
+
+
+    echo "
+    Los datos introducidos son:
+    Id: $id_publicacion
+    Titulo: $titulo
+    Autor:$autor
+    Yacimiento:$yacimiento
+    Fecha viejo:$fecha
+    Titulo viejo: $titulo_viejo
+    Autor viejo:$autor_viejo
+    Yacimiento viejo:$yacimiento_viejo
+    Fecha viejo:$fecha_viejo
+    \n";
+
+    if(isset($_POST['modificar'])){
+
+
+       $consulta_modificacion="UPDATE publicacion
+                               SET titulo='".$titulo."', autor='".$autor."', fecha='".$fecha."'
+                               WHERE idpublicaciones='".$id_publicacion."';";
+       pg_query($link,$consulta_modificacion);
+       echo pg_last_error();
+
     }
-  }
-  //fin si ha introducio pais y deposito
 
-  //if pais y deposito están vacios se hace una consulta de todos
-  elseif ($deposito=="" && $pais=="") {
-    $consulta="SELECT *
-               FROM deposito;";
-    $deposito=pg_query($link,$consulta);
-    if(pg_num_rows($deposito)>0){
-      //echo "  Éxito de consulta";
-      echo "
-        <hr>
-        <div class='row'>
-          <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-            <h5><b>DEPÓSITO</b></h5>
-          </div>
-          <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-            <h5><b>PAÍS</b></h5>
-          </div>
-        </div>
-      ";
-      $aux=0;
+    elseif(isset($_POST['eliminar'])){
+       $consulta_eliminar_publicacion="DELETE FROM yacimiento_has_publicacion
+                                            WHERE idpublicaciones='".$id_publicacion."';";
+       pg_query($link,$consulta_eliminar_publicacion);
 
-      while($resultado=pg_fetch_assoc($deposito)){
-        $deposit=$resultado['deposito'];
-        $country=$resultado['pais'];
+       $consulta_eliminar_publicacion="DELETE FROM publicacion
+                                            WHERE idpublicaciones='".$id_publicacion."';";
+       pg_query($link,$consulta_eliminar_publicacion);
+       echo pg_last_error();
 
-        //echo "$aux";
-        /*$deposit_aux="deposit" . $aux;
-        $country_aux="country" .$aux;
-        $modificar="modificar" .$aux;
-        $eliminar="eliminar" .$aux;*/
-        $aux++;
-        echo"
-         <form class='' action='modificar/modificar_deposito.php' method='post'>
-            <div class='row'>
-              <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                <input type='text' class='form-control input_consulta' id='deposito_consultado' name='deposito_consultado' value='$deposit'>
-                <input type='hidden' id='' name='deposit' value='$deposit'>
-              </div>
-              <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                <input type='text' class='form-control input_consulta' id='pais_consultado' name='pais_consultado' value='$country'>
-                <input type='hidden' id='' name='country' value='$country'>
-              </div>
-              <div class='col-lg-1 col-md-2 col-xs-3 col-sm-3'>
-                <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
-              </div>
-              <div class='col-lg-1 col-md-1 col-xs-1 col-sm-1'>
-                <button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>
-              </div>
-            </div>
-          </form>
-        ";
-      }
-      //echo"$deposit y $country";
-    }
-    else{
-      echo "
-      <hr>
-      <div class='row'>
-        <div class='col-lg-10 col-md-4 col-sm-4 col-xs-4 form-group'>
-          <h5><b>No se ha encontrado datos en esta consulta</b></h5>
-        </div>
-      </div>
-      ";
-    }
-  }
-  //fin de hacer la consulta de todos
-
-  //if pais es vacío
-  elseif($pais==""){
-    $consulta="SELECT *
-               FROM deposito
-               WHERE deposito='".$deposito."';";
-    $deposito=pg_query($link,$consulta);
-    if(pg_num_rows($deposito)>0){
-      //echo "  Éxito de consulta";
-      while($resultado=pg_fetch_assoc($deposito)){
-        $deposit=$resultado['deposito'];
-        $country=$resultado['pais'];
-      }
-      //echo"$deposit y $country";
-      echo"
-      <hr>
-      <div class='row'>
-        <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-          <h5><b>DEPÓSITO</b></h5>
-        </div>
-        <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-          <h5><b>PAÍS</b></h5>
-        </div>
-      </div>
-      <form class='' action='modificar/modificar_deposito.php' method='post'>
-        <div class='row'>
-          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-            <input type='text' class='form-control input_consulta' id='deposito_consultado' name='deposito_consultado' value='$deposit'>
-            <input type='hidden' id='' name='deposit' value='$deposit'>
-          </div>
-          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-            <input type='text' class='form-control input_consulta' id='pais_consultado' name='pais_consultado' value='$country'>
-            <input type='hidden' id='' name='country' value='$country'>
-          </div>
-          <div class='col-lg-1 col-md-2 col-xs-3 col-sm-3'>
-            <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
-          </div>
-          <div class='col-lg-1 col-md-1 col-xs-1 col-sm-1'>
-            <button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>
-          </div>
-        </div>
-      </form>
-      ";
-    }
-    else{
-      echo "
-      <hr>
-      <div class='row'>
-        <div class='col-lg-10 col-md-4 col-sm-4 col-xs-4 form-group'>
-          <h5><b>No se ha encontrado datos en esta consulta</b></h5>
-        </div>
-      </div>
-      ";
-    }
-  }
-  //fin de si pais es vacio
-  elseif ($deposito=="") {
-    $consulta="SELECT *
-               FROM deposito
-               WHERE pais='".$pais."';";
-    $deposito=pg_query($link,$consulta);
-    if(pg_num_rows($deposito)>0){
-      //echo "  Éxito de consulta";
-      echo "
-        <hr>
-        <div class='row'>
-          <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-            <h5><b>DEPÓSITO</b></h5>
-          </div>
-          <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-            <h5><b>PAÍS</b></h5>
-          </div>
-        </div>
-      ";
-      while($resultado=pg_fetch_assoc($deposito)){
-        $deposit=$resultado['deposito'];
-        $country=$resultado['pais'];
-        echo"
-        <form class='' action='modificar/modificar_deposito.php' method='post'>
-          <div class='row'>
-            <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-              <input type='text' class='form-control input_consulta' id='deposito_consultado' name='deposito_consultado' value='$deposit'>
-              <input type='hidden' id='' name='deposit' value='$deposit'>
-            </div>
-            <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-              <input type='text' class='form-control input_consulta' id='pais_consultado' name='pais_consultado' value='$country'>
-              <input type='hidden' id='' name='country' value='$country'>
-            </div>
-            <div class='col-lg-1 col-md-2 col-xs-3 col-sm-3'>
-              <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
-            </div>
-            <div class='col-lg-1 col-md-1 col-xs-1 col-sm-1'>
-              <button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>
-            </div>
-        </div>
-        </form>
-        ";
-      }
-      //echo"$deposit y $country";
-    }
-    else{
-      echo "
-      <hr>
-      <div class='row'>
-        <div class='col-lg-10 col-md-4 col-sm-4 col-xs-4 form-group'>
-          <h5><b>No se ha encontrado datos en esta consulta</b></h5>
-        </div>
-      </div>
-      ";
-    }
-  }
-  //if no se elige un deposito
+     }
+     else{
+       echo "Sin cambios\n";
+     }
 
 
-}//TERMINA LAS CONSULTAS DE DEPOSITO
+     header("Location: ../consultar_bbdd.php");
+
+ }
+ else {
+   header("Location: ../../index.php");
+ }
+?>

@@ -72,7 +72,7 @@ function Mayuscula_con_tilde($aux) {
        $id_yacimiento=$valor_id_y['idyacimiento'];
        echo "id del yacimiento: $id_yacimiento\n";
 
-       $consulta_insertar_excavacion="INSERT INTO excavacion(yacimiento_idyacimiento,fecha_inicial,fecha_final,responsable,financiacion,deposito,observacion_excavacion)
+       $consulta_insertar_excavacion="INSERT INTO excavacion(idyacimiento,fecha_inicial,fecha_final,responsable,financiacion,deposito,observacion_excavacion)
                                       VALUES('".$id_yacimiento."','".$fecha_inicio."','".$fecha_final."','".$responsable."','".$financiacion."','".$deposito."','".$observacion."');";
        pg_query($link,$consulta_insertar_excavacion);
        echo pg_last_error();

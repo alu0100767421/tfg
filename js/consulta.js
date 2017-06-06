@@ -190,7 +190,45 @@ function consultas(){
   //en todos los casos, se asigna a la cookie 'consulta' el tipo de consulta elegido
   //luego creacremos nuevas cookies con las opciones elegidas en casa caso para hacer las consultas
 
-  if(consulta=="PUBLICACIONES"){
+  if(consulta=="EXCAVACIONES"){
+    document.cookie='consulta='+consulta;
+    document.cookie='seleccion='+consulta;
+
+    var responsable= document.getElementById('responsable').value;
+    var financiacion=document.getElementById('financiacion').value;
+    var yacimiento_excavacion= document.getElementById('yacimiento_excavacion').value;
+    var fecha_inicio_ex= document.getElementById('fecha_inicio_ex').value;
+    var fecha_final_ex= document.getElementById('fecha_final_ex').value;
+
+    if(responsable!=="")
+      document.cookie='responsable='+responsable;
+    else
+      document.cookie='responsable=';
+
+    if(financiacion!=="")
+      document.cookie='financiacion='+financiacion;
+    else
+      document.cookie='financiacion=';
+
+    if(yacimiento_excavacion!=="")
+      document.cookie='yacimiento_excavacion='+yacimiento_excavacion;
+    else
+      document.cookie='yacimiento_excavacion=';
+
+    if(fecha_inicio_ex!=="")
+      document.cookie='fecha_inicio_ex='+fecha_inicio_ex;
+    else
+      document.cookie='fecha_inicio_ex=';
+
+    if(fecha_final_ex!=="")
+      document.cookie='fecha_final_ex='+fecha_final_ex;
+    else
+      document.cookie='fecha_final_ex=';
+
+    console.log('responsable='+responsable+' financiacion='+financiacion+' yacimiento='+yacimiento_excavacion+' fecha inicio='+fecha_inicio_ex+' fecha fin='+fecha_final_ex);
+  }
+
+  else if(consulta=="PUBLICACIONES"){
     document.cookie='consulta='+consulta;
     document.cookie='seleccion='+consulta;
 
@@ -263,6 +301,13 @@ function limpiar_cookie(){
   document.cookie='seleccion=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
 
 
+  //cookies de excavaciones
+  document.cookie='responsable=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+  document.cookie='financiacion=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+  document.cookie='yacimiento_excavacion=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+  document.cookie='fecha_inicio_ex=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+  document.cookie='fecha_final_ex=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+
   //cookies de PUBLICACIONES
   document.cookie='titulo=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
   document.cookie='autor=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
@@ -278,8 +323,11 @@ function limpiar_cookie(){
 }
 
 
-
 function publicacion(val){
   document.getElementById('yacimiento_publicacion').value=val;
+
+}
+function excavacion(val){
+  document.getElementById('yacimiento_excavacion').value=val;
 
 }

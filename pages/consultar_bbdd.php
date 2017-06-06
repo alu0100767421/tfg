@@ -17,6 +17,7 @@
     <link rel="icon" type="/image/png" href="../images/logoULL/logotipo-secundario-ULL.png" />
     <link type="text/css" rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="../css/administracion.css"/>
+    <link type="text/css" rel="stylesheet" href="../bootstrap-3.3.7-dist/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
 
   </head>
   <body>
@@ -85,7 +86,7 @@
           <h2>Consultar datos</h2>
           <div class="row">
             <div class="col-lg-12">
-              <form class="" action="" method="post">
+              <!-- <form class="" action="" method="post"> -->
                 <div class="row">
                   <div id="consulta_seleccionada" name="consulta_seleccionada" class="col-lg-2 form-group">
                     <h5>CONSULTAR SOBRE:</h5>
@@ -291,8 +292,24 @@
                     <input type="text" class="form-control" id="financiacion" name="financiacion" placeholder="FINANCIACION">
                   </div>
                   <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="yacimiento_ex" name="yacimiento_ex" placeholder="YACIMIENTO">
+                    <select name="Yacimientos_Excavacion" id="Yacimientos_Excavacion" class="form-control" onchange="excavacion(this.value)">
+                      <option disabled selected>YACIMIENTOS</option>
+                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
+                      <?php
+                        $consulta_yacimiento="SELECT yacimiento
+                                              FROM yacimiento
+                                              ORDER BY yacimiento ASC;";
+                        $resultado=pg_query($link,$consulta_yacimiento);
+                        echo pg_last_error();
+                        while($resultado2 = pg_fetch_assoc($resultado)){
+                          $aux = $resultado2['yacimiento'];
+                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
+                        }
+
+                      ?>
+                     </select>
                   </div>
+                  <input type="hidden" name="yacimiento_excavacion" id="yacimiento_excavacion">
                   <div class="col-lg-2 form-group" id="data-container">
                     <input id="fecha_inicio_ex" type="text" class="form-control" name="fecha_inicio_ex" placeholder="FECHA INICIAL">
                   </div>
@@ -357,7 +374,7 @@
                     <button type="submit" class="btn btn-danger" onclick="limpiar_cookie()">Limpiar</button>
                   </div>
                 </div>
-              </form>
+              <!--</form>-->
             </div>
           </div>
           <!-- AQUÍ EMPIEZAN LAS CONSULTAS-->
@@ -384,7 +401,184 @@
             }
             else {
 
+              /////////////////////////////////////////////////////////////////////
+              /////////////////////////////////////////////////////////////////////
+              /////////////////////////////////////////////////////////////////////
+              /////////////////////////////////////////////////////////////////////
+              //CONSULTAS SOBRE EXCAVACIONES
+              if($consulta=="EXCAVACIONES"){
 
+                if(isset($_COOKIE['responsable'])){
+                  $responsable=$_COOKIE['responsable'];
+                  $responsable=Mayuscula_con_tilde($responsable);
+                }
+                if(isset($_COOKIE['financiacion'])){
+                  $financiacion=$_COOKIE['financiacion'];
+                  $financiacion= Mayuscula_con_tilde($financiacion);
+                }
+                if(isset($_COOKIE['yacimiento_excavacion'])){
+                  $yacimiento_excavacion=$_COOKIE['yacimiento_excavacion'];
+                  $yacimiento_excavacion= Mayuscula_con_tilde($yacimiento_excavacion);
+                }
+                if(isset($_COOKIE['fecha_inicio_ex'])){
+                  $fecha_ex_ini=$_COOKIE['fecha_inicio_ex'];
+                  $fecha_ex_ini= Mayuscula_con_tilde($fecha_ex_ini);
+                }
+                if(isset($_COOKIE['fecha_final_ex'])){
+                  $fecha_ex_fin=$_COOKIE['fecha_final_ex'];
+                  $fecha_ex_fin= Mayuscula_con_tilde($fecha_ex_fin);
+                }
+                echo " El responsable es: $responsable";
+                echo " El financiacion es: $financiacion";
+                echo " El yacimiento es: $yacimiento_excavacion";
+                echo " La fecha de inicio es: $fecha_ex_ini";
+                echo " La fecha de fin es: $fecha_ex_fin";
+
+                if($responsable=="" && $financiacion=="" && ($yacimiento_excavacion=="" || $yacimiento_excavacion=="NINGUNO") && $fecha_ex_ini=="" && $fecha_ex_fin=="") {
+
+                  $consulta="SELECT responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
+                             FROM excavacion NATURAL JOIN yacimiento;";
+                }
+                elseif($responsable!="" && $financiacion==""){
+                  $consulta="SELECT responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
+                             FROM excavacion NATURAL JOIN yacimiento
+                             WHERE responsable='".$responsable."';";
+
+                }
+                elseif ($financiacion!="" && $responsable=="") {
+                  $consulta="SELECT responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
+                             FROM excavacion NATURAL JOIN yacimiento
+                             WHERE financiacion='".$financiacion."';";
+                }
+                elseif ($financiacion!="" && $responsable!="") {
+                  $consulta="SELECT responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
+                             FROM excavacion NATURAL JOIN yacimiento
+                             WHERE financiacion='".$financiacion."' AND responsable='".$responsable."';";
+                }
+                elseif($fecha_ex_ini!="") {
+
+                  if($fecha_ex_fin!=""){
+                    $consulta="SELECT responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
+                               FROM excavacion NATURAL JOIN yacimiento
+                               WHERE fecha_inicial BETWEEN '".$fecha_ex_ini."' AND '".$fecha_ex_fin."';";
+                  }
+                  else {
+                    $consulta="SELECT responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
+                               FROM excavacion NATURAL JOIN yacimiento
+                               WHERE fecha_inicial='".$fecha_ex_ini."';";
+                  }
+
+                }
+                elseif($yacimiento_excavacion!="" || $yacimiento_excavacion!="NINGUNO") {
+                  $consulta="SELECT responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
+                             FROM excavacion NATURAL JOIN yacimiento
+                             WHERE yacimiento='".$yacimiento_excavacion."';";
+                }
+
+
+
+                $resolucion=pg_query($link,$consulta);
+                if(pg_num_rows($resolucion)>0){
+                  //echo "  Éxito de consulta";
+                  echo "
+                  <hr>
+                  <div class='row'>
+                    <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>RESPONSABLE</b></h5>
+                    </div>
+                    <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>FINANCIACION</b></h5>
+                    </div>
+                    <div class='col-lg-1 col-md-10 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>YACIMIENTO</b></h5>
+                    </div>
+                    <div class='col-lg-1 col-md-10 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>FECHA INICIO</b></h5>
+                    </div>
+                    <div class='col-lg-1 col-md-10 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>FECHA FIN</b></h5>
+                    </div>
+                    <div class='col-lg-1 col-md-10 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>DEPOSITO</b></h5>
+                    </div>
+                    <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>OBSERVACION</b></h5>
+                    </div>
+                  </div>
+                  ";
+                  $aux=0;
+
+                  while($resultado=pg_fetch_assoc($resolucion)){
+                    $responsable=$resultado['responsable'];
+                    $financiacion=$resultado['financiacion'];
+                    $yacimiento=$resultado['yacimiento'];
+                    $fecha_inicial=$resultado['fecha_inicial'];
+                    $fecha_final=$resultado['fecha_final'];
+                    $deposito=$resultado['deposito'];
+                    $observacion_excavacion=$resultado['observacion_excavacion'];
+
+                    //echo "$aux";
+                    /*$deposit_aux="deposit" . $aux;
+                    $country_aux="country" .$aux;
+                    $modificar="modificar" .$aux;
+                    $eliminar="eliminar" .$aux;*/
+                    $aux++;
+                    echo"
+                    <form class='' action='modificar/modificar_excavacion.php' method='post'>
+                      <div class='row'>
+
+                        <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
+                          <input type='text' class='form-control input_consulta' id='responsable_consultado' name='responsable_consultado' value='$responsable'>
+                          <input type='hidden' id='' name='responsable_viejo' value='$responsable'>
+                        </div>
+                        <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
+                          <input type='text' class='form-control input_consulta' id='financiacion_consultado' name='financiacion_consultado' value='$financiacion'>
+                          <input type='hidden' id='' name='financiacion_viejo' value='$financiacion'>
+                        </div>
+                        <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
+                          <input type='text' class='form-control input_consulta' id='yacimiento_ex_consultado' name='yacimiento_ex_consultado' value='$yacimiento'>
+                          <input type='hidden' id='' name='yaci_ex_viejo' value='$yacimiento'>
+                        </div>
+                        <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group' id='data-container'>
+                          <input type='text' class='form-control input_consulta' id='fecha_ex_consultado' name='fecha_ex_consultado' value='$fecha_inicial'>
+                          <input type='hidden' id='' name='fecha_ex_viejo' value='$fecha_inicial'>
+                        </div>
+                        <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group' id='data-container'>
+                          <input type='text' class='form-control input_consulta' id='fecha_ex_fin_consultado' name='fecha_ex_fin_consultado' value='$fecha_final'>
+                          <input type='hidden' id='' name='fecha_ex_fin_viejo' value='$fecha_final'>
+                        </div>
+                        <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
+                          <input type='text' class='form-control input_consulta' id='deposito_consultado' name='deposito_consultado' value='$deposito'>
+                          <input type='hidden' id='' name='deposito_viejo' value='$deposito'>
+                        </div>
+                        <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
+                          <input type='text' class='form-control input_consulta' id='observacion_excavacion' name='observacion_excavacion_consultado' value='$observacion_excavacion'>
+                          <input type='hidden' id='' name='observacion_excavacion_viejo' value='$observacion_excavacion'>
+                        </div>
+                        <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
+                          <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
+                        </div>
+                        <div class='col-lg-1 col-md-10 col-xs-1 col-sm-1'>
+                          <button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>
+                        </div>
+                      </div>
+                    </form>
+                    ";
+                  }
+                  //echo"$deposit y $country";
+                }
+                else{
+                  echo "
+                  <hr>
+                  <div class='row'>
+                    <div class='col-lg-10 col-md-4 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>No se ha encontrado datos en esta consulta</b></h5>
+                    </div>
+                  </div>
+                  ";
+                }
+
+              }//FIN CONSULTAS DE EXCAVACIONES
 
 /////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////
@@ -422,7 +616,7 @@
 
                 //si se elige un titulo
                 if($titulo!=""){
-                  $consulta="SELECT yacimiento,titulo,fecha,autor
+                  $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor
                              FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
                              WHERE titulo='".$titulo."';";
                 }
@@ -430,12 +624,12 @@
                 //si mete un autor
                 elseif ($autor!="") {
                   if($yacimiento_publicacion=="" || $yacimiento_publicacion=="NINGUNO"){
-                    $consulta="SELECT yacimiento,titulo,fecha,autor
+                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor
                                FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
                                WHERE autor='".$autor."';";
                   }
                   else{
-                    $consulta="SELECT yacimiento,titulo,fecha,autor
+                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor
                                FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
                                WHERE autor='".$autor."' AND yacimiento='".$yacimiento_publicacion."';";
                   }
@@ -444,7 +638,7 @@
                 //si mete un yacimiento
                 elseif ($yacimiento_publicacion!="") {
 
-                  $consulta="SELECT yacimiento,titulo,fecha,autor
+                  $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor
                              FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
                              WHERE yacimiento='".$yacimiento_publicacion."';";
                 }
@@ -453,12 +647,12 @@
                 //si mete un fecha
                 elseif ($fecha_publi_ini!="") {
                   if($fecha_publi_fin==""){
-                    $consulta="SELECT yacimiento,titulo,fecha,autor
+                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor
                                FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
                                WHERE fecha='".$fecha_publi_ini."';";
                   }
                   else{
-                    $consulta="SELECT yacimiento,titulo,fecha,autor
+                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor
                                FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
                                WHERE fecha BETWEEN '".$fecha_publi_ini."' AND '".$fecha_publi_fin."';";
                   }
@@ -489,6 +683,7 @@
                   $aux=0;
 
                   while($resultado=pg_fetch_assoc($resolucion)){
+                    $id_publicacion=$resultado['idpublicaciones'];
                     $yacimiento=$resultado['yacimiento'];
                     $title=$resultado['titulo'];
                     $autor=$resultado['autor'];
@@ -503,21 +698,22 @@
                     echo"
                     <form class='' action='modificar/modificar_publicacion.php' method='post'>
                       <div class='row'>
+                        <input type='hidden' id='' name='id_publicacion' value='$id_publicacion'>
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='titulo_consultado' name='titulo_consultado' value='$title'>
-                          <input type='hidden' id='' name='title' value='$title'>
+                          <input type='hidden' id='' name='title_viejo' value='$title'>
                         </div>
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='autor_consultado' name='autor_consultado' value='$autor'>
-                          <input type='hidden' id='' name='escritor' value='$autor'>
+                          <input type='hidden' id='' name='autor_viejo' value='$autor'>
                         </div>
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='yacimiento_publi_consultado' name='yacimiento_publi_consultado' value='$yacimiento'>
-                          <input type='hidden' id='' name='yaci_publi_consultado' value='$yacimiento'>
+                          <input type='hidden' id='' name='yaci_publi_consultado_viejo' value='$yacimiento'>
                         </div>
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group' id='data-container'>
                           <input type='text' class='form-control input_consulta' id='fecha_publi_consultado' name='fecha_publi_consultado' value='$fecha'>
-                          <input type='hidden' id='' name='date_publi_consultado' value='$fecha'>
+                          <input type='hidden' id='' name='fecha_publi_consultado_viejo' value='$fecha'>
                         </div>
                         <div class='col-lg-1 col-md-2 col-xs-3 col-sm-3'>
                           <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
