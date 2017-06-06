@@ -85,7 +85,7 @@
           <h2>Consultar datos</h2>
           <div class="row">
             <div class="col-lg-12">
-              <!--<form class="" action="" method="post">-->
+              <form class="" action="" method="post">
                 <div class="row">
                   <div id="consulta_seleccionada" name="consulta_seleccionada" class="col-lg-2 form-group">
                     <h5>CONSULTAR SOBRE:</h5>
@@ -357,7 +357,7 @@
                     <button type="submit" class="btn btn-danger" onclick="limpiar_cookie()">Limpiar</button>
                   </div>
                 </div>
-              <!--</form>-->
+              </form>
             </div>
           </div>
           <!-- AQUÍ EMPIEZAN LAS CONSULTAS-->
@@ -383,6 +383,13 @@
               //echo " Cookie borrada";
             }
             else {
+
+
+
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
               //CONSULTAS SOBRE PUBLICACIONES
               if($consulta=="PUBLICACIONES"){
 
@@ -406,11 +413,11 @@
                   $fecha_publi_fin=$_COOKIE['fecha_publi_fin'];
                   $fecha_publi_fin= Mayuscula_con_tilde($fecha_publi_fin);
                 }
-                echo " El titulo es: $titulo";
+                /*echo " El titulo es: $titulo";
                 echo " El autor es: $autor";
                 echo " El yacimiento es: $yacimiento_publicacion";
                 echo " La fecha de inicio es: $fecha_publi_ini";
-                echo " La fecha de fin es: $fecha_publi_fin";
+                echo " La fecha de fin es: $fecha_publi_fin";*/
 
 
                 //si se elige un titulo
@@ -444,7 +451,7 @@
                         <h5><b>FECHA</b></h5>
                       </div>
                     </div>
-                    <form class='' action='' method='post'>
+                    <form class='' action='modificar/modificar_publicacion.php' method='post'>
                       <div class='row'>
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='titulo_consultado' name='titulo_consultado' value='$title'>
@@ -458,7 +465,7 @@
                           <input type='text' class='form-control input_consulta' id='yacimiento_publi_consultado' name='yacimiento_publi_consultado' value='$yacimiento'>
                           <input type='hidden' id='' name='yaci_publi_consultado' value='$yacimiento'>
                         </div>
-                        <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
+                        <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group' id='data-container'>
                           <input type='text' class='form-control input_consulta' id='fecha_publi_consultado' name='fecha_publi_consultado' value='$fecha'>
                           <input type='hidden' id='' name='date_publi_consultado' value='$fecha'>
                         </div>
@@ -532,7 +539,7 @@
                       $eliminar="eliminar" .$aux;*/
                       $aux++;
                       echo"
-                      <form class='' action='' method='post'>
+                      <form class='' action='modificar/modificar_publicacion.php' method='post'>
                         <div class='row'>
                           <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                             <input type='text' class='form-control input_consulta' id='titulo_consultado' name='titulo_consultado' value='$title'>
@@ -546,7 +553,7 @@
                             <input type='text' class='form-control input_consulta' id='yacimiento_publi_consultado' name='yacimiento_publi_consultado' value='$yacimiento'>
                             <input type='hidden' id='' name='yaci_publi_consultado' value='$yacimiento'>
                           </div>
-                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
+                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group' id='data-container'>
                             <input type='text' class='form-control input_consulta' id='fecha_publi_consultado' name='fecha_publi_consultado' value='$fecha'>
                             <input type='hidden' id='' name='date_publi_consultado' value='$fecha'>
                           </div>
@@ -619,7 +626,7 @@
                       $eliminar="eliminar" .$aux;*/
                       $aux++;
                       echo"
-                      <form class='' action='' method='post'>
+                      <form class='' action='modificar/modificar_publicacion.php' method='post'>
                         <div class='row'>
                           <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                             <input type='text' class='form-control input_consulta' id='titulo_consultado' name='titulo_consultado' value='$title'>
@@ -633,7 +640,7 @@
                             <input type='text' class='form-control input_consulta' id='yacimiento_publi_consultado' name='yacimiento_publi_consultado' value='$yacimiento'>
                             <input type='hidden' id='' name='yaci_publi_consultado' value='$yacimiento'>
                           </div>
-                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
+                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group' id='data-container'>
                             <input type='text' class='form-control input_consulta' id='fecha_publi_consultado' name='fecha_publi_consultado' value='$fecha'>
                             <input type='hidden' id='' name='date_publi_consultado' value='$fecha'>
                           </div>
@@ -712,7 +719,7 @@
                       $eliminar="eliminar" .$aux;*/
                       $aux++;
                       echo"
-                      <form class='' action='' method='post'>
+                      <form class='' action='modificar/modificar_publicacion.php' method='post'>
                         <div class='row'>
                           <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                             <input type='text' class='form-control input_consulta' id='titulo_consultado' name='titulo_consultado' value='$title'>
@@ -726,7 +733,7 @@
                             <input type='text' class='form-control input_consulta' id='yacimiento_publi_consultado' name='yacimiento_publi_consultado' value='$yacimiento'>
                             <input type='hidden' id='' name='yaci_publi_consultado' value='$yacimiento'>
                           </div>
-                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
+                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group' id='data-container'>
                             <input type='text' class='form-control input_consulta' id='fecha_publi_consultado' name='fecha_publi_consultado' value='$fecha'>
                             <input type='hidden' id='' name='date_publi_consultado' value='$fecha'>
                           </div>
