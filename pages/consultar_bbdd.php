@@ -422,35 +422,85 @@
 
                 //si se elige un titulo
                 if($titulo!=""){
-
                   $consulta="SELECT yacimiento,titulo,fecha,autor
                              FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
                              WHERE titulo='".$titulo."';";
-                  $titulo=pg_query($link,$consulta);
-                  if(pg_num_rows($titulo)>0){
-                    while($resultado=pg_fetch_assoc($titulo)){
-                      $yacimiento=$resultado['yacimiento'];
-                      $title=$resultado['titulo'];
-                      $autor=$resultado['autor'];
-                      $fecha=$resultado['fecha'];
-                    }
+                }
+                //fin si se elige un titulo
+                //si mete un autor
+                elseif ($autor!="") {
+                  if($yacimiento_publicacion=="" || $yacimiento_publicacion=="NINGUNO"){
+                    $consulta="SELECT yacimiento,titulo,fecha,autor
+                               FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
+                               WHERE autor='".$autor."';";
+                  }
+                  else{
+                    $consulta="SELECT yacimiento,titulo,fecha,autor
+                               FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
+                               WHERE autor='".$autor."' AND yacimiento='".$yacimiento_publicacion."';";
+                  }
+                }
+                //fin si mete un autor
+                //si mete un yacimiento
+                elseif ($yacimiento_publicacion!="") {
 
-                    echo"
-                    <hr>
-                    <div class='row'>
-                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-                        <h5><b>TITULO</b></h5>
-                      </div>
-                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-                        <h5><b>AUTOR</b></h5>
-                      </div>
-                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-                        <h5><b>YACIMIENTO</b></h5>
-                      </div>
-                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-                        <h5><b>FECHA</b></h5>
-                      </div>
+                  $consulta="SELECT yacimiento,titulo,fecha,autor
+                             FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
+                             WHERE yacimiento='".$yacimiento_publicacion."';";
+                }
+                //fin si mete un yacimiento
+
+                //si mete un fecha
+                elseif ($fecha_publi_ini!="") {
+                  if($fecha_publi_fin==""){
+                    $consulta="SELECT yacimiento,titulo,fecha,autor
+                               FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
+                               WHERE fecha='".$fecha_publi_ini."';";
+                  }
+                  else{
+                    $consulta="SELECT yacimiento,titulo,fecha,autor
+                               FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
+                               WHERE fecha BETWEEN '".$fecha_publi_ini."' AND '".$fecha_publi_fin."';";
+                  }
+
+                }
+                //fin si mete un fecha
+
+                $resolucion=pg_query($link,$consulta);
+                if(pg_num_rows($resolucion)>0){
+                  //echo "  Éxito de consulta";
+                  echo "
+                  <hr>
+                  <div class='row'>
+                    <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>TITULO</b></h5>
                     </div>
+                    <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>AUTOR</b></h5>
+                    </div>
+                    <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>YACIMIENTO</b></h5>
+                    </div>
+                    <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>FECHA</b></h5>
+                    </div>
+                  </div>
+                  ";
+                  $aux=0;
+
+                  while($resultado=pg_fetch_assoc($resolucion)){
+                    $yacimiento=$resultado['yacimiento'];
+                    $title=$resultado['titulo'];
+                    $autor=$resultado['autor'];
+                    $fecha=$resultado['fecha'];
+
+                    //echo "$aux";
+                    /*$deposit_aux="deposit" . $aux;
+                    $country_aux="country" .$aux;
+                    $modificar="modificar" .$aux;
+                    $eliminar="eliminar" .$aux;*/
+                    $aux++;
+                    echo"
                     <form class='' action='modificar/modificar_publicacion.php' method='post'>
                       <div class='row'>
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
@@ -478,289 +528,19 @@
                       </div>
                     </form>
                     ";
-                    }
-                  else{
-                    echo "
-                    <hr>
-                    <div class='row'>
-                      <div class='col-lg-10 col-md-4 col-sm-4 col-xs-4 form-group'>
-                        <h5><b>No se ha encontrado datos en esta consulta</b></h5>
-                      </div>
-                    </div>
-                    ";
                   }
-                }//fin si se elige un titulo
-
-                //si mete un autor
-                elseif ($autor!="") {
-                  if($yacimiento_publicacion=="" || $yacimiento_publicacion=="NINGUNO"){
-                    $consulta="SELECT yacimiento,titulo,fecha,autor
-                               FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
-                               WHERE autor='".$autor."';";
-                  }
-                  else{
-                    $consulta="SELECT yacimiento,titulo,fecha,autor
-                               FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
-                               WHERE autor='".$autor."' AND yacimiento='".$yacimiento_publicacion."';";
-                  }
-
-                  $titulo=pg_query($link,$consulta);
-                  if(pg_num_rows($titulo)>0){
-                    //echo "  Éxito de consulta";
-                    echo "
-                    <hr>
-                    <div class='row'>
-                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-                        <h5><b>TITULO</b></h5>
-                      </div>
-                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-                        <h5><b>AUTOR</b></h5>
-                      </div>
-                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-                        <h5><b>YACIMIENTO</b></h5>
-                      </div>
-                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-                        <h5><b>FECHA</b></h5>
-                      </div>
-                    </div>
-                    ";
-                    $aux=0;
-
-                    while($resultado=pg_fetch_assoc($titulo)){
-                      $yacimiento=$resultado['yacimiento'];
-                      $title=$resultado['titulo'];
-                      $autor=$resultado['autor'];
-                      $fecha=$resultado['fecha'];
-
-                      //echo "$aux";
-                      /*$deposit_aux="deposit" . $aux;
-                      $country_aux="country" .$aux;
-                      $modificar="modificar" .$aux;
-                      $eliminar="eliminar" .$aux;*/
-                      $aux++;
-                      echo"
-                      <form class='' action='modificar/modificar_publicacion.php' method='post'>
-                        <div class='row'>
-                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' class='form-control input_consulta' id='titulo_consultado' name='titulo_consultado' value='$title'>
-                            <input type='hidden' id='' name='title' value='$title'>
-                          </div>
-                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' class='form-control input_consulta' id='autor_consultado' name='autor_consultado' value='$autor'>
-                            <input type='hidden' id='' name='escritor' value='$autor'>
-                          </div>
-                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' class='form-control input_consulta' id='yacimiento_publi_consultado' name='yacimiento_publi_consultado' value='$yacimiento'>
-                            <input type='hidden' id='' name='yaci_publi_consultado' value='$yacimiento'>
-                          </div>
-                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group' id='data-container'>
-                            <input type='text' class='form-control input_consulta' id='fecha_publi_consultado' name='fecha_publi_consultado' value='$fecha'>
-                            <input type='hidden' id='' name='date_publi_consultado' value='$fecha'>
-                          </div>
-                          <div class='col-lg-1 col-md-2 col-xs-3 col-sm-3'>
-                            <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
-                          </div>
-                          <div class='col-lg-1 col-md-1 col-xs-1 col-sm-1'>
-                            <button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>
-                          </div>
-                        </div>
-                      </form>
-                      ";
-                    }
-                    //echo"$deposit y $country";
-                  }
-                  else{
-                    echo "
-                    <hr>
-                    <div class='row'>
-                      <div class='col-lg-10 col-md-4 col-sm-4 col-xs-4 form-group'>
-                        <h5><b>No se ha encontrado datos en esta consulta</b></h5>
-                      </div>
-                    </div>
-                    ";
-                  }
+                  //echo"$deposit y $country";
                 }
-                //fin si mete un autor
-
-
-                //si mete un yacimiento
-                elseif ($yacimiento_publicacion!="") {
-
-                  $consulta="SELECT yacimiento,titulo,fecha,autor
-                             FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
-                             WHERE yacimiento='".$yacimiento_publicacion."';";
-
-
-                  $titulo=pg_query($link,$consulta);
-                  if(pg_num_rows($titulo)>0){
-                    //echo "  Éxito de consulta";
-                    echo "
-                    <hr>
-                    <div class='row'>
-                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-                        <h5><b>TITULO</b></h5>
-                      </div>
-                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-                        <h5><b>AUTOR</b></h5>
-                      </div>
-                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-                        <h5><b>YACIMIENTO</b></h5>
-                      </div>
-                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-                        <h5><b>FECHA</b></h5>
-                      </div>
+                else{
+                  echo "
+                  <hr>
+                  <div class='row'>
+                    <div class='col-lg-10 col-md-4 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>No se ha encontrado datos en esta consulta</b></h5>
                     </div>
-                    ";
-                    $aux=0;
-
-                    while($resultado=pg_fetch_assoc($titulo)){
-                      $yacimiento=$resultado['yacimiento'];
-                      $title=$resultado['titulo'];
-                      $autor=$resultado['autor'];
-                      $fecha=$resultado['fecha'];
-
-                      //echo "$aux";
-                      /*$deposit_aux="deposit" . $aux;
-                      $country_aux="country" .$aux;
-                      $modificar="modificar" .$aux;
-                      $eliminar="eliminar" .$aux;*/
-                      $aux++;
-                      echo"
-                      <form class='' action='modificar/modificar_publicacion.php' method='post'>
-                        <div class='row'>
-                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' class='form-control input_consulta' id='titulo_consultado' name='titulo_consultado' value='$title'>
-                            <input type='hidden' id='' name='title' value='$title'>
-                          </div>
-                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' class='form-control input_consulta' id='autor_consultado' name='autor_consultado' value='$autor'>
-                            <input type='hidden' id='' name='escritor' value='$autor'>
-                          </div>
-                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' class='form-control input_consulta' id='yacimiento_publi_consultado' name='yacimiento_publi_consultado' value='$yacimiento'>
-                            <input type='hidden' id='' name='yaci_publi_consultado' value='$yacimiento'>
-                          </div>
-                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group' id='data-container'>
-                            <input type='text' class='form-control input_consulta' id='fecha_publi_consultado' name='fecha_publi_consultado' value='$fecha'>
-                            <input type='hidden' id='' name='date_publi_consultado' value='$fecha'>
-                          </div>
-                          <div class='col-lg-1 col-md-2 col-xs-3 col-sm-3'>
-                            <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
-                          </div>
-                          <div class='col-lg-1 col-md-1 col-xs-1 col-sm-1'>
-                            <button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>
-                          </div>
-                        </div>
-                      </form>
-                      ";
-                    }
-                    //echo"$deposit y $country";
-                  }
-                  else{
-                    echo "
-                    <hr>
-                    <div class='row'>
-                      <div class='col-lg-10 col-md-4 col-sm-4 col-xs-4 form-group'>
-                        <h5><b>No se ha encontrado datos en esta consulta</b></h5>
-                      </div>
-                    </div>
-                    ";
-                  }
+                  </div>
+                  ";
                 }
-                //fin si mete un yacimiento
-
-                //si mete un fecha
-                elseif ($fecha_publi_ini!="") {
-                  if($fecha_publi_fin==""){
-                    $consulta="SELECT yacimiento,titulo,fecha,autor
-                               FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
-                               WHERE fecha='".$fecha_publi_ini."';";
-                  }
-                  else{
-                    $consulta="SELECT yacimiento,titulo,fecha,autor
-                               FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
-                               WHERE fecha BETWEEN '".$fecha_publi_ini."' AND '".$fecha_publi_fin."';";
-                  }
-
-
-
-                  $titulo=pg_query($link,$consulta);
-                  if(pg_num_rows($titulo)>0){
-                    //echo "  Éxito de consulta";
-                    echo "
-                    <hr>
-                    <div class='row'>
-                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-                        <h5><b>TITULO</b></h5>
-                      </div>
-                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-                        <h5><b>AUTOR</b></h5>
-                      </div>
-                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-                        <h5><b>YACIMIENTO</b></h5>
-                      </div>
-                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-                        <h5><b>FECHA</b></h5>
-                      </div>
-                    </div>
-                    ";
-                    $aux=0;
-
-                    while($resultado=pg_fetch_assoc($titulo)){
-                      $yacimiento=$resultado['yacimiento'];
-                      $title=$resultado['titulo'];
-                      $autor=$resultado['autor'];
-                      $fecha=$resultado['fecha'];
-
-                      //echo "$aux";
-                      /*$deposit_aux="deposit" . $aux;
-                      $country_aux="country" .$aux;
-                      $modificar="modificar" .$aux;
-                      $eliminar="eliminar" .$aux;*/
-                      $aux++;
-                      echo"
-                      <form class='' action='modificar/modificar_publicacion.php' method='post'>
-                        <div class='row'>
-                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' class='form-control input_consulta' id='titulo_consultado' name='titulo_consultado' value='$title'>
-                            <input type='hidden' id='' name='title' value='$title'>
-                          </div>
-                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' class='form-control input_consulta' id='autor_consultado' name='autor_consultado' value='$autor'>
-                            <input type='hidden' id='' name='escritor' value='$autor'>
-                          </div>
-                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' class='form-control input_consulta' id='yacimiento_publi_consultado' name='yacimiento_publi_consultado' value='$yacimiento'>
-                            <input type='hidden' id='' name='yaci_publi_consultado' value='$yacimiento'>
-                          </div>
-                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group' id='data-container'>
-                            <input type='text' class='form-control input_consulta' id='fecha_publi_consultado' name='fecha_publi_consultado' value='$fecha'>
-                            <input type='hidden' id='' name='date_publi_consultado' value='$fecha'>
-                          </div>
-                          <div class='col-lg-1 col-md-2 col-xs-3 col-sm-3'>
-                            <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
-                          </div>
-                          <div class='col-lg-1 col-md-1 col-xs-1 col-sm-1'>
-                            <button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>
-                          </div>
-                        </div>
-                      </form>
-                      ";
-                    }
-                    //echo"$deposit y $country";
-                  }
-                  else{
-                    echo "
-                    <hr>
-                    <div class='row'>
-                      <div class='col-lg-10 col-md-4 col-sm-4 col-xs-4 form-group'>
-                        <h5><b>No se ha encontrado datos en esta consulta</b></h5>
-                      </div>
-                    </div>
-                    ";
-                  }
-                }
-                //fin si mete un fecha
 
               }//FIN DE LAS CONSULTAS DE PUBLICACIONES
 
