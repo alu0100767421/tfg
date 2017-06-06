@@ -62,10 +62,22 @@
 
      if(isset($_POST['eliminar'])){
        if($deposito!="" && $pais!=""){
+         $consulta_id_d="SELECT iddeposito
+                       FROM deposito
+                       WHERE deposito='".$deposito."';";
+         $id_d=pg_query($link,$consulta_id_d);
+         echo pg_last_error();
+         $valor_id_d=pg_fetch_assoc($id_d);
+         $id_deposito=$valor_id_d['iddeposito'];
+         echo "id del deposito: $id_deposito\n";
 
-         $consulta_modificacion="DELETE FROM deposito
+         $consulta_eliminar_deposito_especie="DELETE FROM especie_has_deposito
+                                              WHERE deposito_iddeposito='".$id_deposito."';";
+         pg_query($link,$consulta_eliminar_deposito_especie);
+
+         $consulta_eliminar_deposito="DELETE FROM deposito
                                  WHERE deposito='".$deposito_viejo."' AND pais='".$pais_viejo."';";
-         pg_query($link,$consulta_modificacion);
+         pg_query($link,$consulta_eliminar_deposito);
          echo pg_last_error();
 
        }
