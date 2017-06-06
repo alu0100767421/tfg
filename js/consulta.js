@@ -9,10 +9,11 @@ $(document).ready(function(){
   });
 });
 
-console.log('hola');
 
 function consulta(val){
   if(val!==""){
+    //var seleccion=document.cookie.seleccion;
+    //console.log('seleccion'+seleccion);
     if(val=="YACIMIENTO"){
       document.getElementById('consulta_yacimiento').style.display="block";
       document.getElementById('consulta_especie').style.display="none";
@@ -72,6 +73,7 @@ function consulta(val){
 
 
 function isla(val) {
+
   if(val=="LA PALMA"){
     document.getElementById('municipiosvacio').style.display="none";
     document.getElementById('municipioslapalma').style.display="block";
@@ -188,8 +190,47 @@ function consultas(){
   //en todos los casos, se asigna a la cookie 'consulta' el tipo de consulta elegido
   //luego creacremos nuevas cookies con las opciones elegidas en casa caso para hacer las consultas
 
-  if(consulta=="DEPOSITO"){
+  if(consulta=="PUBLICACIONES"){
     document.cookie='consulta='+consulta;
+    document.cookie='seleccion='+consulta;
+
+    var titulo= document.getElementById('titulo').value;
+    var autor=document.getElementById('autor').value;
+    var yacimiento_publicacion= document.getElementById('yacimiento_publicacion').value;
+    var fecha_publi_ini= document.getElementById('fecha_publi_ini').value;
+    var fecha_publi_fin= document.getElementById('fecha_publi_fin').value;
+
+    if(titulo!=="")
+      document.cookie='titulo='+titulo;
+    else
+      document.cookie='titulo=';
+
+    if(autor!=="")
+      document.cookie='autor='+autor;
+    else
+      document.cookie='autor=';
+
+    if(yacimiento_publicacion!=="")
+      document.cookie='yacimiento_publicacion='+yacimiento_publicacion;
+    else
+      document.cookie='yacimiento_publicacion=';
+
+    if(fecha_publi_ini!=="")
+      document.cookie='fecha_publi_ini='+fecha_publi_ini;
+    else
+      document.cookie='fecha_publi_ini=';
+
+    if(fecha_publi_fin!=="")
+      document.cookie='fecha_publi_fin='+fecha_publi_fin;
+    else
+      document.cookie='fecha_publi_fin=';
+
+    console.log('Titulo='+titulo+' autor='+autor+' yacimiento='+yacimiento_publicacion+' fecha inicio='+fecha_publi_ini+' fecha fin='+fecha_publi_fin);
+  }
+
+  else if(consulta=="DEPOSITO"){
+    document.cookie='consulta='+consulta;
+    document.cookie='seleccion='+consulta;
 
     var deposito = document.getElementById('deposito').value;
     var pais = document.getElementById('pais').value;
@@ -208,13 +249,7 @@ function consultas(){
   }
 
   else{
-    document.cookie='consulta=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
-
-
-
-    //cookies de deposito
-    document.cookie='deposito=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
-    document.cookie='pais=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+    limpiar_cookie();
   }
 
   window.location='../pages/consultar_bbdd.php';
@@ -225,13 +260,26 @@ function consultas(){
 
 function limpiar_cookie(){
   document.cookie='consulta=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+  document.cookie='seleccion=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
 
 
-
+  //cookies de PUBLICACIONES
+  document.cookie='titulo=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+  document.cookie='autor=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+  document.cookie='yacimiento_publicacion=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+  document.cookie='fecha_publi_ini=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+  document.cookie='fecha_publi_fin=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
 
   //cookies de deposito
   document.cookie='deposito=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
   document.cookie='pais=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
 
   window.location='../pages/consultar_bbdd.php';
+}
+
+
+
+function publicacion(val){
+  document.getElementById('yacimiento_publicacion').value=val;
+
 }
