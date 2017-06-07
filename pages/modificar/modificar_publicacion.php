@@ -41,26 +41,6 @@
      $fecha = $_POST['fecha_publi_consultado'];
 
 
-    if(isset($_POST['title_viejo']))
-    $titulo_viejo = $_POST['title_viejo'];
-    if($titulo_viejo!="")
-       $titulo_viejo=Mayuscula_con_tilde($titulo_viejo);
-
-    if(isset($_POST['autor_viejo']))
-    $autor_viejo= $_POST['autor_viejo'];
-    if($autor_viejo!="")
-       $autor_viejo=Mayuscula_con_tilde($autor_viejo);
-
-    if(isset($_POST['yaci_publi_consultado_viejo']))
-    $yacimiento_viejo = $_POST['yaci_publi_consultado_viejo'];
-    if($yacimiento_viejo!="")
-       $yacimiento_viejo=Mayuscula_con_tilde($yacimiento_viejo);
-
-    if(isset($_POST['fecha_publi_consultado_viejo']))
-    $fecha_viejo = $_POST['fecha_publi_consultado_viejo'];
-
-
-
     echo "
     Los datos introducidos son:
     Id: $id_publicacion
@@ -68,10 +48,8 @@
     Autor:$autor
     Yacimiento:$yacimiento
     Fecha viejo:$fecha
-    Titulo viejo: $titulo_viejo
-    Autor viejo:$autor_viejo
-    Yacimiento viejo:$yacimiento_viejo
-    Fecha viejo:$fecha_viejo
+
+
     \n";
 
     if(isset($_POST['modificar'])){

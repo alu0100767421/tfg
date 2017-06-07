@@ -607,7 +607,7 @@
                 echo " La fecha de inicio es: $fecha_publi_ini";
                 echo " La fecha de fin es: $fecha_publi_fin";*/
 
-
+                $aux=0;
                 //si se elige un titulo
                 if($titulo!=""){
                   $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor
@@ -653,6 +653,11 @@
 
                 }
                 //fin si mete un fecha
+                elseif ($titulo=="" && $autor=="" && ($yacimiento_publicacion=="" || $yacimiento_publicacion=="NINGUNO") && $fecha_publi_ini=="") {
+                  $consulta="SELECT *
+                             FROM publicacion;";
+                  $aux=1;
+                }
 
                 $resolucion=pg_query($link,$consulta);
                 if(pg_num_rows($resolucion)>0){
@@ -674,11 +679,14 @@
                     </div>
                   </div>
                   ";
-                  $aux=0;
+
 
                   while($resultado=pg_fetch_assoc($resolucion)){
                     $id_publicacion=$resultado['idpublicaciones'];
-                    $yacimiento=$resultado['yacimiento'];
+                    if($aux==0)
+                      $yacimiento=$resultado['yacimiento'];
+                    else
+                      $yacimiento="NO DISPONIBLE EN ESTA CONSULTA";
                     $title=$resultado['titulo'];
                     $autor=$resultado['autor'];
                     $fecha=$resultado['fecha'];
@@ -688,26 +696,22 @@
                     $country_aux="country" .$aux;
                     $modificar="modificar" .$aux;
                     $eliminar="eliminar" .$aux;*/
-                    $aux++;
+
                     echo"
                     <form class='' action='modificar/modificar_publicacion.php' method='post'>
                       <div class='row'>
                         <input type='hidden' id='' name='id_publicacion' value='$id_publicacion'>
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='titulo_consultado' name='titulo_consultado' value='$title'>
-                          <input type='hidden' id='' name='title_viejo' value='$title'>
                         </div>
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='autor_consultado' name='autor_consultado' value='$autor'>
-                          <input type='hidden' id='' name='autor_viejo' value='$autor'>
                         </div>
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='yacimiento_publi_consultado' name='yacimiento_publi_consultado' value='$yacimiento'>
-                          <input type='hidden' id='' name='yaci_publi_consultado_viejo' value='$yacimiento'>
                         </div>
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group' id='data-container'>
                           <input type='text' class='form-control input_consulta' id='fecha_publi_consultado' name='fecha_publi_consultado' value='$fecha'>
-                          <input type='hidden' id='' name='fecha_publi_consultado_viejo' value='$fecha'>
                         </div>
                         <div class='col-lg-1 col-md-2 col-xs-3 col-sm-3'>
                           <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
