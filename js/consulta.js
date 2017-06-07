@@ -9,54 +9,81 @@ $(document).ready(function(){
   });
 });
 
+var aux="seleccion";
+var select=obtenerCookie(aux);
+if(select!==""){
+  $("#Consulta option[value="+ select +"]").attr("selected",true);
+  //console.log(select);
+  document.getElementById('tipo_consulta').value=select;
+  consulta();
+}
+
 
 function consulta(val){
-  if(val!==""){
-    //var seleccion=document.cookie.seleccion;
-    //console.log('seleccion'+seleccion);
-    if(val=="YACIMIENTO"){
+  if(val!=="" || select!==""){
+
+    if(val=="YACIMIENTO" || select=="YACIMIENTO"){
+
       document.getElementById('consulta_yacimiento').style.display="block";
       document.getElementById('consulta_especie').style.display="none";
       document.getElementById('consulta_excavacion').style.display="none";
       document.getElementById('consulta_publicacion').style.display="none";
       document.getElementById('consulta_deposito').style.display="none";
-      document.getElementById('tipo_consulta').value=val;
+      if(val===undefined)
+        document.getElementById('tipo_consulta').value=select;
+      else
+        document.getElementById('tipo_consulta').value=val;
 
     }
-    else if(val=="ESPECIE"){
+    else if(val=="ESPECIE" || select=="ESPECIE"){
       document.getElementById('consulta_yacimiento').style.display="none";
       document.getElementById('consulta_especie').style.display="block";
       document.getElementById('consulta_excavacion').style.display="none";
       document.getElementById('consulta_publicacion').style.display="none";
       document.getElementById('consulta_deposito').style.display="none";
-      document.getElementById('tipo_consulta').value=val;
+      if(val===undefined)
+        document.getElementById('tipo_consulta').value=select;
+      else
+        document.getElementById('tipo_consulta').value=val;
 
     }
-    else if(val=="EXCAVACIONES"){
+    else if(val=="EXCAVACIONES" || select=="EXCAVACIONES"){
+
       document.getElementById('consulta_yacimiento').style.display="none";
       document.getElementById('consulta_especie').style.display="none";
       document.getElementById('consulta_excavacion').style.display="block";
       document.getElementById('consulta_publicacion').style.display="none";
       document.getElementById('consulta_deposito').style.display="none";
-      document.getElementById('tipo_consulta').value=val;
+      if(val===undefined)
+        document.getElementById('tipo_consulta').value=select;
+      else
+        document.getElementById('tipo_consulta').value=val;
 
     }
-    else if(val=="PUBLICACIONES"){
+    else if(val=="PUBLICACIONES" || select=="PUBLICACIONES"){
+
       document.getElementById('consulta_yacimiento').style.display="none";
       document.getElementById('consulta_especie').style.display="none";
       document.getElementById('consulta_excavacion').style.display="none";
       document.getElementById('consulta_publicacion').style.display="block";
       document.getElementById('consulta_deposito').style.display="none";
-      document.getElementById('tipo_consulta').value=val;
+      if(val===undefined)
+        document.getElementById('tipo_consulta').value=select;
+      else
+        document.getElementById('tipo_consulta').value=val;
 
     }
-    else if (val=="DEPOSITO") {
+    else if (val=="DEPOSITO" || select=="DEPOSITO") {
+
       document.getElementById('consulta_yacimiento').style.display="none";
       document.getElementById('consulta_especie').style.display="none";
       document.getElementById('consulta_excavacion').style.display="none";
       document.getElementById('consulta_publicacion').style.display="none";
       document.getElementById('consulta_deposito').style.display="block";
-      document.getElementById('tipo_consulta').value=val;
+      if(val===undefined)
+        document.getElementById('tipo_consulta').value=select;
+      else
+        document.getElementById('tipo_consulta').value=val;
 
     }
     else{
@@ -66,6 +93,7 @@ function consulta(val){
       document.getElementById('consulta_publicacion').style.display="none";
       document.getElementById('consulta_deposito').style.display="none";
       document.getElementById('tipo_consulta').value=val;
+
 
     }
   }
@@ -330,4 +358,15 @@ function publicacion(val){
 function excavacion(val){
   document.getElementById('yacimiento_excavacion').value=val;
 
+}
+
+function obtenerCookie(clave) {
+    var name = clave + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) === 0) return c.substring(name.length,c.length);
+    }
+    return "";
 }

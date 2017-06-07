@@ -428,11 +428,11 @@
                   $fecha_ex_fin=$_COOKIE['fecha_final_ex'];
                   $fecha_ex_fin= Mayuscula_con_tilde($fecha_ex_fin);
                 }
-                echo " El responsable es: $responsable";
+                /*echo " El responsable es: $responsable";
                 echo " El financiacion es: $financiacion";
                 echo " El yacimiento es: $yacimiento_excavacion";
                 echo " La fecha de inicio es: $fecha_ex_ini";
-                echo " La fecha de fin es: $fecha_ex_fin";
+                echo " La fecha de fin es: $fecha_ex_fin";*/
 
                 if($responsable=="" && $financiacion=="" && ($yacimiento_excavacion=="" || $yacimiento_excavacion=="NINGUNO") && $fecha_ex_ini=="" && $fecha_ex_fin=="") {
 
