@@ -455,10 +455,10 @@
                   $deposito_especie=$_COOKIE['deposito_especie'];
                   $deposito_especie= Mayuscula_con_tilde($deposito_especie);
                 }
-                echo " El especie es: $especie";
+                /*echo " El especie es: $especie";
                 echo " El tipo es: $tipo_especie";
                 echo " El yacimiento es: $yacimiento_especie";
-                echo " El deposito es: $deposito_especie";
+                echo " El deposito es: $deposito_especie";*/
 
                 if($especie=="" && $tipo_especie=="" && ($yacimiento_especie=="" || $yacimiento_especie=="NINGUNO") && ($deposito_especie=="" || $deposito_especie=="NINGUNO")){
                   $consulta="SELECT *
@@ -485,22 +485,22 @@
                   $aux=1;
                 }
                 elseif (($yacimiento_especie=="" || $yacimiento_especie=="NINGUNO") && ($deposito_especie!="" || $deposito_especie!="NINGUNO")) {
-                  echo "aqui";
-                  $consulta="SELECT idespecie,especie, tipo_especie, yacimiento, deposito
+
+                  $consulta="SELECT idespecie, especie, tipo_especie, idyacimiento, yacimiento, iddeposito, deposito
                              FROM especie NATURAL JOIN yacimiento_has_especie NATURAL JOIN yacimiento NATURAL JOIN especie_has_deposito NATURAL JOIN deposito
                              WHERE deposito='".$deposito_especie."';";
                 }
-                
+
                 elseif (($yacimiento_especie!="" || $yacimiento_especie!="NINGUNO")) {
                   if($deposito_especie=="" || $deposito_especie=="NINGUNO"){
-                    $consulta="SELECT idespecie,especie, tipo_especie, yacimiento, deposito
+                    $consulta="SELECT idespecie, especie, tipo_especie, idyacimiento, yacimiento, iddeposito, deposito
                                FROM especie NATURAL JOIN yacimiento_has_especie NATURAL JOIN yacimiento NATURAL JOIN especie_has_deposito NATURAL JOIN deposito
                                WHERE yacimiento='".$yacimiento_especie."';";
 
                   }
                   else {
 
-                    $consulta="SELECT idespecie,especie, tipo_especie, yacimiento, deposito
+                    $consulta="SELECT idespecie, especie, tipo_especie, idyacimiento, yacimiento, iddeposito, deposito
                                FROM especie NATURAL JOIN yacimiento_has_especie NATURAL JOIN yacimiento NATURAL JOIN especie_has_deposito NATURAL JOIN deposito
                                WHERE yacimiento='".$yacimiento_especie."' AND deposito='".$deposito_especie."';";
                   }
@@ -544,17 +544,19 @@
                     $especie=$resultado['especie'];
                     $tipo_especie=$resultado['tipo_especie'];
                     if($aux!=1){
+                      $id_yacimiento=$resultado['idyacimiento'];
+                      $id_deposito=$resultado['iddeposito'];
                       $yacimiento=$resultado['yacimiento'];
                       $deposito=$resultado['deposito'];
 
                     }
 
                     echo"
-                    <form class='' action='modificar/modificar_excavacion.php' method='post'>
+                    <form class='' action='modificar/modificar_especie.php' method='post'>
                       <div class='row'>
                         <input type='hidden' id='' name='id_especie' value='$id_especie'>
                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' class='form-control input_consulta' id='especie_consultado' name='respecie_consultado' value='$especie'>
+                          <input type='text' class='form-control input_consulta' id='especie_consultado' name='especie_consultado' value='$especie'>
                         </div>
                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='tipo_especie_consultado' name='tipo_especie_consultado' value='$tipo_especie'>
@@ -562,6 +564,8 @@
                     ";
                     if($aux!=1){
                       echo "
+                      <input type='hidden' id='' name='id_yacimiento' value='$id_yacimiento'>
+                      <input type='hidden' id='' name='id_deposito' value='$id_deposito'>
                           <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
                             <input type='text' class='form-control input_consulta' id='yacimiento_es_consultado' name='yacimiento_es_consultado' value='$yacimiento'>
                           </div>
