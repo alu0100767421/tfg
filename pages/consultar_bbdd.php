@@ -278,8 +278,42 @@
                     <input type="text" class="form-control" id="tipo_especie" name="tipo_especie" placeholder="TIPO">
                   </div>
                   <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="yacimiento_especie" name="yacimiento_especie" placeholder="YACIMIENTO">
+                    <select name="Yacimientos_Especie" id="Yacimientos_Especie" class="form-control" onchange="especie(this.value)">
+                      <option disabled selected>YACIMIENTOS</option>
+                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
+                      <?php
+                        $consulta_yacimiento="SELECT yacimiento
+                                              FROM yacimiento
+                                              ORDER BY yacimiento ASC;";
+                        $resultado=pg_query($link,$consulta_yacimiento);
+                        echo pg_last_error();
+                        while($resultado2 = pg_fetch_assoc($resultado)){
+                          $aux = $resultado2['yacimiento'];
+                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
+                        }
+
+                      ?>
+                     </select>
                   </div>
+                  <input type="hidden" name="yacimiento_especie" id="yacimiento_especie">
+
+                  <div class="col-lg-2 form-group">
+                    <select name="Deposito" class="form-control" onchange="deposito(this.value)">
+                      <option disabled selected>DEPÓSITO</option>
+                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
+                      <?php
+                        $consulta_yacimiento="SELECT deposito
+                                              FROM deposito;";
+                        $resultado=pg_query($link,$consulta_yacimiento);
+                        echo pg_last_error();
+                        while($resultado2 = pg_fetch_assoc($resultado)){
+                          $aux = $resultado2['deposito'];
+                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
+                        }
+                      ?>
+                    </select>
+                  </div>
+                  <input type="hidden" name="deposito_especie" id="deposito_especie">
                 </div>
                 <!--Fin de Especie-->
 
@@ -393,13 +427,178 @@
               //echo "La consulta es de tipo: $consulta";
             }
 
-
             if($consulta==""){
               setcookie("consulta", "", time() - 3600);
-
-              //echo " Cookie borrada";
             }
             else {
+
+              /////////////////////////////////////////////////////////////////////
+              /////////////////////////////////////////////////////////////////////
+              /////////////////////////////////////////////////////////////////////
+              /////////////////////////////////////////////////////////////////////
+              //CONSULTAS SOBRE ESPECIES
+              if($consulta="ESPECIE"){
+                $aux=0;
+                if(isset($_COOKIE['especie'])){
+                  $especie=$_COOKIE['especie'];
+                  $especie=Mayuscula_con_tilde($especie);
+                }
+                if(isset($_COOKIE['tipo_especie'])){
+                  $tipo_especie=$_COOKIE['tipo_especie'];
+                  $tipo_especie= Mayuscula_con_tilde($tipo_especie);
+                }
+                if(isset($_COOKIE['yacimiento_especie'])){
+                  $yacimiento_especie=$_COOKIE['yacimiento_especie'];
+                  $yacimiento_especie= Mayuscula_con_tilde($yacimiento_especie);
+                }
+                if(isset($_COOKIE['deposito_especie'])){
+                  $deposito_especie=$_COOKIE['deposito_especie'];
+                  $deposito_especie= Mayuscula_con_tilde($deposito_especie);
+                }
+                echo " El especie es: $especie";
+                echo " El tipo es: $tipo_especie";
+                echo " El yacimiento es: $yacimiento_especie";
+                echo " El deposito es: $deposito_especie";
+
+                if($especie=="" && $tipo_especie=="" && ($yacimiento_especie=="" || $yacimiento_especie=="NINGUNO") && ($deposito_especie=="" || $deposito_especie=="NINGUNO")){
+                  $consulta="SELECT *
+                             FROM especie;";
+                  $aux=1;
+                }
+                elseif($especie!="" && ($yacimiento_especie=="" || $yacimiento_especie=="NINGUNO") && ($deposito_especie=="" || $deposito_especie=="NINGUNO")){
+                  if($tipo_especie==""){
+                    $consulta="SELECT *
+                               FROM especie
+                               WHERE especie='".$especie."';";
+                  }
+                  else {
+                    $consulta="SELECT *
+                               FROM especie
+                               WHERE especie='".$especie."' AND tipo_especie='".$tipo_especie."';";
+                  }
+                  $aux=1;
+                }
+                elseif ($tipo_especie!="" && ($yacimiento_especie=="" || $yacimiento_especie=="NINGUNO") && ($deposito_especie=="" || $deposito_especie=="NINGUNO")) {
+                  $consulta="SELECT *
+                             FROM especie
+                             WHERE tipo_especie='".$tipo_especie."';";
+                  $aux=1;
+                }
+                elseif (($yacimiento_especie=="" || $yacimiento_especie=="NINGUNO") && ($deposito_especie!="" || $deposito_especie!="NINGUNO")) {
+                  echo "aqui";
+                  $consulta="SELECT idespecie,especie, tipo_especie, yacimiento, deposito
+                             FROM especie NATURAL JOIN yacimiento_has_especie NATURAL JOIN yacimiento NATURAL JOIN especie_has_deposito NATURAL JOIN deposito
+                             WHERE deposito='".$deposito_especie."';";
+                }
+                
+                elseif (($yacimiento_especie!="" || $yacimiento_especie!="NINGUNO")) {
+                  if($deposito_especie=="" || $deposito_especie=="NINGUNO"){
+                    $consulta="SELECT idespecie,especie, tipo_especie, yacimiento, deposito
+                               FROM especie NATURAL JOIN yacimiento_has_especie NATURAL JOIN yacimiento NATURAL JOIN especie_has_deposito NATURAL JOIN deposito
+                               WHERE yacimiento='".$yacimiento_especie."';";
+
+                  }
+                  else {
+
+                    $consulta="SELECT idespecie,especie, tipo_especie, yacimiento, deposito
+                               FROM especie NATURAL JOIN yacimiento_has_especie NATURAL JOIN yacimiento NATURAL JOIN especie_has_deposito NATURAL JOIN deposito
+                               WHERE yacimiento='".$yacimiento_especie."' AND deposito='".$deposito_especie."';";
+                  }
+
+                }
+
+
+
+
+                $resolucion=pg_query($link,$consulta);
+                //echo pg_last_error();
+                if(pg_num_rows($resolucion)>0){
+                  //echo "  Éxito de consulta";
+                  echo "
+                  <hr class='linea'>
+                  <div class='row'>
+                    <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>ESPECIE</b></h5>
+                    </div>
+                    <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>TIPO</b></h5>
+                    </div>
+                  ";
+                    if($aux!=1){
+                    echo"
+                      <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
+                        <h5><b>YACIMIENTO</b></h5>
+                      </div>
+                      <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
+                        <h5><b>DEPOSITO</b></h5>
+                      </div>
+                    </div>
+                    ";
+                    }
+                    else {
+                      echo "
+                    </div>";
+                    }
+                  while($resultado=pg_fetch_assoc($resolucion)){
+                    $id_especie=$resultado['idespecie'];
+                    $especie=$resultado['especie'];
+                    $tipo_especie=$resultado['tipo_especie'];
+                    if($aux!=1){
+                      $yacimiento=$resultado['yacimiento'];
+                      $deposito=$resultado['deposito'];
+
+                    }
+
+                    echo"
+                    <form class='' action='modificar/modificar_excavacion.php' method='post'>
+                      <div class='row'>
+                        <input type='hidden' id='' name='id_especie' value='$id_especie'>
+                        <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
+                          <input type='text' class='form-control input_consulta' id='especie_consultado' name='respecie_consultado' value='$especie'>
+                        </div>
+                        <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
+                          <input type='text' class='form-control input_consulta' id='tipo_especie_consultado' name='tipo_especie_consultado' value='$tipo_especie'>
+                        </div>
+                    ";
+                    if($aux!=1){
+                      echo "
+                          <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
+                            <input type='text' class='form-control input_consulta' id='yacimiento_es_consultado' name='yacimiento_es_consultado' value='$yacimiento'>
+                          </div>
+                          <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
+                            <input type='text' class='form-control input_consulta' id='deposito_consultado' name='deposito_consultado' value='$deposito'>
+                          </div>
+                      ";
+                    }
+
+                    echo "
+                        <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
+                          <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
+                        </div>
+                        <div class='col-lg-1 col-md-10 col-xs-1 col-sm-1'>
+                          <button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>
+                        </div>
+                      </div>
+                    </form>
+                    ";
+                  }
+                }
+                else {
+                  echo "
+                  <hr class='linea'>
+                  <div class='row'>
+                    <div class='col-lg-10 col-md-4 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>No se ha encontrado datos en esta consulta</b></h5>
+                    </div>
+                  </div>
+                  ";
+                }
+
+
+              }//FIN DE CONSULTAS DE ESPECIE
+
+
+
 
               /////////////////////////////////////////////////////////////////////
               /////////////////////////////////////////////////////////////////////
@@ -563,7 +762,7 @@
                 }
                 else{
                   echo "
-                  <hr>
+                  <hr class='linea'>
                   <div class='row'>
                     <div class='col-lg-10 col-md-4 col-sm-4 col-xs-4 form-group'>
                       <h5><b>No se ha encontrado datos en esta consulta</b></h5>
@@ -727,7 +926,7 @@
                 }
                 else{
                   echo "
-                  <hr>
+                  <hr class='linea'>
                   <div class='row'>
                     <div class='col-lg-10 col-md-4 col-sm-4 col-xs-4 form-group'>
                       <h5><b>No se ha encontrado datos en esta consulta</b></h5>
@@ -841,7 +1040,7 @@
                 }
                 else{
                   echo "
-                  <hr>
+                  <hr class='linea'>
                   <div class='row'>
                     <div class='col-lg-10 col-md-4 col-sm-4 col-xs-4 form-group'>
                       <h5><b>No se ha encontrado datos en esta consulta</b></h5>

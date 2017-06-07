@@ -214,13 +214,42 @@ function municipio(val){
 function consultas(){
   var consulta = document.getElementById('tipo_consulta').value;
   console.log('Consulta:'+consulta);
+  document.cookie='consulta='+consulta;
+  document.cookie='seleccion='+consulta;
+
   //comprobamos si se ha introducido algún tipo de consulta a realizar
   //en todos los casos, se asigna a la cookie 'consulta' el tipo de consulta elegido
   //luego creacremos nuevas cookies con las opciones elegidas en casa caso para hacer las consultas
+  if(consulta=="ESPECIE"){
+    var especie= document.getElementById('nombre_especie').value;
+    var tipo_especie=document.getElementById('tipo_especie').value;
+    var yacimiento_especie= document.getElementById('yacimiento_especie').value;
+    var deposito_especie= document.getElementById('deposito_especie').value;
 
-  if(consulta=="EXCAVACIONES"){
-    document.cookie='consulta='+consulta;
-    document.cookie='seleccion='+consulta;
+    if(especie!=="")
+      document.cookie='especie='+especie;
+    else
+      document.cookie='especie=';
+
+    if(tipo_especie!=="")
+      document.cookie='tipo_especie='+tipo_especie;
+    else
+      document.cookie='tipo_especie=';
+
+    if(yacimiento_especie!=="")
+      document.cookie='yacimiento_especie='+yacimiento_especie;
+    else
+      document.cookie='yacimiento_especie=';
+
+    if(deposito_especie!=="")
+      document.cookie='deposito_especie='+deposito_especie;
+    else
+      document.cookie='deposito_especie=';
+
+    console.log('especie='+especie+' tipo_especie='+tipo_especie+' yacimiento_especie='+yacimiento_especie+' deposito_especie='+deposito_especie);
+  }
+
+  else if(consulta=="EXCAVACIONES"){
 
     var responsable= document.getElementById('responsable').value;
     var financiacion=document.getElementById('financiacion').value;
@@ -257,8 +286,6 @@ function consultas(){
   }
 
   else if(consulta=="PUBLICACIONES"){
-    document.cookie='consulta='+consulta;
-    document.cookie='seleccion='+consulta;
 
     var titulo= document.getElementById('titulo').value;
     var autor=document.getElementById('autor').value;
@@ -295,8 +322,6 @@ function consultas(){
   }
 
   else if(consulta=="DEPOSITO"){
-    document.cookie='consulta='+consulta;
-    document.cookie='seleccion='+consulta;
 
     var deposito = document.getElementById('deposito').value;
     var pais = document.getElementById('pais').value;
@@ -329,6 +354,12 @@ function limpiar_cookie(){
   document.cookie='seleccion=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
 
 
+  //cookies de especie
+  document.cookie='especie=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+  document.cookie='tipo_especie=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+  document.cookie='yacimiento_especie=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+  document.cookie='deposito_especie=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+
   //cookies de excavaciones
   document.cookie='responsable=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
   document.cookie='financiacion=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
@@ -359,6 +390,15 @@ function excavacion(val){
   document.getElementById('yacimiento_excavacion').value=val;
 
 }
+function especie(val){
+  document.getElementById('yacimiento_especie').value=val;
+}
+
+function deposito(val){
+    document.getElementById('deposito_especie').value=val;
+
+}
+
 
 function obtenerCookie(clave) {
     var name = clave + "=";

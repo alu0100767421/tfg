@@ -101,7 +101,7 @@
         $id=$valor_id_y['idyacimiento'];
         echo "id del yacimiento $id";
 
-        $insertar_ubicacion="INSERT INTO ubicacion(yacimiento_idyacimiento,isla,municipio,localidad,latitud,longitud)
+        $insertar_ubicacion="INSERT INTO ubicacion(idyacimiento,isla,municipio,localidad,latitud,longitud)
                              VALUES('".$id."','".$isla."','".$municipio."','".$localidad."','".$latitud."','".$longitud."');";
         pg_query($link,$insertar_ubicacion);
         echo pg_last_error();
