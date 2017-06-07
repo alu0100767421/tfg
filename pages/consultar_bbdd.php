@@ -481,7 +481,7 @@
                 if(pg_num_rows($resolucion)>0){
                   //echo "  Éxito de consulta";
                   echo "
-                  <hr>
+                  <hr class='linea'>
                   <div class='row'>
                     <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
                       <h5><b>RESPONSABLE</b></h5>
@@ -663,7 +663,7 @@
                 if(pg_num_rows($resolucion)>0){
                   //echo "  Éxito de consulta";
                   echo "
-                  <hr>
+                  <hr class='linea'>
                   <div class='row'>
                     <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
                       <h5><b>TITULO</b></h5>
@@ -794,7 +794,7 @@
                 if(pg_num_rows($deposito)>0){
                   //echo "  Éxito de consulta";
                   echo "
-                    <hr>
+                    <hr class='linea'>
                     <div class='row'>
                       <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
                         <h5><b>DEPÓSITO</b></h5>

@@ -60,6 +60,9 @@ body {
   text-decoration: underline;
 }
 
+.linea{
+  border-color:#b3afaf;
+}
 
 
 .input_consulta{
