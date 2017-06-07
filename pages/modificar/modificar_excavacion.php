@@ -12,6 +12,9 @@
   if(isset($_SESSION['nombre'])) {
     $username = $_SESSION['nombre'];
 
+    if(isset($_POST['id_excavacion']))
+     $id_excavacion = $_POST['id_excavacion'];
+
     if(isset($_POST['responsable_consultado']))
      $responsable = $_POST['responsable_consultado'];
      if($responsable!="")
@@ -107,38 +110,38 @@
 
     echo "
     Los datos introducidos son:
-    Id: $id_publicacion
-    Titulo: $titulo
-    Autor:$autor
+    Id: $id_excavacion
+    Responsable: $responsable
+    Financiacion: $financiacion
     Yacimiento:$yacimiento
-    Fecha viejo:$fecha
-    Titulo viejo: $titulo_viejo
-    Autor viejo:$autor_viejo
+    Fecha:$fecha
+    Fecha final: $fecha_fin
+    Deposito: $deposito
+    Observacion: $observacion
+
+    Responsable viejo: $responsable_viejo
+    Financiacion viejo: $financiacion_viejo
     Yacimiento viejo:$yacimiento_viejo
     Fecha viejo:$fecha_viejo
+    Fecha final viejo: $fecha_fin_viejo
+    Deposito viejo: $deposito_viejo
+    Observacion viejo: $observacion_viejo
     \n";
 
     if(isset($_POST['modificar'])){
-
-
-       $consulta_modificacion="UPDATE publicacion
-                               SET titulo='".$titulo."', autor='".$autor."', fecha='".$fecha."'
-                               WHERE idpublicaciones='".$id_publicacion."';";
-       pg_query($link,$consulta_modificacion);
+       $consulta="UPDATE excavacion
+                  SET responsable='".$responsable."', financiacion='".$financiacion."', fecha_inicial='".$fecha."', fecha_final='".$fecha_fin."', deposito='".$deposito."', observacion_excavacion='".$observacion."'
+                  WHERE idexcavaciones='".$id_excavacion."';";
+       pg_query($link,$consulta);
        echo pg_last_error();
 
     }
-
+    
     elseif(isset($_POST['eliminar'])){
-       $consulta_eliminar_publicacion="DELETE FROM yacimiento_has_publicacion
-                                            WHERE idpublicaciones='".$id_publicacion."';";
-       pg_query($link,$consulta_eliminar_publicacion);
-
-       $consulta_eliminar_publicacion="DELETE FROM publicacion
-                                            WHERE idpublicaciones='".$id_publicacion."';";
-       pg_query($link,$consulta_eliminar_publicacion);
+       $consulta_eliminar="DELETE FROM excavacion
+                           WHERE idexcavaciones='".$id_excavacion."';";
+       pg_query($link,$consulta_eliminar);
        echo pg_last_error();
-
      }
      else{
        echo "Sin cambios\n";

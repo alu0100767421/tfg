@@ -436,34 +436,34 @@
 
                 if($responsable=="" && $financiacion=="" && ($yacimiento_excavacion=="" || $yacimiento_excavacion=="NINGUNO") && $fecha_ex_ini=="" && $fecha_ex_fin=="") {
 
-                  $consulta="SELECT responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
+                  $consulta="SELECT idexcavaciones,responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
                              FROM excavacion NATURAL JOIN yacimiento;";
                 }
                 elseif($responsable!="" && $financiacion==""){
-                  $consulta="SELECT responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
+                  $consulta="SELECT idexcavaciones,responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
                              FROM excavacion NATURAL JOIN yacimiento
                              WHERE responsable='".$responsable."';";
 
                 }
                 elseif ($financiacion!="" && $responsable=="") {
-                  $consulta="SELECT responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
+                  $consulta="SELECT idexcavaciones,responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
                              FROM excavacion NATURAL JOIN yacimiento
                              WHERE financiacion='".$financiacion."';";
                 }
                 elseif ($financiacion!="" && $responsable!="") {
-                  $consulta="SELECT responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
+                  $consulta="SELECT idexcavaciones,responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
                              FROM excavacion NATURAL JOIN yacimiento
                              WHERE financiacion='".$financiacion."' AND responsable='".$responsable."';";
                 }
                 elseif($fecha_ex_ini!="") {
 
                   if($fecha_ex_fin!=""){
-                    $consulta="SELECT responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
+                    $consulta="SELECT idexcavaciones,responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
                                FROM excavacion NATURAL JOIN yacimiento
                                WHERE fecha_inicial BETWEEN '".$fecha_ex_ini."' AND '".$fecha_ex_fin."';";
                   }
                   else {
-                    $consulta="SELECT responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
+                    $consulta="SELECT idexcavaciones,responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
                                FROM excavacion NATURAL JOIN yacimiento
                                WHERE fecha_inicial='".$fecha_ex_ini."';";
                   }
@@ -509,6 +509,7 @@
                   $aux=0;
 
                   while($resultado=pg_fetch_assoc($resolucion)){
+                    $id_excavacion=$resultado['idexcavaciones'];
                     $responsable=$resultado['responsable'];
                     $financiacion=$resultado['financiacion'];
                     $yacimiento=$resultado['yacimiento'];
@@ -526,7 +527,7 @@
                     echo"
                     <form class='' action='modificar/modificar_excavacion.php' method='post'>
                       <div class='row'>
-
+                        <input type='hidden' id='' name='id_excavacion' value='$id_excavacion'>
                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='responsable_consultado' name='responsable_consultado' value='$responsable'>
                           <input type='hidden' id='' name='responsable_viejo' value='$responsable'>
