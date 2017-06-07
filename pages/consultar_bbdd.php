@@ -437,7 +437,7 @@
               /////////////////////////////////////////////////////////////////////
               /////////////////////////////////////////////////////////////////////
               //CONSULTAS SOBRE ESPECIES
-              if($consulta="ESPECIE"){
+              if($consulta=="ESPECIE"){
                 $aux=0;
                 if(isset($_COOKIE['especie'])){
                   $especie=$_COOKIE['especie'];
