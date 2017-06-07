@@ -54,60 +54,6 @@
        $observacion=Mayuscula_con_tilde($observacion);
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-//viejos
-   if(isset($_POST['responsable_viejo']))
-    $esponsable_viejo = $_POST['responsable_viejo'];
-    if($responsable_viejo!="")
-       $responsable_viejo=Mayuscula_con_tilde($responsable_viejo);
-    else
-       $responsable_viejo="DESCONOCIDO";
-
-   if(isset($_POST['financiacion_viejo']))
-     $financiacion_viejo = $_POST['financiacion_viejo'];
-     if($financiacion_viejo!="")
-        $financiacion_viejo=Mayuscula_con_tilde($financiacion_viejo);
-     else
-        $financiacion="DESCONOCIDO";
-
-   if(isset($_POST['yaci_ex_viejo']))
-    $yacimiento_viejo = $_POST['yaci_ex_viejo'];
-    if($yacimiento_viejo!="")
-       $yacimiento_viejo=Mayuscula_con_tilde($yacimiento_viejo);
-    else
-       $yacimiento_viejo="DESCONOCIDO";
-
-   if(isset($_POST['fecha_ex_viejo']))
-    $fecha_viejo = $_POST['fecha_ex_viejo'];
-
-   if(isset($_POST['fecha_ex_fin_viejo']))
-    $fecha_fin_viejo = $_POST['fecha_ex_fin_viejo'];
-
-
-   if(isset($_POST['deposito_viejo']))
-   $deposito_viejo = $_POST['deposito_viejo'];
-   if($deposito_viejo!="")
-      $deposito_viejo=Mayuscula_con_tilde($deposito_viejo);
-
-   if(isset($_POST['observacion_excavacion_viejo']))
-   $observacion_viejo= $_POST['observacion_excavacion_viejo'];
-   if($observacion_viejo!="")
-      $observacion_viejo=Mayuscula_con_tilde($observacion_viejo);
-
-
-
     echo "
     Los datos introducidos son:
     Id: $id_excavacion
@@ -118,14 +64,6 @@
     Fecha final: $fecha_fin
     Deposito: $deposito
     Observacion: $observacion
-
-    Responsable viejo: $responsable_viejo
-    Financiacion viejo: $financiacion_viejo
-    Yacimiento viejo:$yacimiento_viejo
-    Fecha viejo:$fecha_viejo
-    Fecha final viejo: $fecha_fin_viejo
-    Deposito viejo: $deposito_viejo
-    Observacion viejo: $observacion_viejo
     \n";
 
     if(isset($_POST['modificar'])){
@@ -136,7 +74,7 @@
        echo pg_last_error();
 
     }
-    
+
     elseif(isset($_POST['eliminar'])){
        $consulta_eliminar="DELETE FROM excavacion
                            WHERE idexcavaciones='".$id_excavacion."';";

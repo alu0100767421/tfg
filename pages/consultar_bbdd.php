@@ -530,31 +530,24 @@
                         <input type='hidden' id='' name='id_excavacion' value='$id_excavacion'>
                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='responsable_consultado' name='responsable_consultado' value='$responsable'>
-                          <input type='hidden' id='' name='responsable_viejo' value='$responsable'>
                         </div>
                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='financiacion_consultado' name='financiacion_consultado' value='$financiacion'>
-                          <input type='hidden' id='' name='financiacion_viejo' value='$financiacion'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='yacimiento_ex_consultado' name='yacimiento_ex_consultado' value='$yacimiento'>
-                          <input type='hidden' id='' name='yaci_ex_viejo' value='$yacimiento'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group' id='data-container'>
                           <input type='text' class='form-control input_consulta' id='fecha_ex_consultado' name='fecha_ex_consultado' value='$fecha_inicial'>
-                          <input type='hidden' id='' name='fecha_ex_viejo' value='$fecha_inicial'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group' id='data-container'>
                           <input type='text' class='form-control input_consulta' id='fecha_ex_fin_consultado' name='fecha_ex_fin_consultado' value='$fecha_final'>
-                          <input type='hidden' id='' name='fecha_ex_fin_viejo' value='$fecha_final'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='deposito_consultado' name='deposito_consultado' value='$deposito'>
-                          <input type='hidden' id='' name='deposito_viejo' value='$deposito'>
                         </div>
                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='observacion_excavacion' name='observacion_excavacion_consultado' value='$observacion_excavacion'>
-                          <input type='hidden' id='' name='observacion_excavacion_viejo' value='$observacion_excavacion'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
                           <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
