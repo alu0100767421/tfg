@@ -813,7 +813,7 @@
                 $aux=0;
                 //si se elige un titulo
                 if($titulo!=""){
-                  $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor
+                  $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
                              FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
                              WHERE titulo='".$titulo."';";
                 }
@@ -821,12 +821,12 @@
                 //si mete un autor
                 elseif ($autor!="") {
                   if($yacimiento_publicacion=="" || $yacimiento_publicacion=="NINGUNO"){
-                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor
+                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
                                FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
                                WHERE autor='".$autor."';";
                   }
                   else{
-                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor
+                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
                                FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
                                WHERE autor='".$autor."' AND yacimiento='".$yacimiento_publicacion."';";
                   }
@@ -835,7 +835,7 @@
                 //si mete un yacimiento
                 elseif ($yacimiento_publicacion!="") {
 
-                  $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor
+                  $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
                              FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
                              WHERE yacimiento='".$yacimiento_publicacion."';";
                 }
@@ -844,12 +844,12 @@
                 //si mete un fecha
                 elseif ($fecha_publi_ini!="") {
                   if($fecha_publi_fin==""){
-                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor
+                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
                                FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
                                WHERE fecha='".$fecha_publi_ini."';";
                   }
                   else{
-                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor
+                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
                                FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
                                WHERE fecha BETWEEN '".$fecha_publi_ini."' AND '".$fecha_publi_fin."';";
                   }
@@ -878,6 +878,9 @@
                       <h5><b>YACIMIENTO</b></h5>
                     </div>
                     <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>PDF</b></h5>
+                    </div>
+                    <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
                       <h5><b>FECHA</b></h5>
                     </div>
                   </div>
@@ -890,15 +893,12 @@
                       $yacimiento=$resultado['yacimiento'];
                     else
                       $yacimiento="NO DISPONIBLE EN ESTA CONSULTA";
+                      
                     $title=$resultado['titulo'];
                     $autor=$resultado['autor'];
                     $fecha=$resultado['fecha'];
+                    $pdf=$$resultado['pdf'];
 
-                    //echo "$aux";
-                    /*$deposit_aux="deposit" . $aux;
-                    $country_aux="country" .$aux;
-                    $modificar="modificar" .$aux;
-                    $eliminar="eliminar" .$aux;*/
 
                     echo"
                     <form class='' action='modificar/modificar_publicacion.php' method='post'>
@@ -975,7 +975,8 @@
                 //if pais y deposito están vacios se hace una consulta de todos
                 elseif ($deposito=="" && $pais=="") {
                   $consulta="SELECT *
-                             FROM deposito;";
+                             FROM deposito
+                             ORDER BY pais;";
                 }
                 //fin de hacer la consulta de todos
                 //if pais es vacío

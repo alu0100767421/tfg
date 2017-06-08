@@ -28,11 +28,18 @@
 
      if(isset($_POST['yacimiento_publicacion']))
        $yacimiento = $_POST['yacimiento_publicacion'];
+       if($yacimiento=="" || $yacimiento=="NINGUNO")
+        $yacimiento="DESCONOCIDO";
+
+    if(isset($_POST['pdf_publi']))
+      $pdf = $_POST['pdf_publi'];
+      if($pdf=="")
+       $pdf="DESCONOCIDO";
 
      if(isset($_POST['fecha_publi']))
        $fecha = $_POST['fecha_publi'];
        if($fecha=="")
-          $fecha="DESCONOCIDO";
+        $fecha='2000-01-01';
 
 
      echo "
@@ -40,12 +47,14 @@
      Titulo:$titulo
      Autor:$autor
      Yacimineto:$yacimiento
-     Fecha Publicacion:$fecha\n";
+     Fecha Publicacion:$fecha
+     PDF:$pdf
+     \n";
 
-     if($titulo!="" && $yacimiento!="" && $yacimeinto!="NINGUNO"){
+     if($titulo!="" && $yacimiento!="" && $yacimiento!="DESCONOCIDO"){
        //insertamos en la tabla publicacion
-       $consulta_insertar_publicacion="INSERT INTO publicacion(titulo,fecha,autor)
-                                       VALUES('".$titulo."','".$fecha."','".$autor."')";
+       $consulta_insertar_publicacion="INSERT INTO publicacion(titulo,fecha,autor,pdf)
+                                       VALUES('".$titulo."','".$fecha."','".$autor."','".$pdf."')";
 
        pg_query($link,$consulta_insertar_publicacion);
        echo pg_last_error();
@@ -77,7 +86,12 @@
        echo pg_last_error()."\n";
      }
      else{
-       echo "No ha introducido un titulo o yacimiento\n";
+       //echo "estoy aqui";
+       $consulta_insertar_publicacion="INSERT INTO publicacion(titulo,fecha,autor,pdf)
+                                       VALUES('".$titulo."','".$fecha."','".$autor."','".$pdf."')";
+
+       pg_query($link,$consulta_insertar_publicacion);
+       echo pg_last_error();
      }
      header("Location: ../anadir/publicacion.php");
 

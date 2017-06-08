@@ -91,10 +91,10 @@
               <p>A continuación, podrá añadir a la base de datos un <b>nuevo depósito</b>, teniendo en cuenta algunas de sus características.</p>
               <form class="" action="../add_bbdd/add_deposito.php" method="post">
                 <div class="row">
-                  <div class="col-lg-2 form-group">
+                  <div class="col-lg-4 form-group">
                     <input type="text" class="form-control" id="deposito" name="deposito" placeholder="NOMBRE">
                   </div>
-                  <div class="col-lg-2 form-group">
+                  <div class="col-lg-4 form-group">
                     <input type="text" class="form-control" id="pais" name="pais" placeholder="PAIS">
                   </div>
                 </div>

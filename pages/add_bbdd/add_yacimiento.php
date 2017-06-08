@@ -14,18 +14,26 @@
     //si se escoge una isla se va a introducir un yacimiento
     if(isset($_POST['isla_seleccionada'])){
       $isla = $_POST['isla_seleccionada'];
+      if($isla=="")
+        $isla="DESCONOCIDO";
 
       if(isset($_POST['municipio_seleccionado']))
         $municipio = $_POST['municipio_seleccionado'];
+        if($municipio=="")
+          $municipio="DESCONOCIDO";
 
       if(isset($_POST['localidad']))
         $localidad = $_POST['localidad'];
         if($localidad!="")
           $localidad= Mayuscula_con_tilde($localidad);
+        else
+          $localidad="DESCONOCIDO";
+
       if(isset($_POST['nombre_yacimiento']))
         $yacimiento = $_POST['nombre_yacimiento'];
         if($yacimiento!="")
           $yacimiento=Mayuscula_con_tilde($yacimiento);
+
       if(isset($_POST['latitud']))
         $latitud = $_POST['latitud'];
         if($latitud=="")
@@ -89,9 +97,6 @@
       pg_query($link,$insertar_yacimiento);
       echo pg_last_error();
 
-
-      //if hay una ubicacion
-      if($isla!="" && $municipio!="" && $localidad!=""){
         //hayamos el id del yacimiento
         $consulta_id="SELECT idyacimiento
                       FROM yacimiento
@@ -105,10 +110,6 @@
                              VALUES('".$id."','".$isla."','".$municipio."','".$localidad."','".$latitud."','".$longitud."');";
         pg_query($link,$insertar_ubicacion);
         echo pg_last_error();
-      }
-      else{
-        echo "le ha faltado algún dato de ubicacion por especificar\n";
-      }
 
     }
     else{
@@ -116,7 +117,7 @@
     }
 
 
-    header("Location: ../anadir/yacimiento.php");
+    //header("Location: ../anadir/yacimiento.php");
   }
   else {
     header("Location: ../../index.php");

@@ -20,6 +20,9 @@
        $pais = $_POST['pais'];
        if($pais!="")
           $pais=Mayuscula_con_tilde($pais);
+       else {
+         $pais="DESCONOCIDO";
+       }
 
      echo "
      Los datos introducidos son:
@@ -28,7 +31,7 @@
 
      if($deposito!="" && $pais!=""){
 
-       //comprobamos si la especie ya existe, en caso contrario de añade a la tabla
+       //comprobamos si EL DEPOSITO ya existe, en caso contrario de añade a la tabla
        $consulta_comprobacion="SELECT deposito
                                FROM deposito
                                WHERE deposito='".$deposito."';";

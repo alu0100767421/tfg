@@ -91,15 +91,18 @@
               <p>A continuación, podrá añadir a la base de datos una <b>nueva publicación</b>, teniendo en cuenta algunas de sus características.</p>
               <form class="" action="../add_bbdd/add_publicaciones.php" method="post">
                 <div class="row">
-                  <div class="col-lg-2 form-group">
+                  <div class="col-lg-4 form-group">
                     <input type="text" class="form-control" id="titulo" name="titulo" placeholder="TITULO">
                   </div>
-                  <div class="col-lg-2 form-group">
+                  <div class="col-lg-4 form-group">
                     <input type="text" class="form-control" id="autor" name="autor" placeholder="AUTOR">
+                  </div>
+                  <div class="col-lg-4 form-group">
+                    <input id="pdf_publi" type="text" class="form-control" name="pdf_publi" placeholder="LINK PDF">
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-lg-2 form-group">
+                  <div class="col-lg-4 form-group">
                     <select name="Yacimientos_Publicacion" id="Yacimientos_Publicacion" class="form-control" onchange="publicacion(this.value)">
                       <option disabled selected>YACIMIENTOS</option>
                       <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
@@ -118,9 +121,10 @@
                      </select>
                   </div>
                   <input type="hidden" name="yacimiento_publicacion" id="yacimiento_publicacion">
-                  <div class="col-lg-2 form-group" id="data-container">
+                  <div class="col-lg-4 form-group" id="data-container">
                     <input id="fecha_publi" type="text" class="form-control" name="fecha_publi" placeholder="FECHA PUBLICACION">
                   </div>
+
                 </div>
                 <div class="row">
                   <div class="col-lg-2 col-md-3 col-xs-12 col-sm-3">
