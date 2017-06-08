@@ -874,9 +874,15 @@
                     <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
                       <h5><b>AUTOR</b></h5>
                     </div>
-                    <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-                      <h5><b>YACIMIENTO</b></h5>
-                    </div>
+                    ";
+                    if($aux==0){
+                      echo "
+                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
+                        <h5><b>YACIMIENTO</b></h5>
+                      </div>
+                      ";
+                    }
+                    echo"
                     <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
                       <h5><b>PDF</b></h5>
                     </div>
@@ -893,11 +899,11 @@
                       $yacimiento=$resultado['yacimiento'];
                     else
                       $yacimiento="NO DISPONIBLE EN ESTA CONSULTA";
-                      
+
                     $title=$resultado['titulo'];
                     $autor=$resultado['autor'];
                     $fecha=$resultado['fecha'];
-                    $pdf=$$resultado['pdf'];
+                    $pdf=$resultado['pdf'];
 
 
                     echo"
@@ -910,8 +916,17 @@
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='autor_consultado' name='autor_consultado' value='$autor'>
                         </div>
+                    ";
+                      if($aux==0){
+                        echo "
+                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
+                            <input type='text' class='form-control input_consulta' id='yacimiento_publi_consultado' name='yacimiento_publi_consultado' value='$yacimiento'>
+                          </div>
+                        ";
+                      }
+                      echo "
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' class='form-control input_consulta' id='yacimiento_publi_consultado' name='yacimiento_publi_consultado' value='$yacimiento'>
+                          <input type='text' class='form-control input_consulta' id='pdf_consultado' name='pdf_consultado' value='$pdf'>
                         </div>
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group' id='data-container'>
                           <input type='text' class='form-control input_consulta' id='fecha_publi_consultado' name='fecha_publi_consultado' value='$fecha'>

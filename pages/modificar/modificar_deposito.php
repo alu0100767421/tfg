@@ -51,10 +51,6 @@
      if(isset($_POST['eliminar'])){
        if($deposito!="" && $pais!=""){
 
-         $consulta_eliminar_deposito_especie="DELETE FROM especie_has_deposito
-                                              WHERE deposito_iddeposito='".$id_deposito."';";
-         pg_query($link,$consulta_eliminar_deposito_especie);
-
          $consulta_eliminar_deposito="DELETE FROM deposito
                                  WHERE iddeposito='".$id_deposito."';";
          pg_query($link,$consulta_eliminar_deposito);
@@ -66,7 +62,7 @@
        }
      }
 
-     header("Location: ../consultar_bbdd.php");
+     //header("Location: ../consultar_bbdd.php");
 
  }
  else {

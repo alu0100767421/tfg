@@ -96,7 +96,6 @@
 
       pg_query($link,$insertar_yacimiento);
       echo pg_last_error();
-
         //hayamos el id del yacimiento
         $consulta_id="SELECT idyacimiento
                       FROM yacimiento
@@ -117,7 +116,7 @@
     }
 
 
-    //header("Location: ../anadir/yacimiento.php");
+    header("Location: ../anadir/yacimiento.php");
   }
   else {
     header("Location: ../../index.php");
