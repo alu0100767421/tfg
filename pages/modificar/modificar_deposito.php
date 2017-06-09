@@ -62,7 +62,7 @@
        }
      }
 
-     //header("Location: ../consultar_bbdd.php");
+     header("Location: ../consultar_bbdd.php");
 
  }
  else {

@@ -47,6 +47,9 @@
     $deposito = $_POST['deposito_consultado'];
     if($deposito!="")
        $deposito=Mayuscula_con_tilde($deposito);
+    else {
+       $deposito="DESCONOCIDO";
+    }
 
     if(isset($_POST['observacion_excavacion_consultado']))
     $observacion= $_POST['observacion_excavacion_consultado'];

@@ -100,6 +100,15 @@
          $valor_id_d=pg_fetch_assoc($id_d);
          $id_deposito=$valor_id_d['iddeposito'];
          echo "id del deposito: $id_deposito\n";
+         //obtenemos el id de la especie
+         $consulta_id_e="SELECT idespecie
+                       FROM especie
+                       WHERE especie='".$especie."';";
+         $id_e=pg_query($link,$consulta_id_e);
+         echo pg_last_error();
+         $valor_id_e=pg_fetch_assoc($id_e);
+         $id_especie=$valor_id_e['idespecie'];
+         echo "id del especie: $id_especie\n";
 
          $consulta_insertar_especie_has_deposito="INSERT INTO especie_has_deposito
                                                     VALUES('".$id_especie."','".$id_deposito."');";
