@@ -810,20 +810,40 @@
                 echo " La fecha de inicio es: $fecha_publi_ini";
                 echo " La fecha de fin es: $fecha_publi_fin";*/
 
-                $aux=0;
+                $aux=false;
+                $no_resultado=false;
+                $poner_algo_yacimiento=false;
                 //si se elige un titulo
                 if($titulo!=""){
+                  $aux=true;
+
                   $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
                              FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
                              WHERE titulo='".$titulo."';";
+                  $consulta2="SELECT idpublicaciones,titulo,fecha,autor,pdf
+                              FROM publicacion
+                              WHERE titulo='".$titulo."'
+                              EXCEPT
+                              SELECT idpublicaciones,titulo,fecha,autor,pdf
+                              FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion
+                              WHERE titulo='".$titulo."';";
                 }
                 //fin si se elige un titulo
                 //si mete un autor
                 elseif ($autor!="") {
-                  if($yacimiento_publicacion=="" || $yacimiento_publicacion=="NINGUNO"){
+                  if($yacimiento_publicacion==""){
+                    $aux=true;
                     $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
                                FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
                                WHERE autor='".$autor."';";
+
+                    $consulta2="SELECT idpublicaciones,titulo,fecha,autor,pdf
+                                FROM publicacion
+                                WHERE autor='".$autor."'
+                                EXCEPT
+                                SELECT idpublicaciones,titulo,fecha,autor,pdf
+                                FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion
+                                WHERE autor='".$autor."';";
                   }
                   else{
                     $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
@@ -834,36 +854,72 @@
                 //fin si mete un autor
                 //si mete un yacimiento
                 elseif ($yacimiento_publicacion!="") {
-
-                  $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
-                             FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
-                             WHERE yacimiento='".$yacimiento_publicacion."';";
+                  $aux=true;
+                  if($yacimiento_publicacion!="NINGUNO"){
+                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
+                               FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
+                               WHERE yacimiento='".$yacimiento_publicacion."';";
+                  }
+                  else{
+                    $poner_algo_yacimiento=true;
+                    $consulta="SELECT idpublicaciones,titulo,fecha,autor,pdf
+                                FROM publicacion
+                                EXCEPT
+                                SELECT idpublicaciones,titulo,fecha,autor,pdf
+                                FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion;";
+                  }
                 }
                 //fin si mete un yacimiento
 
                 //si mete un fecha
                 elseif ($fecha_publi_ini!="") {
+                  $aux=true;
                   if($fecha_publi_fin==""){
                     $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
                                FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
                                WHERE fecha='".$fecha_publi_ini."';";
+
+                     $consulta2="SELECT idpublicaciones,titulo,fecha,autor,pdf
+                                 FROM publicacion
+                                 WHERE fecha='".$fecha_publi_ini."'
+                                 EXCEPT
+                                 SELECT idpublicaciones,titulo,fecha,autor,pdf
+                                 FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion
+                                 WHERE fecha='".$fecha_publi_ini."';";
                   }
                   else{
                     $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
                                FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
                                WHERE fecha BETWEEN '".$fecha_publi_ini."' AND '".$fecha_publi_fin."';";
+
+                    $consulta2="SELECT idpublicaciones,titulo,fecha,autor,pdf
+                                 FROM publicacion
+                                 WHERE fecha BETWEEN '".$fecha_publi_ini."' AND '".$fecha_publi_fin."'
+                                 EXCEPT
+                                 SELECT idpublicaciones,titulo,fecha,autor,pdf
+                                 FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion
+                                 WHERE fecha BETWEEN '".$fecha_publi_ini."' AND '".$fecha_publi_fin."';";
                   }
 
                 }
                 //fin si mete un fecha
+
                 elseif ($titulo=="" && $autor=="" && ($yacimiento_publicacion=="" || $yacimiento_publicacion=="NINGUNO") && $fecha_publi_ini=="") {
-                  $consulta="SELECT *
-                             FROM publicacion;";
-                  $aux=1;
+                  $aux=true;
+                  $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
+                             FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion;";
+
+
+                  $consulta2="SELECT idpublicaciones,titulo,fecha,autor,pdf
+                              FROM publicacion
+                              EXCEPT
+                              SELECT idpublicaciones,titulo,fecha,autor,pdf
+                              FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion;";
                 }
 
                 $resolucion=pg_query($link,$consulta);
                 if(pg_num_rows($resolucion)>0){
+                  $no_resultado=true;
                   //echo "  Éxito de consulta";
                   echo "
                   <hr class='linea'>
@@ -874,15 +930,9 @@
                     <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
                       <h5><b>AUTOR</b></h5>
                     </div>
-                    ";
-                    if($aux==0){
-                      echo "
-                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
-                        <h5><b>YACIMIENTO</b></h5>
-                      </div>
-                      ";
-                    }
-                    echo"
+                    <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>YACIMIENTO</b></h5>
+                    </div>
                     <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
                       <h5><b>PDF</b></h5>
                     </div>
@@ -895,11 +945,9 @@
 
                   while($resultado=pg_fetch_assoc($resolucion)){
                     $id_publicacion=$resultado['idpublicaciones'];
-                    if($aux==0)
-                      $yacimiento=$resultado['yacimiento'];
-                    else
-                      $yacimiento="NO DISPONIBLE EN ESTA CONSULTA";
-
+                    $yacimiento=$resultado['yacimiento'];
+                    if($poner_algo_yacimiento==true)
+                      $yacimiento="NO CORRESPONDE A NINGÚN YACIMIENTO";
                     $title=$resultado['titulo'];
                     $autor=$resultado['autor'];
                     $fecha=$resultado['fecha'];
@@ -916,15 +964,9 @@
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='autor_consultado' name='autor_consultado' value='$autor'>
                         </div>
-                    ";
-                      if($aux==0){
-                        echo "
-                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' class='form-control input_consulta' id='yacimiento_publi_consultado' name='yacimiento_publi_consultado' value='$yacimiento'>
-                          </div>
-                        ";
-                      }
-                      echo "
+                        <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
+                          <input type='text' class='form-control input_consulta' id='yacimiento_publi_consultado' name='yacimiento_publi_consultado' value='$yacimiento'>
+                        </div>
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='pdf_consultado' name='pdf_consultado' value='$pdf'>
                         </div>
@@ -943,7 +985,52 @@
                   }
                   //echo"$deposit y $country";
                 }
-                else{
+                if($aux==true){
+                  $resolucion=pg_query($link,$consulta2);
+                  if(pg_num_rows($resolucion)>0){
+                    $no_resultado=true;
+                    while($resultado=pg_fetch_assoc($resolucion)){
+                      $id_publicacion=$resultado['idpublicaciones'];
+                      $yacimiento="NO CORRESPONDE A NINGÚN YACIMIENTO";
+                      $title=$resultado['titulo'];
+                      $autor=$resultado['autor'];
+                      $fecha=$resultado['fecha'];
+                      $pdf=$resultado['pdf'];
+
+                      echo"
+                      <form class='' action='modificar/modificar_publicacion.php' method='post'>
+                        <div class='row'>
+                          <input type='hidden' id='' name='id_publicacion' value='$id_publicacion'>
+                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
+                            <input type='text' class='form-control input_consulta' id='titulo_consultado' name='titulo_consultado' value='$title'>
+                          </div>
+                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
+                            <input type='text' class='form-control input_consulta' id='autor_consultado' name='autor_consultado' value='$autor'>
+                          </div>
+                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
+                            <input type='text' class='form-control input_consulta' id='sin_yacimiento_publi_consultado' name='sin_yacimiento_publi_consultado' value='$yacimiento'>
+                          </div>
+                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
+                            <input type='text' class='form-control input_consulta' id='pdf_consultado' name='pdf_consultado' value='$pdf'>
+                          </div>
+                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group' id='data-container'>
+                            <input type='text' class='form-control input_consulta' id='fecha_publi_consultado' name='fecha_publi_consultado' value='$fecha'>
+                          </div>
+                          <div class='col-lg-1 col-md-2 col-xs-3 col-sm-3'>
+                            <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
+                          </div>
+                          <div class='col-lg-1 col-md-1 col-xs-1 col-sm-1'>
+                            <button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>
+                          </div>
+                        </div>
+                      </form>
+                      ";
+                    }
+                    //echo"$deposit y $country";
+                  }
+                }
+
+                if($no_resultado==false){
                   echo "
                   <hr class='linea'>
                   <div class='row'>
@@ -952,6 +1039,9 @@
                     </div>
                   </div>
                   ";
+                }
+                if($aux==true){
+
                 }
 
               }//FIN DE LAS CONSULTAS DE PUBLICACIONES
