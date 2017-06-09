@@ -188,26 +188,6 @@ function isla(val) {
 
 function municipio(val){
   document.getElementById('municipio_seleccionado').value=val;
-  if(val!==""){
-    document.getElementById('localidad').style.display="block";
-    document.getElementById('nombre_yacimiento').style.display="block";
-    document.getElementById('coordenada').style.display="block";
-    document.getElementById('edad').style.display="block";
-    document.getElementById('altura').style.display="block";
-    document.getElementById('tipo_y').style.display="block";
-    document.getElementById('estado_conservacion').style.display="block";
-    document.getElementById('observaciones_y').style.display="block";
-  }
-  else{
-    document.getElementById('localidad').style.display="none";
-    document.getElementById('nombre_yacimiento').style.display="none";
-    document.getElementById('coordenada').style.display="none";
-    document.getElementById('edad').style.display="none";
-    document.getElementById('altura').style.display="none";
-    document.getElementById('tipo_y').style.display="none";
-    document.getElementById('estado_conservacion').style.display="none";
-    document.getElementById('observaciones_y').style.display="none";
-  }
 }
 
 
@@ -220,7 +200,50 @@ function consultas(){
   //comprobamos si se ha introducido algún tipo de consulta a realizar
   //en todos los casos, se asigna a la cookie 'consulta' el tipo de consulta elegido
   //luego creacremos nuevas cookies con las opciones elegidas en casa caso para hacer las consultas
-  if(consulta=="ESPECIE"){
+  if(consulta=="YACIMIENTO"){
+
+    var isla= document.getElementById('isla_seleccionada').value;
+    var municipio=document.getElementById('municipio_seleccionado').value;
+    var yacimiento_yacimiento= document.getElementById('yacimiento_yacimiento').value;
+    var edad= document.getElementById('Edad').value;
+    var tipo_yacimiento= document.getElementById('Tipo_y').value;
+    var altura= document.getElementById('Altura').value;
+
+    if(isla!=="")
+      document.cookie='isla='+isla;
+    else
+      document.cookie='isla=';
+
+    if(municipio!=="")
+      document.cookie='municipio='+municipio;
+    else
+      document.cookie='municipio=';
+
+    if(yacimiento_yacimiento!=="")
+      document.cookie='yacimiento_yacimiento='+yacimiento_yacimiento;
+    else
+      document.cookie='yacimiento_yacimiento=';
+
+    if(edad!=="")
+      document.cookie='edad='+edad;
+    else
+      document.cookie='edad=';
+
+    if(tipo_yacimiento!=="")
+      document.cookie='tipo_yacimiento='+tipo_yacimiento;
+    else
+      document.cookie='tipo_yacimiento=';
+
+    if(altura!=="")
+      document.cookie='altura='+altura;
+    else
+      document.cookie='altura=';
+
+    console.log('isla='+isla+' municipio='+municipio+' yacimiento_yacimiento='+yacimiento_yacimiento+' edad='+edad+' tipo:'+tipo_yacimiento+' altura:'+altura);
+
+  }
+  else if(consulta=="ESPECIE"){
+
     var especie= document.getElementById('nombre_especie').value;
     var tipo_especie=document.getElementById('tipo_especie').value;
     var yacimiento_especie= document.getElementById('yacimiento_especie').value;
@@ -353,6 +376,13 @@ function limpiar_cookie(){
   document.cookie='consulta=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
   document.cookie='seleccion=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
 
+  //cookies de yacimiento
+  document.cookie='isla=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+  document.cookie='municipio=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+  document.cookie='yacimiento_yacimiento=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+  document.cookie='edad=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+  document.cookie='tipo_yacimiento=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+  document.cookie='altura=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
 
   //cookies de especie
   document.cookie='especie=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
@@ -398,6 +428,12 @@ function deposito(val){
     document.getElementById('deposito_especie').value=val;
 
 }
+
+function yacimiento(val){
+    document.getElementById('yacimiento_yacimiento').value=val;
+
+}
+
 
 
 function obtenerCookie(clave) {

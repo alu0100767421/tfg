@@ -129,7 +129,7 @@
                   </div>
                   <!-- MUNICIPIOS DE LA PALMA-->
                   <div style="display:none" id="municipioslapalma" class="col-lg-2 form-group">
-                    <select name="MunicipiosLaPalma" id="MunicipiosLaPalma" class="form-control" onchange="municipio(this.value)">
+                    <select name="MunicipiosLaPalma" id="MunicipiosLaPalma" class="form-control" onchange="">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='BARLOVENTO' name='BARLOVENTO'>BARLOVENTO</option>
                       <option type='text' value='BRENA ALTA' name='BRENA ALTA'>BREÑA ALTA</option>
@@ -260,11 +260,33 @@
                     </select>
                   </div>
                   <input type="hidden" name="municipio_seleccionado" id="municipio_seleccionado">
+                  <div class="col-lg-2 form-group">
+                    <select name="Yacimientos_Yacimiento" id="Yacimientos_Yacimiento" class="form-control" onchange="yacimiento(this.value)">
+                      <option disabled selected>YACIMIENTOS</option>
+                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
+                      <?php
+                        $consulta_yacimiento="SELECT yacimiento
+                                              FROM yacimiento
+                                              ORDER BY yacimiento ASC;";
+                        $resultado=pg_query($link,$consulta_yacimiento);
+                        echo pg_last_error();
+                        while($resultado2 = pg_fetch_assoc($resultado)){
+                          $aux = $resultado2['yacimiento'];
+                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
+                        }
+
+                      ?>
+                     </select>
+                  </div>
+                  <input type="hidden" name="yacimiento_yacimiento" id="yacimiento_yacimiento">
                   <div class="col-lg-2 form-group" id="edad">
                     <input type="text" class="form-control" id="Edad" name="edad" placeholder="EDAD">
                   </div>
                   <div class="col-lg-2 form-group" id="tipo_y">
                     <input type="text" class="form-control" id="Tipo_y" name="tipo_y" placeholder="TIPO">
+                  </div>
+                  <div class="col-lg-1 form-group" id="altura">
+                    <input type="number" class="form-control" id="Altura" name="altura" placeholder="ALTURA">
                   </div>
                 </div>
                 <!--Fin de Yacimiento-->
@@ -432,6 +454,248 @@
             }
             else {
 
+              /////////////////////////////////////////////////////////////////////
+              /////////////////////////////////////////////////////////////////////
+              /////////////////////////////////////////////////////////////////////
+              /////////////////////////////////////////////////////////////////////
+              //CONSULTAS SOBRE YACIMIENTO
+
+
+
+
+
+
+
+              if($consulta=="YACIMIENTO"){
+
+                if(isset($_COOKIE['isla'])){
+                  $isla=$_COOKIE['isla'];
+                }
+                if(isset($_COOKIE['municipio'])){
+                  $municipio=$_COOKIE['municipio'];
+                }
+                if(isset($_COOKIE['yacimiento_yacimiento'])){
+                  $yacimiento=$_COOKIE['yacimiento_yacimiento'];
+                }
+                if(isset($_COOKIE['edad'])){
+                  $edad=$_COOKIE['edad'];
+                  $edad= Mayuscula_con_tilde($edad);
+                }
+                if(isset($_COOKIE['tipo_yacimiento'])){
+                  $tipo=$_COOKIE['tipo_yacimiento'];
+                  $tipo= Mayuscula_con_tilde($tipo);
+                }
+                if(isset($_COOKIE['altura'])){
+                  $altura=$_COOKIE['altura'];
+                }
+              /*  echo " El isla es: $isla";
+                echo " El municipio es: $municipio";
+                echo " El yacimiento es: $yacimiento";
+                echo " El edad es: $edad";
+                echo " El tipo es: $tipo";
+                echo " El altura es: $altura";*/
+
+                if($yacimiento!=""){
+                  $consulta="SELECT *
+                             FROM yacimiento
+                             WHERE yacimiento='".$yacimiento."';";
+
+                }
+                elseif($isla!="" && $municipio==""){
+                  if($edad=="" && $altura=="" && $tipo==""){
+                    $consulta="SELECT idyacimiento,idubicacion,yacimiento,edad,altura,tipo_yacimiento,cant_publicaciones,observacion_yacimiento, isla,municipio,localidad,latitud,longitud
+                               FROM yacimiento NATURAL JOIN ubicacion
+                               WHERE isla='".$isla."';";
+                  }
+                  else{
+                    if($edad!=""){
+                      $consulta="SELECT idyacimiento,idubicacion,yacimiento,edad,altura,tipo_yacimiento,cant_publicaciones,observacion_yacimiento, isla,municipio,localidad,latitud,longitud
+                                 FROM yacimiento NATURAL JOIN ubicacion
+                                 WHERE isla='".$isla."' AND edad='".$edad."';";
+                    }
+                    if($altura!=""){
+                      $consulta="SELECT idyacimiento,idubicacion,yacimiento,edad,altura,tipo_yacimiento,cant_publicaciones,observacion_yacimiento, isla,municipio,localidad,latitud,longitud
+                                 FROM yacimiento NATURAL JOIN ubicacion
+                                 WHERE isla='".$isla."' AND altura>='".$altura."' AND altura<='".$altura."'+50 ;";
+                    }
+                    if($tipo!=""){
+                      $consulta="SELECT idyacimiento,idubicacion,yacimiento,edad,altura,tipo_yacimiento,cant_publicaciones,observacion_yacimiento, isla,municipio,localidad,latitud,longitud
+                                 FROM yacimiento NATURAL JOIN ubicacion
+                                 WHERE isla='".$isla."' AND tipo_yacimiento='".$tipo."';";
+                    }
+                  }
+
+                }
+                elseif ($municipio!="") {
+                  if($edad=="" && $altura=="" && $tipo==""){
+                    $consulta="SELECT idyacimiento,idubicacion,yacimiento,edad,altura,tipo_yacimiento,cant_publicaciones,observacion_yacimiento, isla,municipio,localidad,latitud,longitud
+                               FROM yacimiento NATURAL JOIN ubicacion
+                               WHERE isla='".$isla."' AND municipio='".$municipio."';";
+                  }
+                  else{
+                    if($edad!=""){
+                      $consulta="SELECT idyacimiento,idubicacion,yacimiento,edad,altura,tipo_yacimiento,cant_publicaciones,observacion_yacimiento, isla,municipio,localidad,latitud,longitud
+                                 FROM yacimiento NATURAL JOIN ubicacion
+                                 WHERE isla='".$isla."' AND edad='".$edad."' AND municipio='".$municipio."';";
+                    }
+                    if($altura!=""){
+                      $consulta="SELECT idyacimiento,idubicacion,yacimiento,edad,altura,tipo_yacimiento,cant_publicaciones,observacion_yacimiento, isla,municipio,localidad,latitud,longitud
+                                 FROM yacimiento NATURAL JOIN ubicacion
+                                 WHERE isla='".$isla."' AND altura>='".$altura."' AND altura<='".$altura."'+50 AND municipio='".$municipio."';";
+                    }
+                    if($tipo!=""){
+                      $consulta="SELECT idyacimiento,idubicacion,yacimiento,edad,altura,tipo_yacimiento,cant_publicaciones,observacion_yacimiento, isla,municipio,localidad,latitud,longitud
+                                 FROM yacimiento NATURAL JOIN ubicacion
+                                 WHERE isla='".$isla."' AND tipo_yacimiento='".$tipo."' AND municipio='".$municipio."';";
+                    }
+                  }
+                }
+
+                elseif($edad!=""){
+                  $consulta="SELECT idyacimiento,idubicacion,yacimiento,edad,altura,tipo_yacimiento,cant_publicaciones,observacion_yacimiento, isla,municipio,localidad,latitud,longitud
+                             FROM yacimiento NATURAL JOIN ubicacion
+                             WHERE edad='".$edad."';";
+                }
+                elseif($altura!=""){
+                  $consulta="SELECT idyacimiento,idubicacion,yacimiento,edad,altura,tipo_yacimiento,cant_publicaciones,observacion_yacimiento, isla,municipio,localidad,latitud,longitud
+                             FROM yacimiento NATURAL JOIN ubicacion
+                             WHERE altura>='".$altura."' AND altura<='".$altura."'+50;";
+                }
+                elseif($tipo!=""){
+                  $consulta="SELECT idyacimiento,idubicacion,yacimiento,edad,altura,tipo_yacimiento,cant_publicaciones,observacion_yacimiento, isla,municipio,localidad,latitud,longitud
+                             FROM yacimiento NATURAL JOIN ubicacion
+                             WHERE tipo_yacimiento='".$tipo."';";
+                }
+
+                function mostrar_informacion_yacimiento(){
+                  echo"
+                  <hr class='linea'>
+                  <div class='row'>
+                    <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>YACIMIENTO</b></h5>
+                    </div>
+                    <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>EDAD</b></h5>
+                    </div>
+                    <div class='col-lg-1 col-md-10 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>ALTURA</b></h5>
+                    </div>
+                    <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>TIPO</b></h5>
+                    </div>
+                    <div class='col-lg-1 col-md-10 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>PUBLICACIÓN</b></h5>
+                    </div>
+                    <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>OBSERVACION</b></h5>
+                    </div>
+                  </div>";
+                  /*<div class='row'>
+                    <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>ISLA</b></h5>
+                    </div>
+                    <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>MUNICIPIO</b></h5>
+                    </div>
+                    <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>LOCALIDAD</b></h5>
+                    </div>
+                    <div class='col-lg-1 col-md-10 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>LATITUD</b></h5>
+                    </div>
+                    <div class='col-lg-1 col-md-10 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>LONGITUD</b></h5>
+                    </div>
+                  </div>
+
+
+                  <input type='hidden' id='' name='id_yacimiento' value='$id_yacimiento'>
+                  <input type='hidden' id='' name='id_ubicacion' value='$id_ubicacion'>
+                  <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
+                    <input type='text' class='form-control input_consulta' id='' name='isla_consultado' value='$isla'>
+                  </div>
+                  <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
+                    <input type='text' class='form-control input_consulta' id='' name='municipio_consultado' value='$municipio'>
+                  </div>
+                  <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
+                    <input type='text' class='form-control input_consulta' id='' name='localidad_consultado' value='$localidad'>
+                  </div>
+                  <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
+                    <input type='text' class='form-control input_consulta' id='' name='latitud_consultado' value='$latitud'>
+                  </div>
+                  <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
+                    <input type='text' class='form-control input_consulta' id='' name='longitud_consultado' value='$longitud'>
+                  </div>*/
+
+                }
+
+                $resolucion=pg_query($link,$consulta);
+                //echo pg_last_error();
+                if(pg_num_rows($resolucion)>0){
+                  //echo "  Éxito de consulta";
+                  mostrar_informacion_yacimiento();
+                  while($resultado=pg_fetch_assoc($resolucion)){
+                    $id_ubicacion=$resultado['idubicacion'];
+                    $id_yacimiento=$resultado['idyacimiento'];
+                    $yacimiento=$resultado['yacimiento'];
+                    $edad=$resultado['edad'];
+                    $altura=$resultado['altura'];
+                    $tipo=$resultado['tipo_yacimiento'];
+                    $publicaciones=$resultado['cant_publicaciones'];
+                    $observacion=$resultado['observacion_yacimiento'];
+                    /*$isla=$resultado['isla'];
+                    $municipio=$resultado['municipio'];
+                    $localidad=$resultado['localidad'];
+                    $latitud=$resultado['latitud'];
+                    $longitud=$resultado['longitud'];*/
+
+                    echo"
+
+                    <form class='' action='modificar/modificar_yacimiento.php' method='post'>
+                      <div class='row'>
+
+                        <input type='hidden' id='' name='id_yacimiento' value='$id_yacimiento'>
+                        <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
+                          <input type='text' class='form-control input_consulta' id='' name='yacimiento_consultado' value='$yacimiento'>
+                        </div>
+                        <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
+                          <input type='text' class='form-control input_consulta' id='' name='edad_consultado' value='$edad'>
+                        </div>
+                        <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
+                          <input type='number' class='form-control input_consulta' id='' name='altura_consultado' value='$altura'>
+                        </div>
+                        <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
+                          <input type='text' class='form-control input_consulta' id='' name='tipo_consultado' value='$tipo'>
+                        </div>
+                        <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
+                          <input type='text' class='form-control input_consulta' id='' name='publicaciones_consultado' value='$publicaciones'>
+                        </div>
+                        <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
+                          <input type='text' class='form-control input_consulta' id='' name='observacion_consultado' value='$observacion'>
+                        </div>
+                        <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
+                          <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
+                        </div>
+                        <div class='col-lg-1 col-md-10 col-xs-1 col-sm-1'>
+                          <button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>
+                        </div>
+                      </div>
+                    </form>
+                    ";
+                  }
+                }
+                else {
+                  echo "
+                  <hr class='linea'>
+                  <div class='row'>
+                    <div class='col-lg-10 col-md-4 col-sm-4 col-xs-4 form-group'>
+                      <h5><b>No se ha encontrado datos en esta consulta</b></h5>
+                    </div>
+                  </div>
+                  ";
+                }
+
+              }
               /////////////////////////////////////////////////////////////////////
               /////////////////////////////////////////////////////////////////////
               /////////////////////////////////////////////////////////////////////

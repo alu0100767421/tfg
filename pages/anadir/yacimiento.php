@@ -259,7 +259,7 @@
                     <input type="text" class="form-control" id="Longitud" name="longitud" placeholder="LONGITUD">
                   </div>
                   <div class="col-lg-2 form-group" id="altura">
-                    <input type="text" class="form-control" id="Altura" name="altura" placeholder="ALTURA">
+                    <input type="number" class="form-control" id="Altura" name="altura" placeholder="ALTURA">
                   </div>
                   <div class="col-lg-2 form-group" id="edad">
                     <input type="text" class="form-control" id="Edad" name="edad" placeholder="EDAD">
