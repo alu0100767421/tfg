@@ -989,6 +989,7 @@
                     <form class='' action='modificar/modificar_publicacion.php' method='post'>
                       <div class='row'>
                         <input type='hidden' id='' name='id_publicacion' value='$id_publicacion'>
+                        <input type='hidden' id='' name='yacimiento_viejo' value='$yacimiento'>
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='titulo_consultado' name='titulo_consultado' value='$title'>
                         </div>
@@ -1039,6 +1040,7 @@
                       <form class='' action='modificar/modificar_publicacion.php' method='post'>
                         <div class='row'>
                           <input type='hidden' id='' name='id_publicacion' value='$id_publicacion'>
+                          <input type='hidden' id='' name='yacimiento_viejo' value='$yacimiento'>
                           <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                             <input type='text' class='form-control input_consulta' id='titulo_consultado' name='titulo_consultado' value='$title'>
                           </div>
@@ -1046,7 +1048,7 @@
                             <input type='text' class='form-control input_consulta' id='autor_consultado' name='autor_consultado' value='$autor'>
                           </div>
                           <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' class='form-control input_consulta' id='sin_yacimiento_publi_consultado' name='sin_yacimiento_publi_consultado' value='$yacimiento'>
+                            <input type='text' class='form-control input_consulta' id='yacimiento_publi_consultado' name='yacimiento_publi_consultado' value='$yacimiento'>
                           </div>
                           <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                             <input type='text' class='form-control input_consulta' id='pdf_consultado' name='pdf_consultado' value='$pdf'>
