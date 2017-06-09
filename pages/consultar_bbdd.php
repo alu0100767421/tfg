@@ -810,117 +810,7 @@
                 echo " La fecha de inicio es: $fecha_publi_ini";
                 echo " La fecha de fin es: $fecha_publi_fin";*/
 
-                $aux=false;
-                $no_resultado=false;
-                $poner_algo_yacimiento=false;
-                //si se elige un titulo
-                if($titulo!=""){
-                  $aux=true;
-
-                  $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
-                             FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
-                             WHERE titulo='".$titulo."';";
-                  $consulta2="SELECT idpublicaciones,titulo,fecha,autor,pdf
-                              FROM publicacion
-                              WHERE titulo='".$titulo."'
-                              EXCEPT
-                              SELECT idpublicaciones,titulo,fecha,autor,pdf
-                              FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion
-                              WHERE titulo='".$titulo."';";
-                }
-                //fin si se elige un titulo
-                //si mete un autor
-                elseif ($autor!="") {
-                  if($yacimiento_publicacion==""){
-                    $aux=true;
-                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
-                               FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
-                               WHERE autor='".$autor."';";
-
-                    $consulta2="SELECT idpublicaciones,titulo,fecha,autor,pdf
-                                FROM publicacion
-                                WHERE autor='".$autor."'
-                                EXCEPT
-                                SELECT idpublicaciones,titulo,fecha,autor,pdf
-                                FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion
-                                WHERE autor='".$autor."';";
-                  }
-                  else{
-                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
-                               FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
-                               WHERE autor='".$autor."' AND yacimiento='".$yacimiento_publicacion."';";
-                  }
-                }
-                //fin si mete un autor
-                //si mete un yacimiento
-                elseif ($yacimiento_publicacion!="") {
-                  $aux=true;
-                  if($yacimiento_publicacion!="NINGUNO"){
-                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
-                               FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
-                               WHERE yacimiento='".$yacimiento_publicacion."';";
-                  }
-                  else{
-                    $poner_algo_yacimiento=true;
-                    $consulta="SELECT idpublicaciones,titulo,fecha,autor,pdf
-                                FROM publicacion
-                                EXCEPT
-                                SELECT idpublicaciones,titulo,fecha,autor,pdf
-                                FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion;";
-                  }
-                }
-                //fin si mete un yacimiento
-
-                //si mete un fecha
-                elseif ($fecha_publi_ini!="") {
-                  $aux=true;
-                  if($fecha_publi_fin==""){
-                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
-                               FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
-                               WHERE fecha='".$fecha_publi_ini."';";
-
-                     $consulta2="SELECT idpublicaciones,titulo,fecha,autor,pdf
-                                 FROM publicacion
-                                 WHERE fecha='".$fecha_publi_ini."'
-                                 EXCEPT
-                                 SELECT idpublicaciones,titulo,fecha,autor,pdf
-                                 FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion
-                                 WHERE fecha='".$fecha_publi_ini."';";
-                  }
-                  else{
-                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
-                               FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
-                               WHERE fecha BETWEEN '".$fecha_publi_ini."' AND '".$fecha_publi_fin."';";
-
-                    $consulta2="SELECT idpublicaciones,titulo,fecha,autor,pdf
-                                 FROM publicacion
-                                 WHERE fecha BETWEEN '".$fecha_publi_ini."' AND '".$fecha_publi_fin."'
-                                 EXCEPT
-                                 SELECT idpublicaciones,titulo,fecha,autor,pdf
-                                 FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion
-                                 WHERE fecha BETWEEN '".$fecha_publi_ini."' AND '".$fecha_publi_fin."';";
-                  }
-
-                }
-                //fin si mete un fecha
-
-                elseif ($titulo=="" && $autor=="" && ($yacimiento_publicacion=="" || $yacimiento_publicacion=="NINGUNO") && $fecha_publi_ini=="") {
-                  $aux=true;
-                  $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
-                             FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion;";
-
-
-                  $consulta2="SELECT idpublicaciones,titulo,fecha,autor,pdf
-                              FROM publicacion
-                              EXCEPT
-                              SELECT idpublicaciones,titulo,fecha,autor,pdf
-                              FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion;";
-                }
-
-                $resolucion=pg_query($link,$consulta);
-                if(pg_num_rows($resolucion)>0){
-                  $no_resultado=true;
-                  //echo "  Éxito de consulta";
+                function mostrar_indice_tabla(){
                   echo "
                   <hr class='linea'>
                   <div class='row'>
@@ -941,7 +831,148 @@
                     </div>
                   </div>
                   ";
+                }
 
+                $aux=false;
+                $no_resultado=false;
+                $poner_algo_yacimiento=false;
+                $mostrar_informacion=false;
+                //si se elige un titulo
+                if($titulo!=""){
+                  $aux=true;
+
+                  $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
+                             FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
+                             WHERE titulo='".$titulo."';";
+                  $consulta2="SELECT idpublicaciones,titulo,fecha,autor,pdf
+                              FROM publicacion
+                              WHERE titulo='".$titulo."'
+                              EXCEPT
+                              SELECT idpublicaciones,titulo,fecha,autor,pdf
+                              FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion
+                              WHERE titulo='".$titulo."';";
+                }
+                //fin si se elige un titulo
+                //si mete un autor
+                elseif ($autor!="") {
+                  $aux=true;
+                  if($yacimiento_publicacion==""){
+
+                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
+                               FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
+                               WHERE autor='".$autor."'
+                               ORDER BY fecha DESC;";
+
+                    $consulta2="SELECT idpublicaciones,titulo,fecha,autor,pdf
+                                FROM publicacion
+                                WHERE autor='".$autor."'
+                                EXCEPT
+                                SELECT idpublicaciones,titulo,fecha,autor,pdf
+                                FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion
+                                WHERE autor='".$autor."'
+                                ORDER BY fecha DESC;";
+                  }
+                  else{
+                    if($yacimiento_publicacion!="NINGUNO"){
+
+                      $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
+                                 FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
+                                 WHERE autor='".$autor."' AND yacimiento='".$yacimiento_publicacion."'
+                                 ORDER BY fecha DESC;";
+                    }
+                    else{
+                      $consulta2="SELECT idpublicaciones,titulo,fecha,autor,pdf
+                                  FROM publicacion
+                                  WHERE autor='".$autor."'
+                                  EXCEPT
+                                  SELECT idpublicaciones,titulo,fecha,autor,pdf
+                                  FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion
+                                  WHERE autor='".$autor."'
+                                  ORDER BY fecha DESC;";
+                    }
+
+                  }
+                }
+                //fin si mete un autor
+                //si mete un yacimiento
+                elseif ($yacimiento_publicacion!="") {
+                  $aux=true;
+                  if($yacimiento_publicacion!="NINGUNO"){
+                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
+                               FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
+                               WHERE yacimiento='".$yacimiento_publicacion."'
+                               ORDER BY fecha DESC;";
+                  }
+                  else{
+                    $poner_algo_yacimiento=true;
+                    $consulta="SELECT idpublicaciones,titulo,fecha,autor,pdf
+                                FROM publicacion
+                                EXCEPT
+                                SELECT idpublicaciones,titulo,fecha,autor,pdf
+                                FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion
+                                ORDER BY fecha DESC;";
+                  }
+                }
+                //fin si mete un yacimiento
+
+                //si mete un fecha
+                elseif ($fecha_publi_ini!="") {
+                  $aux=true;
+                  if($fecha_publi_fin==""){
+                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
+                               FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
+                               WHERE fecha='".$fecha_publi_ini."'
+                               ORDER BY fecha DESC;";
+
+                     $consulta2="SELECT idpublicaciones,titulo,fecha,autor,pdf
+                                 FROM publicacion
+                                 WHERE fecha='".$fecha_publi_ini."'
+                                 EXCEPT
+                                 SELECT idpublicaciones,titulo,fecha,autor,pdf
+                                 FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion
+                                 WHERE fecha='".$fecha_publi_ini."'
+                                 ORDER BY fecha DESC;";
+                  }
+                  else{
+
+                    $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
+                               FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
+                               WHERE fecha BETWEEN '".$fecha_publi_ini."' AND '".$fecha_publi_fin."'
+                               ORDER BY fecha DESC;";
+
+                    $consulta2="SELECT idpublicaciones,titulo,fecha,autor,pdf
+                                 FROM publicacion
+                                 WHERE fecha BETWEEN '".$fecha_publi_ini."' AND '".$fecha_publi_fin."'
+                                 EXCEPT
+                                 SELECT idpublicaciones,titulo,fecha,autor,pdf
+                                 FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion
+                                 WHERE fecha BETWEEN '".$fecha_publi_ini."' AND '".$fecha_publi_fin."'
+                                 ORDER BY fecha DESC;";
+                  }
+
+                }
+                //fin si mete un fecha
+
+                elseif ($titulo=="" && $autor=="" && ($yacimiento_publicacion=="" || $yacimiento_publicacion=="NINGUNO") && $fecha_publi_ini=="") {
+                  $aux=true;
+                  $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
+                             FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion
+                             ORDER BY fecha DESC;";
+
+
+                  $consulta2="SELECT idpublicaciones,titulo,fecha,autor,pdf
+                              FROM publicacion
+                              EXCEPT
+                              SELECT idpublicaciones,titulo,fecha,autor,pdf
+                              FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion
+                              ORDER BY fecha DESC;";
+                }
+
+                $resolucion=pg_query($link,$consulta);
+                if(pg_num_rows($resolucion)>0){
+                  $no_resultado=true;
+                  //echo "  Éxito de consulta";
+                  mostrar_indice_tabla();
 
                   while($resultado=pg_fetch_assoc($resolucion)){
                     $id_publicacion=$resultado['idpublicaciones'];
@@ -985,10 +1016,17 @@
                   }
                   //echo"$deposit y $country";
                 }
+                else{
+                  $mostrar_informacion=true;
+                }
+
                 if($aux==true){
                   $resolucion=pg_query($link,$consulta2);
                   if(pg_num_rows($resolucion)>0){
                     $no_resultado=true;
+                    if($mostrar_informacion==true){
+                      mostrar_indice_tabla();
+                    }
                     while($resultado=pg_fetch_assoc($resolucion)){
                       $id_publicacion=$resultado['idpublicaciones'];
                       $yacimiento="NO CORRESPONDE A NINGÚN YACIMIENTO";
