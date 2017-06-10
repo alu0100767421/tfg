@@ -15,14 +15,14 @@ if(select!==""){
   $("#Consulta option[value="+ select +"]").attr("selected",true);
   //console.log(select);
   document.getElementById('tipo_consulta').value=select;
-  consulta();
+  consulta(select);
 }
 
 
 function consulta(val){
-  if(val!=="" || select!==""){
+  if(val!==""){
 
-    if(val=="YACIMIENTO" || select=="YACIMIENTO"){
+    if(val=="YACIMIENTO"){
 
       document.getElementById('consulta_yacimiento').style.display="block";
       document.getElementById('consulta_ubicacion').style.display="none";
@@ -36,7 +36,7 @@ function consulta(val){
         document.getElementById('tipo_consulta').value=val;
 
     }
-    else if(val=="UBICACION" || select=="UBICACION"){
+    else if(val=="UBICACION"){
       document.getElementById('consulta_yacimiento').style.display="none";
       document.getElementById('consulta_ubicacion').style.display="block";
       document.getElementById('consulta_especie').style.display="none";
@@ -49,7 +49,7 @@ function consulta(val){
         document.getElementById('tipo_consulta').value=val;
 
     }
-    else if(val=="ESPECIE" || select=="ESPECIE"){
+    else if(val=="ESPECIE"){
       document.getElementById('consulta_yacimiento').style.display="none";
       document.getElementById('consulta_ubicacion').style.display="none";
       document.getElementById('consulta_especie').style.display="block";
@@ -62,7 +62,7 @@ function consulta(val){
         document.getElementById('tipo_consulta').value=val;
 
     }
-    else if(val=="EXCAVACIONES" || select=="EXCAVACIONES"){
+    else if(val=="EXCAVACIONES"){
 
       document.getElementById('consulta_yacimiento').style.display="none";
       document.getElementById('consulta_ubicacion').style.display="none";
@@ -76,7 +76,7 @@ function consulta(val){
         document.getElementById('tipo_consulta').value=val;
 
     }
-    else if(val=="PUBLICACIONES" || select=="PUBLICACIONES"){
+    else if(val=="PUBLICACIONES"){
 
       document.getElementById('consulta_yacimiento').style.display="none";
       document.getElementById('consulta_ubicacion').style.display="none";
@@ -90,7 +90,7 @@ function consulta(val){
         document.getElementById('tipo_consulta').value=val;
 
     }
-    else if (val=="DEPOSITO" || select=="DEPOSITO") {
+    else if (val=="DEPOSITO") {
 
       document.getElementById('consulta_yacimiento').style.display="none";
       document.getElementById('consulta_ubicacion').style.display="none";
