@@ -93,6 +93,7 @@
                     <select name="Consulta" id="Consulta" class="form-control" onchange="consulta(this.value)">
                       <option disabled selected>CONSULTA</option>
                       <option type='text' value='YACIMIENTO' name='YACIMIENTO'>YACIMIENTO</option>
+                      <option type='text' value='UBICACION' name='UBICACION'>UBICACIÓN</option>
                       <option type='text' value='ESPECIE' name='ESPECIE'>ESPECIE</option>
                       <option type='text' value='EXCAVACIONES' name='EXCAVACIONES'>EXCAVACIONES</option>
                       <option type='text' value='PUBLICACIONES' name='PUBLICACIONES'>PUBLICACIONES</option>
@@ -290,6 +291,30 @@
                   </div>
                 </div>
                 <!--Fin de Yacimiento-->
+
+                <!--ubicacion-->
+                <div style="display:none" id="consulta_ubicacion" class="row">
+                  <div class="col-lg-2 form-group">
+                    <select name="Yacimientos_Ubicacion" id="Yacimientos_Ubicacion" class="form-control" onchange="ubicacion(this.value)">
+                      <option disabled selected>YACIMIENTOS</option>
+                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
+                      <?php
+                        $consulta_yacimiento="SELECT yacimiento
+                                              FROM yacimiento
+                                              ORDER BY yacimiento ASC;";
+                        $resultado=pg_query($link,$consulta_yacimiento);
+                        echo pg_last_error();
+                        while($resultado2 = pg_fetch_assoc($resultado)){
+                          $aux = $resultado2['yacimiento'];
+                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
+                        }
+
+                      ?>
+                     </select>
+                  </div>
+                  <input type="hidden" name="yacimiento_ubicacion" id="yacimiento_ubicacion">
+                </div>
+                <!--Fin de ubicacion-->
 
                 <!--Especie-->
                 <div style="display:none" id="consulta_especie" class="row">
@@ -590,42 +615,7 @@
                       <h5><b>OBSERVACION</b></h5>
                     </div>
                   </div>";
-                  /*<div class='row'>
-                    <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
-                      <h5><b>ISLA</b></h5>
-                    </div>
-                    <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
-                      <h5><b>MUNICIPIO</b></h5>
-                    </div>
-                    <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
-                      <h5><b>LOCALIDAD</b></h5>
-                    </div>
-                    <div class='col-lg-1 col-md-10 col-sm-4 col-xs-4 form-group'>
-                      <h5><b>LATITUD</b></h5>
-                    </div>
-                    <div class='col-lg-1 col-md-10 col-sm-4 col-xs-4 form-group'>
-                      <h5><b>LONGITUD</b></h5>
-                    </div>
-                  </div>
 
-
-                  <input type='hidden' id='' name='id_yacimiento' value='$id_yacimiento'>
-                  <input type='hidden' id='' name='id_ubicacion' value='$id_ubicacion'>
-                  <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                    <input type='text' class='form-control input_consulta' id='' name='isla_consultado' value='$isla'>
-                  </div>
-                  <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                    <input type='text' class='form-control input_consulta' id='' name='municipio_consultado' value='$municipio'>
-                  </div>
-                  <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                    <input type='text' class='form-control input_consulta' id='' name='localidad_consultado' value='$localidad'>
-                  </div>
-                  <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
-                    <input type='text' class='form-control input_consulta' id='' name='latitud_consultado' value='$latitud'>
-                  </div>
-                  <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
-                    <input type='text' class='form-control input_consulta' id='' name='longitud_consultado' value='$longitud'>
-                  </div>*/
 
                 }
 
@@ -643,11 +633,7 @@
                     $tipo=$resultado['tipo_yacimiento'];
                     $publicaciones=$resultado['cant_publicaciones'];
                     $observacion=$resultado['observacion_yacimiento'];
-                    /*$isla=$resultado['isla'];
-                    $municipio=$resultado['municipio'];
-                    $localidad=$resultado['localidad'];
-                    $latitud=$resultado['latitud'];
-                    $longitud=$resultado['longitud'];*/
+
 
                     echo"
 
@@ -696,6 +682,112 @@
                 }
 
               }
+
+              /////////////////////////////////////////////////////////////////////
+              /////////////////////////////////////////////////////////////////////
+              /////////////////////////////////////////////////////////////////////
+              /////////////////////////////////////////////////////////////////////
+              //CONSULTAS SOBRE UBICACION
+              if($consulta=="UBICACION"){
+                if(isset($_COOKIE['yacimiento_ubicacion'])){
+                  $yacimiento=$_COOKIE['yacimiento_ubicacion'];
+                }
+
+                //echo "$yacimiento";
+
+                $consulta="SELECT idyacimiento,idubicacion,yacimiento,isla,municipio,localidad,latitud,longitud
+                           FROM yacimiento NATURAL JOIN ubicacion
+                           WHERE yacimiento='".$yacimiento."';";
+
+
+                 function mostrar_informacion_yacimiento(){
+                   echo"
+                   <hr class='linea'>
+                   <div class='row'>
+                     <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
+                       <h5><b>YACIMIENTO</b></h5>
+                     </div>
+                     <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
+                       <h5><b>ISLA</b></h5>
+                     </div>
+                     <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
+                       <h5><b>MUNICIPIO</b></h5>
+                     </div>
+                     <div class='col-lg-2 col-md-10 col-sm-4 col-xs-4 form-group'>
+                       <h5><b>LOCALIDAD</b></h5>
+                     </div>
+                     <div class='col-lg-1 col-md-10 col-sm-4 col-xs-4 form-group'>
+                       <h5><b>LATITUD</b></h5>
+                     </div>
+                     <div class='col-lg-1 col-md-10 col-sm-4 col-xs-4 form-group'>
+                       <h5><b>LONGITUD</b></h5>
+                     </div>
+                   </div>";
+
+
+                 }
+                 $resolucion=pg_query($link,$consulta);
+                 //echo pg_last_error();
+                 if(pg_num_rows($resolucion)>0){
+                   //echo "  Éxito de consulta";
+                   mostrar_informacion_yacimiento();
+                   while($resultado=pg_fetch_assoc($resolucion)){
+                     $id_ubicacion=$resultado['idubicacion'];
+                     $id_yacimiento=$resultado['idyacimiento'];
+                     $yacimiento=$resultado['yacimiento'];
+                     $isla=$resultado['isla'];
+                     $municipio=$resultado['municipio'];
+                     $localidad=$resultado['localidad'];
+                     $latitud=$resultado['latitud'];
+                     $longitud=$resultado['longitud'];
+
+                     echo"
+
+                     <form class='' action='modificar/modificar_ubicacion.php' method='post'>
+                       <div class='row'>
+                        <input type='hidden' id='' name='id_yacimiento' value='$id_yacimiento'>
+                        <input type='hidden' id='' name='id_ubicacion' value='$id_ubicacion'>
+                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
+                           <input type='text' class='form-control input_consulta' id='' name='yacimiento_consultado' value='$yacimiento'>
+                         </div>
+                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
+                           <input type='text' class='form-control input_consulta' id='' name='isla_consultado' value='$isla'>
+                         </div>
+                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
+                           <input type='text' class='form-control input_consulta' id='' name='municipio_consultado' value='$municipio'>
+                         </div>
+                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
+                           <input type='text' class='form-control input_consulta' id='' name='localidad_consultado' value='$localidad'>
+                         </div>
+                         <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
+                           <input type='text' class='form-control input_consulta' id='' name='latitud_consultado' value='$latitud'>
+                         </div>
+                         <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
+                           <input type='text' class='form-control input_consulta' id='' name='longitud_consultado' value='$longitud'>
+                         </div>
+                         <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
+                           <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
+                         </div>
+                       </div>
+                     </form>
+                     ";
+                   }
+                 }
+                 else {
+                   echo "
+                   <hr class='linea'>
+                   <div class='row'>
+                     <div class='col-lg-10 col-md-4 col-sm-4 col-xs-4 form-group'>
+                       <h5><b>No se ha encontrado datos en esta consulta</b></h5>
+                     </div>
+                   </div>
+                   ";
+                 }
+
+
+              }
+
+
               /////////////////////////////////////////////////////////////////////
               /////////////////////////////////////////////////////////////////////
               /////////////////////////////////////////////////////////////////////

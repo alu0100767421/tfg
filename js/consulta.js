@@ -25,6 +25,20 @@ function consulta(val){
     if(val=="YACIMIENTO" || select=="YACIMIENTO"){
 
       document.getElementById('consulta_yacimiento').style.display="block";
+      document.getElementById('consulta_ubicacion').style.display="none";
+      document.getElementById('consulta_especie').style.display="none";
+      document.getElementById('consulta_excavacion').style.display="none";
+      document.getElementById('consulta_publicacion').style.display="none";
+      document.getElementById('consulta_deposito').style.display="none";
+      if(val===undefined)
+        document.getElementById('tipo_consulta').value=select;
+      else
+        document.getElementById('tipo_consulta').value=val;
+
+    }
+    else if(val=="UBICACION" || select=="UBICACION"){
+      document.getElementById('consulta_yacimiento').style.display="none";
+      document.getElementById('consulta_ubicacion').style.display="block";
       document.getElementById('consulta_especie').style.display="none";
       document.getElementById('consulta_excavacion').style.display="none";
       document.getElementById('consulta_publicacion').style.display="none";
@@ -37,6 +51,7 @@ function consulta(val){
     }
     else if(val=="ESPECIE" || select=="ESPECIE"){
       document.getElementById('consulta_yacimiento').style.display="none";
+      document.getElementById('consulta_ubicacion').style.display="none";
       document.getElementById('consulta_especie').style.display="block";
       document.getElementById('consulta_excavacion').style.display="none";
       document.getElementById('consulta_publicacion').style.display="none";
@@ -50,6 +65,7 @@ function consulta(val){
     else if(val=="EXCAVACIONES" || select=="EXCAVACIONES"){
 
       document.getElementById('consulta_yacimiento').style.display="none";
+      document.getElementById('consulta_ubicacion').style.display="none";
       document.getElementById('consulta_especie').style.display="none";
       document.getElementById('consulta_excavacion').style.display="block";
       document.getElementById('consulta_publicacion').style.display="none";
@@ -63,6 +79,7 @@ function consulta(val){
     else if(val=="PUBLICACIONES" || select=="PUBLICACIONES"){
 
       document.getElementById('consulta_yacimiento').style.display="none";
+      document.getElementById('consulta_ubicacion').style.display="none";
       document.getElementById('consulta_especie').style.display="none";
       document.getElementById('consulta_excavacion').style.display="none";
       document.getElementById('consulta_publicacion').style.display="block";
@@ -76,6 +93,7 @@ function consulta(val){
     else if (val=="DEPOSITO" || select=="DEPOSITO") {
 
       document.getElementById('consulta_yacimiento').style.display="none";
+      document.getElementById('consulta_ubicacion').style.display="none";
       document.getElementById('consulta_especie').style.display="none";
       document.getElementById('consulta_excavacion').style.display="none";
       document.getElementById('consulta_publicacion').style.display="none";
@@ -88,6 +106,7 @@ function consulta(val){
     }
     else{
       document.getElementById('consulta_yacimiento').style.display="none";
+      document.getElementById('consulta_ubicacion').style.display="none";
       document.getElementById('consulta_especie').style.display="none";
       document.getElementById('consulta_excavacion').style.display="none";
       document.getElementById('consulta_publicacion').style.display="none";
@@ -242,6 +261,17 @@ function consultas(){
     console.log('isla='+isla+' municipio='+municipio+' yacimiento_yacimiento='+yacimiento_yacimiento+' edad='+edad+' tipo:'+tipo_yacimiento+' altura:'+altura);
 
   }
+  else if(consulta=="UBICACION"){
+
+    var yacimiento_ubicacion= document.getElementById('yacimiento_ubicacion').value;
+    if(yacimiento_ubicacion!=="")
+      document.cookie='yacimiento_ubicacion='+yacimiento_ubicacion;
+    else
+      document.cookie='yacimiento_ubicacion=';
+
+    console.log('yacimiento_ubicacion='+yacimiento_ubicacion);
+
+  }
   else if(consulta=="ESPECIE"){
 
     var especie= document.getElementById('nombre_especie').value;
@@ -384,6 +414,9 @@ function limpiar_cookie(){
   document.cookie='tipo_yacimiento=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
   document.cookie='altura=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
 
+  //cookies de ubicacion
+  document.cookie='yacimiento_ubicacion=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+
   //cookies de especie
   document.cookie='especie=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
   document.cookie='tipo_especie=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
@@ -431,6 +464,10 @@ function deposito(val){
 
 function yacimiento(val){
     document.getElementById('yacimiento_yacimiento').value=val;
+
+}
+function ubicacion(val){
+    document.getElementById('yacimiento_ubicacion').value=val;
 
 }
 
