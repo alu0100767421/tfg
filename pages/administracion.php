@@ -55,6 +55,12 @@
           <ul class="list-unstyled panel">
             <li class="destacar"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a href="administracion.php">Inicio</a></li>
             <li id="consultar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="consultar_bbdd.php">Consultar BBDD</a></li>
+            <li id="valoracion"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><a href="valoracion.php">Valoraciones</a>
+              <ul style="display:none" class="list-unstyled" id="submenu_valoracion">
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="valoraciones/add_valoracion.php">Añadir Valoración</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="valoraciones/consultar_valoracion.php">Consultar Valoración</a></li>
+              </ul>
+            </li>
             <li id="add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a href="add_bbdd.php">Añadir BBDD</a>
               <ul style="display:none" class="list-unstyled" id="submenu">
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="anadir/yacimiento.php">Yacimiento</a></li>
