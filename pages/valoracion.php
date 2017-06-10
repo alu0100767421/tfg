@@ -56,21 +56,22 @@
         <div class="col-lg-2 col-md-4 col-xs-8 col-sm-6 ">
           <ul class="list-unstyled panel">
             <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a href="administracion.php">Inicio</a></li>
-            <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="consultar_bbdd.php">Consultar BBDD</a></li>
-            <li id="valoracion"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><a href="valoracion.php">Valoraciones</a>
-              <ul style="display:none" class="list-unstyled" id="submenu_valoracion">
+            <li id="consultar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="consultar_bbdd.php">Consultar BBDD</a></li>
+            <li class="destacar"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><a href="valoracion.php">Valoraciones</a>
+              <ul class="list-unstyled" id="submenu_valoracion">
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="valoraciones/add_valoracion.php">Añadir Valoración</a></li>
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="valoraciones/consultar_valoracion.php">Consultar Valoración</a></li>
               </ul>
             </li>
-            <li class="destacar"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a href="add_bbdd.php">Añadir BBDD</a>
-              <ul class="list-unstyled" id="submenu">
+            <li id="add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a href="add_bbdd.php">Añadir BBDD</a>
+              <ul style="display:none" class="list-unstyled" id="submenu">
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="anadir/yacimiento.php">Yacimiento</a></li>
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="anadir/especie.php">Especie</a></li>
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="anadir/excavacion.php">Excavación</a></li>
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="anadir/publicacion.php">Publicación</a></li>
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="anadir/deposito.php">Depósito</a></li>
               </ul>
+
             </li>
             <?php
               //echo "Este es el usuario $username";

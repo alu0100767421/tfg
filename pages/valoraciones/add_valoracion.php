@@ -56,26 +56,27 @@
         <div class="col-lg-2 col-md-4 col-xs-8 col-sm-6 ">
           <ul class="list-unstyled panel">
             <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a href="../administracion.php">Inicio</a></li>
-            <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="../consultar_bbdd.php">Consultar BBDD</a></li>
-            <li id="valoracion"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><a href="../valoracion.php">Valoraciones</a>
-              <ul style="display:none" class="list-unstyled" id="submenu_valoracion">
-                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="../valoraciones/add_valoracion.php">Añadir Valoración</a></li>
+            <li id="consultar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="../consultar_bbdd.php">Consultar BBDD</a></li>
+            <li><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><a href="../valoracion.php">Valoraciones</a>
+              <ul class="list-unstyled" id="submenu_valoracion">
+                <li class="destacar"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="../valoraciones/add_valoracion.php">Añadir Valoración</a></li>
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="../valoraciones/consultar_valoracion.php">Consultar Valoración</a></li>
               </ul>
             </li>
-            <li><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a href="../add_bbdd.php">Añadir BBDD</a>
-              <ul class="list-unstyled" id="submenu">
-                <li class="destacar2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="yacimiento.php">Yacimiento</a></li>
-                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="especie.php">Especie</a></li>
-                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="excavacion.php">Excavación</a></li>
-                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="publicacion.php">Publicación</a></li>
-                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="deposito.php">Depósito</a></li>
+            <li id="add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a href="../add_bbdd.php">Añadir BBDD</a>
+              <ul style="display:none" class="list-unstyled" id="submenu">
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="../anadir/yacimiento.php">Yacimiento</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="../anadir/especie.php">Especie</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="../anadir/excavacion.php">Excavación</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="../anadir/publicacion.php">Publicación</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="../anadir/deposito.php">Depósito</a></li>
               </ul>
+
             </li>
             <?php
               //echo "Este es el usuario $username";
               if ($username == "admin") {
-                echo "<li><span class='glyphicon glyphicon-user' aria-hidden='true'></span><a href='../gestion_usuarios.php'>Gestión Usuarios</a></li>";
+                echo "<li><span class='glyphicon glyphicon-user' aria-hidden='true'></span><a href='gestion_usuarios.php'>Gestión Usuarios</a></li>";
               }
              ?>
           </ul>
@@ -124,7 +125,7 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col-lg-2 form-group">
+                  <div class="col-lg-3 form-group">
                     <select name="" id="" class="form-control" onchange="tipofosiles(this.value)">
                       <option disabled selected>TIPO FÓSILES</option>
                       <option type='text' value='0' name=''>Fósiles comunes y/o no endémicos</option>
@@ -146,7 +147,7 @@
                   </div>
                   <input type="hidden" name="taxones" id="taxones">
 
-                  <div class="col-lg-2 form-group">
+                  <div class="col-lg-3 form-group">
                     <select name="" id="" class="form-control" onchange="edadyacimiento(this.value)">
                       <option disabled selected>EDAD YACIMIENTO</option>
                       <option type='text' value='0' name=''>Más de 10 yacimientos de una detemrinada edad</option>
@@ -157,7 +158,7 @@
                   </div>
                   <input type="hidden" name="edad" id="edad">
 
-                  <div class="col-lg-2 form-group">
+                  <div class="col-lg-3 form-group">
                     <select name="" id="" class="form-control" onchange="localidadtipo(this.value)">
                       <option disabled selected>LOCALIDAD TIPO</option>
                       <option type='text' value='0' name=''>No</option>
@@ -166,19 +167,19 @@
                   </div>
                   <input type="hidden" name="localidad" id="localidad">
 
-                  <div class="col-lg-3 form-group">
-                    <select name="" id="" class="form-control" onchange="estadoconservacion(this.value)">
-                      <option disabled selected>ESTADO CONSERVACIÓN FÓSILES</option>
-                      <option type='text' value='0' name=''>Todos los restos fragmentados</option>
-                      <option type='text' value='1' name=''>Esqueletos completos con alteraciones tafonómicas</option>
-                      <option type='text' value='2' name=''>Esqueletos completos sin alteraciones</option>
-                      <option type='text' value='3' name=''>Partes blandas (piel,etc)</option>
-                    </select>
-                  </div>
-                  <input type="hidden" name="conservacionfosiles" id="conservacionfolsiles">
-
                </div>
                <div class="row">
+                 <div class="col-lg-3 form-group">
+                   <select name="" id="" class="form-control" onchange="estadoconservacion(this.value)">
+                     <option disabled selected>ESTADO CONSERVACIÓN FÓSILES</option>
+                     <option type='text' value='0' name=''>Todos los restos fragmentados</option>
+                     <option type='text' value='1' name=''>Esqueletos completos con alteraciones tafonómicas</option>
+                     <option type='text' value='2' name=''>Esqueletos completos sin alteraciones</option>
+                     <option type='text' value='3' name=''>Partes blandas (piel,etc)</option>
+                   </select>
+                 </div>
+                 <input type="hidden" name="conservacionfosiles" id="conservacionfolsiles">
+
                  <div class="col-lg-3 form-group">
                    <select name="" id="" class="form-control" onchange="informaciontafonomica(this.value)">
                      <option disabled selected>INFORMACIÓN TAFONÓMICA</option>
@@ -189,7 +190,7 @@
                    </select>
                  </div>
                  <input type="hidden" name="tafonomica" id="tafonomica">
-                 <div class="col-lg-2 form-group">
+                 <div class="col-lg-3 form-group">
                    <select name="" id="" class="form-control" onchange="infobioestatigrafica(this.value)">
                      <option disabled selected>INFORMACIÓN BIOESTATIGRÁFICA</option>
                      <option type='text' value='0' name=''>Sin fósiles zonadores</option>
@@ -200,84 +201,161 @@
                  </div>
                  <input type="hidden" name="bioestatigrafica" id="bioestatigrafica">
 
-                 <div class="col-lg-2 form-group">
-                   <select name="" id="" class="form-control" onchange="(this.value)">
-                     <option disabled selected></option>
-                     <option type='text' value='0' name=''></option>
-                     <option type='text' value='1' name=''></option>
-                     <option type='text' value='2' name=''></option>
-                     <option type='text' value='3' name=''></option>
+                 <div class="col-lg-3 form-group">
+                   <select name="" id="" class="form-control" onchange="interesgeologico(this.value)">
+                     <option disabled selected>INTERÉS GEOLÓGICO</option>
+                     <option type='text' value='0' name=''>Sin interés especial</option>
+                     <option type='text' value='1' name=''>Importancia vulcanoestratigráfica o tecntónica o geodiversidad alta</option>
+                     <option type='text' value='2' name=''>Dos de las propiedades anteriores</option>
+                     <option type='text' value='3' name=''>Importancia vulcanoestratigráfica+tectónica+geodiversidad</option>
                    </select>
                  </div>
-                 <input type="hidden" name="" id="">
+                 <input type="hidden" name="geologico" id="geologico">
 
-                 <div class="col-lg-2 form-group">
-                   <select name="" id="" class="form-control" onchange="(this.value)">
-                     <option disabled selected></option>
-                     <option type='text' value='0' name=''></option>
-                     <option type='text' value='1' name=''></option>
-                     <option type='text' value='2' name=''></option>
-                     <option type='text' value='3' name=''></option>
-                   </select>
-                 </div>
-                 <input type="hidden" name="" id="">
                </div>
 
                <div class="row">
-                 <div class="col-lg-2 form-group">
-                   <select name="" id="" class="form-control" onchange="(this.value)">
-                     <option disabled selected></option>
-                     <option type='text' value='0' name=''></option>
-                     <option type='text' value='1' name=''></option>
-                     <option type='text' value='2' name=''></option>
-                     <option type='text' value='3' name=''></option>
+                 <div class="col-lg-3 form-group">
+                   <select name="" id="" class="form-control" onchange="interespaleoclimatico(this.value)">
+                     <option disabled selected>INTERÉS PALEOCLIMÁTICO</option>
+                     <option type='text' value='0' name=''>No se puede reconstruir ningún evento climático</option>
+                     <option type='text' value='1' name=''>Reconstrucción de un evento climático</option>
+                     <option type='text' value='2' name=''>Reconstrucción de un ciclo climático(más de un evento)</option>
+                     <option type='text' value='3' name=''>Reconstrucción de más de un ciclo climático</option>
                    </select>
                  </div>
-                 <input type="hidden" name="" id="">
-                 <div class="col-lg-2 form-group">
-                   <select name="" id="" class="form-control" onchange="(this.value)">
-                     <option disabled selected></option>
-                     <option type='text' value='0' name=''></option>
-                     <option type='text' value='1' name=''></option>
-                     <option type='text' value='2' name=''></option>
-                     <option type='text' value='3' name=''></option>
-                   </select>
-                 </div>
-                 <input type="hidden" name="" id="">
+                 <input type="hidden" name="paleoclimatico" id="paleoclimatico">
 
-                 <div class="col-lg-2 form-group">
-                   <select name="" id="" class="form-control" onchange="(this.value)">
-                     <option disabled selected></option>
-                     <option type='text' value='0' name=''></option>
-                     <option type='text' value='1' name=''></option>
-                     <option type='text' value='2' name=''></option>
-                     <option type='text' value='3' name=''></option>
+                 <div class="col-lg-3 form-group">
+                   <select name="" id="" class="form-control" onchange="valorgeomorfologico(this.value)">
+                     <option disabled selected>VALOR GEOMORFOLÓGICO</option>
+                     <option type='text' value='0' name=''>Sin interés</option>
+                     <option type='text' value='1' name=''>Asociado a un ámbito de la geomorfología</option>
+                     <option type='text' value='2' name=''>Asociado a dos ámbitos de la geomorfología</option>
+                     <option type='text' value='3' name=''>Asociado a tres ámbitos de la geomorfología(estructural,dinámica y climática)</option>
                    </select>
                  </div>
-                 <input type="hidden" name="" id="">
+                 <input type="hidden" name="geomorfologico" id="geomorfologico">
+                 <div class="col-lg-3 form-group">
+                   <select name="" id="" class="form-control" onchange="abundanciayacimiento(this.value)">
+                     <option disabled selected>ABUNDANCIA DE YACIMIENTOS</option>
+                     <option type='text' value='0' name=''>Más de 10 en la isla</option>
+                     <option type='text' value='1' name=''>Entre 10-5 en la isla</option>
+                     <option type='text' value='2' name=''>Entre 5-2 en la isla</option>
+                     <option type='text' value='3' name=''>1 yacimiento en la isla</option>
+                   </select>
+                 </div>
+                 <input type="hidden" name="abuyacimiento" id="abuyacimiento">
 
-                 <div class="col-lg-2 form-group">
-                   <select name="" id="" class="form-control" onchange="(this.value)">
-                     <option disabled selected></option>
-                     <option type='text' value='0' name=''></option>
-                     <option type='text' value='1' name=''></option>
-                     <option type='text' value='2' name=''></option>
-                     <option type='text' value='3' name=''></option>
+                 <div class="col-lg-3 form-group">
+                   <select name="" id="" class="form-control" onchange="tipoyacimiento(this.value)">
+                     <option disabled selected>TIPO DE YACIMIENTO</option>
+                     <option type='text' value='0' name=''>Más de 10 en la isla</option>
+                     <option type='text' value='1' name=''>Entre 10-5 en la isla</option>
+                     <option type='text' value='2' name=''>Entre 5-2 en la isla</option>
+                     <option type='text' value='3' name=''>1 yacimiento de un determinado tipo en la isla</option>
                    </select>
                  </div>
-                 <input type="hidden" name="" id="">
+                 <input type="hidden" name="tiyacimiento" id="tiyacimiento">
                </div>
 
-
-
-                </div>
+               <div class="row">
+                 <div class="col-lg-3 form-group">
+                   <select name="" id="" class="form-control" onchange="tipodatacion(this.value)">
+                     <option disabled selected>TIPO DATACIÓN</option>
+                     <option type='text' value='0' name=''>Sin datos</option>
+                     <option type='text' value='1' name=''>Fauna</option>
+                     <option type='text' value='2' name=''>Datación radiométrica</option>
+                     <option type='text' value='3' name=''>Fauna y datación radiométrica</option>
+                   </select>
+                 </div>
+                 <input type="hidden" name="datacion" id="datacion">
+                 <div class="col-lg-3 form-group">
+                   <select name="" id="" class="form-control" onchange="restosarqueologicos(this.value)">
+                     <option disabled selected>ASOCIACIÓN RESTOS ARQUEOLÓGICOS</option>
+                     <option type='text' value='0' name=''>No</option>
+                     <option type='text' value='1' name=''>Con restos de animales domésticos y/o plantas que acompañan al hombre</option>
+                     <option type='text' value='2' name=''>Además con restos de cerámica y otras manifestaciones culturales</option>
+                     <option type='text' value='3' name=''>Además con los restos de los hombres</option>
+                   </select>
+                 </div>
+                 <input type="hidden" name="arqueologicos" id="arqueologicos">
+               </div>
                 <!--fin Valoracion cientifica-->
+
+
                 <!-- Valoracion socio cultural-->
                 <div class="row">
                   <div class="col-lg-3">
                     <h4>Valoración Socio Cultural</h4>
                   </div>
                 </div>
+                <div class="row">
+                  <div class="col-lg-3 form-group">
+                    <select name="" id="" class="form-control" onchange="interesdidactico(this.value)">
+                      <option disabled selected>INTERÉS DIDÁCTICO O PEDAGÓGICO</option>
+                      <option type='text' value='0' name=''>No</option>
+                      <option type='text' value='1' name=''>Se ve el medio sedimentario</option>
+                      <option type='text' value='2' name=''>Se reconocen los fósiles sin dificultad</option>
+                      <option type='text' value='3' name=''>Se puede interpretar el paleoambiente</option>
+                    </select>
+                  </div>
+                  <input type="hidden" name="didactico" id="didactico">
+
+                  <div class="col-lg-3 form-group">
+                    <select name="" id="" class="form-control" onchange="situaciongeografica(this.value)">
+                      <option disabled selected>SITUACIÓN GEOGRÁFICA</option>
+                      <option type='text' value='0' name=''>A más de 50 km de una población</option>
+                      <option type='text' value='1' name=''>Entre 50 y 20 km  de una población</option>
+                      <option type='text' value='2' name=''>Entre 0 y 20 km de una población</option>
+                      <option type='text' value='3' name=''>Incluida en el casco de una población</option>
+                    </select>
+                  </div>
+                  <input type="hidden" name="geografica" id="geografica">
+                  <div class="col-lg-3 form-group">
+                    <select name="" id="" class="form-control" onchange="valorhistorico(this.value)">
+                      <option disabled selected>VALOR HISTÓRICO</option>
+                      <option type='text' value='0' name=''>Siglo XXI</option>
+                      <option type='text' value='1' name=''>Después de 1990</option>
+                      <option type='text' value='2' name=''>1900-1990</option>
+                      <option type='text' value='3' name=''>Siglo XIX o anterior</option>
+                    </select>
+                  </div>
+                  <input type="hidden" name="historico" id="historico">
+
+                  <div class="col-lg-3 form-group">
+                    <select name="" id="" class="form-control" onchange="nivelconocimiento(this.value)">
+                      <option disabled selected>NIVEL DE CONOCIMIENTO</option>
+                      <option type='text' value='0' name=''>Ninguno</option>
+                      <option type='text' value='1' name=''>Pequeña colección</option>
+                      <option type='text' value='2' name=''>Collección en Museo</option>
+                      <option type='text' value='3' name=''>Varias referencias</option>
+                    </select>
+                  </div>
+                  <input type="hidden" name="conocimiento" id="conocimiento">
+                </div>
+
+                <div class="row">
+                  <div class="col-lg-3 form-group">
+                    <select name="" id="" class="form-control" onchange="valorcomplementario(this.value)">
+                      <option disabled selected>VALOR COMPLEMENTARIO</option>
+                      <option type='text' value='0' name=''>No incluido en ninguna figura de protección</option>
+                      <option type='text' value='1' name=''>Incluido en Parques(naturales o rurales)</option>
+                      <option type='text' value='2' name=''>Incluido en Reservas Naturales(Integrales y especiales, Monumento natural, Paisajes protegidos y sitios de interés científico)</option>
+                      <option type='text' value='3' name=''>Incluido en un Parque Nacional</option>
+                    </select>
+                  </div>
+                  <input type="hidden" name="valor" id="valor">
+                  <div class="col-lg-3 form-group">
+                    <select name="" id="" class="form-control" onchange="figuraproteccion(this.value)">
+                      <option disabled selected>FIGURA DE PROTECCIÓN</option>
+                      <option type='text' value='0' name=''>No se ha aplicado ninguna protección de ley de patrimonio histórico</option>
+                      <option type='text' value='3' name=''>Se ha aplicacdo alguna protección de ley de patrimonio histórico</option>
+                    </select>
+                  </div>
+                  <input type="hidden" name="proteccion" id="proteccion">
+                </div>
+
                 <!--fin Valoracion socio cultural-->
                 <!-- Valoracion socio enconmica-->
                 <div class="row">
@@ -285,12 +363,113 @@
                     <h4>Valoración Socio Económica</h4>
                   </div>
                 </div>
+                <div class="row">
+                  <div class="col-lg-3 form-group">
+                    <select name="" id="" class="form-control" onchange="potencialturistico(this.value)">
+                      <option disabled selected>POTENCIAL TURÍSTICO</option>
+                      <option type='text' value='0' name=''>No</option>
+                      <option type='text' value='1' name=''>Solo especialistas</option>
+                      <option type='text' value='2' name=''>Turismo científico</option>
+                      <option type='text' value='3' name=''>Visita instructiva</option>
+                    </select>
+                  </div>
+                  <input type="hidden" name="turistico" id="turistico">
+                </div>
                 <!--fin Valoracion socio economica-->
+
                 <!-- Riesgo de deterioro-->
                 <div class="row">
                   <div class="col-lg-3">
                     <h4>Riesgo de deterioro</h4>
                   </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-3 form-group">
+                    <select name="" id="" class="form-control" onchange="fragilidaddeldeposito(this.value)">
+                      <option disabled selected>FRAGILIDAD DEL DEPOSITO O EXTENSIÓN</option>
+                      <option type='text' value='0' name=''>Mayor de 150m</option>
+                      <option type='text' value='1' name=''>Entre 100m y 150m</option>
+                      <option type='text' value='2' name=''>Entre 50m y 100m</option>
+                      <option type='text' value='3' name=''>Entre 1m y 50m</option>
+                    </select>
+                  </div>
+                  <input type="hidden" name="fragilidad" id="fragilidad">
+
+                  <div class="col-lg-3 form-group">
+                    <select name="" id="" class="form-control" onchange="situacionaccesibilidad(this.value)">
+                      <option disabled selected>SITUACIÓN GEOGRÁFICA O ACCESIBILIDAD</option>
+                      <option type='text' value='0' name=''>Sin localizar</option>
+                      <option type='text' value='1' name=''>Inaccesible</option>
+                      <option type='text' value='2' name=''>Difícil acceso</option>
+                      <option type='text' value='3' name=''>Accesible</option>
+                    </select>
+                  </div>
+                  <input type="hidden" name="accesibilidad" id="accesibilidad">
+                  <div class="col-lg-3 form-group">
+                    <select name="" id="" class="form-control" onchange="edificaciones(this.value)">
+                      <option disabled selected>EDIFICACIONES</option>
+                      <option type='text' value='0' name=''>Inexistentes o lejanas</option>
+                      <option type='text' value='1' name=''>Proyectadas o potencialmente urbanizable</option>
+                      <option type='text' value='2' name=''>Obras iniciadas</option>
+                      <option type='text' value='3' name=''>Afectación</option>
+                    </select>
+                  </div>
+                  <input type="hidden" name="edificacion" id="edificacion">
+
+                  <div class="col-lg-3 form-group">
+                    <select name="" id="" class="form-control" onchange="valorminero(this.value)">
+                      <option disabled selected>VALOR MINERO/CANTERAS</option>
+                      <option type='text' value='0' name=''>Inexistentes o lejanas</option>
+                      <option type='text' value='1' name=''>Proyectadas o potencialmente urbanizable</option>
+                      <option type='text' value='2' name=''>Obras iniciadas</option>
+                      <option type='text' value='3' name=''>Afectación</option>
+                    </select>
+                  </div>
+                  <input type="hidden" name="cantera" id="cantera">
+                </div>
+                <div class="row">
+                  <div class="col-lg-3 form-group">
+                    <select name="" id="" class="form-control" onchange="viascomunicacion(this.value)">
+                      <option disabled selected>VÍAS DE COMUNICACIÓN</option>
+                      <option type='text' value='0' name=''>Inexistentes o lejanas</option>
+                      <option type='text' value='1' name=''>Proyectadas o potencialmente urbanizable</option>
+                      <option type='text' value='2' name=''>Obras iniciadas</option>
+                      <option type='text' value='3' name=''>Afectación</option>
+                    </select>
+                  </div>
+                  <input type="hidden" name="vias" id="vias">
+
+                  <div class="col-lg-3 form-group">
+                    <select name="" id="" class="form-control" onchange="vertederos(this.value)">
+                      <option disabled selected>VERTEDEROS</option>
+                      <option type='text' value='0' name=''>Inexistentes o lejanas</option>
+                      <option type='text' value='1' name=''>Proyectadas o potencialmente urbanizable</option>
+                      <option type='text' value='2' name=''>Obras iniciadas</option>
+                      <option type='text' value='3' name=''>Afectación</option>
+                    </select>
+                  </div>
+                  <input type="hidden" name="vertedero" id="vertedero">
+                  <div class="col-lg-3 form-group">
+                    <select name="" id="" class="form-control" onchange="saqueo(this.value)">
+                      <option disabled selected>COLECCIONISMO/COMERCIO/SAQUEO</option>
+                      <option type='text' value='0' name=''>Nunca</option>
+                      <option type='text' value='1' name=''>Eventual</option>
+                      <option type='text' value='2' name=''>Frecuente</option>
+                      <option type='text' value='3' name=''>Sistemático</option>
+                    </select>
+                  </div>
+                  <input type="hidden" name="comercio" id="comercio">
+
+                  <div class="col-lg-3 form-group">
+                    <select name="" id="" class="form-control" onchange="erosionnatural(this.value)">
+                      <option disabled selected>EROSIÓN NATURAL</option>
+                      <option type='text' value='0' name=''>Riesgo de futuro</option>
+                      <option type='text' value='1' name=''>Activa y débil</option>
+                      <option type='text' value='2' name=''>Activa y moderada</option>
+                      <option type='text' value='3' name=''>Activa y severa</option>
+                    </select>
+                  </div>
+                  <input type="hidden" name="erosion" id="erosion">
                 </div>
                 <!-- fin riesgo de deterioro-->
 
