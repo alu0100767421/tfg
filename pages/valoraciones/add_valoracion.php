@@ -166,8 +166,8 @@
                     </select>
                   </div>
                   <input type="hidden" name="localidad" id="localidad">
-
                </div>
+
                <div class="row">
                  <div class="col-lg-3 form-group">
                    <select name="" id="" class="form-control" onchange="estadoconservacion(this.value)">
@@ -178,7 +178,7 @@
                      <option type='text' value='3' name=''>Partes blandas (piel,etc)</option>
                    </select>
                  </div>
-                 <input type="hidden" name="conservacionfosiles" id="conservacionfolsiles">
+                 <input type="hidden" name="conservacionfosiles" id="conservacionfosiles">
 
                  <div class="col-lg-3 form-group">
                    <select name="" id="" class="form-control" onchange="informaciontafonomica(this.value)">
