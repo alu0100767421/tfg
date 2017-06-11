@@ -214,7 +214,7 @@
 
 
 
-
+    $total= $total_cientifico*1 + $total_sociocultural*1 + $total_socioeconomico*1 + $total_riesgo*1;
 
 
 
@@ -266,23 +266,87 @@
     comercio:$comercio
     erosion:$erosion
     total:$total_riesgo
+
+    TOTAL: $total
     \n";
 
     if($yacimiento!=""){
-      $consulta_id_y="SELECT idyacimiento
+      $consulta_id="SELECT idyacimiento
                     FROM yacimiento
                     WHERE yacimiento='".$yacimiento."';";
-      $id_y=pg_query($link,$consulta_id_y);
+      $id=pg_query($link,$consulta_id);
       echo pg_last_error();
-      $valor_id_y=pg_fetch_assoc($id_y);
-      $id_yacimiento=$valor_id_y['idyacimiento'];
+      $valor_id=pg_fetch_assoc($id);
+      $id_yacimiento=$valor_id['idyacimiento'];
+
+      $consulta_id="SELECT idvaloracion
+                    FROM valoracion
+                    WHERE idyacimiento='".$id_yacimiento."';";
+      $id=pg_query($link,$consulta_id);
+      echo pg_last_error();
+      $valor_id=pg_fetch_assoc($id);
+      $id_valoracion=$valor_id['idvaloracion'];
+
       echo "id del yacimiento: $id_yacimiento\n";
+      echo "id de la valoracion: $id_valoracion\n";
+
+      $comprobacion="SELECT *
+                     FROM valoracion_cientifica
+                     WHERE idvaloracion='".$id_valoracion."'";
+      $comprobar=pg_query($link,$comprobacion);
+      if(pg_num_rows($comprobar)==0){
+        $insertar_cientifico="INSERT INTO valoracion_cientifica(idvaloracion,idyacimiento,tipo_fosiles,diversidad_taxones,edad_yacimiento,
+                              localidad_tipo,estado_conservacion_fosiles,informacion_tafonomica,informacion_bioestratigrafica,
+                              interes_geologico,interes_paleoclimatico,valor_geomorfologico,abundancia_yacimientos,tipo_yacimientos,
+                              tipo_datacion,asociacion_restos_arqueologicos)
+                              VALUES('".$id_valoracion."','".$id_yacimiento."','".$tipo_fosiles."','".$taxones."','".$edad."','".$localidad."',
+                              '".$conservacionfosiles."','".$tafonomica."','".$bioestatigrafica."','".$geologico."',
+                              '".$paleoclimatico."','".$geomorfologico."','".$abuyacimiento."','".$tiyacimiento."',
+                              '".$datacion."','".$arqueologicos."');";
+
+        pg_query($link,$insertar_cientifico);
+        echo pg_last_error();
+
+        $insertar_cultural="INSERT INTO valoracion_socio_cultural(idvaloracion,idyacimiento,interes_didactico,situacion_geografica,
+                            valor_historico,nivel_conocimiento,valor_complementario,figura_proteccion)
+                            VALUES('".$id_valoracion."','".$id_yacimiento."','".$didactico."','".$geografica."',
+                            '".$historico."','".$conocimiento."','".$valor."','".$proteccion."');";
+
+        pg_query($link,$insertar_cultural);
+        echo pg_last_error();
+
+        $insertar_economico="INSERT INTO valoracion_socio_economica(idvaloracion,idyacimiento,potencial_turistico)
+                            VALUES('".$id_valoracion."','".$id_yacimiento."','".$turistico."');";
+
+        pg_query($link,$insertar_economico);
+        echo pg_last_error();
+
+        $insertat_riesgo="INSERT INTO riesgo_deterioro(idvaloracion,idyacimiento,fragilidad_deposito,situacion_geografica,edificaciones,
+                          valor_minero,vias_comunicacion,vertederos,coleccionismo,erosion_natural)
+                          VALUES('".$id_valoracion."','".$id_yacimiento."','".$fragilidad."','".$accesibilidad."','".$edificacion."',
+                          '".$cantera."','".$vias."','".$vertedero."','".$comercio."','".$erosion."');";
+
+        pg_query($link,$insertat_riesgo);
+        echo pg_last_error();
+
+        $insertar_valoracion="UPDATE valoracion
+                              SET valor='".$total."'
+                              WHERE idvaloracion='".$id_valoracion."';";
+
+
+        pg_query($link,$insertar_valoracion);
+        echo pg_last_error();
+      }
+
+
+
+
 
 
     }
 
 
-    // header("Location: ../consultar_bbdd.php");
+    header("Location: add_valoracion.php");
 
  }
  else {
