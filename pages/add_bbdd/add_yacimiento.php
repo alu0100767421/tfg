@@ -93,22 +93,27 @@
       //insertamos el yacimiento en la tabla
       $insertar_yacimiento="INSERT INTO yacimiento(yacimiento,edad,altura,tipo_yacimiento,observacion_yacimiento)
                             VALUES('".$yacimiento."','".$edad."','".$altura."','".$tipo."','".$observacion."');";
-
       pg_query($link,$insertar_yacimiento);
       echo pg_last_error();
-        //hayamos el id del yacimiento
-        $consulta_id="SELECT idyacimiento
-                      FROM yacimiento
-                      WHERE yacimiento='".$yacimiento."';";
-        $id_y=pg_query($link,$consulta_id);
-        $valor_id_y=pg_fetch_assoc($id_y);
-        $id=$valor_id_y['idyacimiento'];
-        echo "id del yacimiento $id";
+      //hayamos el id del yacimiento
+      $consulta_id="SELECT idyacimiento
+                    FROM yacimiento
+                    WHERE yacimiento='".$yacimiento."';";
+      $id_y=pg_query($link,$consulta_id);
+      $valor_id_y=pg_fetch_assoc($id_y);
+      $id=$valor_id_y['idyacimiento'];
+      echo "id del yacimiento $id";
 
-        $insertar_ubicacion="INSERT INTO ubicacion(idyacimiento,isla,municipio,localidad,latitud,longitud)
-                             VALUES('".$id."','".$isla."','".$municipio."','".$localidad."','".$latitud."','".$longitud."');";
-        pg_query($link,$insertar_ubicacion);
-        echo pg_last_error();
+      $insertar_ubicacion="INSERT INTO ubicacion(idyacimiento,isla,municipio,localidad,latitud,longitud)
+                           VALUES('".$id."','".$isla."','".$municipio."','".$localidad."','".$latitud."','".$longitud."');";
+      pg_query($link,$insertar_ubicacion);
+      echo pg_last_error();
+
+      $insertar_valor="INSERT INTO valoracion(idyacimiento,valor)
+                       VALUES('".$id."',0);";
+      pg_query($link,$insertar_valor);
+      echo pg_last_error();
+
 
     }
     else{

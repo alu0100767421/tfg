@@ -200,7 +200,17 @@
 
 
 
+    $total_cientifico= $tipo_fosiles*1 + $taxones*1 + $edad*1 + $localidad*1 + $conservacionfosiles*1 + $tafonomica*1 +
+                      $bioestatigrafica*1 + $geologico*1 + $paleoclimatico*1 + $geomorfologico*1 + $abuyacimiento*1 +
+                      $tiyacimiento*1 + $datacion*1 + $arqueologicos*1;
 
+    $total_sociocultural= $didactico*1 + $geografica*1 + $historico*1 + $conocimiento*1 + $valor*1 + $proteccion*1;
+
+
+    $total_socioeconomico= $turistico*1;
+
+    $total_riesgo= $fragilidad*1 + $accesibilidad*1 + $edificacion*1 + $cantera*1 + $vias*1 + $vertedero*1 +
+                  $comercio*1 + $erosion*1;
 
 
 
@@ -231,6 +241,7 @@
     tiyacimiento:$tiyacimiento
     datacion:$datacion
     arqueologicos:$arqueologicos
+    total: $total_cientifico
 
     !!!!!!!!!!!!!!!!!!VALORACION SOCIOCULTURAL!!!!!!!!!!!!!!!
     didactico:$didactico
@@ -239,9 +250,11 @@
     conocimiento:$conocimiento
     valor:$valor
     proteccion:$proteccion
+    total: $total_sociocultural
 
     !!!!!!!!!!!!!!!!!!VALORACION SOCIOECONOMICA!!!!!!!!!!!!!!!
     turistico: $turistico
+    total: $total_socioeconomico
 
     !!!!!!!!!!!!!!!!!!RIESGO DE DETERIORO!!!!!!!!!!!!!!!
     fragilidad:$fragilidad
@@ -252,9 +265,21 @@
     vertedero:$vertedero
     comercio:$comercio
     erosion:$erosion
+    total:$total_riesgo
     \n";
 
+    if($yacimiento!=""){
+      $consulta_id_y="SELECT idyacimiento
+                    FROM yacimiento
+                    WHERE yacimiento='".$yacimiento."';";
+      $id_y=pg_query($link,$consulta_id_y);
+      echo pg_last_error();
+      $valor_id_y=pg_fetch_assoc($id_y);
+      $id_yacimiento=$valor_id_y['idyacimiento'];
+      echo "id del yacimiento: $id_yacimiento\n";
 
+
+    }
 
 
     // header("Location: ../consultar_bbdd.php");
