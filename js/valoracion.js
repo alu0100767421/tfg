@@ -1,3 +1,23 @@
+function obtenerCookie(clave) {
+    var name = clave + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) === 0) return c.substring(name.length,c.length);
+    }
+    return "";
+}
+
+
+var aux="yacimiento";
+var select=obtenerCookie(aux);
+if(select!==""){
+  //console.log(select);
+  document.getElementById('yacimiento').value=select;
+  $('#Yacimientos_Valoracion').find("option[value='"+select+"']").attr("selected",true);
+}
+
 
 function yacimientovaloracion(val){
   document.getElementById('yacimiento').value=val;

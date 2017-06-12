@@ -105,6 +105,9 @@
                       <?php
                         $consulta_yacimiento="SELECT yacimiento
                                               FROM yacimiento
+                                              EXCEPT
+                                              SELECT yacimiento
+                                              FROM yacimiento NATURAL JOIN valoracion_cientifica
                                               ORDER BY yacimiento ASC;";
                         $resultado=pg_query($link,$consulta_yacimiento);
                         echo pg_last_error();
