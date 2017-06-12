@@ -142,3 +142,16 @@ function erosionnatural(val){
   document.getElementById('erosion').value=val;
 
 }
+
+
+
+function consultar(){
+  var yacimiento=document.getElementById('yacimiento').value;
+  if(yacimiento!=="" && yacimiento!=="NINGUNO")
+    document.cookie='yacimiento='+yacimiento;
+  else {
+    document.cookie='yacimiento=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
+  }
+
+  window.location='consultar_valoracion.php';
+}
