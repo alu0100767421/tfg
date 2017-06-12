@@ -225,6 +225,7 @@
 
                   echo "
                   <!-- Valoracion cientifica-->
+                  <form class='' action='valoraciones/modificar_valoracion.php' method='post'>
                     <div class='row'>
                       <div class='col-lg-3'>
                         <h4>Valoración Científica</h4>
@@ -240,7 +241,7 @@
                           <option type='text' value='3' name=''>Más del 60% de fósiles raros y/o de especies endémicas</option>
                         </select>
                       </div>
-                      <input type='hidden' name='tipo_fosiles' id='tipo_fosiles'>
+                      <input type='hidden' name='tipo_fosiles' id='tipo_fosiles' value='$tipo_fosiles'>
 
                       <div class='col-lg-3 form-group'>
                         <select name='' id='' class='form-control' onchange='diversidadtaxones(this.value)''>
@@ -579,6 +580,13 @@
                       <input type='hidden' name='erosion' id='erosion'>
                     </div>
                     <!-- fin riesgo de deterioro-->
+
+                    <div class='row'>
+                      <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
+                        <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
+                      </div>
+                    </div>
+                    </form>
                   ";
                 }
 
