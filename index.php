@@ -19,6 +19,7 @@
     <link rel="icon" type="/image/png" href="images/logoULL/logotipo-secundario-ULL.png" />
     <link type="text/css" rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="css/index.css"/>
+    <link type="text/css" rel="stylesheet" href="css/validar_cookie.css"/>
 
   </head>
   <body>
@@ -97,6 +98,13 @@
 
       </div>
     </div>
+    <div class="cookie" id="cookie">
+      <div class="cookie_texto">
+        <p>Esta web utiliza cookies para el funcionamiento de la navegación de sus usuarios. Si continúas navegando consideramos que aceptas su uso.
+        <a href="">Más información</a>
+        <a onclick="aceptar_cookies();">Cerrar</a></p>
+      </div>
+    </div>
 
     <!--Footer-->
     <br><br><br><br><br>
@@ -109,8 +117,10 @@
     </div>
 
 
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript" src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript" src="js/validar_cookies.js"></script>
   </body>
 </html>

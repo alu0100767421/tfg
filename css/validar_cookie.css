@@ -1,0 +1,25 @@
+.cookie {
+    position: fixed;
+    bottom: 0px;
+    height: 60px;
+    width: 100%;
+    z-index: 999999;
+    display: block;
+
+}
+.cookie_texto {
+    margin: auto;
+    position: relative;
+    height: 58px;
+    width: 100%;
+    text-align:center;
+    background-color: #eeeeee;
+}
+.cookie_texto p {
+    line-height:58px;
+    font-size:12px;
+    text-align:center;
+}
+.cookie_texto a{
+  cursor: pointer;
+}
