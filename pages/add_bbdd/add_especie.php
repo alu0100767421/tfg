@@ -41,7 +41,7 @@
 
      if($especie!=""){
 
-       //comprobamos si la especie ya existe, en caso contrario de añade a la tabla
+       //comprobamos si la especie ya existe, en caso contrario se añade a la tabla
        $consulta_comprobacion="SELECT especie
                                FROM especie WHERE especie='".$especie."';";
        $aux=pg_query($link,$consulta_comprobacion);
@@ -124,7 +124,7 @@
      }
 
 
-     header("Location: ../anadir/especie.php");
+     //header("Location: ../anadir/especie.php");
 
 
 

@@ -81,11 +81,29 @@
           </ul>
 
           <div class="row">
-            <form action="../cerrar_sesion.php" method="post">
-              <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-                <button type="submit" class="btn btn-danger boton">Cerrar Sesión</button><br>
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_cerrar_sesion">Cerrar Sesión</button>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
+        <div id="modal_cerrar_sesion" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Cierre de sesión</h4>
               </div>
-            </form>
+              <div class="modal-body">
+                <p>¿Está seguro que desea cerrar sesión?</p>
+              </div>
+              <div class="modal-footer">
+                <form action="../cerrar_sesion.php" method="post">
+                  <button type="submit" class="btn btn-danger boton">Cerrar Sesión</button><br>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
         <!--FIN MENU LATERAL-->

@@ -49,6 +49,7 @@
 
 
 
+
       <!--MENU LATERAL-->
       <div class="row">
         <div class="col-lg-2 col-md-4 col-xs-8 col-sm-6 ">
@@ -80,11 +81,29 @@
           </ul>
       <!--FIN MENU LATERAL-->
           <div class="row">
-            <form action="cerrar_sesion.php" method="post">
-              <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-                <button type="submit" class="btn btn-danger boton">Cerrar Sesión</button><br>
+            <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_cerrar_sesion">Cerrar Sesión</button>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
+        <div id="modal_cerrar_sesion" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Cierre de sesión</h4>
               </div>
-            </form>
+              <div class="modal-body">
+                <p>¿Está seguro que desea cerrar sesión?</p>
+              </div>
+              <div class="modal-footer">
+                <form action="cerrar_sesion.php" method="post">
+                  <button type="submit" class="btn btn-danger boton">Cerrar Sesión</button><br>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
         <!--FIN MENU LATERAL-->
@@ -139,15 +158,15 @@
                     <select name="MunicipiosLaPalma" id="MunicipiosLaPalma" class="form-control" onchange="">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='BARLOVENTO' name='BARLOVENTO'>BARLOVENTO</option>
-                      <option type='text' value='BRENA ALTA' name='BRENA ALTA'>BREÑA ALTA</option>
-                      <option type='text' value='BRENA BAJA' name='BRENA BAJA'>BREÑA BAJA</option>
+                      <option type='text' value='BREÑA ALTA' name='BRENA ALTA'>BREÑA ALTA</option>
+                      <option type='text' value='BREÑA BAJA' name='BRENA BAJA'>BREÑA BAJA</option>
                       <option type='text' value='FUENCALIENTE' name='FUENCALIENTE'>FUENCALIENTE</option>
                       <option type='text' value='GARAFÍA' name='GARAFÍA'>GARAFÍA</option>
                       <option type='text' value='LOS LLANOS DE ARIDANE' name='LOS LLANOS DE ARIDANE'>LOS LLANOS DE ARIDANE</option>
                       <option type='text' value='EL PASO' name='EL PASO'>EL PASO</option>
                       <option type='text' value='PUNTA GORDA' name='PUNTA GORDA'>PUNTA GORDA</option>
                       <option type='text' value='PUNTALLANA' name='PUNTALLANA'>PUNTALLANA</option>
-                      <option type='text' value='SAN ANDRES Y SAUCES' name='SAN ANDRES Y SAUCES'>SAN ANDRÉS Y SAUCES</option>
+                      <option type='text' value='SAN ANDRÉS Y SAUCES' name='SAN ANDRES Y SAUCES'>SAN ANDRÉS Y SAUCES</option>
                       <option type='text' value='SANTA CRUZ DE LA PALMA' name='SANTA CRUZ DE LA PALMA'>SANTA CRUZ DE LA PALMA</option>
                       <option type='text' value='TAZACORTE' name='TAZACORTE'>TAZACORTE</option>
                       <option type='text' value='TIJARAFE' name='TIJARAFE'>TIJARAFE</option>
@@ -159,9 +178,9 @@
                     <select name="MunicipiosLaGomera" id="MunicipiosLaGomera" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='AGULO' name='AGULO'>AGULO</option>
-                      <option type='text' value='ALAJERO' name='ALAJERO'>ALAJERÓ</option>
+                      <option type='text' value='ALAJERÓ' name='ALAJERO'>ALAJERÓ</option>
                       <option type='text' value='HERMIGUA' name='HERMIGUA'>HERMIGUA</option>
-                      <option type='text' value='SAN SEBASTIAN DE LA GOMERA' name='SAN SEBASTIAN DE LA GOMERA'>SAN SEBASTIÁN DE LA GOMERA</option>
+                      <option type='text' value='SAN SEBASTIÁN DE LA GOMERA' name='SAN SEBASTIAN DE LA GOMERA'>SAN SEBASTIÁN DE LA GOMERA</option>
                       <option type='text' value='VALLEHERMOSO' name='VALLEHERMOSO'>VALLEHERMOSO</option>
                       <option type='text' value='VALLE GRAN REY' name='VALLE GRAN REY'>VALLE GRAN REY</option>
                     </select>
@@ -191,8 +210,8 @@
                       <option type='text' value='FASNIA' name='FASNIA'>FASNIA</option>
                       <option type='text' value='GARACHICO' name='GARACHICO'>GARACHICO</option>
                       <option type='text' value='GRANADILLA DE ABONA' name='GRANADILLA DE ABONA'>GRANADILLA DE ABONA</option>
-                      <option type='text' value='GUIMAR' name='GUIMAR'>GÜIMAR</option>
-                      <option type='text' value='GUIA DE ISORA' name='GUIA DE ISORA'>GUÍA DE ISORA</option>
+                      <option type='text' value='GÜIMAR' name='GUIMAR'>GÜIMAR</option>
+                      <option type='text' value='GUÍA DE ISORA' name='GUIA DE ISORA'>GUÍA DE ISORA</option>
                       <option type='text' value='ICOD DE LOS VINOS' name='ICOD DE LOS VINOS'>ICOD DE LOS VINOS</option>
                       <option type='text' value='LA GUANCHA' name='LA GUANCHA'>LA GUANCHA</option>
                       <option type='text' value='LA MATANZA DE ACENTEJO' name='LA MATANZA DE ACENTEJO'>LA MATANZA DE ACENTEJO</option>
@@ -201,11 +220,11 @@
                       <option type='text' value='LOS REALEJOS' name='LOS REALEJOS'>LOS REALEJOS</option>
                       <option type='text' value='LOS SILOS' name='LOS SILOS'>LOS SILOS</option>
                       <option type='text' value='PUERTO DE LA CRUZ' name='PUERTO DE LA CRUZ'>PUERTO DE LA CRUZ</option>
-                      <option type='text' value='SAN CRISTOBAL DE LA LAGUNA' name='SAN CRISTOBAL DE LA LAGUNA'>SAN CRISTÓBAL DE LA LAGUNA</option>
+                      <option type='text' value='SAN CRISTÓBAL DE LA LAGUNA' name='SAN CRISTOBAL DE LA LAGUNA'>SAN CRISTÓBAL DE LA LAGUNA</option>
                       <option type='text' value='SAN JUAN DE LA RAMBLA' name='SAN JUAN DE LA RAMBLA'>SAN JUAN DE LA RAMBLA</option>
                       <option type='text' value='SAN MIGUEL DE ABONA' name='SAN MIGUEL DE ABONA'>SAN MIGUEL DE ABONA</option>
                       <option type='text' value='SANTA CRUZ DE TENERIFE' name='SANTA CRUZ DE TENERIFE'>SANTA CRUZ DE TENERIFE</option>
-                      <option type='text' value='SANTA URSULA' name='SANTA URSULA'>SANTA ÚRSULA</option>
+                      <option type='text' value='SANTA ÚRSULA' name='SANTA URSULA'>SANTA ÚRSULA</option>
                       <option type='text' value='SANTIAGO DEL TEIDE' name='SANTIAGO DEL TEIDE'>SANTIAGO DEL TEIDE</option>
                       <option type='text' value='TACORONTE' name='TACORONTE'>TACORONTE</option>
                       <option type='text' value='TEGUESTE' name='TEGUESTE'>TEGUESTE</option>
@@ -217,20 +236,20 @@
                     <select name="MunicipiosGranCanaria" id="MunicipiosGranCanaria" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='AGAETE' name='AGAETE'>AGAETE</option>
-                      <option type='text' value='AGUINES' name='AGUINES'>AGÜINES</option>
-                      <option type='text' value='LA ALDEA DE SAN NICOLAS' name='LA ALDEA DE SAN NICOLAS'>LA ALDEA DE SAN NICOLÁS</option>
+                      <option type='text' value='AGÜINES' name='AGUINES'>AGÜINES</option>
+                      <option type='text' value='LA ALDEA DE SAN NICOLÁS' name='LA ALDEA DE SAN NICOLAS'>LA ALDEA DE SAN NICOLÁS</option>
                       <option type='text' value='ARTENARA' name='ARTENARA'>ARTENARA</option>
                       <option type='text' value='ARUCAS' name='ARUCAS'>ARUCAS</option>
                       <option type='text' value='FIRGAS' name='FIRGAS'>FIRGAS</option>
-                      <option type='text' value='GALDAR' name='GALDAR'>GÁLDAR</option>
+                      <option type='text' value='GÁLDAR' name='GALDAR'>GÁLDAR</option>
                       <option type='text' value='INGENIO' name='INGENIO'>INGENIO</option>
-                      <option type='text' value='MOGAN' name='MOGAN'>MOGÁN</option>
+                      <option type='text' value='MOGÁN' name='MOGAN'>MOGÁN</option>
                       <option type='text' value='MOYA' name='MOYA'>MOYA</option>
                       <option type='text' value='LAS PALMAS DE GRAN CANARIA' name='LAS PALMAS DE GRAN CANARIA'>LAS PALMAS DE GRAN CANARIA</option>
-                      <option type='text' value='SAN BARTOLOME DE TIRAJANA' name='SAN BARTOLOME DE TIRAJANA'>SAN BARTOLOMÉ DE TIRAJANA</option>
-                      <option type='text' value='SANTA BRIGIDA' name='SANTA BRIGIDA'>SANTA BRÍGIDA</option>
-                      <option type='text' value='SANTA LUCIA DE TIRAJANA' name='SANTA LUCIA DE TIRAJANA'>SANTA LUCÍA DE TIRAJANA</option>
-                      <option type='text' value='SANTA MARIA DE GUIA DE GRAN CANARIA' name='SANTA MARIA DE GUIA DE GRAN CANARIA'>SANTA MARÍA DE GUÍA DE GRAN CANARIA</option>
+                      <option type='text' value='SAN BARTOLOMÉ DE TIRAJANA' name='SAN BARTOLOME DE TIRAJANA'>SAN BARTOLOMÉ DE TIRAJANA</option>
+                      <option type='text' value='SANTA BRÍGIDA' name='SANTA BRIGIDA'>SANTA BRÍGIDA</option>
+                      <option type='text' value='SANTA LUCÍA DE TIRAJANA' name='SANTA LUCIA DE TIRAJANA'>SANTA LUCÍA DE TIRAJANA</option>
+                      <option type='text' value='SANTA MARÍA DE GUÍA DE GRAN CANARIA' name='SANTA MARIA DE GUIA DE GRAN CANARIA'>SANTA MARÍA DE GUÍA DE GRAN CANARIA</option>
                       <option type='text' value='TEJEDA' name='TEJEDA'>TEJEDA</option>
                       <option type='text' value='TELDE' name='TELDE'>TELDE</option>
                       <option type='text' value='TEROR' name='TEROR'>TEROR</option>
@@ -247,7 +266,7 @@
                       <option type='text' value='ANTIGUA' name='ANTIGUA'>ANTIGUA</option>
                       <option type='text' value='BETANCURIA' name='BETANCURIA'>BETANCURIA</option>
                       <option type='text' value='LA OLIVA' name='LA OLIVA'>LA OLIVA</option>
-                      <option type='text' value='PAJARA' name='PAJARA'>PÁJARA</option>
+                      <option type='text' value='PÁJARA' name='PAJARA'>PÁJARA</option>
                       <option type='text' value='PUERTO DEL ROSARIO' name='PUERTO DEL ROSARIO'>PUERTO DEL ROSARIO</option>
                       <option type='text' value='TUINEJE' name='TUINEJE'>TUINEJE</option>
                     </select>
@@ -258,10 +277,10 @@
                     <select name="MunicipiosLanzarote" id="MunicipiosLanzarote" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='ARECIFE' name='ARECIFE'>ARECIFE</option>
-                      <option type='text' value='HARIA' name='HARIA'>HARÍA</option>
-                      <option type='text' value='SAN BARTOLOME' name='SAN BARTOLOME'>SAN BARTOLOMÉ</option>
+                      <option type='text' value='HARÍA' name='HARIA'>HARÍA</option>
+                      <option type='text' value='SAN BARTOLOMÉ' name='SAN BARTOLOME'>SAN BARTOLOMÉ</option>
                       <option type='text' value='TEGUISE' name='TEGUISE'>TEGUISE</option>
-                      <option type='text' value='TIAS' name='TIAS'>TÍAS</option>
+                      <option type='text' value='TÍAS' name='TIAS'>TÍAS</option>
                       <option type='text' value='TINAJO' name='TINAJO'>TINAJO</option>
                       <option type='text' value='YAIZA' name='YAIZA'>YAIZA</option>
                     </select>
@@ -627,6 +646,7 @@
 
                 $resolucion=pg_query($link,$consulta);
                 //echo pg_last_error();
+                $aux=0;
                 if(pg_num_rows($resolucion)>0){
                   //echo "  Éxito de consulta";
                   mostrar_informacion_yacimiento();
@@ -666,14 +686,55 @@
                           <input type='text' class='form-control input_consulta' id='' name='observacion_consultado' value='$observacion'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
-                          <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
+                          <!--<button type='submit' class='btn btn-info' name='modificar'>Modificar</button>-->
+                          <button type='button' class='btn btn-info' data-toggle='modal' data-target='#modal_modificar$aux'>Modificar</button>
                         </div>
                         <div class='col-lg-1 col-md-10 col-xs-1 col-sm-1'>
-                          <button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>
+                          <!--<button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>-->
+                          <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#modal_eliminar$aux'>Eliminar</button>
+                        </div>
+                      </div>
+
+                      <div id='modal_modificar$aux' class='modal fade' role='dialog'>
+                        <div class='modal-dialog'>
+                          <!-- Modal content-->
+                          <div class='modal-content'>
+                            <div class='modal-header'>
+                              <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                              <h4 class='modal-title'>Modificar yacimiento</h4>
+                            </div>
+                            <div class='modal-body'>
+                              <p>¿Está seguro que desea modificar el yacimiento?</p>
+                            </div>
+                            <div class='modal-footer'>
+                                <button type='submit' class='btn btn-info boton' name='modificar'>Modificar</button><br>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div id='modal_eliminar$aux' class='modal fade' role='dialog'>
+                        <div class='modal-dialog'>
+                          <!-- Modal content-->
+                          <div class='modal-content'>
+                            <div class='modal-header'>
+                              <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                              <h4 class='modal-title'>Eliminar yacimiento</h4>
+                            </div>
+                            <div class='modal-body'>
+                              <p>¿Está seguro que desea eliminar el yacimiento?</p>
+                            </div>
+                            <div class='modal-footer'>
+                                <button type='submit' class='btn btn-danger boton' name='eliminar'>Eliminar</button><br>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </form>
+
+
                     ";
+                    $aux++;
                   }
                 }
                 else {
@@ -775,9 +836,28 @@
                            <input type='text' class='form-control input_consulta' id='Longitud' name='longitud_consultado' value='$longitud'>
                          </div>
                          <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
-                           <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
+                           <!--<button type='submit' class='btn btn-info' name='modificar'>Modificar</button>-->
+                           <button type='button' class='btn btn-info' data-toggle='modal' data-target='#modal_modificar'>Modificar</button>
                          </div>
                        </div>
+                       <div id='modal_modificar' class='modal fade' role='dialog'>
+                         <div class='modal-dialog'>
+                           <!-- Modal content-->
+                           <div class='modal-content'>
+                             <div class='modal-header'>
+                               <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                               <h4 class='modal-title'>Modificar ubicación</h4>
+                             </div>
+                             <div class='modal-body'>
+                               <p>¿Está seguro que desea modificar el yacimiento?</p>
+                             </div>
+                             <div class='modal-footer'>
+                                 <button type='submit' class='btn btn-info boton' name='modificar'>Modificar</button><br>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+
                      </form>
                      <div class='row'>
                        <div class='col-lg-6' class='mapa_google' id='map'>
@@ -855,9 +935,11 @@
                 }
                 elseif (($yacimiento_especie=="" || $yacimiento_especie=="NINGUNO") && ($deposito_especie!="" || $deposito_especie!="NINGUNO")) {
 
-                  $consulta="SELECT idespecie, especie, tipo_especie, idyacimiento, yacimiento, iddeposito, deposito
-                             FROM especie NATURAL JOIN yacimiento_has_especie NATURAL JOIN yacimiento NATURAL JOIN especie_has_deposito NATURAL JOIN deposito
+                  $consulta="SELECT idespecie, especie, tipo_especie, iddeposito, deposito
+                             FROM especie NATURAL JOIN especie_has_deposito NATURAL JOIN deposito
                              WHERE deposito='".$deposito_especie."';";
+
+                  $aux=1;
                 }
 
                 elseif (($yacimiento_especie!="" || $yacimiento_especie!="NINGUNO")) {
@@ -880,6 +962,7 @@
 
 
                 $resolucion=pg_query($link,$consulta);
+                $contador=0;
                 //echo pg_last_error();
                 if(pg_num_rows($resolucion)>0){
                   //echo "  Éxito de consulta";
@@ -908,6 +991,7 @@
                       echo "
                     </div>";
                     }
+
                   while($resultado=pg_fetch_assoc($resolucion)){
                     $id_especie=$resultado['idespecie'];
                     $especie=$resultado['especie'];
@@ -945,15 +1029,54 @@
                     }
 
                     echo "
-                        <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
-                          <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
-                        </div>
-                        <div class='col-lg-1 col-md-10 col-xs-1 col-sm-1'>
-                          <button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>
+                      <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
+                        <!--<button type='submit' class='btn btn-info' name='modificar'>Modificar</button>-->
+                        <button type='button' class='btn btn-info' data-toggle='modal' data-target='#modal_modificar$contador'>Modificar</button>
+                      </div>
+                      <div class='col-lg-1 col-md-10 col-xs-1 col-sm-1'>
+                        <!--<button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>-->
+                        <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#modal_eliminar$contador'>Eliminar</button>
+                      </div>
+                    </div>
+
+                    <div id='modal_modificar$contador' class='modal fade' role='dialog'>
+                      <div class='modal-dialog'>
+                        <!-- Modal content-->
+                        <div class='modal-content'>
+                          <div class='modal-header'>
+                            <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                            <h4 class='modal-title'>Modificar especie</h4>
+                          </div>
+                          <div class='modal-body'>
+                            <p>¿Está seguro que desea modificar la especie?</p>
+                          </div>
+                          <div class='modal-footer'>
+                              <button type='submit' class='btn btn-info boton' name='modificar'>Modificar</button><br>
+                          </div>
                         </div>
                       </div>
+                    </div>
+
+                    <div id='modal_eliminar$contador' class='modal fade' role='dialog'>
+                      <div class='modal-dialog'>
+                        <!-- Modal content-->
+                        <div class='modal-content'>
+                          <div class='modal-header'>
+                            <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                            <h4 class='modal-title'>Eliminar especie</h4>
+                          </div>
+                          <div class='modal-body'>
+                            <p>¿Está seguro que desea eliminar la especie?</p>
+                          </div>
+                          <div class='modal-footer'>
+                              <button type='submit' class='btn btn-danger boton' name='eliminar'>Eliminar</button><br>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     </form>
                     ";
+                    $contador++;
                   }
                 }
                 else {

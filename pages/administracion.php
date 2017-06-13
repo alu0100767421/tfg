@@ -90,7 +90,6 @@
         </div>
       </div>
 
-    <!-- Trigger the modal with a button -->
 
     <!-- Modal -->
     <div id="modal_cerrar_sesion" class="modal fade" role="dialog">
