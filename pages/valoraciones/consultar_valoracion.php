@@ -212,7 +212,7 @@
                   echo "
                   <hr class='linea'>
                   <div class='row'>
-                    <div class='col-lg-3 form-group'>
+                    <div class='col-lg-8 form-group'>
                       <p>El yacimiento consultado es: <b>$yacimiento</b></p>
                     </div>
                   </div>
@@ -279,7 +279,7 @@
                    <div class='row'>
                      <div class='col-lg-3 form-group'>
                        <select name='' id='' class='form-control' onchange='estadoconservacion(this.value)''>
-                         <option disabled selected>ESTADO CONSERVACIÓN FÓSILES: $conservacionfosiles</option>
+                         <option disabled selected>EST. CONSERVACIÓN FÓSILES: $conservacionfosiles</option>
                          <option type='text' value='0' name=''>Todos los restos fragmentados</option>
                          <option type='text' value='1' name=''>Esqueletos completos con alteraciones tafonómicas</option>
                          <option type='text' value='2' name=''>Esqueletos completos sin alteraciones</option>
@@ -300,7 +300,7 @@
                      <input type='hidden' name='tafonomica' id='tafonomica' value='$tafonomica'>
                      <div class='col-lg-3 form-group'>
                        <select name='' id='' class='form-control' onchange='infobioestatigrafica(this.value)'>
-                         <option disabled selected>INFORMACIÓN BIOESTATIGRÁFICA: $bioestatigrafica</option>
+                         <option disabled selected>INFO. BIOESTATIGRÁFICA: $bioestatigrafica</option>
                          <option type='text' value='0' name=''>Sin fósiles zonadores</option>
                          <option type='text' value='1' name=''>Con fósiles zonadores para correlacionar a nivel local (una isla)</option>
                          <option type='text' value='2' name=''>Con fósiles zonadores para correlacionar a nivel regional (entre islas)</option>

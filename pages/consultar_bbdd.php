@@ -735,8 +735,10 @@
 
                  }
                  $resolucion=pg_query($link,$consulta);
+
                  //echo pg_last_error();
                  if(pg_num_rows($resolucion)>0){
+                   echo "estoy aqui";
                    //echo "  Éxito de consulta";
                    mostrar_informacion_yacimiento();
                    while($resultado=pg_fetch_assoc($resolucion)){
