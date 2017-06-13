@@ -76,7 +76,7 @@
             <?php
               //echo "Este es el usuario $username";
               if ($username == "admin") {
-                echo "<li><span class='glyphicon glyphicon-user' aria-hidden='true'></span><a href='gestion_usuarios.php'>Gestión Usuarios</a></li>";
+                echo "<li><span class='glyphicon glyphicon-user' aria-hidden='true'></span><a href='../gestion_usuarios.php'>Gestión Usuarios</a></li>";
               }
              ?>
           </ul>
@@ -603,7 +603,26 @@
 
                     <div class='row'>
                       <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
-                        <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
+                        <!--<button type='submit' class='btn btn-info' name='modificar'>Modificar</button>-->
+                        <button type='button' class='btn btn-info' data-toggle='modal' data-target='#modal_modificar'>Modificar</button>
+                      </div>
+                    </div>
+
+                    <div id='modal_modificar' class='modal fade' role='dialog'>
+                      <div class='modal-dialog'>
+                        <!-- Modal content-->
+                        <div class='modal-content'>
+                          <div class='modal-header'>
+                            <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                            <h4 class='modal-title'>Modificar valoración</h4>
+                          </div>
+                          <div class='modal-body'>
+                            <p>¿Está seguro que desea modificar la valoración?</p>
+                          </div>
+                          <div class='modal-footer'>
+                              <button type='submit' class='btn btn-info boton' name='modificar'>Modificar</button><br>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     </form>

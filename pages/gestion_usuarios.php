@@ -105,7 +105,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class=" col-lg-10 col-md-8 col-xs-12 col-sm-12">
           <div class="row">
 
@@ -121,7 +121,27 @@
                   <label >Contraseña</label>
                   <input type="password" class="form-control" placeholder="Contraseña" name="password">
                 </div>
-                <button type="submit" class="btn btn-success">Añadir usuario</button>
+
+                <!--<button type='submit' class='btn btn-info' name='modificar'>Modificar</button>-->
+                <button type='button' class='btn btn-success' data-toggle='modal' data-target='#modal_anadir_usuario'>Añadir usuario</button>
+
+                <div id='modal_anadir_usuario' class='modal fade' role='dialog'>
+                  <div class='modal-dialog'>
+                    <!-- Modal content-->
+                    <div class='modal-content'>
+                      <div class='modal-header'>
+                        <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                        <h4 class='modal-title'>Añadir usuario</h4>
+                      </div>
+                      <div class='modal-body'>
+                        <p>¿Está seguro que desea añadir un usuario?</p>
+                      </div>
+                      <div class='modal-footer'>
+                          <button type='submit' class='btn btn-success boton' name='modificar'>Añadir</button><br>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </form>
             </div>
 
@@ -145,7 +165,26 @@
                   <label>Nueva contraseña</label>
                   <input type="password" class="form-control"  placeholder="Contraseña" name="password">
                 </div>
-                <button type="submit" class="btn btn-primary">Modicar usuario</button>
+
+                <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#modal_modificar_usuario'>Modificar usuario</button>
+
+                <div id='modal_modificar_usuario' class='modal fade' role='dialog'>
+                  <div class='modal-dialog'>
+                    <!-- Modal content-->
+                    <div class='modal-content'>
+                      <div class='modal-header'>
+                        <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                        <h4 class='modal-title'>Modificar usuario</h4>
+                      </div>
+                      <div class='modal-body'>
+                        <p>¿Está seguro que desea modificar un usuario?</p>
+                      </div>
+                      <div class='modal-footer'>
+                          <button type='submit' class='btn btn-primary boton' name='modificar'>Modificar</button><br>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </form>
             </div>
 
@@ -165,7 +204,26 @@
                      ?>
                   </select>
                 </div>
-                <button type="submit" class="btn btn-danger">Eliminar usuario</button>
+
+                <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#modal_eliminar_usuario'>Eliminar usuario</button>
+
+                <div id='modal_eliminar_usuario' class='modal fade' role='dialog'>
+                  <div class='modal-dialog'>
+                    <!-- Modal content-->
+                    <div class='modal-content'>
+                      <div class='modal-header'>
+                        <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                        <h4 class='modal-title'>Eliminar usuario</h4>
+                      </div>
+                      <div class='modal-body'>
+                        <p>¿Está seguro que desea eliminar un usuario?</p>
+                      </div>
+                      <div class='modal-footer'>
+                          <button type='submit' class='btn btn-danger boton' name='modificar'>Eliminar</button><br>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </form>
             </div>
           </div>
