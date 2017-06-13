@@ -1164,7 +1164,7 @@
                   }
 
                 }
-                elseif($yacimiento_excavacion!="" || $yacimiento_excavacion!="NINGUNO") {
+                elseif($yacimiento_excavacion!="") {
                   $consulta="SELECT responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
                              FROM excavacion NATURAL JOIN yacimiento
                              WHERE yacimiento='".$yacimiento_excavacion."';";
@@ -1218,7 +1218,7 @@
                     $country_aux="country" .$aux;
                     $modificar="modificar" .$aux;
                     $eliminar="eliminar" .$aux;*/
-                    $aux++;
+
                     echo"
                     <form class='' action='modificar/modificar_excavacion.php' method='post'>
                       <div class='row'>
@@ -1245,14 +1245,53 @@
                           <input type='text' class='form-control input_consulta' id='observacion_excavacion' name='observacion_excavacion_consultado' value='$observacion_excavacion'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
-                          <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
+                          <!--<button type='submit' class='btn btn-info' name='modificar'>Modificar</button>-->
+                          <button type='button' class='btn btn-info' data-toggle='modal' data-target='#modal_modificar$aux'>Modificar</button>
                         </div>
                         <div class='col-lg-1 col-md-10 col-xs-1 col-sm-1'>
-                          <button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>
+                          <!--<button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>-->
+                          <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#modal_eliminar$aux'>Eliminar</button>
+                        </div>
+                      </div>
+
+                      <div id='modal_modificar$aux' class='modal fade' role='dialog'>
+                        <div class='modal-dialog'>
+                          <!-- Modal content-->
+                          <div class='modal-content'>
+                            <div class='modal-header'>
+                              <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                              <h4 class='modal-title'>Modificar excavación</h4>
+                            </div>
+                            <div class='modal-body'>
+                              <p>¿Está seguro que desea modificar la excavación?</p>
+                            </div>
+                            <div class='modal-footer'>
+                                <button type='submit' class='btn btn-info boton' name='modificar'>Modificar</button><br>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div id='modal_eliminar$aux' class='modal fade' role='dialog'>
+                        <div class='modal-dialog'>
+                          <!-- Modal content-->
+                          <div class='modal-content'>
+                            <div class='modal-header'>
+                              <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                              <h4 class='modal-title'>Eliminar excavación</h4>
+                            </div>
+                            <div class='modal-body'>
+                              <p>¿Está seguro que desea eliminar la excavación?</p>
+                            </div>
+                            <div class='modal-footer'>
+                                <button type='submit' class='btn btn-danger boton' name='eliminar'>Eliminar</button><br>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </form>
                     ";
+                    $aux++;
                   }
                   //echo"$deposit y $country";
                 }
@@ -1465,7 +1504,7 @@
                   $no_resultado=true;
                   //echo "  Éxito de consulta";
                   mostrar_indice_tabla();
-
+                  $contador=0;
                   while($resultado=pg_fetch_assoc($resolucion)){
                     $id_publicacion=$resultado['idpublicaciones'];
                     $yacimiento=$resultado['yacimiento'];
@@ -1497,15 +1536,54 @@
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group' id='data-container'>
                           <input type='text' class='form-control input_consulta' id='fecha_publi_consultado' name='fecha_publi_consultado' value='$fecha'>
                         </div>
-                        <div class='col-lg-1 col-md-2 col-xs-3 col-sm-3'>
-                          <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
+                        <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
+                          <!--<button type='submit' class='btn btn-info' name='modificar'>Modificar</button>-->
+                          <button type='button' class='btn btn-info' data-toggle='modal' data-target='#modal_modificar$contador'>Modificar</button>
                         </div>
-                        <div class='col-lg-1 col-md-1 col-xs-1 col-sm-1'>
-                          <button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>
+                        <div class='col-lg-1 col-md-10 col-xs-1 col-sm-1'>
+                          <!--<button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>-->
+                          <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#modal_eliminar$contador'>Eliminar</button>
+                        </div>
+                      </div>
+
+                      <div id='modal_modificar$contador' class='modal fade' role='dialog'>
+                        <div class='modal-dialog'>
+                          <!-- Modal content-->
+                          <div class='modal-content'>
+                            <div class='modal-header'>
+                              <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                              <h4 class='modal-title'>Modificar publicación</h4>
+                            </div>
+                            <div class='modal-body'>
+                              <p>¿Está seguro que desea modificar la publicación?</p>
+                            </div>
+                            <div class='modal-footer'>
+                                <button type='submit' class='btn btn-info boton' name='modificar'>Modificar</button><br>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div id='modal_eliminar$contador' class='modal fade' role='dialog'>
+                        <div class='modal-dialog'>
+                          <!-- Modal content-->
+                          <div class='modal-content'>
+                            <div class='modal-header'>
+                              <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                              <h4 class='modal-title'>Eliminar publicación</h4>
+                            </div>
+                            <div class='modal-body'>
+                              <p>¿Está seguro que desea eliminar la publicación?</p>
+                            </div>
+                            <div class='modal-footer'>
+                                <button type='submit' class='btn btn-danger boton' name='eliminar'>Eliminar</button><br>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </form>
                     ";
+                    $contador++;
                   }
                   //echo"$deposit y $country";
                 }
@@ -1514,6 +1592,7 @@
                 }
 
                 if($aux==true){
+                  $contador=0;
                   $resolucion=pg_query($link,$consulta2);
                   if(pg_num_rows($resolucion)>0){
                     $no_resultado=true;
@@ -1548,15 +1627,55 @@
                           <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group' id='data-container'>
                             <input type='text' class='form-control input_consulta' id='fecha_publi_consultado' name='fecha_publi_consultado' value='$fecha'>
                           </div>
-                          <div class='col-lg-1 col-md-2 col-xs-3 col-sm-3'>
-                            <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
+
+                          <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
+                            <!--<button type='submit' class='btn btn-info' name='modificar'>Modificar</button>-->
+                            <button type='button' class='btn btn-info' data-toggle='modal' data-target='#modal_modificar$contador'>Modificar</button>
                           </div>
-                          <div class='col-lg-1 col-md-1 col-xs-1 col-sm-1'>
-                            <button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>
+                          <div class='col-lg-1 col-md-10 col-xs-1 col-sm-1'>
+                            <!--<button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>-->
+                            <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#modal_eliminar$contador'>Eliminar</button>
                           </div>
                         </div>
-                      </form>
+
+                        <div id='modal_modificar$contador' class='modal fade' role='dialog'>
+                          <div class='modal-dialog'>
+                            <!-- Modal content-->
+                            <div class='modal-content'>
+                              <div class='modal-header'>
+                                <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                                <h4 class='modal-title'>Modificar publicación</h4>
+                              </div>
+                              <div class='modal-body'>
+                                <p>¿Está seguro que desea modificar la publicación?</p>
+                              </div>
+                              <div class='modal-footer'>
+                                  <button type='submit' class='btn btn-info boton' name='modificar'>Modificar</button><br>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div id='modal_eliminar$contador' class='modal fade' role='dialog'>
+                          <div class='modal-dialog'>
+                            <!-- Modal content-->
+                            <div class='modal-content'>
+                              <div class='modal-header'>
+                                <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                                <h4 class='modal-title'>Eliminar publicación</h4>
+                              </div>
+                              <div class='modal-body'>
+                                <p>¿Está seguro que desea eliminar la publicación?</p>
+                              </div>
+                              <div class='modal-footer'>
+                                  <button type='submit' class='btn btn-danger boton' name='eliminar'>Eliminar</button><br>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        </form>
                       ";
+                      $contador++;
                     }
                     //echo"$deposit y $country";
                   }
@@ -1645,7 +1764,7 @@
                       </div>
                     </div>
                   ";
-                  $aux=0;
+                  $contador=0;
 
                   while($resultado=pg_fetch_assoc($deposito)){
                     $id_deposito=$resultado['iddeposito'];
@@ -1657,7 +1776,7 @@
                     $country_aux="country" .$aux;
                     $modificar="modificar" .$aux;
                     $eliminar="eliminar" .$aux;*/
-                    $aux++;
+                    $contador++;
                     echo"
                      <form class='' action='modificar/modificar_deposito.php' method='post'>
                         <div class='row'>
@@ -1668,15 +1787,54 @@
                           <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                             <input type='text' class='form-control input_consulta' id='pais_consultado' name='pais_consultado' value='$country'>
                           </div>
-                          <div class='col-lg-1 col-md-2 col-xs-3 col-sm-3'>
-                            <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
+                          <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
+                            <!--<button type='submit' class='btn btn-info' name='modificar'>Modificar</button>-->
+                            <button type='button' class='btn btn-info' data-toggle='modal' data-target='#modal_modificar$contador'>Modificar</button>
                           </div>
-                          <div class='col-lg-1 col-md-1 col-xs-1 col-sm-1'>
-                            <button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>
+                          <div class='col-lg-1 col-md-10 col-xs-1 col-sm-1'>
+                            <!--<button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>-->
+                            <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#modal_eliminar$contador'>Eliminar</button>
+                          </div>
+                        </div>
+
+                        <div id='modal_modificar$contador' class='modal fade' role='dialog'>
+                          <div class='modal-dialog'>
+                            <!-- Modal content-->
+                            <div class='modal-content'>
+                              <div class='modal-header'>
+                                <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                                <h4 class='modal-title'>Modificar depósito</h4>
+                              </div>
+                              <div class='modal-body'>
+                                <p>¿Está seguro que desea modificar el depósito?</p>
+                              </div>
+                              <div class='modal-footer'>
+                                  <button type='submit' class='btn btn-info boton' name='modificar'>Modificar</button><br>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div id='modal_eliminar$contador' class='modal fade' role='dialog'>
+                          <div class='modal-dialog'>
+                            <!-- Modal content-->
+                            <div class='modal-content'>
+                              <div class='modal-header'>
+                                <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                                <h4 class='modal-title'>Eliminar depósito</h4>
+                              </div>
+                              <div class='modal-body'>
+                                <p>¿Está seguro que desea eliminar el depósito?</p>
+                              </div>
+                              <div class='modal-footer'>
+                                  <button type='submit' class='btn btn-danger boton' name='eliminar'>Eliminar</button><br>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </form>
                     ";
+                    $contador++;
                   }
                   //echo"$deposit y $country";
                 }

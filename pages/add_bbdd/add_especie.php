@@ -124,7 +124,7 @@
      }
 
 
-     //header("Location: ../anadir/especie.php");
+     header("Location: ../anadir/especie.php");
 
 
 
