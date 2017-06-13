@@ -728,7 +728,9 @@
                      <div class='col-lg-1 col-md-10 col-sm-4 col-xs-4 form-group'>
                        <h5><b>LONGITUD</b></h5>
                      </div>
-                   </div>";
+                   </div>
+
+                   ";
 
 
                  }
@@ -766,16 +768,20 @@
                            <input type='text' class='form-control input_consulta' id='' name='localidad_consultado' value='$localidad'>
                          </div>
                          <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
-                           <input type='text' class='form-control input_consulta' id='' name='latitud_consultado' value='$latitud'>
+                           <input type='text' class='form-control input_consulta' id='Latitud' name='latitud_consultado' value='$latitud'>
                          </div>
                          <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
-                           <input type='text' class='form-control input_consulta' id='' name='longitud_consultado' value='$longitud'>
+                           <input type='text' class='form-control input_consulta' id='Longitud' name='longitud_consultado' value='$longitud'>
                          </div>
                          <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
                            <button type='submit' class='btn btn-info' name='modificar'>Modificar</button>
                          </div>
                        </div>
                      </form>
+                     <div class='row'>
+                       <div class='col-lg-6' class='mapa_google' id='map'>
+                       </div>
+                     </div>
                      ";
                    }
                  }
@@ -1587,8 +1593,11 @@
     <script type="text/javascript" src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../bootstrap-3.3.7-dist/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
     <script type="text/javascript" src="../bootstrap-3.3.7-dist/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKWnhtTV-INFvymm3mjHJboLaY3dZzhwA&callback=initMap"
+    async defer></script>
     <script type="text/javascript" src="../js/administracion.js"></script>
     <script type="text/javascript" src="../js/consulta.js"></script>
+    <script type="text/javascript" src="../js/mapa_google.js"></script>
   </body>
 </html>
 

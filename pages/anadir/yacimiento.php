@@ -282,8 +282,15 @@
                 </div>
 
                 <div class="row">
-
+                  <div class="col-lg-6" class="mapa_google" id="map">
+                  </div>
                 </div>
+
+                <!--<div class="row">
+                  <div class="col-lg-6 form-group" id="">
+                    <iframe class="mapa_google" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1796180.1078708635!2d-15.8532715!3d28.444464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1497349197075"  frameborder="0" style="border:0" allowfullscreen></iframe>
+                  </div>
+                </div>-->
                 <div class="row">
                   <div class="col-lg-2 col-md-3 col-xs-12 col-sm-3">
                     <button type="submit" class="btn btn-success">Enviar</button>
@@ -311,8 +318,11 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript" src="../../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKWnhtTV-INFvymm3mjHJboLaY3dZzhwA&callback=initMap"
+  async defer></script>
   <script type="text/javascript" src="../../js/administracion.js"></script>
   <script type="text/javascript" src="../../js/anadir/yacimiento.js"></script>
+  <script type="text/javascript" src="../../js/mapa_google.js"></script>
   </body>
 </html>
 

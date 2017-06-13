@@ -51,24 +51,54 @@ d3.json("../mapas/mapa_modificado/recintos_municipales_inspire_canarias_wgs84.ge
 
 });
 
+var place=[
+{
+  name: "LA CUEVITA",
+  municipio: "GUIA DE ISORA",
+  location:{
+    latitude: "28.238313003342984",
+    longitude: "-16.79483413696289"
+  },
+},
+{
+  name: "LA CHARCHA",
+  municipio: "SAN SEBASTIÁN DE LA GOMERA",
+  location:{
+    latitude: "28.105903469076182",
+    longitude: "-17.2210693359375"
+  }
+},
+{
+  name: "EL PUNTO",
+  municipio: "EL PINAR DE EL HIERRO",
+  location:{
+    latitude: "27.716357484314464",
+    longitude: "-18.00933837890625"
+  }
+}
+];
 
 function puntos() {
-  aa = [-16.79612159729004, 28.236800677752584];
-  bb = [-16.718788146972656, 28.229389972499913];
-  cc = [-18.01483154296875,  27.733376247402138];
+
   // add circles to svg
    svg.selectAll("circle")
-   .data([aa,bb,cc]).enter()
+   .data(place)
+   .enter()
    .append("circle")
-   .attr("cx", function (d) { /*console.log(projection(d));*/ return projection(d)[0]; })
-   .attr("cy", function (d) { return projection(d)[1]; })
    .attr("r", "3px")
-   .attr("fill", "orange");
+   .attr("fill", "orange")
+   .attr("transform", function(d) {
+    return "translate(" + projection([
+      d.location.longitude,
+      d.location.latitude
+    ]) + ")";
+    });
+
 
 }
 
 function puntos_zoom() {
-  aa = [-16.79612159729004, 28.236800677752584];
+  /*aa = [-16.79612159729004, 28.236800677752584];
   bb = [-16.718788146972656, 28.229389972499913];
 
   svg.selectAll("circle")
@@ -77,7 +107,23 @@ function puntos_zoom() {
   .attr("cx", function (d) { console.log(projection(d)); return projection(d)[0]; })
   .attr("cy", function (d) { return projection(d)[1]; })
   .attr("r", "3px")
-  .attr("fill", "orange");
+  .attr("fill", "orange");*/
+  var municipio= document.getElementById('Municipio').value;
+
+  // add circles to svg
+
+   /*svg.selectAll("circle")
+   .data(place)
+   .enter()
+   .append("circle")
+   .attr("r", "3px")
+   .attr("fill", "orange")
+   .attr("transform", function(d) {
+    return "translate(" + projection([
+      d.location.longitude,
+      d.location.latitude
+    ]) + ")";
+  });*/
 }
 
 
@@ -139,7 +185,8 @@ function clicked(d,i) {
 
   if(k!=1){
     svg.selectAll("circle").remove();
-    //puntos_zoom();
+    document.getElementById('Municipio').value=municipio_seleccionado;
+    puntos_zoom();
     console.log("k="+k);
     console.log("x="+x);
     console.log("y="+y);
@@ -160,6 +207,7 @@ function clicked(d,i) {
 
 
 }
+
 
 var municipio_seleccionado;
 function showTooltip(d) {

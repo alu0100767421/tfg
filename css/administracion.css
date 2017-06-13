@@ -6,6 +6,8 @@ body {
     overflow-x: hidden;
 }
 
+
+/* Optional: Makes the sample page fill the window. */
 .imagen-menu{
   width: 100%;
   height: auto;
@@ -68,4 +70,12 @@ body {
 .input_consulta{
   color: #000000;
   box-shadow: none;
+}
+
+#map {
+  height: 400px;
+}
+
+.mapa_google{
+  margin-left: 100px;
 }
