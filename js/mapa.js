@@ -1,4 +1,3 @@
-
 d3.select(window).on('resize', resize);
 
 
@@ -215,3 +214,6 @@ function showTooltip(d) {
   municipio_seleccionado=d.properties.NAMEUNIT;
   document.getElementById('Municipio').value=municipio_seleccionado;
 }
+
+
+console.log(array_puntos);

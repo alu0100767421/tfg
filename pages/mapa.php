@@ -3,6 +3,20 @@
   $link = require("connect_bbdd.php");
   echo pg_last_error();
 
+  $consulta="SELECT idyacimiento,yacimiento,latitud,longitud
+             FROM yacimiento NATURAL JOIN ubicacion;";
+  $resultado=pg_query($link,$consulta);
+  //$resolucion=pg_fetch_assoc($resultado);
+  $arrayPHP=json_encode(pg_fetch_array($resultado));
+  /*while($resolucion=pg_fetch_assoc($resultado)){
+    echo "
+      <p>".$resolucion['yacimiento']."</p>
+      <p>".$resolucion['latitud']."</p>
+      <p>".$resolucion['longitud']."</p>
+
+    ";
+  }*/
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -15,7 +29,6 @@
   <link rel="icon" type="/image/png" href="../images/logoULL/logotipo-secundario.jpg" />
   <link type="text/css" rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
   <link type="text/css" rel="stylesheet" href="../css/mapa.css"/>
-
 </head>
 
 <body>
@@ -64,14 +77,12 @@
     <div class="col-sm-12 col-md-12 col-lg-4">
       <h3 class="margen_izquierdo">Sistema Paleontológico</h3>
       <div class="row">
-        <!--<div class="row">
-          <div class="row col-sm-12 col-md-6 col-lg-6">
+            <!--<div class="row col-sm-12 col-md-6 col-lg-6">
             <h5>Yacimiento</h5>
           </div>
           <div class="row col-sm-12 col-md-6 col-lg-6">
             <h5>Localidad</h5>
-          </div>
-        </div>-->
+          </div>-->
       </div>
     </div>
   </div>
@@ -90,7 +101,17 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript" src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <?php
+  $consulta="SELECT idyacimiento,yacimiento,latitud,longitud
+             FROM yacimiento NATURAL JOIN ubicacion;";
+  $resultado=pg_query($link,$consulta);
+  //$resolucion=pg_fetch_assoc($resultado);
+  $array_puntos_PHP=pg_fetch_assoc($resultado);
+  ?>
+  <script type="text/javascript">var array_puntos =<?php echo json_encode($array_puntos_PHP); ?>;</script>
   <script type="text/javascript" src="../js/mapa.js"></script>
+
+
 
 </body>
 </html>
