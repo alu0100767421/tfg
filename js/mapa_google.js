@@ -1,11 +1,17 @@
 var map;
 var markers = [];
+var Latitud=document.getElementById('Latitud').value;
+var Longitud= document.getElementById('Longitud').value;
+//console.log(Number(Latitud));
+//console.log(Number(Longitud));
 function initMap() {
+  var marcador_inical = {lat: Number(Latitud), lng: Number(Longitud)};
   map = new google.maps.Map(document.getElementById('map'), {
     center: {lat: 28.072487, lng: -16.143498},
     zoom: 7,
     mapTypeId: 'hybrid'
   });
+  addMarker(marcador_inical);
 
   // This event listener will call addMarker() when the map is clicked.
   map.addListener('click', function(event) {

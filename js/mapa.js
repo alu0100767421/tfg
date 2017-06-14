@@ -95,7 +95,6 @@ function punto_y(){
 
 
 function mostrarYacimiento(d) {
-console.log(d.longitud);
   d3.select(this).attr({
     fill: "white",
     r: "8px",
@@ -114,13 +113,11 @@ console.log(d.longitud);
   .attr("size","10px")
   .attr("fill","black")
   .text(function(){
-    console.log(d.yacimiento);
     return d.yacimiento; //este seri el valor del texto
   });
 }
 
 function quitarYacimiento(d) {
-  //console.log("quitando id"+ d.idyacimiento);
   // Use D3 to select element, change color back to normal
   d3.select(this).attr({
     fill: "red",
@@ -250,6 +247,3 @@ function showTooltip(d) {
   municipio_seleccionado=d.properties.NAMEUNIT;
   document.getElementById('Municipio').value=municipio_seleccionado;
 }
-
-
-console.log(array_puntos);

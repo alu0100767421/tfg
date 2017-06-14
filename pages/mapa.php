@@ -59,7 +59,8 @@
   </nav>
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-8" >
-      <h3 class="margen_izquierdo">Islas Canarias</h3>
+      <h3 class="margen_izquierdo">Mapa Geográfico de Paleontolía de las Islas Canarias</h3>
+      <hr class="linea margen_izquierdo">
       <div class="row">
         <div  class="col-lg-1 form-group">
           <h5 class="margen_izquierdo">Municipio:</h5>
@@ -78,6 +79,7 @@
 
     <div class="col-sm-12 col-md-12 col-lg-4">
       <h3 class="">Yacimiento Consultado</h3>
+      <hr class="linea">
       <div class="row">
         <?php
           $link= require('connect_bbdd.php');
@@ -105,42 +107,42 @@
 
               echo "
               <div class='row'>
-                <div class='col-sm-12 col-md-6 col-lg-6'>
+                <div class='col-sm-12 col-md-6 col-lg-6 margen_izquierdo'>
                   <h5><b>Yacimiento</B>: $yacimiento</h5>
                 </div>
               </div>
               <div class='row'>
-                <div class='col-sm-12 col-md-6 col-lg-6'>
+                <div class='col-sm-12 col-md-6 col-lg-6 margen_izquierdo'>
                   <h5><b>Isla</B>: $isla</h5>
                 </div>
               </div>
               <div class='row'>
-                <div class='col-sm-12 col-md-6 col-lg-6'>
+                <div class='col-sm-12 col-md-6 col-lg-6 margen_izquierdo'>
                   <h5><b>Municipio</B>: $municipio</h5>
                 </div>
               </div>
               <div class='row'>
-                <div class='col-sm-12 col-md-6 col-lg-6'>
+                <div class='col-sm-12 col-md-6 col-lg-6 margen_izquierdo'>
                   <h5><b>Localidad</B>: $localidad</h5>
                 </div>
               </div>
               <div class='row'>
-                <div class='col-sm-12 col-md-6 col-lg-6'>
+                <div class='col-sm-12 col-md-6 col-lg-6 margen_izquierdo'>
                   <h5><b>Tipo</B>: $tipo</h5>
                 </div>
               </div>
               <div class='row'>
-                <div class='col-sm-12 col-md-6 col-lg-6'>
+                <div class='col-sm-12 col-md-6 col-lg-6 margen_izquierdo'>
                   <h5><b>Altura</B>: $altura</h5>
                 </div>
               </div>
               <div class='row'>
-                <div class='col-sm-12 col-md-6 col-lg-6'>
+                <div class='col-sm-12 col-md-6 col-lg-6 margen_izquierdo'>
                   <h5><b>Edad</B>: $edad</h5>
                 </div>
               </div>
               <div class='row'>
-                <div class='col-sm-12 col-md-6 col-lg-6'>
+                <div class='col-sm-12 col-md-6 col-lg-6 margen_izquierdo'>
                   <h5><b>Observación</B>: $observacion</h5>
                 </div>
               </div>

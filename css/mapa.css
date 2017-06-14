@@ -59,7 +59,10 @@ path:hover, path.highlighted {
 }
 
 .margen_izquierdo{
-  margin-left: 10px;
+  margin-left: 20px;
+}
+.linea{
+  border-color:#b3afaf;
 }
 
 .input_municipio{
