@@ -61,8 +61,10 @@ function puntos() {
    .attr("id", function(d){ return d.yacimiento; })
    .attr("class","circulos")
    .attr("r", "4px")
-   .attr("stroke","red")
+   .attr("stroke","black")
    .attr("fill", "orange")
+   .on("mouseover", mostrarYacimiento)
+   .on("mouseout", quitarYacimiento)
    .attr("transform", function(d) {
     return "translate(" + projection([
       d.longitud,
@@ -71,6 +73,59 @@ function puntos() {
     });
 
 
+}
+
+//funcion que nos da el punto en el eje x donde mostrar el texto de los puntos
+function punto_x(){
+  var x;
+    x = width / 2;
+  return(x);
+}
+//funcion que nos da el punto en el eje y donde mostrar el texto de los puntos
+function punto_y(){
+  var y;
+    y = height / 2;
+  return(y);
+}
+
+
+
+function mostrarYacimiento(d) {
+console.log(d.longitud);
+  d3.select(this).attr({
+    fill: "white",
+    r: "8px",
+    stroke: "black"
+  });
+  var puntox=punto_x();
+  var puntoy=punto_y();
+  //console.log("x:"+puntox+"y:"+puntoy);
+  // Hay que especificar donde debemos de poner el text punto(x,y) y tambien creamo un id para borrarlo luego
+  svg.append("text").attr({
+     id: "id"+d.idyacimiento,
+     x: function() { return puntox; },
+     y: function() { return puntoy; }
+  })
+  .attr("font-family","monospace")
+  .attr("size","10px")
+  .attr("fill","black")
+  .text(function(){
+    console.log(d.yacimiento);
+    return d.yacimiento; //este seri el valor del texto
+  });
+}
+
+function quitarYacimiento(d) {
+  //console.log("quitando id"+ d.idyacimiento);
+  // Use D3 to select element, change color back to normal
+  d3.select(this).attr({
+    fill: "red",
+    r: "4px",
+    stroke: "black"
+  });
+
+  // Select text by id and then remove
+  d3.select("#id"+d.idyacimiento).remove();  // Remove text location
 }
 
 function puntos_zoom() {
