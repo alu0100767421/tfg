@@ -65,6 +65,10 @@ function puntos() {
    .attr("fill", "orange")
    .on("mouseover", mostrarYacimiento)
    .on("mouseout", quitarYacimiento)
+   .on("click",function(d){
+     document.cookie='yacimiento='+d.yacimiento;
+     window.location="../pages/mapa.php";
+   })
    .attr("transform", function(d) {
     return "translate(" + projection([
       d.longitud,

@@ -77,14 +77,82 @@
 
 
     <div class="col-sm-12 col-md-12 col-lg-4">
-      <h3 class="margen_izquierdo">Sistema Paleontológico</h3>
+      <h3 class="">Yacimiento Consultado</h3>
       <div class="row">
-            <!--<div class="row col-sm-12 col-md-6 col-lg-6">
-            <h5>Yacimiento</h5>
-          </div>
-          <div class="row col-sm-12 col-md-6 col-lg-6">
-            <h5>Localidad</h5>
-          </div>-->
+        <?php
+          $link= require('connect_bbdd.php');
+          if (isset($_COOKIE['yacimiento'])) {
+            $yacimiento=$_COOKIE['yacimiento'];
+          }
+          if($yacimiento!=""){
+            //consulta sobre la ubicacion
+            $consulta="SELECT idyacimiento,yacimiento,isla,municipio,localidad,tipo_yacimiento,altura,edad,observacion_yacimiento
+                       FROM yacimiento NATURAL JOIN ubicacion
+                       WHERE yacimiento='".$yacimiento."';";
+            $resolucion=pg_query($link,$consulta);
+            if(pg_num_rows($resolucion)>0){
+              $resultado=pg_fetch_assoc($resolucion);
+              $idyacimiento=$resultado['idyacimiento'];
+              $isla=$resultado['isla'];
+              $municipio=$resultado['municipio'];
+              $localidad=$resultado['localidad'];
+              $tipo=$resultado['tipo_yacimiento'];
+              $altura=$resultado['altura'];
+              if($altura==-1)
+                $altura="DESCONOCIDO";
+              $edad=$resultado['edad'];
+              $observacion=$resultado['observacion_yacimiento'];
+
+              echo "
+              <div class='row'>
+                <div class='col-sm-12 col-md-6 col-lg-6'>
+                  <h5><b>Yacimiento</B>: $yacimiento</h5>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-12 col-md-6 col-lg-6'>
+                  <h5><b>Isla</B>: $isla</h5>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-12 col-md-6 col-lg-6'>
+                  <h5><b>Municipio</B>: $municipio</h5>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-12 col-md-6 col-lg-6'>
+                  <h5><b>Localidad</B>: $localidad</h5>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-12 col-md-6 col-lg-6'>
+                  <h5><b>Tipo</B>: $tipo</h5>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-12 col-md-6 col-lg-6'>
+                  <h5><b>Altura</B>: $altura</h5>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-12 col-md-6 col-lg-6'>
+                  <h5><b>Edad</B>: $edad</h5>
+                </div>
+              </div>
+              <div class='row'>
+                <div class='col-sm-12 col-md-6 col-lg-6'>
+                  <h5><b>Observación</B>: $observacion</h5>
+                </div>
+              </div>
+              ";
+            }
+
+          }
+          /*echo "$yacimiento";
+          echo $idyacimiento;*/
+
+         ?>
+
       </div>
     </div>
   </div>
