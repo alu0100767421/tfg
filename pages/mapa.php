@@ -4,18 +4,20 @@
   echo pg_last_error();
 
   $consulta="SELECT idyacimiento,yacimiento,latitud,longitud
-             FROM yacimiento NATURAL JOIN ubicacion;";
+             FROM yacimiento NATURAL JOIN ubicacion
+             WHERE latitud!=0 and longitud!=0;";
   $resultado=pg_query($link,$consulta);
-  //$resolucion=pg_fetch_assoc($resultado);
-  $arrayPHP=json_encode(pg_fetch_array($resultado));
-  /*while($resolucion=pg_fetch_assoc($resultado)){
-    echo "
+  $array_puntos_PHP=array();
+  while($resolucion=pg_fetch_array($resultado)){
+    //$array_puntos_PHP[$i]= $resolucion
+    array_push($array_puntos_PHP,$resolucion);
+    /*echo "
       <p>".$resolucion['yacimiento']."</p>
       <p>".$resolucion['latitud']."</p>
       <p>".$resolucion['longitud']."</p>
 
-    ";
-  }*/
+    ";*/
+  }
 
 ?>
 <!DOCTYPE html>
@@ -101,13 +103,6 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript" src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-  <?php
-  $consulta="SELECT idyacimiento,yacimiento,latitud,longitud
-             FROM yacimiento NATURAL JOIN ubicacion;";
-  $resultado=pg_query($link,$consulta);
-  //$resolucion=pg_fetch_assoc($resultado);
-  $array_puntos_PHP=pg_fetch_assoc($resultado);
-  ?>
   <script type="text/javascript">var array_puntos =<?php echo json_encode($array_puntos_PHP); ?>;</script>
   <script type="text/javascript" src="../js/mapa.js"></script>
 

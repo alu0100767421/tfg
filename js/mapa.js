@@ -50,46 +50,23 @@ d3.json("../mapas/mapa_modificado/recintos_municipales_inspire_canarias_wgs84.ge
 
 });
 
-var place=[
-{
-  name: "LA CUEVITA",
-  municipio: "GUIA DE ISORA",
-  location:{
-    latitude: "28.238313003342984",
-    longitude: "-16.79483413696289"
-  },
-},
-{
-  name: "LA CHARCHA",
-  municipio: "SAN SEBASTIÁN DE LA GOMERA",
-  location:{
-    latitude: "28.105903469076182",
-    longitude: "-17.2210693359375"
-  }
-},
-{
-  name: "EL PUNTO",
-  municipio: "EL PINAR DE EL HIERRO",
-  location:{
-    latitude: "27.716357484314464",
-    longitude: "-18.00933837890625"
-  }
-}
-];
 
 function puntos() {
 
   // add circles to svg
    svg.selectAll("circle")
-   .data(place)
+   .data(array_puntos)
    .enter()
    .append("circle")
-   .attr("r", "3px")
+   .attr("id", function(d){ return d.yacimiento; })
+   .attr("class","circulos")
+   .attr("r", "4px")
+   .attr("stroke","red")
    .attr("fill", "orange")
    .attr("transform", function(d) {
     return "translate(" + projection([
-      d.location.longitude,
-      d.location.latitude
+      d.longitud,
+      d.latitud
     ]) + ")";
     });
 
