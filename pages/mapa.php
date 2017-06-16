@@ -59,7 +59,7 @@
   </nav>
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-8" >
-      <h3 class="margen_izquierdo">Mapa Geográfico de Paleontolía de las Islas Canarias</h3>
+      <h3 class="margen_izquierdo">Mapa Geográfico de Paleontología de las Islas Canarias</h3>
       <hr class="linea margen_izquierdo">
       <div class="row">
         <div  class="col-lg-1 form-group">
@@ -71,7 +71,8 @@
       </div>
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-12" id="mapa" class="mapa">
-
+          <article>
+          </article>
         </div>
       </div>
     </div>
