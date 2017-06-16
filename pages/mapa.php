@@ -149,6 +149,29 @@
               </div>
               ";
             }
+            $consulta="SELECT especie
+                       FROM yacimiento NATURAL JOIN especie has NATURAL JOIN yacimiento_has_especie
+                       WHERE yacimiento='".$yacimiento."';";
+            $resolucion=pg_query($link,$consulta);
+            if(pg_num_rows($resolucion)>0){
+              echo "
+              <div class='row'>
+                <div class='col-sm-12 col-md-6 col-lg-6 margen_izquierdo'>
+                  <h5><b>Especies</B>:
+              ";
+
+              while($resultado=pg_fetch_assoc($resolucion)){
+                $especie=$resultado['especie'];
+                echo "$especie,";
+              }
+
+              echo "
+                  </h5>
+                </div>
+              </div>
+              ";
+            }
+
 
           }
           /*echo "$yacimiento";
