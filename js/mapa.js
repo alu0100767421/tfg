@@ -1,4 +1,4 @@
-d3.select(window).on('resize', sizeChange);
+d3.select(window).on('resize', resize);
 
 
 //Creamos unas dimensiones específicas para el mapa
@@ -7,7 +7,7 @@ d3.select(window).on('resize', sizeChange);
   var width = viewportWidth * 0.97;
   var height = width/1.85;
   var escala= width*10;
-  console.log(escala);
+  //console.log(escala);
   //var escala=10000;
 //Projeccion del mapa
 var projection = d3.geo.mercator()
@@ -20,7 +20,7 @@ var path = d3.geo.path().projection(projection);
 
 
 //Creamos el SVG
-var svg = d3.select("#mapa").append("svg")
+var svg = d3.select("article").append("svg")
     .attr("width", width)
     .attr("height", height);
 
@@ -131,40 +131,25 @@ function quitarYacimiento(d) {
 
 
 function resize() {
-
-  //Creamos unas dimensiones específicas para el mapa
-    var viewportWidth = $("#mapa").width();
-    var viewportHeight = $("#mapa").height()/2;
-    var width = viewportWidth * 0.97;
-    var height = width/1.85;
-    var escala= width*10;
-    //var escala=10000;
-  //Projeccion del mapa
-  var projection = d3.geo.mercator()
-      .scale([escala]) //escala
-      .center([-15.747476639999999,28.530921143001386])//para que se centre
-      .translate([width/2,height/2]);
-
-  //Generate paths based on projection
-  var path = d3.geo.path().projection(projection);
-
-
-  //Creamos el SVG
-  var svg = d3.select("#mapa").append("svg")
-      .attr("width", width)
-      .attr("height", height);
-}
-
-function sizeChange() {
   svg.selectAll("circle").remove();
-  escala=($("#mapa").width()*0.97)*10;
-  console.log("Escala de prueba:"+escala);
-  d3.select("g").attr("transform","scale(" + $("#mapa").width()/1000 + ")","translate(" + (-15.747476639999999+width/2) + "," + (28.530921143001386+height/2) + ")");
-  $("#mapa").height($("#mapa").width()*1.85);
-  //puntos();
+  width = parseInt(d3.select('article').style('width'));
+  width = $('article').width() * 0.97;
+  height = width/1.85;
+
+ projection
+    .scale([width*10])
+    .center([-15.747476639999999,28.530921143001386])//para que se centre
+    .translate([width/2,height/2]);
 
 
+ d3.select("article").attr("width",width).attr("height",height);
+ d3.select("svg").attr("width",width).attr("height",height);
+
+ d3.selectAll("path").attr('d', path);
+
+ puntos();
 }
+
 
 
 // Zoom al clickar
