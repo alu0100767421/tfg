@@ -83,7 +83,7 @@ function puntos() {
 //funcion que nos da el punto en el eje x donde mostrar el texto de los puntos
 function punto_x(){
   var x;
-    x = width/2.5;
+    x = width/2.3;
   return(x);
 }
 //funcion que nos da el punto en el eje y donde mostrar el texto de los puntos
