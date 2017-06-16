@@ -83,38 +83,45 @@ function puntos() {
 //funcion que nos da el punto en el eje x donde mostrar el texto de los puntos
 function punto_x(){
   var x;
-    x = width / 2;
+    x = width/2.5;
   return(x);
 }
 //funcion que nos da el punto en el eje y donde mostrar el texto de los puntos
 function punto_y(){
   var y;
-    y = height / 2;
+    y = height / 5;
+
   return(y);
 }
 
 
 
-function mostrarYacimiento(d) {
+function mostrarYacimiento(d,e) {
   d3.select(this).attr({
     fill: "white",
     r: "8px",
     stroke: "black"
   });
-  var puntox=punto_x();
-  var puntoy=punto_y();
-  //console.log("x:"+puntox+"y:"+puntoy);
+
+
+
+  var x,y;
+  //console.log(x);
+
+  x=punto_x();
+  y=punto_y();
+  console.log("x:"+x+"y:"+y);
   // Hay que especificar donde debemos de poner el text punto(x,y) y tambien creamo un id para borrarlo luego
   svg.append("text").attr({
      id: "id"+d.idyacimiento,
-     x: function() { return puntox; },
-     y: function() { return puntoy; }
+     x: function() { return x; },
+     y: function() { return y; }
   })
   .attr("font-family","monospace")
   .attr("size","10px")
   .attr("fill","black")
   .text(function(){
-    return d.yacimiento; //este seri el valor del texto
+    return "YACIMIENTO:"+ d.yacimiento; //este seria el valor del texto
   });
 }
 
