@@ -162,7 +162,7 @@
 
               while($resultado=pg_fetch_assoc($resolucion)){
                 $especie=$resultado['especie'];
-                echo "$especie,";
+                echo "$especie; ";
               }
 
               echo "

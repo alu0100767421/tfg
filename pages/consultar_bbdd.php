@@ -55,7 +55,7 @@
         <div class="col-lg-2 col-md-4 col-xs-8 col-sm-6 ">
           <ul class="list-unstyled panel">
             <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a href="administracion.php">Inicio</a></li>
-            <li id="consultar"  class="destacar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="consultar_bbdd.php">Consultar/Eliminar/Modificar</a></li>
+            <li id="consultar"  class="destacar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="consultar_bbdd.php">Consultar/Modificar</a></li>
             <li id="valoracion"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><a href="valoracion.php">Valoraciones</a>
               <ul style="display:none" class="list-unstyled" id="submenu_valoracion">
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="valoraciones/add_valoracion.php">Añadir Valoración</a></li>
@@ -1139,18 +1139,18 @@
                 elseif($responsable!="" && $financiacion==""){
                   $consulta="SELECT idexcavaciones,responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
                              FROM excavacion NATURAL JOIN yacimiento
-                             WHERE responsable='".$responsable."';";
+                             WHERE responsable LIKE '".$responsable."%';";
 
                 }
                 elseif ($financiacion!="" && $responsable=="") {
                   $consulta="SELECT idexcavaciones,responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
                              FROM excavacion NATURAL JOIN yacimiento
-                             WHERE financiacion='".$financiacion."';";
+                             WHERE financiacion LIKE '".$financiacion."%';";
                 }
                 elseif ($financiacion!="" && $responsable!="") {
                   $consulta="SELECT idexcavaciones,responsable,financiacion,yacimiento,fecha_inicial,fecha_final,observacion_excavacion,deposito
                              FROM excavacion NATURAL JOIN yacimiento
-                             WHERE financiacion='".$financiacion."' AND responsable='".$responsable."';";
+                             WHERE financiacion LIKE '".$financiacion."%' AND responsable LIKE '".$responsable."%';";
                 }
                 elseif($fecha_ex_ini!="") {
 
@@ -1376,14 +1376,14 @@
 
                   $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
                              FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
-                             WHERE titulo='".$titulo."';";
+                             WHERE titulo LIKE '".$titulo."%';";
                   $consulta2="SELECT idpublicaciones,titulo,fecha,autor,pdf
                               FROM publicacion
-                              WHERE titulo='".$titulo."'
+                              WHERE titulo LIKE '".$titulo."%'
                               EXCEPT
                               SELECT idpublicaciones,titulo,fecha,autor,pdf
                               FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion
-                              WHERE titulo='".$titulo."';";
+                              WHERE titulo LIKE '".$titulo."%';";
                 }
                 //fin si se elige un titulo
                 //si mete un autor
@@ -1393,16 +1393,16 @@
 
                     $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
                                FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
-                               WHERE autor='".$autor."'
+                               WHERE autor LIKE '".$autor."%'
                                ORDER BY fecha DESC;";
 
                     $consulta2="SELECT idpublicaciones,titulo,fecha,autor,pdf
                                 FROM publicacion
-                                WHERE autor='".$autor."'
+                                WHERE autor LIKE '".$autor."%'
                                 EXCEPT
                                 SELECT idpublicaciones,titulo,fecha,autor,pdf
                                 FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion
-                                WHERE autor='".$autor."'
+                                WHERE autor LIKE '".$autor."%'
                                 ORDER BY fecha DESC;";
                   }
                   else{
@@ -1410,17 +1410,17 @@
 
                       $consulta="SELECT idpublicaciones,yacimiento,titulo,fecha,autor,pdf
                                  FROM yacimiento NATURAL JOIN yacimiento_has_publicacion NATURAL JOIN publicacion
-                                 WHERE autor='".$autor."' AND yacimiento='".$yacimiento_publicacion."'
+                                 WHERE autor LIKE '".$autor."%' AND yacimiento='".$yacimiento_publicacion."'
                                  ORDER BY fecha DESC;";
                     }
                     else{
                       $consulta2="SELECT idpublicaciones,titulo,fecha,autor,pdf
                                   FROM publicacion
-                                  WHERE autor='".$autor."'
+                                  WHERE autor LIKE '".$autor."%'
                                   EXCEPT
                                   SELECT idpublicaciones,titulo,fecha,autor,pdf
                                   FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion
-                                  WHERE autor='".$autor."'
+                                  WHERE autor LIKE '".$autor."%'
                                   ORDER BY fecha DESC;";
                     }
 
@@ -1727,7 +1727,7 @@
 
                   $consulta="SELECT *
                              FROM deposito
-                             WHERE deposito='".$deposito."' AND pais='".$pais."';";
+                             WHERE deposito LIKE '".$deposito."%' AND pais LIKE '".$pais."%';";
                 }
                 //fin si ha introducio pais y deposito
                 //if pais y deposito están vacios se hace una consulta de todos
@@ -1741,7 +1741,7 @@
                 elseif($pais==""){
                   $consulta="SELECT *
                              FROM deposito
-                             WHERE deposito='".$deposito."';";
+                             WHERE deposito LIKE '".$deposito."%';";
 
                 }
                 //fin de si pais es vacio
@@ -1749,7 +1749,7 @@
                 elseif ($deposito=="") {
                   $consulta="SELECT *
                              FROM deposito
-                             WHERE pais='".$pais."';";
+                             WHERE pais LIKE '".$pais."%';";
                 }
                 //if no se elige un deposito
                 $deposito=pg_query($link,$consulta);
@@ -1758,10 +1758,10 @@
                   echo "
                     <hr class='linea'>
                     <div class='row'>
-                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
+                      <div class='col-lg-4 col-md-4 col-sm-4 col-xs-4 form-group'>
                         <h5><b>DEPÓSITO</b></h5>
                       </div>
-                      <div class='col-lg-2 col-md-4 col-sm-4 col-xs-4 form-group'>
+                      <div class='col-lg-4 col-md-4 col-sm-4 col-xs-4 form-group'>
                         <h5><b>PAÍS</b></h5>
                       </div>
                     </div>
@@ -1783,10 +1783,10 @@
                      <form class='' action='modificar/modificar_deposito.php' method='post'>
                         <div class='row'>
                           <input type='hidden' id='' name='id_deposito' value='$id_deposito'>
-                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
+                          <div class='col-lg-4 col-md-4 col-sm-11 col-xs-10 form-group'>
                             <input type='text' class='form-control input_consulta' id='deposito_consultado' name='deposito_consultado' value='$deposit'>
                           </div>
-                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
+                          <div class='col-lg-4 col-md-4 col-sm-11 col-xs-10 form-group'>
                             <input type='text' class='form-control input_consulta' id='pais_consultado' name='pais_consultado' value='$country'>
                           </div>
                           <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
