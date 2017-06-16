@@ -28,7 +28,7 @@
 
   <title>Sistema Geográfico de Paleontología de Canarias</title>
 
-  <link rel="icon" type="/image/png" href="../images/logoULL/logotipo-secundario.jpg" />
+  <link rel="icon" type="/image/png" href="../images/logoULL/logotipo-secundario-ULL.png" />
   <link type="text/css" rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
   <link type="text/css" rel="stylesheet" href="../css/mapa.css"/>
 </head>
@@ -101,7 +101,7 @@
               $localidad=$resultado['localidad'];
               $tipo=$resultado['tipo_yacimiento'];
               $altura=$resultado['altura'];
-              if($altura==-1)
+              if($altura==-999)
                 $altura="DESCONOCIDO";
               $edad=$resultado['edad'];
               $observacion=$resultado['observacion_yacimiento'];

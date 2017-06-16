@@ -55,7 +55,7 @@
       if(isset($_POST['altura']))
         $altura = $_POST['altura'];
         if($altura=="")
-          $altura='-1';
+          $altura='-999';
 
       if(isset($_POST['tipo_y']))
         $tipo = $_POST['tipo_y'];

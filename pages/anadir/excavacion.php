@@ -56,7 +56,7 @@
         <div class="col-lg-2 col-md-4 col-xs-8 col-sm-6 ">
           <ul class="list-unstyled panel">
             <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a href="../administracion.php">Inicio</a></li>
-            <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="../consultar_bbdd.php">Consultar/Eliminar/Modificar</a></li>
+            <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="../consultar_bbdd.php">Consultar/Modificar</a></li>
             <li id="valoracion"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><a href="../valoracion.php">Valoraciones</a>
               <ul style="display:none" class="list-unstyled" id="submenu_valoracion">
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="../valoraciones/add_valoracion.php">Añadir Valoración</a></li>
@@ -115,13 +115,13 @@
               <p>A continuación, podrá añadir a la base de datos una nueva excavación, teniendo en cuenta algunas de sus características.</p>
               <form class="" action="../add_bbdd/add_excavacion.php" method="post">
                 <div class="row">
-                  <div class="col-lg-2 form-group">
+                  <div class="col-lg-4 form-group">
                     <input type="text" class="form-control" id="responsable" name="responsable" placeholder="RESPONSABLE">
                   </div>
-                  <div class="col-lg-2 form-group">
+                  <div class="col-lg-4 form-group">
                     <input type="text" class="form-control" id="financiacion" name="financiacion" placeholder="FINANCIACION">
                   </div>
-                  <div class="col-lg-2 form-group">
+                  <div class="col-lg-4 form-group">
                     <select name="Yacimientos_Exacavacion" id="Yacimientos_Excavacion" class="form-control" onchange="excavacion(this.value)">
                       <option disabled selected>YACIMIENTOS</option>
                       <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
@@ -142,13 +142,13 @@
                   <input type="hidden" name="yacimiento_excavacion" id="yacimiento_excavacion">
                 </div>
                 <div class="row">
-                  <div class="col-lg-2 form-group" id="data-container">
+                  <div class="col-lg-4 form-group" id="data-container">
                     <input id="fecha_inicio_ex" type="text" class="form-control" name="fecha_inicio_ex" placeholder="FECHA INICIAL">
                   </div>
-                  <div class="col-lg-2 form-group" id="data-container">
+                  <div class="col-lg-4 form-group" id="data-container">
                     <input id="fecha_final_ex" type="text" class="form-control" name="fecha_final_ex" placeholder="FECHA FINAL">
                   </div>
-                  <div class="col-lg-2 form-group">
+                  <div class="col-lg-4 form-group">
                     <select name="Deposito" class="form-control" onchange="deposito(this.value)">
                       <option disabled selected>DEPÓSITO</option>
                       <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
@@ -167,7 +167,7 @@
                   <input type="hidden" name="deposito_excavacion" id="deposito_excavacion">
                 </div>
                 <div class="row">
-                  <div class="col-lg-6 form-group">
+                  <div class="col-lg-12 form-group">
                     <textarea class="form-control" rows="1" id="observaciones_ex" name="observaciones_ex" placeholder="OBSERVACIONES"></textarea>
                   </div>
                 </div>

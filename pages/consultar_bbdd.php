@@ -918,19 +918,19 @@
                   if($tipo_especie==""){
                     $consulta="SELECT *
                                FROM especie
-                               WHERE especie='".$especie."';";
+                               WHERE especie LIKE'".$especie."%';";
                   }
                   else {
                     $consulta="SELECT *
                                FROM especie
-                               WHERE especie='".$especie."' AND tipo_especie='".$tipo_especie."';";
+                               WHERE especie LIKE '".$especie."%' AND tipo_especie LIKE '".$tipo_especie."%';";
                   }
                   $aux=1;
                 }
                 elseif ($tipo_especie!="" && ($yacimiento_especie=="" || $yacimiento_especie=="NINGUNO") && ($deposito_especie=="" || $deposito_especie=="NINGUNO")) {
                   $consulta="SELECT *
                              FROM especie
-                             WHERE tipo_especie='".$tipo_especie."';";
+                             WHERE tipo_especie LIKE'".$tipo_especie."%';";
                   $aux=1;
                 }
                 elseif (($yacimiento_especie=="" || $yacimiento_especie=="NINGUNO") && ($deposito_especie!="" || $deposito_especie!="NINGUNO")) {
@@ -943,10 +943,12 @@
                 }
 
                 elseif (($yacimiento_especie!="" || $yacimiento_especie!="NINGUNO")) {
+
                   if($deposito_especie=="" || $deposito_especie=="NINGUNO"){
-                    $consulta="SELECT idespecie, especie, tipo_especie, idyacimiento, yacimiento, iddeposito, deposito
-                               FROM especie NATURAL JOIN yacimiento_has_especie NATURAL JOIN yacimiento NATURAL JOIN especie_has_deposito NATURAL JOIN deposito
+                    $consulta="SELECT idespecie, especie, tipo_especie, idyacimiento, yacimiento
+                               FROM especie NATURAL JOIN yacimiento_has_especie NATURAL JOIN yacimiento
                                WHERE yacimiento='".$yacimiento_especie."';";
+                    $aux=1;
 
                   }
                   else {

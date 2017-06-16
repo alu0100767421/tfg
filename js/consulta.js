@@ -405,7 +405,7 @@ function consultas(){
 function limpiar_cookie(){
   document.cookie='consulta=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
   document.cookie='seleccion=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
-
+  document.cookie='yacimiento=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
   //cookies de yacimiento
   document.cookie='isla=;expires=Thu, 01 Jan 1970 00:00:00 UTC';
   document.cookie='municipio=;expires=Thu, 01 Jan 1970 00:00:00 UTC';

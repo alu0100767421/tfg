@@ -56,7 +56,7 @@
         <div class="col-lg-2 col-md-4 col-xs-8 col-sm-6 ">
           <ul class="list-unstyled panel">
             <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a href="../administracion.php">Inicio</a></li>
-            <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="../consultar_bbdd.php">Consultar/Eliminar/Modificar</a></li>
+            <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="../consultar_bbdd.php">Consultar/Modificar</a></li>
             <li id="valoracion"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><a href="../valoracion.php">Valoraciones</a>
               <ul style="display:none" class="list-unstyled" id="submenu_valoracion">
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="../valoraciones/add_valoracion.php">Añadir Valoración</a></li>
@@ -115,16 +115,16 @@
               <p>A continuación, podrá añadir a la base de datos una nueva especie, teniendo en cuenta algunas de sus características.</p>
               <form class="" action="../add_bbdd/add_especie.php" method="post">
                 <div class="row">
-                  <div class="col-lg-2 form-group">
+                  <div class="col-lg-5 form-group">
                     <input type="text" class="form-control" id="nombre_especie" name="nombre_especie" placeholder="NOMBRE">
                   </div>
-                  <div class="col-lg-2 form-group">
+                  <div class="col-lg-5 form-group">
                     <input type="text" class="form-control" id="tipo_especie" name="tipo_especie" placeholder="TIPO">
                   </div>
                 </div>
 
                 <div class="row">
-                  <div class="col-lg-2 form-group">
+                  <div class="col-lg-5 form-group">
                     <select name="Yacimientos_Especie" id="Yacimientos_Especie" class="form-control" onchange="especie(this.value)">
                       <option disabled selected>YACIMIENTOS</option>
                       <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
@@ -144,7 +144,7 @@
                   </div>
                   <input type="hidden" name="yacimiento_especie" id="yacimiento_especie">
 
-                  <div class="col-lg-2 form-group">
+                  <div class="col-lg-5 form-group">
                     <select name="Deposito" class="form-control" onchange="deposito(this.value)">
                       <option disabled selected>DEPÓSITO</option>
                       <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>

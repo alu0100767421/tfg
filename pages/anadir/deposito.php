@@ -56,7 +56,7 @@
         <div class="col-lg-2 col-md-4 col-xs-8 col-sm-6 ">
           <ul class="list-unstyled panel">
             <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a href="../administracion.php">Inicio</a></li>
-            <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="../consultar_bbdd.php">Consultar/Eliminar/Modificar</a></li>
+            <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="../consultar_bbdd.php">Consultar/Modificar</a></li>
             <li id="valoracion"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><a href="../valoracion.php">Valoraciones</a>
               <ul style="display:none" class="list-unstyled" id="submenu_valoracion">
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="../valoraciones/add_valoracion.php">Añadir Valoración</a></li>
@@ -115,10 +115,10 @@
               <p>A continuación, podrá añadir a la base de datos un <b>nuevo depósito</b>, teniendo en cuenta algunas de sus características.</p>
               <form class="" action="../add_bbdd/add_deposito.php" method="post">
                 <div class="row">
-                  <div class="col-lg-4 form-group">
+                  <div class="col-lg-5 form-group">
                     <input type="text" class="form-control" id="deposito" name="deposito" placeholder="NOMBRE">
                   </div>
-                  <div class="col-lg-4 form-group">
+                  <div class="col-lg-5 form-group">
                     <input type="text" class="form-control" id="pais" name="pais" placeholder="PAIS">
                   </div>
                 </div>

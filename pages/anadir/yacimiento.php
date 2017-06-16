@@ -56,7 +56,7 @@
         <div class="col-lg-2 col-md-4 col-xs-8 col-sm-6 ">
           <ul class="list-unstyled panel">
             <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a href="../administracion.php">Inicio</a></li>
-            <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="../consultar_bbdd.php">Consultar/Eliminar/Modificar</a></li>
+            <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="../consultar_bbdd.php">Consultar/Modificar</a></li>
             <li id="valoracion"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><a href="../valoracion.php">Valoraciones</a>
               <ul style="display:none" class="list-unstyled" id="submenu_valoracion">
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="../valoraciones/add_valoracion.php">Añadir Valoración</a></li>
@@ -115,7 +115,7 @@
               <p>A continuación, podrá añadir a la base de datos un nuevo yacimiento, teniendo en cuenta algunas de sus características y su ubicación.</p>
               <form class="" action="../add_bbdd/add_yacimiento.php" method="post">
                 <div class="row">
-                  <div class="col-lg-2 form-group">
+                  <div class="col-lg-3 form-group">
                     <select name="Islas" id="Islas" class="form-control" onchange="isla(this.value)">
                       <option disabled selected>ISLA</option>
                       <option type='text' value='LA PALMA' name='LA PALMA'>LA PALMA</option>
@@ -129,13 +129,13 @@
                     <input type="hidden" name="isla_seleccionada" id="isla_seleccionada">
                   </div>
 
-                  <div id="municipiosvacio" class="col-lg-2 form-group">
+                  <div id="municipiosvacio" class="col-lg-3 form-group">
                     <select name="MunicipiosVacio" id="MunicipiosVacio" class="form-control">
                       <option disabled selected>MUNICIPIOS</option>
                     </select>
                   </div>
                   <!-- MUNICIPIOS DE LA PALMA-->
-                  <div style="display:none" id="municipioslapalma" class="col-lg-2 form-group">
+                  <div style="display:none" id="municipioslapalma" class="col-lg-3 form-group">
                     <select name="MunicipiosLaPalma" id="MunicipiosLaPalma" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='BARLOVENTO' name='BARLOVENTO'>BARLOVENTO</option>
@@ -155,7 +155,7 @@
                     </select>
                   </div>
                   <!-- MUNICIPIOS DE LA GOMERA-->
-                  <div style="display:none" id="municipioslagomera" class="col-lg-2 form-group">
+                  <div style="display:none" id="municipioslagomera" class="col-lg-3 form-group">
                     <select name="MunicipiosLaGomera" id="MunicipiosLaGomera" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='AGULO' name='AGULO'>AGULO</option>
@@ -167,7 +167,7 @@
                     </select>
                   </div>
                   <!-- MUNICIPIOS DE EL HIERRO-->
-                  <div style="display:none" id="municipioselhierro" class="col-lg-2 form-group">
+                  <div style="display:none" id="municipioselhierro" class="col-lg-3 form-group">
                     <select name="MunicipiosElHierro" id="MunicipiosElHierro" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='EL PINAR' name='EL PINAR'>EL PINAR</option>
@@ -176,7 +176,7 @@
                     </select>
                   </div>
                   <!-- MUNICIPIOS DE TENERIFE-->
-                  <div style="display:none" id="municipiostenerife" class="col-lg-2 form-group">
+                  <div style="display:none" id="municipiostenerife" class="col-lg-3 form-group">
                     <select name="MunicipiosTenerife" id="MunicipiosTenerife" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='ADEJE' name='ADEJE'>ADEJE</option>
@@ -213,7 +213,7 @@
                     </select>
                   </div>
                   <!-- MUNICIPIOS DE GRAN CANARIA-->
-                  <div style="display:none" id="municipiosgrancanaria" class="col-lg-2 form-group">
+                  <div style="display:none" id="municipiosgrancanaria" class="col-lg-3 form-group">
                     <select name="MunicipiosGranCanaria" id="MunicipiosGranCanaria" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='AGAETE' name='AGAETE'>AGAETE</option>
@@ -241,7 +241,7 @@
                   </div>
 
                   <!-- MUNICIPIOS DE FUERTEVENTURA-->
-                  <div style="display:none" id="municipiosfuerteventura" class="col-lg-2 form-group">
+                  <div style="display:none" id="municipiosfuerteventura" class="col-lg-3 form-group">
                     <select name="MunicipiosFuerteventura" id="MunicipiosFuerteventura" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='ANTIGUA' name='ANTIGUA'>ANTIGUA</option>
@@ -254,7 +254,7 @@
                   </div>
 
                   <!-- MUNICIPIOS DE LANZAROTE-->
-                  <div style="display:none" id="municipioslanzarote" class="col-lg-2 form-group">
+                  <div style="display:none" id="municipioslanzarote" class="col-lg-3 form-group">
                     <select name="MunicipiosLanzarote" id="MunicipiosLanzarote" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='ARECIFE' name='ARECIFE'>ARECIFE</option>
@@ -268,33 +268,33 @@
                   </div>
                   <input type="hidden" name="municipio_seleccionado" id="municipio_seleccionado">
 
-                  <div id="localidad" class="col-lg-2 form-group">
+                  <div id="localidad" class="col-lg-3 form-group">
                     <input type="text" class="form-control" id="Localidad" name="localidad" placeholder="LOCALIDAD">
                   </div>
-                  <div  id="nombre_yacimiento" class="col-lg-2 form-group">
+                  <div  id="nombre_yacimiento" class="col-lg-3 form-group">
                     <input type="text" class="form-control" id="Nombre_yacimiento" name="nombre_yacimiento" placeholder="NOMBRE YACIMIENTO">
                   </div>
                 </div>
                 <div class="row">
-                  <div  id="latitud" class="col-lg-2 form-group">
+                  <div  id="latitud" class="col-lg-3 form-group">
                     <input type="text" class="form-control" id="Latitud" name="latitud" placeholder="LATITUD">
                   </div>
-                  <div  id="longitud" class="col-lg-2 form-group">
+                  <div  id="longitud" class="col-lg-3 form-group">
                     <input type="text" class="form-control" id="Longitud" name="longitud" placeholder="LONGITUD">
                   </div>
-                  <div class="col-lg-2 form-group" id="altura">
+                  <div class="col-lg-3 form-group" id="altura">
                     <input type="number" class="form-control" id="Altura" name="altura" placeholder="ALTURA">
                   </div>
-                  <div class="col-lg-2 form-group" id="edad">
+                  <div class="col-lg-3 form-group" id="edad">
                     <input type="text" class="form-control" id="Edad" name="edad" placeholder="EDAD">
                   </div>
                 </div>
 
                 <div class="row">
-                  <div class="col-lg-2 form-group" id="tipo_y">
+                  <div class="col-lg-3 form-group" id="tipo_y">
                     <input type="text" class="form-control" id="Tipo_y" name="tipo_y" placeholder="TIPO">
                   </div>
-                  <div class="col-lg-6 form-group" id="observaciones_y">
+                  <div class="col-lg-9 form-group" id="observaciones_y">
                     <textarea class="form-control" rows="1" id="observaciones_y" name="observaciones_y" placeholder="OBSERVACIONES"></textarea>
                   </div>
                 </div>
@@ -304,11 +304,6 @@
                   </div>
                 </div>
 
-                <!--<div class="row">
-                  <div class="col-lg-6 form-group" id="">
-                    <iframe class="mapa_google" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1796180.1078708635!2d-15.8532715!3d28.444464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1497349197075"  frameborder="0" style="border:0" allowfullscreen></iframe>
-                  </div>
-                </div>-->
                 <div class="row">
                   <div class="col-lg-2 col-md-3 col-xs-12 col-sm-3">
                     <button type="submit" class="btn btn-success">Enviar</button>

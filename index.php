@@ -101,7 +101,7 @@
     <div class="cookie" id="cookie">
       <div class="cookie_texto">
         <p>Esta web utiliza cookies para el funcionamiento de la navegación de sus usuarios. Si continúas navegando consideramos que aceptas su uso.
-        <a href="">Más información</a>
+        <a href="https://www.google.es/intl/es/policies/technologies/cookies/">Más información</a>
         <a onclick="aceptar_cookies();">Cerrar</a></p>
       </div>
     </div>
