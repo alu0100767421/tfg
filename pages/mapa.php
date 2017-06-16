@@ -108,42 +108,42 @@
 
               echo "
               <div class='row'>
-                <div class='col-sm-12 col-md-6 col-lg-6 margen_izquierdo'>
+                <div class='col-sm-12 col-md-6 col-lg-10 margen_izquierdo'>
                   <h5><b>Yacimiento</B>: $yacimiento</h5>
                 </div>
               </div>
               <div class='row'>
-                <div class='col-sm-12 col-md-6 col-lg-6 margen_izquierdo'>
+                <div class='col-sm-12 col-md-6 col-lg-10 margen_izquierdo'>
                   <h5><b>Isla</B>: $isla</h5>
                 </div>
               </div>
               <div class='row'>
-                <div class='col-sm-12 col-md-6 col-lg-6 margen_izquierdo'>
+                <div class='col-sm-12 col-md-6 col-lg-10 margen_izquierdo'>
                   <h5><b>Municipio</B>: $municipio</h5>
                 </div>
               </div>
               <div class='row'>
-                <div class='col-sm-12 col-md-6 col-lg-6 margen_izquierdo'>
+                <div class='col-sm-12 col-md-6 col-lg-10 margen_izquierdo'>
                   <h5><b>Localidad</B>: $localidad</h5>
                 </div>
               </div>
               <div class='row'>
-                <div class='col-sm-12 col-md-6 col-lg-6 margen_izquierdo'>
+                <div class='col-sm-12 col-md-6 col-lg-10 margen_izquierdo'>
                   <h5><b>Tipo</B>: $tipo</h5>
                 </div>
               </div>
               <div class='row'>
-                <div class='col-sm-12 col-md-6 col-lg-6 margen_izquierdo'>
+                <div class='col-sm-12 col-md-6 col-lg-10 margen_izquierdo'>
                   <h5><b>Altura</B>: $altura</h5>
                 </div>
               </div>
               <div class='row'>
-                <div class='col-sm-12 col-md-6 col-lg-6 margen_izquierdo'>
+                <div class='col-sm-12 col-md-6 col-lg-10 margen_izquierdo'>
                   <h5><b>Edad</B>: $edad</h5>
                 </div>
               </div>
               <div class='row'>
-                <div class='col-sm-12 col-md-6 col-lg-6 margen_izquierdo'>
+                <div class='col-sm-12 col-md-6 col-lg-10 margen_izquierdo'>
                   <h5><b>Observación</B>: $observacion</h5>
                 </div>
               </div>
@@ -156,7 +156,7 @@
             if(pg_num_rows($resolucion)>0){
               echo "
               <div class='row'>
-                <div class='col-sm-12 col-md-6 col-lg-6 margen_izquierdo'>
+                <div class='col-sm-12 col-md-6 col-lg-10 margen_izquierdo'>
                   <h5><b>Especies</B>:
               ";
 
