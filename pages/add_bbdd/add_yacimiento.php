@@ -91,8 +91,8 @@
 
     if($yacimiento!=""){
       //insertamos el yacimiento en la tabla
-      $insertar_yacimiento="INSERT INTO yacimiento(yacimiento,edad,altura,tipo_yacimiento,observacion_yacimiento)
-                            VALUES('".$yacimiento."','".$edad."','".$altura."','".$tipo."','".$observacion."');";
+      $insertar_yacimiento="INSERT INTO yacimiento(yacimiento,edad,altura,tipo_yacimiento,cant_publicaciones,observacion_yacimiento)
+                            VALUES('".$yacimiento."','".$edad."','".$altura."','".$tipo."','0','".$observacion."');";
       pg_query($link,$insertar_yacimiento);
       echo pg_last_error();
       //hayamos el id del yacimiento
