@@ -7,8 +7,7 @@ d3.select(window).on('resize', resize);
   var width = viewportWidth * 0.97;
   var height = width/1.85;
   var escala= width*10;
-  //console.log(escala);
-  //var escala=10000;
+  console.log(escala);
 //Projeccion del mapa
 var projection = d3.geo.mercator()
     .scale([escala]) //escala
@@ -45,7 +44,7 @@ d3.json("../mapas/mapa_modificado/recintos_municipales_inspire_canarias_wgs84.ge
     .append("path")
     .attr("d",path)
     .on("mouseover",showTooltip)
-    .on("click",clicked);
+    .on("click",clickar);
 
   puntos();
 
@@ -61,7 +60,7 @@ function puntos() {
    .append("circle")
    .attr("id", function(d){ return d.yacimiento; })
    .attr("class","circulos")
-   .attr("r", "3px")
+   .attr("r", "4px")
    .attr("stroke","black")
    .attr("fill", "orange")
    .on("mouseover", mostrarYacimiento)
@@ -128,7 +127,7 @@ function mostrarYacimiento(d,e) {
 function quitarYacimiento(d) {
   d3.select(this).attr({
     fill: "orange",
-    r: "3px",
+    r: "4px",
     stroke: "black"
   });
   d3.select("#id"+d.idyacimiento).remove();
@@ -157,94 +156,56 @@ function resize() {
  puntos();
 }
 
-
-
-// Zoom al clickar
-function clicked(d,i) {
-
-  /*var x, y, k;
-
-  if (d && centered !== d) {
-    var centroid = path.centroid(d);
-    var b = path.bounds(d);
-    x = centroid[0];
-    y = centroid[1];
-    k = 0.8 / Math.max((b[1][0] - b[0][0]) / width, (b[1][1] - b[0][1]) / height);
-    centered = d;
-
-  } else {
-    x = width / 2;
-    y = height / 2;
-    k = 1;
-    centered = null;
-  }
-
-  console.log(projection.invert(d3.mouse(this)));
+var zoomeando=true;
+function clickar(){
+  //console.log(projection.invert(d3.mouse(this)));
   var lon= projection.invert(d3.mouse(this))[0];
-  console.log(lon);
+  //console.log(lon);
   var lat= projection.invert(d3.mouse(this))[1];
-  console.log(lat);
-  if(k!=1){
-    svg.selectAll("circle").remove();
-
-
-    console.log("Zoom hecho");
-    console.log("k="+k);
-    console.log("x="+x);
-    console.log("y="+y);
-    console.log("escala="+escala);
-    console.log("width="+ width);
-    console.log("height="+ height);
-  }
-  else{
-    svg.selectAll("circle").remove();
-
-
-    console.log("Zoom quitado");
-    console.log("k="+k);
-    console.log("x="+x);
-    console.log("y="+y);
-    console.log("escala="+escala);
-    console.log("width="+ width);
-    console.log("height="+ height);
-    console.log("\n");
-  }
-
-  features.selectAll("path")
-      .classed("highlighted",function(d) {
-          return d === centered;
-      })
-      .style("stroke-width", 1 / k + "px");
-
-      width = parseInt(d3.select('article').style('width'));
-      width = $('article').width() * 0.97;
-  features
-      .attr("transform","translate(" + width / 2 + "," + height / 2 + ")scale(" + k + ")translate(" + -x + "," + -y + ")");
-
-*/
-
-    /*console.log(projection.invert(d3.mouse(this)));
-    var lon= projection.invert(d3.mouse(this))[0];
-    console.log(lon);
-    var lat= projection.invert(d3.mouse(this))[1];
-    console.log(lat);
+  //console.log(lat);
+  if (zoomeando) {
     svg.selectAll("circle").remove();
     width = parseInt(d3.select('article').style('width'));
     width = $('article').width() * 0.97;
     height = width/1.85;
-
-    projection
-      .scale([width*10])
-      .center([lat,lon])//para que se centre
+    escala= width*70;
+   projection
+      .scale([escala])
+      .center([lon,lat])//para que se centre
       .translate([width/2,height/2]);
 
-    d3.selectAll("path").attr('d', path);
 
-    puntos();*/
+   d3.select("article").attr("width",width).attr("height",height);
+   d3.select("svg").attr("width",width).attr("height",height);
+
+   d3.selectAll("path").attr('d', path);
+
+   puntos();
+   zoomeando=false;
+  }
+
+  else {
+    svg.selectAll("circle").remove();
+    width = parseInt(d3.select('article').style('width'));
+    width = $('article').width() * 0.97;
+    height = width/1.85;
+    escala=width*10;
+   projection
+      .scale([width*10])
+      .center([-15.747476639999999,28.530921143001386])//para que se centre
+      .translate([width/2,height/2]);
 
 
+   d3.select("article").attr("width",width).attr("height",height);
+   d3.select("svg").attr("width",width).attr("height",height);
 
+   d3.selectAll("path").attr('d', path);
+
+   puntos();
+   zoomeando=true;
+  }
 }
+
 
 var municipio_seleccionado;
 function showTooltip(d) {
