@@ -1500,14 +1500,15 @@
                               FROM publicacion NATURAL JOIN yacimiento NATURAL JOIN yacimiento_has_publicacion
                               ORDER BY fecha DESC;";
                 }
-
+                $contador=0;
                 $resolucion=pg_query($link,$consulta);
                 if(pg_num_rows($resolucion)>0){
                   $no_resultado=true;
                   //echo "  Éxito de consulta";
                   mostrar_indice_tabla();
-                  $contador=0;
+
                   while($resultado=pg_fetch_assoc($resolucion)){
+
                     $id_publicacion=$resultado['idpublicaciones'];
                     $yacimiento=$resultado['yacimiento'];
                     if($poner_algo_yacimiento==true)
@@ -1594,7 +1595,7 @@
                 }
 
                 if($aux==true){
-                  $contador=0;
+
                   $resolucion=pg_query($link,$consulta2);
                   if(pg_num_rows($resolucion)>0){
                     $no_resultado=true;

@@ -97,10 +97,22 @@
               $consulta="UPDATE yacimiento_has_publicacion
                             SET idyacimiento='".$id_yacimiento_nuevo."'
                             WHERE idyacimiento='".$id_yacimiento_viejo."' AND idpublicaciones='".$id_publicacion."';";
+
+              $consulta2="UPDATE yacimiento
+                         SET cant_publicaciones=cant_publicaciones+1
+                         WHERE idyacimiento='".$id_yacimiento_nuevo."';";
+              pg_query($link,$consulta2);
+              echo pg_last_error()."\n";
+              $consulta2="UPDATE yacimiento
+                         SET cant_publicaciones=cant_publicaciones-1
+                         WHERE idyacimiento='".$id_yacimiento_viejo."';";
+              pg_query($link,$consulta2);
+              echo pg_last_error()."\n";
             }
 
           }
           else{
+            echo "hola";
             $consulta_comprobar_yacimiento_nuevo="SELECT idyacimiento
                                                   FROM yacimiento
                                                   WHERE yacimiento='".$yacimiento."';";
@@ -112,6 +124,11 @@
               $consulta="INSERT INTO yacimiento_has_publicacion
                          VALUES('".$id_yacimiento_nuevo."','".$id_publicacion."');";
 
+               $consulta2="UPDATE yacimiento
+                          SET cant_publicaciones=cant_publicaciones+1
+                          WHERE idyacimiento='".$id_yacimiento_nuevo."';";
+               pg_query($link,$consulta2);
+               echo pg_last_error()."\n";
             }
 
           }
