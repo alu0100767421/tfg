@@ -38,8 +38,8 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a tabindex='1' href="../index.php">Inicio</a></li>
-            <li><a tabindex='1' href="mapa.php">Mapa</a></li>
+            <li><a tabindex='1' title='acceder a inicio' href="../index.php">Inicio</a></li>
+            <li><a tabindex='1' title='acceder al mapa' href="mapa.php">Mapa</a></li>
           </ul>
         </div>
 
@@ -54,31 +54,32 @@
       <div class="row">
         <div class="col-lg-2 col-md-4 col-xs-8 col-sm-6 ">
           <ul class="list-unstyled panel">
-            <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a tabindex='1' href="administracion.php">Inicio</a></li>
-            <li id="consultar"  class="destacar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a tabindex='1' href="consultar_bbdd.php">Consultar/Modificar</a></li>
-            <li id="valoracion"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><a tabindex='1' href="valoracion.php">Valoraciones</a>
+            <li ><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a title='acceder a inicio' tabindex='1' href="administracion.php">Inicio</a></li>
+            <li class="destacar" id="consultar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a title='acceder a consultar base de datos' tabindex='1' href="consultar_bbdd.php">Consultar/Modificar</a></li>
+            <li id="valoracion"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><a title='acceder a valoraciones' tabindex='1' href="valoracion.php">Valoraciones</a>
               <ul style="display:none" class="list-unstyled" id="submenu_valoracion">
-                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="valoraciones/add_valoracion.php">Añadir Valoración</a></li>
-                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="valoraciones/consultar_valoracion.php">Consultar Valoración</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a title='acceder a añadir una valoracion' href="valoraciones/add_valoracion.php">Añadir Valoración</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a title='acceder a consultar una valoracion' href="valoraciones/consultar_valoracion.php">Consultar Valoración</a></li>
               </ul>
             </li>
-            <li id="add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a tabindex='1' href="add_bbdd.php">Añadir BBDD</a>
+            <li id="add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a title='acceder a añadir a la base de datos' tabindex='1' href="add_bbdd.php">Añadir BBDD</a>
               <ul style="display:none" class="list-unstyled" id="submenu">
-                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="anadir/yacimiento.php">Yacimiento</a></li>
-                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="anadir/especie.php">Especie</a></li>
-                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="anadir/excavacion.php">Excavación</a></li>
-                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="anadir/publicacion.php">Publicación</a></li>
-                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="anadir/deposito.php">Depósito</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a title='acceder a añadir yacimientos' href="anadir/yacimiento.php">Yacimiento</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a title='acceder a añadir especies' href="anadir/especie.php">Especie</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a title='acceder a añadir excavación' href="anadir/excavacion.php">Excavación</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a title='acceder a añadir publicación' href="anadir/publicacion.php">Publicación</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a title='acceder a añadir depósito' href="anadir/deposito.php">Depósito</a></li>
               </ul>
 
             </li>
             <?php
               //echo "Este es el usuario $username";
               if ($username == "admin") {
-                echo "<li><span class='glyphicon glyphicon-user' aria-hidden='true'></span><a tabindex='1' href='gestion_usuarios.php'>Gestión Usuarios</a></li>";
+                echo "<li><span class='glyphicon glyphicon-user' aria-hidden='true'></span><a title='acceder a gestión de usuarios' tabindex='1' href='gestion_usuarios.php'>Gestión Usuarios</a></li>";
               }
              ?>
           </ul>
+
       <!--FIN MENU LATERAL-->
           <div class="row">
             <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
@@ -1867,7 +1868,7 @@
     <div class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="container">
         <p class="navbar-text pull-left">© 2017 Alexander Cole Mora
-          <a href="https://www.ull.es/" target="_blank" >Universidad de La Laguna</a>
+          <a title='acceder a la página de la Universidad de La Laguna' href="https://www.ull.es/" target="_blank" >Universidad de La Laguna</a>
         </p>
       </div>
     </div>
