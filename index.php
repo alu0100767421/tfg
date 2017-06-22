@@ -14,7 +14,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sistema Geográfico de Paleontología de Canarias</title>
+    <title>Página de inicio del Sistema Geográfico de Paleontología de Canarias</title>
 
     <link rel="icon" type="/image/png" href="images/logoULL/logotipo-secundario-ULL.png" />
     <link type="text/css" rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
@@ -39,8 +39,8 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a tabindex="1" href="index.php">Inicio</a></li>
-            <li><a tabindex="1" href="pages/mapa.php">Mapa</a></li>
+            <li><a tabindex="1" title='acceso al inicio' href="index.php">Inicio</a></li>
+            <li><a tabindex="1" title='acceso al mapa' href="pages/mapa.php">Mapa</a></li>
           </ul>
         </div>
       </div>
@@ -84,10 +84,10 @@
             </div>
             <div class="row botones-formulario">
               <div class="col-lg-1 col-md-3 col-xs-12 col-sm-7">
-                <button tabindex="1" type="submit" class="btn btn-success">Acceder</button><br>
+                <button title='acceso al servicio de administración' tabindex="1" type="submit" class="btn btn-success">Acceder</button><br>
               </div>
               <div class="col-lg-offset-8 col-lg-1 col-md-offset-4 col-md-3 col-xs-offset-0  col-xs-3 col-sm-3">
-                <a tabindex="1" class="btn btn-info" href="pages/mapa.php" role="button">Mapa</a>
+                <a title='acceso al mapa' tabindex="1" class="btn btn-info" href="pages/mapa.php" role="button">Mapa</a>
               </div>
             </div>
           </form>
@@ -101,8 +101,8 @@
     <div class="cookie" id="cookie">
       <div class="cookie_texto">
         <p tabindex="1">Esta web utiliza cookies para el funcionamiento de la navegación de sus usuarios. Si continúas navegando consideramos que aceptas su uso.
-        <a tabindex="1" href="https://www.google.es/intl/es/policies/technologies/cookies/">Más información</a>
-        <a tabindex="1" onclick="aceptar_cookies();">Cerrar</a></p>
+        <a title='información sobre las cookies' tabindex="1" href="https://www.google.es/intl/es/policies/technologies/cookies/">Más información</a>
+        <a title='Cerrar aviso de cookies' tabindex="1" onclick="aceptar_cookies();">Cerrar</a></p>
       </div>
     </div>
 
@@ -111,7 +111,7 @@
     <div class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="container">
         <p tabindex="1" class="navbar-text pull-left">© 2017 Alexander Cole Mora
-          <a tabindex="1" href="https://www.ull.es/" target="_blank" >Universidad de La Laguna</a>
+          <a tabindex="1" title='acceso a la página web de la Universidad de La Laguna' href="https://www.ull.es/" target="_blank" >Universidad de La Laguna</a>
         </p>
       </div>
     </div>

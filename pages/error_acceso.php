@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta HTTP-EQUIV='Refresh' CONTENT='3; URL=../index.php' />
 
-  <title>Sistema Geográfico de Paleontología de Canarias</title>
+  <title>Error de acceso</title>
 
   <link rel="icon" type="/image/png" href="../images/logoULL/logotipo-secundario-ULL.png" />
   <link type="text/css" rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">

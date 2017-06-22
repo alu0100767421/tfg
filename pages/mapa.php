@@ -26,7 +26,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Sistema Geográfico de Paleontología de Canarias</title>
+  <title>Mapa del servicio Sistema Geográfico de Paleontología de Canarias</title>
 
   <link rel="icon" type="/image/png" href="../images/logoULL/logotipo-secundario-ULL.png" />
   <link type="text/css" rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
@@ -50,8 +50,8 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><a tabindex="1" href="administracion.php">Inicio</a></li>
-          <li><a tabindex="1" href="mapa.php">Mapa</a></li>
+          <li><a tabindex="1" title='acceso al inicio' href="administracion.php">Inicio</a></li>
+          <li><a tabindex="1" title='acceso al mapa' href="mapa.php">Mapa</a></li>
         </ul>
       </div>
 
@@ -191,7 +191,7 @@
   <div class="navbar navbar-inverse navbar-fixed-bottom footer">
     <div class="container">
       <p tabindex="1" class="navbar-text pull-left">© 2017 Alexander Cole Mora
-        <a tabindex="1" href="https://www.ull.es/" target="_blank" >Universidad de La Laguna</a>
+        <a title='acceso a la página web de la Universidad de La Laguna' tabindex="1" href="https://www.ull.es/" target="_blank" >Universidad de La Laguna</a>
       </p>
     </div>
   </div>
