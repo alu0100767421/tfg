@@ -33,13 +33,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="https://www.ull.es/"><img class="imagen-menu" alt="Universidad de La Laguna" title="Universidad de La Laguna" src="../images/logoULL/logotipo-principal-recortada.png"></a>
+          <a tabindex='1' class="navbar-brand" href="https://www.ull.es/"><img class="imagen-menu" alt="Universidad de La Laguna" title="Universidad de La Laguna" src="../images/logoULL/logotipo-principal-recortada.png"></a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="../index.php">Inicio</a></li>
-            <li><a href="mapa.php">Mapa</a></li>
+            <li><a tabindex='1' href="../index.php">Inicio</a></li>
+            <li><a tabindex='1' href="mapa.php">Mapa</a></li>
           </ul>
         </div>
 
@@ -54,15 +54,15 @@
       <div class="row">
         <div class="col-lg-2 col-md-4 col-xs-8 col-sm-6 ">
           <ul class="list-unstyled panel">
-            <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a href="administracion.php">Inicio</a></li>
-            <li id="consultar"  class="destacar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="consultar_bbdd.php">Consultar/Modificar</a></li>
-            <li id="valoracion"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><a href="valoracion.php">Valoraciones</a>
+            <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a tabindex='1' href="administracion.php">Inicio</a></li>
+            <li id="consultar"  class="destacar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a tabindex='1' href="consultar_bbdd.php">Consultar/Modificar</a></li>
+            <li id="valoracion"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><a tabindex='1' href="valoracion.php">Valoraciones</a>
               <ul style="display:none" class="list-unstyled" id="submenu_valoracion">
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="valoraciones/add_valoracion.php">Añadir Valoración</a></li>
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="valoraciones/consultar_valoracion.php">Consultar Valoración</a></li>
               </ul>
             </li>
-            <li id="add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a href="add_bbdd.php">Añadir BBDD</a>
+            <li id="add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a tabindex='1' href="add_bbdd.php">Añadir BBDD</a>
               <ul style="display:none" class="list-unstyled" id="submenu">
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="anadir/yacimiento.php">Yacimiento</a></li>
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="anadir/especie.php">Especie</a></li>
@@ -75,14 +75,14 @@
             <?php
               //echo "Este es el usuario $username";
               if ($username == "admin") {
-                echo "<li><span class='glyphicon glyphicon-user' aria-hidden='true'></span><a href='gestion_usuarios.php'>Gestión Usuarios</a></li>";
+                echo "<li><span class='glyphicon glyphicon-user' aria-hidden='true'></span><a tabindex='1' href='gestion_usuarios.php'>Gestión Usuarios</a></li>";
               }
              ?>
           </ul>
       <!--FIN MENU LATERAL-->
           <div class="row">
             <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_cerrar_sesion">Cerrar Sesión</button>
+              <button tabindex='1' type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_cerrar_sesion">Cerrar Sesión</button>
             </div>
           </div>
         </div>
@@ -92,15 +92,15 @@
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Cierre de sesión</h4>
+                <button tabindex='2' type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 tabindex='1' class="modal-title">Cierre de sesión</h4>
               </div>
               <div class="modal-body">
-                <p>¿Está seguro que desea cerrar sesión?</p>
+                <p tabindex='2'>¿Está seguro que desea cerrar sesión?</p>
               </div>
               <div class="modal-footer">
                 <form action="cerrar_sesion.php" method="post">
-                  <button type="submit" class="btn btn-danger boton">Cerrar Sesión</button><br>
+                  <button tabindex='2' type="submit" class="btn btn-danger boton">Cerrar Sesión</button><br>
                 </form>
               </div>
             </div>
@@ -108,14 +108,14 @@
         </div>
         <!--FIN MENU LATERAL-->
         <div class="col-lg-10 col-md-8 col-xs-12 col-sm-6 contenido">
-          <h2>Consultar datos</h2>
+          <h2 tabindex='2'>Consultar datos</h2>
           <div class="row">
             <div class="col-lg-12">
               <!-- <form class="" action="" method="post"> -->
                 <div class="row">
                   <div id="consulta_seleccionada" name="consulta_seleccionada" class="col-lg-2 form-group">
-                    <h5>CONSULTAR SOBRE:</h5>
-                    <select name="Consulta" id="Consulta" class="form-control" onchange="consulta(this.value)">
+                    <h5 tabindex='2'>CONSULTAR SOBRE:</h5>
+                    <select tabindex='2' name="Consulta" id="Consulta" class="form-control" onchange="consulta(this.value)">
                       <option disabled selected>CONSULTA</option>
                       <option type='text' value='YACIMIENTO' name='YACIMIENTO'>YACIMIENTO</option>
                       <option type='text' value='UBICACION' name='UBICACION'>UBICACIÓN</option>
@@ -129,13 +129,13 @@
                 </div>
                 <div class="row">
                   <div class="col-lg-2 form-group">
-                    <h5>PARÁMETROS DE BÚSQUEDA:</h5>
+                    <h5 tabindex='2'>PARÁMETROS DE BÚSQUEDA:</h5>
                   </div>
                 </div>
                 <!--Yacimiento-->
                 <div style="display:none" class="row" id="consulta_yacimiento">
                   <div class="col-lg-2 form-group">
-                    <select name="Islas" id="Islas" class="form-control" onchange="isla(this.value)">
+                    <select tabindex='2'name="Islas" id="Islas" class="form-control" onchange="isla(this.value)">
                       <option disabled selected>ISLA</option>
                       <option type='text' value='LA PALMA' name='LA PALMA'>LA PALMA</option>
                       <option type='text' value='LA GOMERA' name='LA GOMERA'>LA GOMERA</option>
@@ -149,13 +149,13 @@
                   </div>
 
                   <div id="municipiosvacio" class="col-lg-2 form-group">
-                    <select name="MunicipiosVacio" id="MunicipiosVacio" class="form-control">
+                    <select tabindex='2'name="MunicipiosVacio" id="MunicipiosVacio" class="form-control">
                       <option disabled selected>MUNICIPIOS</option>
                     </select>
                   </div>
                   <!-- MUNICIPIOS DE LA PALMA-->
                   <div style="display:none" id="municipioslapalma" class="col-lg-2 form-group">
-                    <select name="MunicipiosLaPalma" id="MunicipiosLaPalma" class="form-control" onchange="">
+                    <select tabindex='2'name="MunicipiosLaPalma" id="MunicipiosLaPalma" class="form-control" onchange="">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='BARLOVENTO' name='BARLOVENTO'>BARLOVENTO</option>
                       <option type='text' value='BREÑA ALTA' name='BRENA ALTA'>BREÑA ALTA</option>
@@ -175,7 +175,7 @@
                   </div>
                   <!-- MUNICIPIOS DE LA GOMERA-->
                   <div style="display:none" id="municipioslagomera" class="col-lg-2 form-group">
-                    <select name="MunicipiosLaGomera" id="MunicipiosLaGomera" class="form-control" onchange="municipio(this.value)">
+                    <select tabindex='2' name="MunicipiosLaGomera" id="MunicipiosLaGomera" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='AGULO' name='AGULO'>AGULO</option>
                       <option type='text' value='ALAJERÓ' name='ALAJERO'>ALAJERÓ</option>
@@ -187,7 +187,7 @@
                   </div>
                   <!-- MUNICIPIOS DE EL HIERRO-->
                   <div style="display:none" id="municipioselhierro" class="col-lg-2 form-group">
-                    <select name="MunicipiosElHierro" id="MunicipiosElHierro" class="form-control" onchange="municipio(this.value)">
+                    <select tabindex='2' name="MunicipiosElHierro" id="MunicipiosElHierro" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='EL PINAR' name='EL PINAR'>EL PINAR</option>
                       <option type='text' value='FRONTERA' name='FRONTERA'>FRONTERA</option>
@@ -196,7 +196,7 @@
                   </div>
                   <!-- MUNICIPIOS DE TENERIFE-->
                   <div style="display:none" id="municipiostenerife" class="col-lg-2 form-group">
-                    <select name="MunicipiosTenerife" id="MunicipiosTenerife" class="form-control" onchange="municipio(this.value)">
+                    <select tabindex='2' name="MunicipiosTenerife" id="MunicipiosTenerife" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='ADEJE' name='ADEJE'>ADEJE</option>
                       <option type='text' value='ARAFO' name='ARAFO'>ARAFO</option>
@@ -233,7 +233,7 @@
                   </div>
                   <!-- MUNICIPIOS DE GRAN CANARIA-->
                   <div style="display:none" id="municipiosgrancanaria" class="col-lg-2 form-group">
-                    <select name="MunicipiosGranCanaria" id="MunicipiosGranCanaria" class="form-control" onchange="municipio(this.value)">
+                    <select tabindex='2' name="MunicipiosGranCanaria" id="MunicipiosGranCanaria" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='AGAETE' name='AGAETE'>AGAETE</option>
                       <option type='text' value='AGÜINES' name='AGUINES'>AGÜINES</option>
@@ -261,7 +261,7 @@
 
                   <!-- MUNICIPIOS DE FUERTEVENTURA-->
                   <div style="display:none" id="municipiosfuerteventura" class="col-lg-2 form-group">
-                    <select name="MunicipiosFuerteventura" id="MunicipiosFuerteventura" class="form-control" onchange="municipio(this.value)">
+                    <select tabindex='2' name="MunicipiosFuerteventura" id="MunicipiosFuerteventura" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='ANTIGUA' name='ANTIGUA'>ANTIGUA</option>
                       <option type='text' value='BETANCURIA' name='BETANCURIA'>BETANCURIA</option>
@@ -274,7 +274,7 @@
 
                   <!-- MUNICIPIOS DE LANZAROTE-->
                   <div style="display:none" id="municipioslanzarote" class="col-lg-2 form-group">
-                    <select name="MunicipiosLanzarote" id="MunicipiosLanzarote" class="form-control" onchange="municipio(this.value)">
+                    <select tabindex='2' name="MunicipiosLanzarote" id="MunicipiosLanzarote" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='ARECIFE' name='ARECIFE'>ARECIFE</option>
                       <option type='text' value='HARÍA' name='HARIA'>HARÍA</option>
@@ -287,7 +287,7 @@
                   </div>
                   <input type="hidden" name="municipio_seleccionado" id="municipio_seleccionado">
                   <div class="col-lg-2 form-group">
-                    <select name="Yacimientos_Yacimiento" id="Yacimientos_Yacimiento" class="form-control" onchange="yacimiento(this.value)">
+                    <select tabindex='2' name="Yacimientos_Yacimiento" id="Yacimientos_Yacimiento" class="form-control" onchange="yacimiento(this.value)">
                       <option disabled selected>YACIMIENTOS</option>
                       <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
                       <?php
@@ -306,13 +306,13 @@
                   </div>
                   <input type="hidden" name="yacimiento_yacimiento" id="yacimiento_yacimiento">
                   <div class="col-lg-2 form-group" id="edad">
-                    <input type="text" class="form-control" id="Edad" name="edad" placeholder="EDAD">
+                    <input tabindex='2' type="text" class="form-control" id="Edad" name="edad" placeholder="EDAD">
                   </div>
                   <div class="col-lg-2 form-group" id="tipo_y">
-                    <input type="text" class="form-control" id="Tipo_y" name="tipo_y" placeholder="TIPO">
+                    <input tabindex='2' type="text" class="form-control" id="Tipo_y" name="tipo_y" placeholder="TIPO">
                   </div>
                   <div class="col-lg-1 form-group" id="altura">
-                    <input type="number" class="form-control" id="Altura" name="altura" placeholder="ALTURA">
+                    <input tabindex='2' type="number" class="form-control" id="Altura" name="altura" placeholder="ALTURA">
                   </div>
                 </div>
                 <!--Fin de Yacimiento-->
@@ -320,7 +320,7 @@
                 <!--ubicacion-->
                 <div style="display:none" id="consulta_ubicacion" class="row">
                   <div class="col-lg-2 form-group">
-                    <select name="Yacimientos_Ubicacion" id="Yacimientos_Ubicacion" class="form-control" onchange="ubicacion(this.value)">
+                    <select tabindex='2' name="Yacimientos_Ubicacion" id="Yacimientos_Ubicacion" class="form-control" onchange="ubicacion(this.value)">
                       <option disabled selected>YACIMIENTOS</option>
                       <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
                       <?php
@@ -344,13 +344,13 @@
                 <!--Especie-->
                 <div style="display:none" id="consulta_especie" class="row">
                   <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="nombre_especie" name="nombre_especie" placeholder="NOMBRE">
+                    <input tabindex='2' type="text" class="form-control" id="nombre_especie" name="nombre_especie" placeholder="NOMBRE">
                   </div>
                   <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="tipo_especie" name="tipo_especie" placeholder="TIPO">
+                    <input tabindex='2' type="text" class="form-control" id="tipo_especie" name="tipo_especie" placeholder="TIPO">
                   </div>
                   <div class="col-lg-2 form-group">
-                    <select name="Yacimientos_Especie" id="Yacimientos_Especie" class="form-control" onchange="especie(this.value)">
+                    <select tabindex='2' name="Yacimientos_Especie" id="Yacimientos_Especie" class="form-control" onchange="especie(this.value)">
                       <option disabled selected>YACIMIENTOS</option>
                       <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
                       <?php
@@ -370,7 +370,7 @@
                   <input type="hidden" name="yacimiento_especie" id="yacimiento_especie">
 
                   <div class="col-lg-2 form-group">
-                    <select name="Deposito" class="form-control" onchange="deposito(this.value)">
+                    <select tabindex='2' name="Deposito" class="form-control" onchange="deposito(this.value)">
                       <option disabled selected>DEPÓSITO</option>
                       <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
                       <?php
@@ -392,13 +392,13 @@
                 <!--Excavaciones-->
                 <div style="display:none" class="row" id="consulta_excavacion">
                   <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="responsable" name="responsable" placeholder="RESPONSABLE">
+                    <input tabindex='2' type="text" class="form-control" id="responsable" name="responsable" placeholder="RESPONSABLE">
                   </div>
                   <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="financiacion" name="financiacion" placeholder="FINANCIACION">
+                    <input tabindex='2' type="text" class="form-control" id="financiacion" name="financiacion" placeholder="FINANCIACION">
                   </div>
                   <div class="col-lg-2 form-group">
-                    <select name="Yacimientos_Excavacion" id="Yacimientos_Excavacion" class="form-control" onchange="excavacion(this.value)">
+                    <select tabindex='2' name="Yacimientos_Excavacion" id="Yacimientos_Excavacion" class="form-control" onchange="excavacion(this.value)">
                       <option disabled selected>YACIMIENTOS</option>
                       <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
                       <?php
@@ -417,10 +417,10 @@
                   </div>
                   <input type="hidden" name="yacimiento_excavacion" id="yacimiento_excavacion">
                   <div class="col-lg-2 form-group" id="data-container">
-                    <input id="fecha_inicio_ex" type="text" class="form-control" name="fecha_inicio_ex" placeholder="FECHA INICIAL">
+                    <input tabindex='2' id="fecha_inicio_ex" type="text" class="form-control" name="fecha_inicio_ex" placeholder="FECHA INICIAL">
                   </div>
                   <div class="col-lg-2 form-group" id="data-container">
-                    <input id="fecha_final_ex" type="text" class="form-control" name="fecha_final_ex" placeholder="FECHA FINAL">
+                    <input tabindex='2' id="fecha_final_ex" type="text" class="form-control" name="fecha_final_ex" placeholder="FECHA FINAL">
                   </div>
                 </div>
                 <!--Fin de excavaciones-->
@@ -428,13 +428,13 @@
                 <!--Publicaciones-->
                 <div style="display:none" class="row" id="consulta_publicacion">
                   <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="titulo" name="titulo" placeholder="TITULO">
+                    <input tabindex='2' type="text" class="form-control" id="titulo" name="titulo" placeholder="TITULO">
                   </div>
                   <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="autor" name="autor" placeholder="AUTOR">
+                    <input tabindex='2' type="text" class="form-control" id="autor" name="autor" placeholder="AUTOR">
                   </div>
                   <div class="col-lg-2 form-group">
-                    <select name="Yacimientos_Publicacion" id="Yacimientos_Publicacion" class="form-control" onchange="publicacion(this.value)">
+                    <select tabindex='2' name="Yacimientos_Publicacion" id="Yacimientos_Publicacion" class="form-control" onchange="publicacion(this.value)">
                       <option disabled selected>YACIMIENTOS</option>
                       <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
                       <?php
@@ -453,10 +453,10 @@
                   </div>
                   <input type="hidden" name="yacimiento_publicacion" id="yacimiento_publicacion">
                   <div class="col-lg-2 form-group" id="data-container">
-                    <input id="fecha_publi_ini" type="text" class="form-control" name="fecha_publi_ini" placeholder="FECHA DESDE">
+                    <input tabindex='2' id="fecha_publi_ini" type="text" class="form-control" name="fecha_publi_ini" placeholder="FECHA DESDE">
                   </div>
                   <div class="col-lg-2 form-group" id="data-container">
-                    <input id="fecha_publi_fin" type="text" class="form-control" name="fecha_publi_fin" placeholder="FECHA HASTA">
+                    <input tabindex='2' id="fecha_publi_fin" type="text" class="form-control" name="fecha_publi_fin" placeholder="FECHA HASTA">
                   </div>
                 </div>
                 <!--Fin de Publicaciones-->
@@ -464,20 +464,20 @@
                 <!--Publicaciones-->
                 <div style="display:none" class="row" id="consulta_deposito">
                   <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="deposito" name="deposito" placeholder="NOMBRE">
+                    <input tabindex='2' type="text" class="form-control" id="deposito" name="deposito" placeholder="NOMBRE">
                   </div>
                   <div class="col-lg-2 form-group">
-                    <input type="text" class="form-control" id="pais" name="pais" placeholder="PAIS">
+                    <input tabindex='2' type="text" class="form-control" id="pais" name="pais" placeholder="PAIS">
                   </div>
                 </div>
                 <!--Fin de Publicaciones-->
 
                 <div class="row">
                   <div class="col-lg-1 col-md-3 col-xs-12 col-sm-3">
-                    <button type="submit" class="btn btn-success" onclick="consultas()">Consultar</button>
+                    <button tabindex='2' type="submit" class="btn btn-success" onclick="consultas()">Consultar</button>
                   </div>
                   <div class="col-lg-1 col-md-3 col-xs-12 col-sm-3">
-                    <button type="submit" class="btn btn-danger" onclick="limpiar_cookie()">Limpiar</button>
+                    <button tabindex='2' type="submit" class="btn btn-danger" onclick="limpiar_cookie()">Limpiar</button>
                   </div>
                 </div>
               <!--</form>-->

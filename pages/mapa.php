@@ -45,13 +45,13 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="https://www.ull.es/"><img class="imagen-menu" alt="ULL" title="Universidad de La Laguna" src="../images/logoULL/logotipo-principal-recortada.png"></a>
+        <a tabindex="1" class="navbar-brand" href="https://www.ull.es/"><img class="imagen-menu" alt="Universidad de La Laguna" title="Universidad de La Laguna" src="../images/logoULL/logotipo-principal-recortada.png"></a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="administracion.php">Inicio</a></li>
-          <li><a href="mapa.php">Mapa</a></li>
+          <li><a tabindex="1" href="administracion.php">Inicio</a></li>
+          <li><a tabindex="1" href="mapa.php">Mapa</a></li>
         </ul>
       </div>
 
@@ -59,18 +59,18 @@
   </nav>
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-8" >
-      <h3 class="margen_izquierdo">Mapa Geográfico de Paleontología de las Islas Canarias</h3>
+      <h3 tabindex="1" class="margen_izquierdo">Mapa Geográfico de Paleontología de las Islas Canarias</h3>
       <hr class="linea margen_izquierdo">
       <div class="row">
         <div  class="col-lg-1 form-group">
-          <h5 class="margen_izquierdo">Municipio:</h5>
+          <h5 tabindex="1" class="margen_izquierdo">Municipio:</h5>
         </div>
         <div id="municipio" class="col-xs-7 col-sm-6 col-md-4 col-lg-3 form-group">
-          <input type="text" class="form-control margen_izquierdo input_municipio" id="Municipio" name="Municipio" placeholder="Seleccione un municipio">
+          <input tabindex="1" type="text" class="form-control margen_izquierdo input_municipio" id="Municipio" name="Municipio" placeholder="Seleccione un municipio">
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12" id="mapa" class="mapa">
+        <div class="col-sm-12 col-md-12 col-lg-12" id="mapa" class="mapa" tabindex="1">
           <article>
           </article>
         </div>
@@ -79,7 +79,7 @@
 
 
     <div class="col-sm-12 col-md-12 col-lg-4">
-      <h3 class="">Yacimiento Consultado</h3>
+      <h3 tabindex="1" class="">Yacimiento Consultado</h3>
       <hr class="linea">
       <div class="row">
         <?php
@@ -109,42 +109,42 @@
               echo "
               <div class='row'>
                 <div class='col-sm-12 col-md-6 col-lg-10 margen_izquierdo'>
-                  <h5><b>Yacimiento</B>: $yacimiento</h5>
+                  <h5 tabindex='1'><b>Yacimiento</B>: $yacimiento</h5>
                 </div>
               </div>
               <div class='row'>
                 <div class='col-sm-12 col-md-6 col-lg-10 margen_izquierdo'>
-                  <h5><b>Isla</B>: $isla</h5>
+                  <h5 tabindex='1'><b>Isla</B>: $isla</h5>
                 </div>
               </div>
               <div class='row'>
                 <div class='col-sm-12 col-md-6 col-lg-10 margen_izquierdo'>
-                  <h5><b>Municipio</B>: $municipio</h5>
+                  <h5 tabindex='1'><b>Municipio</B>: $municipio</h5>
                 </div>
               </div>
               <div class='row'>
                 <div class='col-sm-12 col-md-6 col-lg-10 margen_izquierdo'>
-                  <h5><b>Localidad</B>: $localidad</h5>
+                  <h5 tabindex='1'><b>Localidad</B>: $localidad</h5>
                 </div>
               </div>
               <div class='row'>
                 <div class='col-sm-12 col-md-6 col-lg-10 margen_izquierdo'>
-                  <h5><b>Tipo</B>: $tipo</h5>
+                  <h5 tabindex='1'><b>Tipo</B>: $tipo</h5>
                 </div>
               </div>
               <div class='row'>
                 <div class='col-sm-12 col-md-6 col-lg-10 margen_izquierdo'>
-                  <h5><b>Altura</B>: $altura</h5>
+                  <h5 tabindex='1'><b>Altura</B>: $altura</h5>
                 </div>
               </div>
               <div class='row'>
                 <div class='col-sm-12 col-md-6 col-lg-10 margen_izquierdo'>
-                  <h5><b>Edad</B>: $edad</h5>
+                  <h5 tabindex='1'><b>Edad</B>: $edad</h5>
                 </div>
               </div>
               <div class='row'>
                 <div class='col-sm-12 col-md-6 col-lg-10 margen_izquierdo'>
-                  <h5><b>Observación</B>: $observacion</h5>
+                  <h5 tabindex='1'><b>Observación</B>: $observacion</h5>
                 </div>
               </div>
               ";
@@ -157,7 +157,7 @@
               echo "
               <div class='row'>
                 <div class='col-sm-12 col-md-6 col-lg-10 margen_izquierdo'>
-                  <h5><b>Especies</B>:
+                  <h5 tabindex='1'><b>Especies</B>:
               ";
 
               while($resultado=pg_fetch_assoc($resolucion)){
@@ -190,8 +190,8 @@
   <br><br><br><br><br>
   <div class="navbar navbar-inverse navbar-fixed-bottom footer">
     <div class="container">
-      <p class="navbar-text pull-left">© 2017 Alexander Cole Mora
-        <a href="https://www.ull.es/" target="_blank" >Universidad de La Laguna</a>
+      <p tabindex="1" class="navbar-text pull-left">© 2017 Alexander Cole Mora
+        <a tabindex="1" href="https://www.ull.es/" target="_blank" >Universidad de La Laguna</a>
       </p>
     </div>
   </div>

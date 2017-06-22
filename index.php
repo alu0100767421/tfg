@@ -34,13 +34,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="https://www.ull.es/"><img class="imagen-menu" alt="ULL" src="images/logoULL/logotipo-principal-recortada.png"></a>
+          <a tabindex="1" class="navbar-brand" href="https://www.ull.es/"><img class="imagen-menu" alt="Universidad de La Laguna" src="images/logoULL/logotipo-principal-recortada.png"></a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="index.php">Inicio</a></li>
-            <li><a href="pages/mapa.php">Mapa</a></li>
+            <li><a tabindex="1" href="index.php">Inicio</a></li>
+            <li><a tabindex="1" href="pages/mapa.php">Mapa</a></li>
           </ul>
         </div>
       </div>
@@ -51,7 +51,7 @@
     <div class="cuerpo">
       <div class="row">
         <div class="col-lg-2 col-md-4 col-xs-2 col-sm-2 titulo">
-          <h1>Sistema Geográfico de Paleontología de Canarias</h1>
+          <h1 tabindex="1">Sistema Geográfico de Paleontología de Canarias</h1>
         </div>
       </div>
 
@@ -60,12 +60,12 @@
           <form action="pages/autenticacion_usuarios.php" method="post">
             <div class="row">
               <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-                <h4>Acceso Administración</h4>
+                <h4 tabindex="1">Acceso Administración</h4>
               </div>
             </div>
             <div class="form-group">
-              <label for="exampleInputEmail1">Usuario</label>
-              <select name="users[]" class="form-control">
+              <label for="exampleInputEmail1" tabindex="1">Usuario</label>
+              <select tabindex="1" name="users[]" class="form-control">
                 <option disabled selected>Elija su usuario</option>
 
                 <?php
@@ -79,15 +79,15 @@
               </select>
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1">Contraseña</label>
-              <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Contraseña">
+              <label tabindex="1" for="exampleInputPassword1">Contraseña</label>
+              <input tabindex="1" type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Contraseña">
             </div>
             <div class="row botones-formulario">
               <div class="col-lg-1 col-md-3 col-xs-12 col-sm-7">
-                <button type="submit" class="btn btn-success">Acceder</button><br>
+                <button tabindex="1" type="submit" class="btn btn-success">Acceder</button><br>
               </div>
               <div class="col-lg-offset-8 col-lg-1 col-md-offset-4 col-md-3 col-xs-offset-0  col-xs-3 col-sm-3">
-                <a class="btn btn-info" href="pages/mapa.php" role="button">Mapa</a>
+                <a tabindex="1" class="btn btn-info" href="pages/mapa.php" role="button">Mapa</a>
               </div>
             </div>
           </form>
@@ -100,9 +100,9 @@
     </div>
     <div class="cookie" id="cookie">
       <div class="cookie_texto">
-        <p>Esta web utiliza cookies para el funcionamiento de la navegación de sus usuarios. Si continúas navegando consideramos que aceptas su uso.
-        <a href="https://www.google.es/intl/es/policies/technologies/cookies/">Más información</a>
-        <a onclick="aceptar_cookies();">Cerrar</a></p>
+        <p tabindex="1">Esta web utiliza cookies para el funcionamiento de la navegación de sus usuarios. Si continúas navegando consideramos que aceptas su uso.
+        <a tabindex="1" href="https://www.google.es/intl/es/policies/technologies/cookies/">Más información</a>
+        <a tabindex="1" onclick="aceptar_cookies();">Cerrar</a></p>
       </div>
     </div>
 
@@ -110,8 +110,8 @@
     <br><br><br><br><br>
     <div class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="container">
-        <p class="navbar-text pull-left">© 2017 Alexander Cole Mora
-          <a href="https://www.ull.es/" target="_blank" >Universidad de La Laguna</a>
+        <p tabindex="1" class="navbar-text pull-left">© 2017 Alexander Cole Mora
+          <a tabindex="1" href="https://www.ull.es/" target="_blank" >Universidad de La Laguna</a>
         </p>
       </div>
     </div>
