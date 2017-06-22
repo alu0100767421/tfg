@@ -84,8 +84,14 @@
                                                   VALUES('".$id_yacimiento."','".$id_publicacion."');";
        pg_query($link,$consulta_insertar_yacimiento_has_publicacion);
        echo pg_last_error()."\n";
+
+       $consulta="UPDATE yacimiento
+                  SET cant_publicaciones=cant_publicaciones+1
+                  WHERE idyacimiento='".$id_yacimiento."';";
+       pg_query($link,$consulta);
+       echo pg_last_error()."\n";
      }
-     else{
+     else if($titulo!=""){
        //echo "estoy aqui";
        $consulta_insertar_publicacion="INSERT INTO publicacion(titulo,fecha,autor,pdf)
                                        VALUES('".$titulo."','".$fecha."','".$autor."','".$pdf."')";
