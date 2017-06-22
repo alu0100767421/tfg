@@ -15,7 +15,7 @@
 
     <title>Añadir excavaciones a la base de datos</title>
 
-    <link rel="icon" type="/image/png" href="../../images/logoULL/logotipo-secundario-ULL.png" />
+    <link rel="icon" type="image/png" href="../../images/logoULL/logotipo-secundario-ULL.png" />
     <link type="text/css" rel="stylesheet" href="../../bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="../../css/administracion.css"/>
     <link type="text/css" rel="stylesheet" href="../../bootstrap-3.3.7-dist/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
@@ -124,7 +124,7 @@
                   <div class="col-lg-4 form-group">
                     <select tabindex='2' name="Yacimientos_Exacavacion" id="Yacimientos_Excavacion" class="form-control" onchange="excavacion(this.value)">
                       <option disabled selected>YACIMIENTOS</option>
-                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
+                      <option  value='NINGUNO' >NINGUNO</option>
                       <?php
                         $consulta_yacimiento="SELECT yacimiento
                                               FROM yacimiento
@@ -133,7 +133,7 @@
                         echo pg_last_error();
                         while($resultado2 = pg_fetch_assoc($resultado)){
                           $aux = $resultado2['yacimiento'];
-                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
+                          echo "<option  value='$aux' >$aux</option>";
                         }
 
                       ?>
@@ -142,16 +142,16 @@
                   <input type="hidden" name="yacimiento_excavacion" id="yacimiento_excavacion">
                 </div>
                 <div class="row">
-                  <div class="col-lg-4 form-group" id="data-container">
+                  <div class="col-lg-4 form-group data-container" >
                     <input tabindex='2' id="fecha_inicio_ex" type="text" class="form-control" name="fecha_inicio_ex" placeholder="FECHA INICIAL">
                   </div>
-                  <div class="col-lg-4 form-group" id="data-container">
+                  <div class="col-lg-4 form-group data-container" >
                     <input tabindex='2' id="fecha_final_ex" type="text" class="form-control" name="fecha_final_ex" placeholder="FECHA FINAL">
                   </div>
                   <div class="col-lg-4 form-group">
                     <select tabindex='2' name="Deposito" class="form-control" onchange="deposito(this.value)">
                       <option disabled selected>DEPÓSITO</option>
-                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
+                      <option  value='NINGUNO' >NINGUNO</option>
                       <?php
                         $consulta_yacimiento="SELECT deposito
                                               FROM deposito;";
@@ -159,7 +159,7 @@
                         echo pg_last_error();
                         while($resultado2 = pg_fetch_assoc($resultado)){
                           $aux = $resultado2['deposito'];
-                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
+                          echo "<option  value='$aux' >$aux</option>";
                         }
                       ?>
                     </select>

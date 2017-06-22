@@ -18,7 +18,7 @@
 
     <title>Sección de gestión de usuarios</title>
 
-    <link rel="icon" type="/image/png" href="../images/logoULL/logotipo-secundario-ULL.png" />
+    <link rel="icon" type="image/png" href="../images/logoULL/logotipo-secundario-ULL.png" />
     <link type="text/css" rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="../css/administracion.css"/>
 
@@ -112,7 +112,7 @@
             <!--Añadir usuario-->
             <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12">
               <h3 tabindex='2'>Añadir usuario</h3>
-              <form role="form" action="gestion_usuarios/add_user.php" method="post">
+              <form  action="gestion_usuarios/add_user.php" method="post">
                 <div class="form-group">
                   <label tabindex='2'>Nombre de usuario</label>
                   <input tabindex='2' class="form-control" placeholder="Introduce usuario" name="usuario">
@@ -148,7 +148,7 @@
             <!--Modificar usuario-->
             <div class="col-lg-offset-1 col-lg-3 col-md-4 col-xs-12 col-sm-12">
               <h3 tabindex='3'>Modificar usuario</h3>
-              <form role="form" action="gestion_usuarios/modi_user.php" method="post">
+              <form  action="gestion_usuarios/modi_user.php" method="post">
                 <div class="form-group">
                   <label tabindex='3' >Nombre de usuario</label>
                   <select tabindex='3' name="users[]" class="form-control">
@@ -156,7 +156,7 @@
                     <?php
                       while($usu = pg_fetch_assoc($users)){
                         $user = $usu['nombre'];
-                        echo "<option type='text' value='$user' name='$user'>$user</option>";
+                        echo "<option  value='$user'>$user</option>";
                       }
                      ?>
                   </select>
@@ -191,7 +191,7 @@
             <!--Borrar usuario-->
             <div class="col-lg-offset-1 col-lg-3 col-md-4 col-xs-12 col-sm-12">
               <h3 tabindex='4'>Borrar usuario</h3>
-              <form role="form" action="gestion_usuarios/borrar_user.php" method="post">
+              <form action="gestion_usuarios/borrar_user.php" method="post">
                 <div class="form-group">
                   <label tabindex='4' >Nombre de usuario</label>
                   <select  tabindex='4' name="users[]" class="form-control">
@@ -199,7 +199,7 @@
                     <?php
                       while($usu2 = pg_fetch_assoc($users2)){
                         $user2 = $usu2['nombre'];
-                        echo "<option type='text' value='$user2' name='$user2'>$user2</option>";
+                        echo "<option  value='$user2' >$user2</option>";
                       }
                      ?>
                   </select>

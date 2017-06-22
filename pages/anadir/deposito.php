@@ -15,7 +15,7 @@
 
     <title>Añadir depósitos a la base de datos</title>
 
-    <link rel="icon" type="/image/png" href="../../images/logoULL/logotipo-secundario-ULL.png" />
+    <link rel="icon" type="image/png" href="../../images/logoULL/logotipo-secundario-ULL.png" />
     <link type="text/css" rel="stylesheet" href="../../bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="../../css/administracion.css"/>
     <link type="text/css" rel="stylesheet" href="../../bootstrap-3.3.7-dist/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
@@ -35,7 +35,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a tabindex='1' class="navbar-brand" href="https://www.ull.es/"><img class="imagen-menu" alt="Universidad de La Laguna" title="Universidad de La Laguna"src="../../images/logoULL/logotipo-principal-recortada.png"></a>
+          <a tabindex='1' class="navbar-brand" href="https://www.ull.es/"><img class="imagen-menu" alt="Universidad de La Laguna" title="Universidad de La Laguna" src="../../images/logoULL/logotipo-principal-recortada.png"></a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -111,7 +111,7 @@
           <!--Excavacion-->
           <div class="row">
             <div class="col-lg-offset-0 col-lg-10">
-              <h2  tabindex='2'class="titulos">Añadir Depósito</h2>
+              <h2  tabindex='2' class="titulos">Añadir Depósito</h2>
               <p tabindex='2'>A continuación, podrá añadir a la base de datos un <b>nuevo depósito</b>, teniendo en cuenta algunas de sus características.</p>
               <form class="" action="../add_bbdd/add_deposito.php" method="post">
                 <div class="row">

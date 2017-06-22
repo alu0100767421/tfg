@@ -15,7 +15,7 @@
 
     <title>Sección  de valoración de yacimientos</title>
 
-    <link rel="icon" type="/image/png" href="../images/logoULL/logotipo-secundario-ULL.png" />
+    <link rel="icon" type="image/png" href="../images/logoULL/logotipo-secundario-ULL.png" />
     <link type="text/css" rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="../css/administracion.css"/>
     <link type="text/css" rel="stylesheet" href="../bootstrap-3.3.7-dist/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
@@ -64,7 +64,7 @@
               </ul>
             </li>
             <li id="add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a title='acceder a añadir a la base de datos' tabindex='1' href="add_bbdd.php">Añadir BBDD</a>
-              <ul style="display:none" class="list-unstyled" id="submenu">
+              <ul style="display:none" class="list-unstyled" id='submenu'>
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a title='acceder a añadir yacimientos' href="anadir/yacimiento.php">Yacimiento</a></li>
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a title='acceder a añadir especies' href="anadir/especie.php">Especie</a></li>
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a title='acceder a añadir excavaciones' href="anadir/excavacion.php">Excavación</a></li>
@@ -93,15 +93,15 @@
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
-                <button  tabindex='2'type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 tabindex='1'class="modal-title">Cierre de sesión</h4>
+                <button  tabindex='2' type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 tabindex='1' class="modal-title">Cierre de sesión</h4>
               </div>
               <div class="modal-body">
                 <p tabindex='2'>¿Está seguro que desea cerrar sesión?</p>
               </div>
               <div class="modal-footer">
                 <form action="cerrar_sesion.php" method="post">
-                  <button  tabindex='2'type="submit" class="btn btn-danger boton">Cerrar Sesión</button><br>
+                  <button  tabindex='2' type="submit" class="btn btn-danger boton">Cerrar Sesión</button><br>
                 </form>
               </div>
             </div>
@@ -115,7 +115,7 @@
           <div class="row">
             <div class="col-lg-12">
               <p tabindex='2' >En esta sección, podrá añadir o consultar una valoración bajo el criterio propuesto en cada uno de lo yacimiento:</p>
-              <ul class="list-unstyled" id="submenu">
+              <ul class="list-unstyled" >
                 <li><a title='acceder a añadir una valoración' tabindex='2' href="valoraciones/add_valoracion.php">Añadir Valoración</a></li>
                 <li><a title='acceder a consultar una valoración' tabindex='2' href="valoraciones/consultar_valoracion.php">Consultar Valoración</a></li>
               </ul>
@@ -132,8 +132,8 @@
     <br><br><br><br><br>
     <div class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="container">
-        <p tabindex='2'class="navbar-text pull-left">© 2017 Alexander Cole Mora
-          <a title='Acceder a la página web de la Universidad de La Laguna' tabindex='2'href="https://www.ull.es/" target="_blank" >Universidad de La Laguna</a>
+        <p tabindex='2' class="navbar-text pull-left">© 2017 Alexander Cole Mora
+          <a title='Acceder a la página web de la Universidad de La Laguna' tabindex='2' href="https://www.ull.es/" target="_blank" >Universidad de La Laguna</a>
         </p>
       </div>
     </div>

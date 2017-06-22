@@ -14,7 +14,7 @@
 
     <title>Sección de consulta de infromación de la base de datos</title>
 
-    <link rel="icon" type="/image/png" href="../images/logoULL/logotipo-secundario-ULL.png" />
+    <link rel="icon" type="image/png" href="../images/logoULL/logotipo-secundario-ULL.png" />
     <link type="text/css" rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="../css/administracion.css"/>
     <link type="text/css" rel="stylesheet" href="../bootstrap-3.3.7-dist/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
@@ -114,16 +114,16 @@
             <div class="col-lg-12">
               <!-- <form class="" action="" method="post"> -->
                 <div class="row">
-                  <div id="consulta_seleccionada" name="consulta_seleccionada" class="col-lg-2 form-group">
+                  <div id="consulta_seleccionada" class="col-lg-2 form-group">
                     <h5 tabindex='2'>CONSULTAR SOBRE:</h5>
                     <select tabindex='2' name="Consulta" id="Consulta" class="form-control" onchange="consulta(this.value)">
                       <option disabled selected>CONSULTA</option>
-                      <option type='text' value='YACIMIENTO' name='YACIMIENTO'>YACIMIENTO</option>
-                      <option type='text' value='UBICACION' name='UBICACION'>UBICACIÓN</option>
-                      <option type='text' value='ESPECIE' name='ESPECIE'>ESPECIE</option>
-                      <option type='text' value='EXCAVACIONES' name='EXCAVACIONES'>EXCAVACIONES</option>
-                      <option type='text' value='PUBLICACIONES' name='PUBLICACIONES'>PUBLICACIONES</option>
-                      <option type='text' value='DEPOSITO' name='DEPOSITO'>DEPÓSITO</option>
+                      <option  value='YACIMIENTO' >YACIMIENTO</option>
+                      <option  value='UBICACION' >UBICACIÓN</option>
+                      <option  value='ESPECIE' >ESPECIE</option>
+                      <option  value='EXCAVACIONES' >EXCAVACIONES</option>
+                      <option  value='PUBLICACIONES' >PUBLICACIONES</option>
+                      <option  value='DEPOSITO' >DEPÓSITO</option>
                     </select>
                     <input type="hidden" name="tipo_consulta" id="tipo_consulta">
                   </div>
@@ -136,127 +136,127 @@
                 <!--Yacimiento-->
                 <div style="display:none" class="row" id="consulta_yacimiento">
                   <div class="col-lg-2 form-group">
-                    <select tabindex='2'name="Islas" id="Islas" class="form-control" onchange="isla(this.value)">
+                    <select tabindex='2' name="Islas" id="Islas" class="form-control" onchange="isla(this.value)">
                       <option disabled selected>ISLA</option>
-                      <option type='text' value='LA PALMA' name='LA PALMA'>LA PALMA</option>
-                      <option type='text' value='LA GOMERA' name='LA GOMERA'>LA GOMERA</option>
-                      <option type='text' value='EL HIERRO' name='EL HIERRO'>EL HIERRO</option>
-                      <option type='text' value='TENERIFE' name='TENERIFE'>TENERIFE</option>
-                      <option type='text' value='GRAN CANARIA' name='GRAN CANARIA'>GRAN CANARIA</option>
-                      <option type='text' value='FUERTEVENTURA' name='FUERTEVENTURA'>FUERTEVENTURA</option>
-                      <option type='text' value='LANZAROTE' name='LANZAROTE'>LANZAROTE</option>
+                      <option  value='LA PALMA' >LA PALMA</option>
+                      <option  value='LA GOMERA' >LA GOMERA</option>
+                      <option  value='EL HIERRO' >EL HIERRO</option>
+                      <option  value='TENERIFE' >TENERIFE</option>
+                      <option  value='GRAN CANARIA' >GRAN CANARIA</option>
+                      <option  value='FUERTEVENTURA' >FUERTEVENTURA</option>
+                      <option  value='LANZAROTE' >LANZAROTE</option>
                     </select>
                     <input type="hidden" name="isla_seleccionada" id="isla_seleccionada">
                   </div>
 
                   <div id="municipiosvacio" class="col-lg-2 form-group">
-                    <select tabindex='2'name="MunicipiosVacio" id="MunicipiosVacio" class="form-control">
+                    <select tabindex='2' name="MunicipiosVacio" id="MunicipiosVacio" class="form-control">
                       <option disabled selected>MUNICIPIOS</option>
                     </select>
                   </div>
                   <!-- MUNICIPIOS DE LA PALMA-->
                   <div style="display:none" id="municipioslapalma" class="col-lg-2 form-group">
-                    <select tabindex='2'name="MunicipiosLaPalma" id="MunicipiosLaPalma" class="form-control" onchange="">
+                    <select tabindex='2' name="MunicipiosLaPalma" id="MunicipiosLaPalma" class="form-control" onchange="">
                       <option disabled selected>MUNICIPIOS</option>
-                      <option type='text' value='BARLOVENTO' name='BARLOVENTO'>BARLOVENTO</option>
-                      <option type='text' value='BREÑA ALTA' name='BRENA ALTA'>BREÑA ALTA</option>
-                      <option type='text' value='BREÑA BAJA' name='BRENA BAJA'>BREÑA BAJA</option>
-                      <option type='text' value='FUENCALIENTE' name='FUENCALIENTE'>FUENCALIENTE</option>
-                      <option type='text' value='GARAFÍA' name='GARAFÍA'>GARAFÍA</option>
-                      <option type='text' value='LOS LLANOS DE ARIDANE' name='LOS LLANOS DE ARIDANE'>LOS LLANOS DE ARIDANE</option>
-                      <option type='text' value='EL PASO' name='EL PASO'>EL PASO</option>
-                      <option type='text' value='PUNTA GORDA' name='PUNTA GORDA'>PUNTA GORDA</option>
-                      <option type='text' value='PUNTALLANA' name='PUNTALLANA'>PUNTALLANA</option>
-                      <option type='text' value='SAN ANDRÉS Y SAUCES' name='SAN ANDRES Y SAUCES'>SAN ANDRÉS Y SAUCES</option>
-                      <option type='text' value='SANTA CRUZ DE LA PALMA' name='SANTA CRUZ DE LA PALMA'>SANTA CRUZ DE LA PALMA</option>
-                      <option type='text' value='TAZACORTE' name='TAZACORTE'>TAZACORTE</option>
-                      <option type='text' value='TIJARAFE' name='TIJARAFE'>TIJARAFE</option>
-                      <option type='text' value='VILLA DE MAZO' name='VILLA DE MAZO'>VILLA DE MAZO</option>
+                      <option  value='BARLOVENTO' >BARLOVENTO</option>
+                      <option  value='BREÑA ALTA' >BREÑA ALTA</option>
+                      <option  value='BREÑA BAJA' >BREÑA BAJA</option>
+                      <option  value='FUENCALIENTE' >FUENCALIENTE</option>
+                      <option  value='GARAFÍA' >GARAFÍA</option>
+                      <option  value='LOS LLANOS DE ARIDANE'>LOS LLANOS DE ARIDANE</option>
+                      <option  value='EL PASO' >EL PASO</option>
+                      <option  value='PUNTA GORDA' >PUNTA GORDA</option>
+                      <option  value='PUNTALLANA' >PUNTALLANA</option>
+                      <option  value='SAN ANDRÉS Y SAUCES' >SAN ANDRÉS Y SAUCES</option>
+                      <option  value='SANTA CRUZ DE LA PALMA' >SANTA CRUZ DE LA PALMA</option>
+                      <option  value='TAZACORTE' >TAZACORTE</option>
+                      <option  value='TIJARAFE' >TIJARAFE</option>
+                      <option  value='VILLA DE MAZO'>VILLA DE MAZO</option>
                     </select>
                   </div>
                   <!-- MUNICIPIOS DE LA GOMERA-->
                   <div style="display:none" id="municipioslagomera" class="col-lg-2 form-group">
                     <select tabindex='2' name="MunicipiosLaGomera" id="MunicipiosLaGomera" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
-                      <option type='text' value='AGULO' name='AGULO'>AGULO</option>
-                      <option type='text' value='ALAJERÓ' name='ALAJERO'>ALAJERÓ</option>
-                      <option type='text' value='HERMIGUA' name='HERMIGUA'>HERMIGUA</option>
-                      <option type='text' value='SAN SEBASTIÁN DE LA GOMERA' name='SAN SEBASTIAN DE LA GOMERA'>SAN SEBASTIÁN DE LA GOMERA</option>
-                      <option type='text' value='VALLEHERMOSO' name='VALLEHERMOSO'>VALLEHERMOSO</option>
-                      <option type='text' value='VALLE GRAN REY' name='VALLE GRAN REY'>VALLE GRAN REY</option>
+                      <option  value='AGULO' >AGULO</option>
+                      <option  value='ALAJERÓ' >ALAJERÓ</option>
+                      <option  value='HERMIGUA' >HERMIGUA</option>
+                      <option  value='SAN SEBASTIÁN DE LA GOMERA' >SAN SEBASTIÁN DE LA GOMERA</option>
+                      <option  value='VALLEHERMOSO' >VALLEHERMOSO</option>
+                      <option  value='VALLE GRAN REY'>VALLE GRAN REY</option>
                     </select>
                   </div>
                   <!-- MUNICIPIOS DE EL HIERRO-->
                   <div style="display:none" id="municipioselhierro" class="col-lg-2 form-group">
                     <select tabindex='2' name="MunicipiosElHierro" id="MunicipiosElHierro" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
-                      <option type='text' value='EL PINAR' name='EL PINAR'>EL PINAR</option>
-                      <option type='text' value='FRONTERA' name='FRONTERA'>FRONTERA</option>
-                      <option type='text' value='VALVERDE' name='VALVERDE'>VALVERVE</option>
+                      <option  value='EL PINAR' >EL PINAR</option>
+                      <option  value='FRONTERA' >FRONTERA</option>
+                      <option  value='VALVERDE' >VALVERVE</option>
                     </select>
                   </div>
                   <!-- MUNICIPIOS DE TENERIFE-->
                   <div style="display:none" id="municipiostenerife" class="col-lg-2 form-group">
                     <select tabindex='2' name="MunicipiosTenerife" id="MunicipiosTenerife" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
-                      <option type='text' value='ADEJE' name='ADEJE'>ADEJE</option>
-                      <option type='text' value='ARAFO' name='ARAFO'>ARAFO</option>
-                      <option type='text' value='ARICO' name='ARICO'>ARICO</option>
-                      <option type='text' value='ARONA' name='ARONA'>ARONA</option>
-                      <option type='text' value='BUENAVISTA DEL NORTE' name='BUENAVISTA DEL NORTE'>BUENAVISTA DEL NORTE</option>
-                      <option type='text' value='CANDELARIA' name='CANDELARIA'>CANDELARIA</option>
-                      <option type='text' value='EL ROSARIO' name='EL ROSARIO'>EL ROSARIO</option>
-                      <option type='text' value='EL SAUZAL' name='EL SAUZAL'>EL SAUZAL</option>
-                      <option type='text' value='EL TANQUE' name='EL TANQUE'>EL TANQUE</option>
-                      <option type='text' value='FASNIA' name='FASNIA'>FASNIA</option>
-                      <option type='text' value='GARACHICO' name='GARACHICO'>GARACHICO</option>
-                      <option type='text' value='GRANADILLA DE ABONA' name='GRANADILLA DE ABONA'>GRANADILLA DE ABONA</option>
-                      <option type='text' value='GÜIMAR' name='GUIMAR'>GÜIMAR</option>
-                      <option type='text' value='GUÍA DE ISORA' name='GUIA DE ISORA'>GUÍA DE ISORA</option>
-                      <option type='text' value='ICOD DE LOS VINOS' name='ICOD DE LOS VINOS'>ICOD DE LOS VINOS</option>
-                      <option type='text' value='LA GUANCHA' name='LA GUANCHA'>LA GUANCHA</option>
-                      <option type='text' value='LA MATANZA DE ACENTEJO' name='LA MATANZA DE ACENTEJO'>LA MATANZA DE ACENTEJO</option>
-                      <option type='text' value='LA OROTAVA' name='LA OROTAVA'>LA OROTAVA</option>
-                      <option type='text' value='LA VICTORIA DE ACENTEJO' name='LA VICTORIA DE ACENTEJO'>LA VICTORIA DE ACENTEJO</option>
-                      <option type='text' value='LOS REALEJOS' name='LOS REALEJOS'>LOS REALEJOS</option>
-                      <option type='text' value='LOS SILOS' name='LOS SILOS'>LOS SILOS</option>
-                      <option type='text' value='PUERTO DE LA CRUZ' name='PUERTO DE LA CRUZ'>PUERTO DE LA CRUZ</option>
-                      <option type='text' value='SAN CRISTÓBAL DE LA LAGUNA' name='SAN CRISTOBAL DE LA LAGUNA'>SAN CRISTÓBAL DE LA LAGUNA</option>
-                      <option type='text' value='SAN JUAN DE LA RAMBLA' name='SAN JUAN DE LA RAMBLA'>SAN JUAN DE LA RAMBLA</option>
-                      <option type='text' value='SAN MIGUEL DE ABONA' name='SAN MIGUEL DE ABONA'>SAN MIGUEL DE ABONA</option>
-                      <option type='text' value='SANTA CRUZ DE TENERIFE' name='SANTA CRUZ DE TENERIFE'>SANTA CRUZ DE TENERIFE</option>
-                      <option type='text' value='SANTA ÚRSULA' name='SANTA URSULA'>SANTA ÚRSULA</option>
-                      <option type='text' value='SANTIAGO DEL TEIDE' name='SANTIAGO DEL TEIDE'>SANTIAGO DEL TEIDE</option>
-                      <option type='text' value='TACORONTE' name='TACORONTE'>TACORONTE</option>
-                      <option type='text' value='TEGUESTE' name='TEGUESTE'>TEGUESTE</option>
-                      <option type='text' value='VILAFLOR' name='VILAFLOR'>VILAFLOR</option>
+                      <option  value='ADEJE' >ADEJE</option>
+                      <option  value='ARAFO' >ARAFO</option>
+                      <option  value='ARICO' >ARICO</option>
+                      <option  value='ARONA' >ARONA</option>
+                      <option  value='BUENAVISTA DEL NORTE' >BUENAVISTA DEL NORTE</option>
+                      <option  value='CANDELARIA' >CANDELARIA</option>
+                      <option  value='EL ROSARIO' >EL ROSARIO</option>
+                      <option  value='EL SAUZAL' >EL SAUZAL</option>
+                      <option  value='EL TANQUE' >EL TANQUE</option>
+                      <option  value='FASNIA' >FASNIA</option>
+                      <option  value='GARACHICO' >GARACHICO</option>
+                      <option  value='GRANADILLA DE ABONA' >GRANADILLA DE ABONA</option>
+                      <option  value='GÜIMAR' >GÜIMAR</option>
+                      <option  value='GUÍA DE ISORA' >GUÍA DE ISORA</option>
+                      <option  value='ICOD DE LOS VINOS' >ICOD DE LOS VINOS</option>
+                      <option  value='LA GUANCHA' >LA GUANCHA</option>
+                      <option  value='LA MATANZA DE ACENTEJO'>LA MATANZA DE ACENTEJO</option>
+                      <option  value='LA OROTAVA' >LA OROTAVA</option>
+                      <option  value='LA VICTORIA DE ACENTEJO' >LA VICTORIA DE ACENTEJO</option>
+                      <option  value='LOS REALEJOS' >LOS REALEJOS</option>
+                      <option  value='LOS SILOS' >LOS SILOS</option>
+                      <option  value='PUERTO DE LA CRUZ' >PUERTO DE LA CRUZ</option>
+                      <option  value='SAN CRISTÓBAL DE LA LAGUNA' >SAN CRISTÓBAL DE LA LAGUNA</option>
+                      <option  value='SAN JUAN DE LA RAMBLA' >SAN JUAN DE LA RAMBLA</option>
+                      <option  value='SAN MIGUEL DE ABONA' >SAN MIGUEL DE ABONA</option>
+                      <option  value='SANTA CRUZ DE TENERIFE' >SANTA CRUZ DE TENERIFE</option>
+                      <option  value='SANTA ÚRSULA' >SANTA ÚRSULA</option>
+                      <option  value='SANTIAGO DEL TEIDE' >SANTIAGO DEL TEIDE</option>
+                      <option  value='TACORONTE' >TACORONTE</option>
+                      <option  value='TEGUESTE' >TEGUESTE</option>
+                      <option  value='VILAFLOR' >VILAFLOR</option>
                     </select>
                   </div>
                   <!-- MUNICIPIOS DE GRAN CANARIA-->
                   <div style="display:none" id="municipiosgrancanaria" class="col-lg-2 form-group">
                     <select tabindex='2' name="MunicipiosGranCanaria" id="MunicipiosGranCanaria" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
-                      <option type='text' value='AGAETE' name='AGAETE'>AGAETE</option>
-                      <option type='text' value='AGÜINES' name='AGUINES'>AGÜINES</option>
-                      <option type='text' value='LA ALDEA DE SAN NICOLÁS' name='LA ALDEA DE SAN NICOLAS'>LA ALDEA DE SAN NICOLÁS</option>
-                      <option type='text' value='ARTENARA' name='ARTENARA'>ARTENARA</option>
-                      <option type='text' value='ARUCAS' name='ARUCAS'>ARUCAS</option>
-                      <option type='text' value='FIRGAS' name='FIRGAS'>FIRGAS</option>
-                      <option type='text' value='GÁLDAR' name='GALDAR'>GÁLDAR</option>
-                      <option type='text' value='INGENIO' name='INGENIO'>INGENIO</option>
-                      <option type='text' value='MOGÁN' name='MOGAN'>MOGÁN</option>
-                      <option type='text' value='MOYA' name='MOYA'>MOYA</option>
-                      <option type='text' value='LAS PALMAS DE GRAN CANARIA' name='LAS PALMAS DE GRAN CANARIA'>LAS PALMAS DE GRAN CANARIA</option>
-                      <option type='text' value='SAN BARTOLOMÉ DE TIRAJANA' name='SAN BARTOLOME DE TIRAJANA'>SAN BARTOLOMÉ DE TIRAJANA</option>
-                      <option type='text' value='SANTA BRÍGIDA' name='SANTA BRIGIDA'>SANTA BRÍGIDA</option>
-                      <option type='text' value='SANTA LUCÍA DE TIRAJANA' name='SANTA LUCIA DE TIRAJANA'>SANTA LUCÍA DE TIRAJANA</option>
-                      <option type='text' value='SANTA MARÍA DE GUÍA DE GRAN CANARIA' name='SANTA MARIA DE GUIA DE GRAN CANARIA'>SANTA MARÍA DE GUÍA DE GRAN CANARIA</option>
-                      <option type='text' value='TEJEDA' name='TEJEDA'>TEJEDA</option>
-                      <option type='text' value='TELDE' name='TELDE'>TELDE</option>
-                      <option type='text' value='TEROR' name='TEROR'>TEROR</option>
-                      <option type='text' value='VALLESECO' name='VALLESECO'>VALLESECO</option>
-                      <option type='text' value='VALSEQUILLO DE GRAN CANARIA' name='VALSEQUILLO DE GRAN CANARIA'>VALSEQUILLO DE GRAN CANARIA</option>
-                      <option type='text' value='VEGA DE SAN MATEO' name='VEGA DE SAN MATEO'>VEGA DE SAN MATEO</option>
+                      <option  value='AGAETE' >AGAETE</option>
+                      <option  value='AGÜINES' >AGÜINES</option>
+                      <option  value='LA ALDEA DE SAN NICOLÁS' >LA ALDEA DE SAN NICOLÁS</option>
+                      <option  value='ARTENARA' >ARTENARA</option>
+                      <option  value='ARUCAS' >ARUCAS</option>
+                      <option  value='FIRGAS' >FIRGAS</option>
+                      <option  value='GÁLDAR' >GÁLDAR</option>
+                      <option  value='INGENIO' >INGENIO</option>
+                      <option  value='MOGÁN' >MOGÁN</option>
+                      <option  value='MOYA' >MOYA</option>
+                      <option  value='LAS PALMAS DE GRAN CANARIA' >LAS PALMAS DE GRAN CANARIA</option>
+                      <option  value='SAN BARTOLOMÉ DE TIRAJANA' >SAN BARTOLOMÉ DE TIRAJANA</option>
+                      <option  value='SANTA BRÍGIDA' >SANTA BRÍGIDA</option>
+                      <option  value='SANTA LUCÍA DE TIRAJANA' >SANTA LUCÍA DE TIRAJANA</option>
+                      <option  value='SANTA MARÍA DE GUÍA DE GRAN CANARIA' >SANTA MARÍA DE GUÍA DE GRAN CANARIA</option>
+                      <option  value='TEJEDA' >TEJEDA</option>
+                      <option  value='TELDE'>TELDE</option>
+                      <option  value='TEROR' >TEROR</option>
+                      <option  value='VALLESECO'>VALLESECO</option>
+                      <option  value='VALSEQUILLO DE GRAN CANARIA' >VALSEQUILLO DE GRAN CANARIA</option>
+                      <option  value='VEGA DE SAN MATEO' >VEGA DE SAN MATEO</option>
                     </select>
                   </div>
 
@@ -264,12 +264,12 @@
                   <div style="display:none" id="municipiosfuerteventura" class="col-lg-2 form-group">
                     <select tabindex='2' name="MunicipiosFuerteventura" id="MunicipiosFuerteventura" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
-                      <option type='text' value='ANTIGUA' name='ANTIGUA'>ANTIGUA</option>
-                      <option type='text' value='BETANCURIA' name='BETANCURIA'>BETANCURIA</option>
-                      <option type='text' value='LA OLIVA' name='LA OLIVA'>LA OLIVA</option>
-                      <option type='text' value='PÁJARA' name='PAJARA'>PÁJARA</option>
-                      <option type='text' value='PUERTO DEL ROSARIO' name='PUERTO DEL ROSARIO'>PUERTO DEL ROSARIO</option>
-                      <option type='text' value='TUINEJE' name='TUINEJE'>TUINEJE</option>
+                      <option  value='ANTIGUA' >ANTIGUA</option>
+                      <option  value='BETANCURIA' >BETANCURIA</option>
+                      <option  value='LA OLIVA' >LA OLIVA</option>
+                      <option  value='PÁJARA'>PÁJARA</option>
+                      <option  value='PUERTO DEL ROSARIO' >PUERTO DEL ROSARIO</option>
+                      <option  value='TUINEJE' >TUINEJE</option>
                     </select>
                   </div>
 
@@ -277,20 +277,20 @@
                   <div style="display:none" id="municipioslanzarote" class="col-lg-2 form-group">
                     <select tabindex='2' name="MunicipiosLanzarote" id="MunicipiosLanzarote" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
-                      <option type='text' value='ARECIFE' name='ARECIFE'>ARECIFE</option>
-                      <option type='text' value='HARÍA' name='HARIA'>HARÍA</option>
-                      <option type='text' value='SAN BARTOLOMÉ' name='SAN BARTOLOME'>SAN BARTOLOMÉ</option>
-                      <option type='text' value='TEGUISE' name='TEGUISE'>TEGUISE</option>
-                      <option type='text' value='TÍAS' name='TIAS'>TÍAS</option>
-                      <option type='text' value='TINAJO' name='TINAJO'>TINAJO</option>
-                      <option type='text' value='YAIZA' name='YAIZA'>YAIZA</option>
+                      <option  value='ARECIFE' >ARECIFE</option>
+                      <option  value='HARÍA' >HARÍA</option>
+                      <option  value='SAN BARTOLOMÉ' >SAN BARTOLOMÉ</option>
+                      <option  value='TEGUISE'>TEGUISE</option>
+                      <option  value='TÍAS' >TÍAS</option>
+                      <option  value='TINAJO' >TINAJO</option>
+                      <option  value='YAIZA' >YAIZA</option>
                     </select>
                   </div>
                   <input type="hidden" name="municipio_seleccionado" id="municipio_seleccionado">
                   <div class="col-lg-2 form-group">
                     <select tabindex='2' name="Yacimientos_Yacimiento" id="Yacimientos_Yacimiento" class="form-control" onchange="yacimiento(this.value)">
                       <option disabled selected>YACIMIENTOS</option>
-                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
+                      <option  value='NINGUNO' >NINGUNO</option>
                       <?php
                         $consulta_yacimiento="SELECT yacimiento
                                               FROM yacimiento
@@ -299,7 +299,7 @@
                         echo pg_last_error();
                         while($resultado2 = pg_fetch_assoc($resultado)){
                           $aux = $resultado2['yacimiento'];
-                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
+                          echo "<option  value='$aux' >$aux</option>";
                         }
 
                       ?>
@@ -323,7 +323,7 @@
                   <div class="col-lg-2 form-group">
                     <select tabindex='2' name="Yacimientos_Ubicacion" id="Yacimientos_Ubicacion" class="form-control" onchange="ubicacion(this.value)">
                       <option disabled selected>YACIMIENTOS</option>
-                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
+                      <option  value='NINGUNO' >NINGUNO</option>
                       <?php
                         $consulta_yacimiento="SELECT yacimiento
                                               FROM yacimiento
@@ -332,7 +332,7 @@
                         echo pg_last_error();
                         while($resultado2 = pg_fetch_assoc($resultado)){
                           $aux = $resultado2['yacimiento'];
-                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
+                          echo "<option  value='$aux' >$aux</option>";
                         }
 
                       ?>
@@ -353,7 +353,7 @@
                   <div class="col-lg-2 form-group">
                     <select tabindex='2' name="Yacimientos_Especie" id="Yacimientos_Especie" class="form-control" onchange="especie(this.value)">
                       <option disabled selected>YACIMIENTOS</option>
-                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
+                      <option  value='NINGUNO' >NINGUNO</option>
                       <?php
                         $consulta_yacimiento="SELECT yacimiento
                                               FROM yacimiento
@@ -362,7 +362,7 @@
                         echo pg_last_error();
                         while($resultado2 = pg_fetch_assoc($resultado)){
                           $aux = $resultado2['yacimiento'];
-                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
+                          echo "<option  value='$aux' >$aux</option>";
                         }
 
                       ?>
@@ -373,7 +373,7 @@
                   <div class="col-lg-2 form-group">
                     <select tabindex='2' name="Deposito" class="form-control" onchange="deposito(this.value)">
                       <option disabled selected>DEPÓSITO</option>
-                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
+                      <option  value='NINGUNO' >NINGUNO</option>
                       <?php
                         $consulta_yacimiento="SELECT deposito
                                               FROM deposito;";
@@ -381,7 +381,7 @@
                         echo pg_last_error();
                         while($resultado2 = pg_fetch_assoc($resultado)){
                           $aux = $resultado2['deposito'];
-                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
+                          echo "<option  value='$aux' >$aux</option>";
                         }
                       ?>
                     </select>
@@ -401,7 +401,7 @@
                   <div class="col-lg-2 form-group">
                     <select tabindex='2' name="Yacimientos_Excavacion" id="Yacimientos_Excavacion" class="form-control" onchange="excavacion(this.value)">
                       <option disabled selected>YACIMIENTOS</option>
-                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
+                      <option  value='NINGUNO' >NINGUNO</option>
                       <?php
                         $consulta_yacimiento="SELECT yacimiento
                                               FROM yacimiento
@@ -410,17 +410,17 @@
                         echo pg_last_error();
                         while($resultado2 = pg_fetch_assoc($resultado)){
                           $aux = $resultado2['yacimiento'];
-                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
+                          echo "<option  value='$aux'>$aux</option>";
                         }
 
                       ?>
                      </select>
                   </div>
                   <input type="hidden" name="yacimiento_excavacion" id="yacimiento_excavacion">
-                  <div class="col-lg-2 form-group" id="data-container">
+                  <div class="col-lg-2 form-group data-container" >
                     <input tabindex='2' id="fecha_inicio_ex" type="text" class="form-control" name="fecha_inicio_ex" placeholder="FECHA INICIAL">
                   </div>
-                  <div class="col-lg-2 form-group" id="data-container">
+                  <div class="col-lg-2 form-group data-container" >
                     <input tabindex='2' id="fecha_final_ex" type="text" class="form-control" name="fecha_final_ex" placeholder="FECHA FINAL">
                   </div>
                 </div>
@@ -437,7 +437,7 @@
                   <div class="col-lg-2 form-group">
                     <select tabindex='2' name="Yacimientos_Publicacion" id="Yacimientos_Publicacion" class="form-control" onchange="publicacion(this.value)">
                       <option disabled selected>YACIMIENTOS</option>
-                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
+                      <option  value='NINGUNO' >NINGUNO</option>
                       <?php
                         $consulta_yacimiento="SELECT yacimiento
                                               FROM yacimiento
@@ -446,17 +446,17 @@
                         echo pg_last_error();
                         while($resultado2 = pg_fetch_assoc($resultado)){
                           $aux = $resultado2['yacimiento'];
-                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
+                          echo "<option  value='$aux' >$aux</option>";
                         }
 
                       ?>
                      </select>
                   </div>
                   <input type="hidden" name="yacimiento_publicacion" id="yacimiento_publicacion">
-                  <div class="col-lg-2 form-group" id="data-container">
+                  <div class="col-lg-2 form-group data-container" >
                     <input tabindex='2' id="fecha_publi_ini" type="text" class="form-control" name="fecha_publi_ini" placeholder="FECHA DESDE">
                   </div>
-                  <div class="col-lg-2 form-group" id="data-container">
+                  <div class="col-lg-2 form-group data-container" >
                     <input tabindex='2' id="fecha_publi_fin" type="text" class="form-control" name="fecha_publi_fin" placeholder="FECHA HASTA">
                   </div>
                 </div>
@@ -667,24 +667,24 @@
                     <form class='' action='modificar/modificar_yacimiento.php' method='post'>
                       <div class='row'>
 
-                        <input type='hidden' id='' name='id_yacimiento' value='$id_yacimiento'>
+                        <input type='hidden'  name='id_yacimiento' value='$id_yacimiento'>
                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' class='form-control input_consulta' id='' name='yacimiento_consultado' value='$yacimiento'>
+                          <input type='text' class='form-control input_consulta'  name='yacimiento_consultado' value='$yacimiento'>
                         </div>
                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' class='form-control input_consulta' id='' name='edad_consultado' value='$edad'>
+                          <input type='text' class='form-control input_consulta'  name='edad_consultado' value='$edad'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
-                          <input type='number' class='form-control input_consulta' id='' name='altura_consultado' value='$altura'>
+                          <input type='number' class='form-control input_consulta'  name='altura_consultado' value='$altura'>
                         </div>
                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' class='form-control input_consulta' id='' name='tipo_consultado' value='$tipo'>
+                          <input type='text' class='form-control input_consulta'  name='tipo_consultado' value='$tipo'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' class='form-control input_consulta' id='' name='publicaciones_consultado' value='$publicaciones'>
+                          <input type='text' class='form-control input_consulta'  name='publicaciones_consultado' value='$publicaciones'>
                         </div>
                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' class='form-control input_consulta' id='' name='observacion_consultado' value='$observacion'>
+                          <input type='text' class='form-control input_consulta'  name='observacion_consultado' value='$observacion'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
                           <!--<button type='submit' class='btn btn-info' name='modificar'>Modificar</button>-->
@@ -816,19 +816,19 @@
 
                      <form class='' action='modificar/modificar_ubicacion.php' method='post'>
                        <div class='row'>
-                        <input type='hidden' id='' name='id_yacimiento' value='$id_yacimiento'>
-                        <input type='hidden' id='' name='id_ubicacion' value='$id_ubicacion'>
+                        <input type='hidden'  name='id_yacimiento' value='$id_yacimiento'>
+                        <input type='hidden'  name='id_ubicacion' value='$id_ubicacion'>
                          <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                           <input type='text' class='form-control input_consulta' id='' name='yacimiento_consultado' value='$yacimiento'>
+                           <input type='text' class='form-control input_consulta'  name='yacimiento_consultado' value='$yacimiento'>
                          </div>
                          <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                           <input type='text' class='form-control input_consulta' id='' name='isla_consultado' value='$isla'>
+                           <input type='text' class='form-control input_consulta'  name='isla_consultado' value='$isla'>
                          </div>
                          <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                           <input type='text' class='form-control input_consulta' id='' name='municipio_consultado' value='$municipio'>
+                           <input type='text' class='form-control input_consulta'  name='municipio_consultado' value='$municipio'>
                          </div>
                          <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                           <input type='text' class='form-control input_consulta' id='' name='localidad_consultado' value='$localidad'>
+                           <input type='text' class='form-control input_consulta'  name='localidad_consultado' value='$localidad'>
                          </div>
                          <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
                            <input type='text' class='form-control input_consulta' id='Latitud' name='latitud_consultado' value='$latitud'>
@@ -1010,7 +1010,7 @@
                     echo"
                     <form class='' action='modificar/modificar_especie.php' method='post'>
                       <div class='row'>
-                        <input type='hidden' id='' name='id_especie' value='$id_especie'>
+                        <input type='hidden'  name='id_especie' value='$id_especie'>
                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='especie_consultado' name='especie_consultado' value='$especie'>
                         </div>
@@ -1020,8 +1020,8 @@
                     ";
                     if($aux!=1){
                       echo "
-                      <input type='hidden' id='' name='id_yacimiento' value='$id_yacimiento'>
-                      <input type='hidden' id='' name='id_deposito' value='$id_deposito'>
+                      <input type='hidden'  name='id_yacimiento' value='$id_yacimiento'>
+                      <input type='hidden'  name='id_deposito' value='$id_deposito'>
                           <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
                             <input type='text' class='form-control input_consulta' id='yacimiento_es_consultado' name='yacimiento_es_consultado' value='$yacimiento'>
                           </div>
@@ -1225,7 +1225,7 @@
                     echo"
                     <form class='' action='modificar/modificar_excavacion.php' method='post'>
                       <div class='row'>
-                        <input type='hidden' id='' name='id_excavacion' value='$id_excavacion'>
+                        <input type='hidden'  name='id_excavacion' value='$id_excavacion'>
                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='responsable_consultado' name='responsable_consultado' value='$responsable'>
                         </div>
@@ -1235,10 +1235,10 @@
                         <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='yacimiento_ex_consultado' name='yacimiento_ex_consultado' value='$yacimiento'>
                         </div>
-                        <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group' id='data-container'>
+                        <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group data-container' >
                           <input type='text' class='form-control input_consulta' id='fecha_ex_consultado' name='fecha_ex_consultado' value='$fecha_inicial'>
                         </div>
-                        <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group' id='data-container'>
+                        <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group data-container' >
                           <input type='text' class='form-control input_consulta' id='fecha_ex_fin_consultado' name='fecha_ex_fin_consultado' value='$fecha_final'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
@@ -1523,8 +1523,8 @@
                     echo"
                     <form class='' action='modificar/modificar_publicacion.php' method='post'>
                       <div class='row'>
-                        <input type='hidden' id='' name='id_publicacion' value='$id_publicacion'>
-                        <input type='hidden' id='' name='yacimiento_viejo' value='$yacimiento'>
+                        <input type='hidden'  name='id_publicacion' value='$id_publicacion'>
+                        <input type='hidden'  name='yacimiento_viejo' value='$yacimiento'>
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='titulo_consultado' name='titulo_consultado' value='$title'>
                         </div>
@@ -1537,7 +1537,7 @@
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                           <input type='text' class='form-control input_consulta' id='pdf_consultado' name='pdf_consultado' value='$pdf'>
                         </div>
-                        <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group' id='data-container'>
+                        <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group data-container' >
                           <input type='text' class='form-control input_consulta' id='fecha_publi_consultado' name='fecha_publi_consultado' value='$fecha'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
@@ -1614,8 +1614,8 @@
                       echo"
                       <form class='' action='modificar/modificar_publicacion.php' method='post'>
                         <div class='row'>
-                          <input type='hidden' id='' name='id_publicacion' value='$id_publicacion'>
-                          <input type='hidden' id='' name='yacimiento_viejo' value='$yacimiento'>
+                          <input type='hidden'  name='id_publicacion' value='$id_publicacion'>
+                          <input type='hidden'  name='yacimiento_viejo' value='$yacimiento'>
                           <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                             <input type='text' class='form-control input_consulta' id='titulo_consultado' name='titulo_consultado' value='$title'>
                           </div>
@@ -1628,7 +1628,7 @@
                           <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
                             <input type='text' class='form-control input_consulta' id='pdf_consultado' name='pdf_consultado' value='$pdf'>
                           </div>
-                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group' id='data-container'>
+                          <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group data-container' >
                             <input type='text' class='form-control input_consulta' id='fecha_publi_consultado' name='fecha_publi_consultado' value='$fecha'>
                           </div>
 
@@ -1784,7 +1784,7 @@
                     echo"
                      <form class='' action='modificar/modificar_deposito.php' method='post'>
                         <div class='row'>
-                          <input type='hidden' id='' name='id_deposito' value='$id_deposito'>
+                          <input type='hidden'  name='id_deposito' value='$id_deposito'>
                           <div class='col-lg-4 col-md-4 col-sm-11 col-xs-10 form-group'>
                             <input type='text' class='form-control input_consulta' id='deposito_consultado' name='deposito_consultado' value='$deposit'>
                           </div>

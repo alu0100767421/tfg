@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('#data-container input').datepicker({
+  $('.data-container input').datepicker({
     todayBtn: true,
     language: "es",
     format: "yyyy-mm-dd",

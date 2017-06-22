@@ -16,7 +16,7 @@
 
     <title>Página de inicio del Sistema Geográfico de Paleontología de Canarias</title>
 
-    <link rel="icon" type="/image/png" href="images/logoULL/logotipo-secundario-ULL.png" />
+    <link rel="icon" type="image/png" href="images/logoULL/logotipo-secundario-ULL.png" />
     <link type="text/css" rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="css/index.css"/>
     <link type="text/css" rel="stylesheet" href="css/validar_cookie.css"/>
@@ -64,14 +64,14 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="exampleInputEmail1" tabindex="1">Usuario</label>
+              <label tabindex="1">Usuario</label>
               <select tabindex="1" name="users[]" class="form-control">
                 <option disabled selected>Elija su usuario</option>
 
                 <?php
                   while($usu = pg_fetch_assoc($users)){
                     $user = $usu['nombre'];
-                    echo "<option type='text' value='$user' name='$user'>$user</option>";
+                    echo "<option value='$user' >$user</option>";
                   }
                   pg_free_result($users);
                  ?>

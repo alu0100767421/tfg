@@ -28,7 +28,7 @@
 
   <title>Mapa del servicio Sistema Geográfico de Paleontología de Canarias</title>
 
-  <link rel="icon" type="/image/png" href="../images/logoULL/logotipo-secundario-ULL.png" />
+  <link rel="icon" type="image/png" href="../images/logoULL/logotipo-secundario-ULL.png" />
   <link type="text/css" rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
   <link type="text/css" rel="stylesheet" href="../css/mapa.css"/>
 </head>
@@ -70,7 +70,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12" id="mapa" class="mapa" tabindex="1">
+        <div class="col-sm-12 col-md-12 col-lg-12 mapa" id="mapa" tabindex="1">
           <article>
           </article>
         </div>

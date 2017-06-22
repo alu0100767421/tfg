@@ -15,7 +15,7 @@
 
     <title>Sección para añadir información a la base de datos</title>
 
-    <link rel="icon" type="/image/png" href="../images/logoULL/logotipo-secundario-ULL.png" />
+    <link rel="icon" type="image/png" href="../images/logoULL/logotipo-secundario-ULL.png" />
     <link type="text/css" rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="../css/administracion.css"/>
     <link type="text/css" rel="stylesheet" href="../bootstrap-3.3.7-dist/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
@@ -58,14 +58,14 @@
           <ul class="list-unstyled panel">
             <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a title='acceder a inicio' tabindex='1' href="administracion.php">Inicio</a></li>
             <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a title='acceder a consultar base de datos' tabindex='1' href="consultar_bbdd.php">Consultar/Modificar</a></li>
-            <li id="valoracion"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><a title='acceder a valoraciones' tabindex='1' tabindex='1'  href="valoracion.php">Valoraciones</a>
+            <li id="valoracion"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><a title='acceder a valoraciones' tabindex='1'  href="valoracion.php">Valoraciones</a>
               <ul style="display:none" class="list-unstyled" id="submenu_valoracion">
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a title='acceder a añadir una valoracion' href="valoraciones/add_valoracion.php">Añadir Valoración</a></li>
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a title='acceder a consultar una valoracion' href="valoraciones/consultar_valoracion.php">Consultar Valoración</a></li>
               </ul>
             </li>
             <li class="destacar"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a title='acceder a añadir a la base de datos' tabindex='1' href="add_bbdd.php">Añadir BBDD</a>
-              <ul class="list-unstyled" id="submenu">
+              <ul class="list-unstyled" >
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a title='acceder a añadir yacimientos' tabindex='1' href="anadir/yacimiento.php">Yacimiento</a></li>
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a title='acceder a añadir especies' tabindex='1' href="anadir/especie.php">Especie</a></li>
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a title='acceder a añadir excavación' tabindex='1' href="anadir/excavacion.php">Excavación</a></li>
@@ -115,7 +115,7 @@
           <div class="row">
             <div class="col-lg-12">
               <p tabindex='2' >En esta sección, podrá añadir toda la información descubierta sobre los siguientes campos:</p>
-              <ul class="list-unstyled" id="submenu">
+              <ul class="list-unstyled">
                 <li><a title='acceder a añadir yacimientos' tabindex='2' href="anadir/yacimiento.php">Yacimiento</a></li>
                 <li><a title='acceder a añadir especies' tabindex='2' href="anadir/especie.php">Especie</a></li>
                 <li><a title='acceder a añadir excavación' tabindex='2' href="anadir/excavacion.php">Excavacion</a></li>

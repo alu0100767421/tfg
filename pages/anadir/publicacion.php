@@ -15,7 +15,7 @@
 
     <title>Añadir publicaciones a la base de datos</title>
 
-    <link rel="icon" type="/image/png" href="../../images/logoULL/logotipo-secundario-ULL.png" />
+    <link rel="icon" type="image/png" href="../../images/logoULL/logotipo-secundario-ULL.png" />
     <link type="text/css" rel="stylesheet" href="../../bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="../../css/administracion.css"/>
     <link type="text/css" rel="stylesheet" href="../../bootstrap-3.3.7-dist/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
@@ -110,7 +110,7 @@
           <!--Excavacion-->
           <div class="row">
             <div class="col-lg-offset-0 col-lg-10">
-              <h2  tabindex='2'class="titulos">Añadir Publicación</h2>
+              <h2  tabindex='2' class="titulos">Añadir Publicación</h2>
               <p tabindex='2'>A continuación, podrá añadir a la base de datos una <b>nueva publicación</b>, teniendo en cuenta algunas de sus características.</p>
               <form class="" action="../add_bbdd/add_publicaciones.php" method="post">
                 <div class="row">
@@ -128,7 +128,7 @@
                   <div class="col-lg-4 form-group">
                     <select tabindex='2' name="Yacimientos_Publicacion" id="Yacimientos_Publicacion" class="form-control" onchange="publicacion(this.value)">
                       <option disabled selected>YACIMIENTOS</option>
-                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
+                      <option  value='NINGUNO'>NINGUNO</option>
                       <?php
                         $consulta_yacimiento="SELECT yacimiento
                                               FROM yacimiento
@@ -137,7 +137,7 @@
                         echo pg_last_error();
                         while($resultado2 = pg_fetch_assoc($resultado)){
                           $aux = $resultado2['yacimiento'];
-                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
+                          echo "<option  value='$aux' >$aux</option>";
                         }
 
                       ?>

@@ -15,7 +15,7 @@
 
     <title>Añadir especies a la base de datos</title>
 
-    <link rel="icon" type="/image/png" href="../../images/logoULL/logotipo-secundario-ULL.png" />
+    <link rel="icon" type="image/png" href="../../images/logoULL/logotipo-secundario-ULL.png" />
     <link type="text/css" rel="stylesheet" href="../../bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="../../css/administracion.css"/>
     <link type="text/css" rel="stylesheet" href="../../bootstrap-3.3.7-dist/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
@@ -127,7 +127,7 @@
                   <div class="col-lg-5 form-group">
                     <select  tabindex='2' name="Yacimientos_Especie" id="Yacimientos_Especie" class="form-control" onchange="especie(this.value)">
                       <option disabled selected>YACIMIENTOS</option>
-                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
+                      <option  value='NINGUNO' >NINGUNO</option>
                       <?php
                         $consulta_yacimiento="SELECT yacimiento
                                               FROM yacimiento
@@ -136,7 +136,7 @@
                         echo pg_last_error();
                         while($resultado2 = pg_fetch_assoc($resultado)){
                           $aux = $resultado2['yacimiento'];
-                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
+                          echo "<option  value='$aux' >$aux</option>";
                         }
 
                       ?>
@@ -147,7 +147,7 @@
                   <div class="col-lg-5 form-group">
                     <select  tabindex='2' name="Deposito" class="form-control" onchange="deposito(this.value)">
                       <option disabled selected>DEPÓSITO</option>
-                      <option type='text' value='NINGUNO' name='NINGUNO'>NINGUNO</option>
+                      <option  value='NINGUNO'>NINGUNO</option>
                       <?php
                         $consulta_yacimiento="SELECT deposito
                                               FROM deposito;";
@@ -155,7 +155,7 @@
                         echo pg_last_error();
                         while($resultado2 = pg_fetch_assoc($resultado)){
                           $aux = $resultado2['deposito'];
-                          echo "<option type='text' value='$aux' name='$aux'>$aux</option>";
+                          echo "<option  value='$aux' >$aux</option>";
                         }
                       ?>
                     </select>
