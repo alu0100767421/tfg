@@ -35,13 +35,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="https://www.ull.es/"><img class="imagen-menu" alt="Universidad de La Laguna" title="Universidad de La Laguna" src="../../images/logoULL/logotipo-principal-recortada.png"></a>
+          <a tabindex='1' class="navbar-brand" href="https://www.ull.es/"><img class="imagen-menu" alt="Universidad de La Laguna" title="Universidad de La Laguna" src="../../images/logoULL/logotipo-principal-recortada.png"></a>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="../../index.php">Inicio</a></li>
-            <li><a href="../mapa.php">Mapa</a></li>
+            <li><a tabindex='1' href="../../index.php">Inicio</a></li>
+            <li><a tabindex='1' href="../mapa.php">Mapa</a></li>
           </ul>
         </div>
 
@@ -55,34 +55,34 @@
       <div class="row">
         <div class="col-lg-2 col-md-4 col-xs-8 col-sm-6 ">
           <ul class="list-unstyled panel">
-            <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a href="../administracion.php">Inicio</a></li>
-            <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a href="../consultar_bbdd.php">Consultar/Modificar</a></li>
-            <li id="valoracion"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><a href="../valoracion.php">Valoraciones</a>
+            <li><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a tabindex='1' href="../administracion.php">Inicio</a></li>
+            <li><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a tabindex='1' href="../consultar_bbdd.php">Consultar/Modificar</a></li>
+            <li id="valoracion"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><a tabindex='1' href="../valoracion.php">Valoraciones</a>
               <ul style="display:none" class="list-unstyled" id="submenu_valoracion">
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="../valoraciones/add_valoracion.php">Añadir Valoración</a></li>
                 <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="../valoraciones/consultar_valoracion.php">Consultar Valoración</a></li>
               </ul>
             </li>
-            <li><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a href="../add_bbdd.php">Añadir BBDD</a>
+            <li><span class="glyphicon glyphicon-plus" aria-hidden="true"></span><a tabindex='1' href="../add_bbdd.php">Añadir BBDD</a>
               <ul class="list-unstyled" id="submenu">
-                <li class="destacar2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="yacimiento.php">Yacimiento</a></li>
-                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="especie.php">Especie</a></li>
-                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="excavacion.php">Excavación</a></li>
-                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="publicacion.php">Publicación</a></li>
-                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a href="deposito.php">Depósito</a></li>
+                <li class="destacar2"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a tabindex='1' href="yacimiento.php">Yacimiento</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a tabindex='1' href="especie.php">Especie</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a tabindex='1' href="excavacion.php">Excavación</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a tabindex='1' href="publicacion.php">Publicación</a></li>
+                <li><span class="glyphicon glyphicon-minus" aria-hidden="true"></span><a tabindex='1' href="deposito.php">Depósito</a></li>
               </ul>
             </li>
             <?php
               //echo "Este es el usuario $username";
               if ($username == "admin") {
-                echo "<li><span class='glyphicon glyphicon-user' aria-hidden='true'></span><a href='../gestion_usuarios.php'>Gestión Usuarios</a></li>";
+                echo "<li><span class='glyphicon glyphicon-user' aria-hidden='true'></span><a tabindex='1' href='../gestion_usuarios.php'>Gestión Usuarios</a></li>";
               }
              ?>
           </ul>
 
           <div class="row">
             <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-              <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_cerrar_sesion">Cerrar Sesión</button>
+              <button tabindex='1' type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_cerrar_sesion">Cerrar Sesión</button>
             </div>
           </div>
         </div>
@@ -92,15 +92,15 @@
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Cierre de sesión</h4>
+                <button  tabindex='2' type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4  tabindex='1' class="modal-title">Cierre de sesión</h4>
               </div>
               <div class="modal-body">
-                <p>¿Está seguro que desea cerrar sesión?</p>
+                <p tabindex='2' >¿Está seguro que desea cerrar sesión?</p>
               </div>
               <div class="modal-footer">
                 <form action="../cerrar_sesion.php" method="post">
-                  <button type="submit" class="btn btn-danger boton">Cerrar Sesión</button><br>
+                  <button  tabindex='2' type="submit" class="btn btn-danger boton">Cerrar Sesión</button><br>
                 </form>
               </div>
             </div>
@@ -111,12 +111,12 @@
           <!--Yacimiento-->
           <div class="row">
             <div class="col-lg-offset-0 col-lg-10">
-              <h2 class="titulos">Añadir Yacimientos</h2>
-              <p>A continuación, podrá añadir a la base de datos un nuevo yacimiento, teniendo en cuenta algunas de sus características y su ubicación.</p>
+              <h2  tabindex='2'class="titulos">Añadir Yacimientos</h2>
+              <p tabindex='2'>A continuación, podrá añadir a la base de datos un nuevo yacimiento, teniendo en cuenta algunas de sus características y su ubicación.</p>
               <form class="" action="../add_bbdd/add_yacimiento.php" method="post">
                 <div class="row">
                   <div class="col-lg-3 form-group">
-                    <select name="Islas" id="Islas" class="form-control" onchange="isla(this.value)">
+                    <select tabindex='2' name="Islas" id="Islas" class="form-control" onchange="isla(this.value)">
                       <option disabled selected>ISLA</option>
                       <option type='text' value='LA PALMA' name='LA PALMA'>LA PALMA</option>
                       <option type='text' value='LA GOMERA' name='LA GOMERA'>LA GOMERA</option>
@@ -130,13 +130,13 @@
                   </div>
 
                   <div id="municipiosvacio" class="col-lg-3 form-group">
-                    <select name="MunicipiosVacio" id="MunicipiosVacio" class="form-control">
+                    <select tabindex='2' name="MunicipiosVacio" id="MunicipiosVacio" class="form-control">
                       <option disabled selected>MUNICIPIOS</option>
                     </select>
                   </div>
                   <!-- MUNICIPIOS DE LA PALMA-->
                   <div style="display:none" id="municipioslapalma" class="col-lg-3 form-group">
-                    <select name="MunicipiosLaPalma" id="MunicipiosLaPalma" class="form-control" onchange="municipio(this.value)">
+                    <select tabindex='2' name="MunicipiosLaPalma" id="MunicipiosLaPalma" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='BARLOVENTO' name='BARLOVENTO'>BARLOVENTO</option>
                       <option type='text' value='BREÑA ALTA' name='BRENA ALTA'>BREÑA ALTA</option>
@@ -156,7 +156,7 @@
                   </div>
                   <!-- MUNICIPIOS DE LA GOMERA-->
                   <div style="display:none" id="municipioslagomera" class="col-lg-3 form-group">
-                    <select name="MunicipiosLaGomera" id="MunicipiosLaGomera" class="form-control" onchange="municipio(this.value)">
+                    <select tabindex='2' name="MunicipiosLaGomera" id="MunicipiosLaGomera" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='AGULO' name='AGULO'>AGULO</option>
                       <option type='text' value='ALAJERÓ' name='ALAJERO'>ALAJERÓ</option>
@@ -168,7 +168,7 @@
                   </div>
                   <!-- MUNICIPIOS DE EL HIERRO-->
                   <div style="display:none" id="municipioselhierro" class="col-lg-3 form-group">
-                    <select name="MunicipiosElHierro" id="MunicipiosElHierro" class="form-control" onchange="municipio(this.value)">
+                    <select tabindex='2' name="MunicipiosElHierro" id="MunicipiosElHierro" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='EL PINAR' name='EL PINAR'>EL PINAR</option>
                       <option type='text' value='FRONTERA' name='FRONTERA'>FRONTERA</option>
@@ -177,7 +177,7 @@
                   </div>
                   <!-- MUNICIPIOS DE TENERIFE-->
                   <div style="display:none" id="municipiostenerife" class="col-lg-3 form-group">
-                    <select name="MunicipiosTenerife" id="MunicipiosTenerife" class="form-control" onchange="municipio(this.value)">
+                    <select tabindex='2' name="MunicipiosTenerife" id="MunicipiosTenerife" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='ADEJE' name='ADEJE'>ADEJE</option>
                       <option type='text' value='ARAFO' name='ARAFO'>ARAFO</option>
@@ -214,7 +214,7 @@
                   </div>
                   <!-- MUNICIPIOS DE GRAN CANARIA-->
                   <div style="display:none" id="municipiosgrancanaria" class="col-lg-3 form-group">
-                    <select name="MunicipiosGranCanaria" id="MunicipiosGranCanaria" class="form-control" onchange="municipio(this.value)">
+                    <select tabindex='2' name="MunicipiosGranCanaria" id="MunicipiosGranCanaria" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='AGAETE' name='AGAETE'>AGAETE</option>
                       <option type='text' value='AGÜINES' name='AGUINES'>AGÜINES</option>
@@ -242,7 +242,7 @@
 
                   <!-- MUNICIPIOS DE FUERTEVENTURA-->
                   <div style="display:none" id="municipiosfuerteventura" class="col-lg-3 form-group">
-                    <select name="MunicipiosFuerteventura" id="MunicipiosFuerteventura" class="form-control" onchange="municipio(this.value)">
+                    <select tabindex='2' name="MunicipiosFuerteventura" id="MunicipiosFuerteventura" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='ANTIGUA' name='ANTIGUA'>ANTIGUA</option>
                       <option type='text' value='BETANCURIA' name='BETANCURIA'>BETANCURIA</option>
@@ -255,7 +255,7 @@
 
                   <!-- MUNICIPIOS DE LANZAROTE-->
                   <div style="display:none" id="municipioslanzarote" class="col-lg-3 form-group">
-                    <select name="MunicipiosLanzarote" id="MunicipiosLanzarote" class="form-control" onchange="municipio(this.value)">
+                    <select tabindex='2' name="MunicipiosLanzarote" id="MunicipiosLanzarote" class="form-control" onchange="municipio(this.value)">
                       <option disabled selected>MUNICIPIOS</option>
                       <option type='text' value='ARECIFE' name='ARECIFE'>ARECIFE</option>
                       <option type='text' value='HARÍA' name='HARIA'>HARÍA</option>
@@ -269,44 +269,44 @@
                   <input type="hidden" name="municipio_seleccionado" id="municipio_seleccionado">
 
                   <div id="localidad" class="col-lg-3 form-group">
-                    <input type="text" class="form-control" id="Localidad" name="localidad" placeholder="LOCALIDAD">
+                    <input tabindex='2' type="text" class="form-control" id="Localidad" name="localidad" placeholder="LOCALIDAD">
                   </div>
                   <div  id="nombre_yacimiento" class="col-lg-3 form-group">
-                    <input type="text" class="form-control" id="Nombre_yacimiento" name="nombre_yacimiento" placeholder="NOMBRE YACIMIENTO">
+                    <input tabindex='2' type="text" class="form-control" id="Nombre_yacimiento" name="nombre_yacimiento" placeholder="NOMBRE YACIMIENTO">
                   </div>
                 </div>
                 <div class="row">
                   <div  id="latitud" class="col-lg-3 form-group">
-                    <input type="text" class="form-control" id="Latitud" name="latitud" placeholder="LATITUD">
+                    <input tabindex='2' type="text" class="form-control" id="Latitud" name="latitud" placeholder="LATITUD">
                   </div>
                   <div  id="longitud" class="col-lg-3 form-group">
-                    <input type="text" class="form-control" id="Longitud" name="longitud" placeholder="LONGITUD">
+                    <input tabindex='2' type="text" class="form-control" id="Longitud" name="longitud" placeholder="LONGITUD">
                   </div>
                   <div class="col-lg-3 form-group" id="altura">
-                    <input type="number" class="form-control" id="Altura" name="altura" placeholder="ALTURA">
+                    <input tabindex='2' type="number" class="form-control" id="Altura" name="altura" placeholder="ALTURA">
                   </div>
                   <div class="col-lg-3 form-group" id="edad">
-                    <input type="text" class="form-control" id="Edad" name="edad" placeholder="EDAD">
+                    <input tabindex='2' type="text" class="form-control" id="Edad" name="edad" placeholder="EDAD">
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-3 form-group" id="tipo_y">
-                    <input type="text" class="form-control" id="Tipo_y" name="tipo_y" placeholder="TIPO">
+                    <input tabindex='2' type="text" class="form-control" id="Tipo_y" name="tipo_y" placeholder="TIPO">
                   </div>
                   <div class="col-lg-9 form-group" id="observaciones_y">
-                    <textarea class="form-control" rows="1" id="observaciones_y" name="observaciones_y" placeholder="OBSERVACIONES"></textarea>
+                    <textarea tabindex='2' class="form-control" rows="1" id="observaciones_y" name="observaciones_y" placeholder="OBSERVACIONES"></textarea>
                   </div>
                 </div>
 
                 <div class="row">
-                  <div class="col-lg-6" class="mapa_google" id="map">
+                  <div tabindex='2' class="col-lg-6" class="mapa_google" id="map">
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-lg-2 col-md-3 col-xs-12 col-sm-3">
-                    <button type="submit" class="btn btn-success">Enviar</button>
+                    <button tabindex='2' type="submit" class="btn btn-success">Enviar</button>
                   </div>
                 </div>
               </form>
@@ -321,8 +321,8 @@
     <br><br><br><br><br>
     <div class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="container">
-        <p class="navbar-text pull-left">© 2017 Alexander Cole Mora
-          <a href="https://www.ull.es/" target="_blank" >Universidad de La Laguna</a>
+        <p tabindex='2' class="navbar-text pull-left">© 2017 Alexander Cole Mora
+          <a tabindex='2' href="https://www.ull.es/" target="_blank" >Universidad de La Laguna</a>
         </p>
       </div>
     </div>
