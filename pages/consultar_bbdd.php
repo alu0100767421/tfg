@@ -912,35 +912,40 @@
 
                 if($especie=="" && $tipo_especie=="" && ($yacimiento_especie=="" || $yacimiento_especie=="NINGUNO") && ($deposito_especie=="" || $deposito_especie=="NINGUNO")){
                   $consulta="SELECT *
-                             FROM especie;";
+                             FROM especie
+                             ORDER BY especie ASC;";
                   $aux=1;
                 }
                 elseif($especie!="" && ($yacimiento_especie=="" || $yacimiento_especie=="NINGUNO") && ($deposito_especie=="" || $deposito_especie=="NINGUNO")){
                   if($tipo_especie==""){
                     $consulta="SELECT *
                                FROM especie
-                               WHERE especie LIKE'".$especie."%';";
+                               WHERE especie LIKE'".$especie."%'
+                               ORDER BY especie ASC;";
                   }
                   else {
                     $consulta="SELECT *
                                FROM especie
-                               WHERE especie LIKE '".$especie."%' AND tipo_especie LIKE '".$tipo_especie."%';";
+                               WHERE especie LIKE '".$especie."%' AND tipo_especie LIKE '".$tipo_especie."%'
+                               ORDER BY especie ASC;";
                   }
                   $aux=1;
                 }
                 elseif ($tipo_especie!="" && ($yacimiento_especie=="" || $yacimiento_especie=="NINGUNO") && ($deposito_especie=="" || $deposito_especie=="NINGUNO")) {
                   $consulta="SELECT *
                              FROM especie
-                             WHERE tipo_especie LIKE'".$tipo_especie."%';";
+                             WHERE tipo_especie LIKE'".$tipo_especie."%'
+                             ORDER BY especie ASC;";
                   $aux=1;
                 }
+
                 elseif (($yacimiento_especie=="" || $yacimiento_especie=="NINGUNO") && ($deposito_especie!="" || $deposito_especie!="NINGUNO")) {
 
                   $consulta="SELECT idespecie, especie, tipo_especie, iddeposito, deposito
                              FROM especie NATURAL JOIN especie_has_deposito NATURAL JOIN deposito
                              WHERE deposito='".$deposito_especie."';";
 
-                  $aux=1;
+                  $aux=2;
                 }
 
                 elseif (($yacimiento_especie!="" || $yacimiento_especie!="NINGUNO")) {
@@ -949,15 +954,15 @@
                     $consulta="SELECT idespecie, especie, tipo_especie, idyacimiento, yacimiento
                                FROM especie NATURAL JOIN yacimiento_has_especie NATURAL JOIN yacimiento
                                WHERE yacimiento='".$yacimiento_especie."';";
-                    $aux=1;
+                    $aux=3;
 
-                  }
+                  }/*
                   else {
 
                     $consulta="SELECT idespecie, especie, tipo_especie, idyacimiento, yacimiento, iddeposito, deposito
                                FROM especie NATURAL JOIN yacimiento_has_especie NATURAL JOIN yacimiento NATURAL JOIN especie_has_deposito NATURAL JOIN deposito
                                WHERE yacimiento='".$yacimiento_especie."' AND deposito='".$deposito_especie."';";
-                  }
+                  }*/
 
                 }
 
@@ -967,7 +972,260 @@
                 $resolucion=pg_query($link,$consulta);
                 $contador=0;
                 //echo pg_last_error();
-                if(pg_num_rows($resolucion)>0){
+                if($aux==1){
+                  if(pg_num_rows($resolucion)>0){
+                    //echo "  Éxito de consulta";
+                    echo "
+                    <hr class='linea'>
+                    <div class='row'>
+                      <div class='col-lg-4 col-md-10 col-sm-4 col-xs-4 form-group'>
+                        <h5><b>ESPECIE</b></h5>
+                      </div>
+                      <div class='col-lg-4 col-md-10 col-sm-4 col-xs-4 form-group'>
+                        <h5><b>TIPO</b></h5>
+                      </div>
+                    </div>
+                    ";
+                    while($resultado=pg_fetch_assoc($resolucion)){
+                      $id_especie=$resultado['idespecie'];
+                      $especie=$resultado['especie'];
+                      $tipo_especie=$resultado['tipo_especie'];
+
+                      echo"
+                      <form class='' action='modificar/modificar_especie.php' method='post'>
+                        <div class='row'>
+                          <input type='hidden'  name='id_especie' value='$id_especie'>
+                          <div class='col-lg-4 col-md-10 col-sm-11 col-xs-10 form-group'>
+                            <input type='text' class='form-control input_consulta' id='especie_consultado' name='especie_consultado' value='$especie'>
+                          </div>
+                          <div class='col-lg-4 col-md-10 col-sm-11 col-xs-10 form-group'>
+                            <input type='text' class='form-control input_consulta' id='tipo_especie_consultado' name='tipo_especie_consultado' value='$tipo_especie'>
+                          </div>
+
+                        <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
+                          <!--<button type='submit' class='btn btn-info' name='modificar'>Modificar</button>-->
+                          <button type='button' title='Modica el nombre o el tipo de la especie' class='btn btn-info' data-toggle='modal' data-target='#modal_modificar$contador'>Modificar</button>
+                        </div>
+                        <div class='col-lg-1 col-md-10 col-xs-1 col-sm-1'>
+                          <!--<button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>-->
+                          <button type='button' title='Borra definitivamente la especie de la base de datos' class='btn btn-danger' data-toggle='modal' data-target='#modal_eliminar$contador'>Eliminar</button>
+                        </div>
+                      </div>
+
+                      <div id='modal_modificar$contador' class='modal fade' role='dialog'>
+                        <div class='modal-dialog'>
+                          <!-- Modal content-->
+                          <div class='modal-content'>
+                            <div class='modal-header'>
+                              <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                              <h4 class='modal-title'>Modificar especie</h4>
+                            </div>
+                            <div class='modal-body'>
+                              <p>¿Está seguro que desea modificar la especie?</p>
+                            </div>
+                            <div class='modal-footer'>
+                                <button type='submit' class='btn btn-info boton' name='modificar'>Modificar</button><br>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div id='modal_eliminar$contador' class='modal fade' role='dialog'>
+                        <div class='modal-dialog'>
+                          <!-- Modal content-->
+                          <div class='modal-content'>
+                            <div class='modal-header'>
+                              <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                              <h4 class='modal-title'>Eliminar especie</h4>
+                            </div>
+                            <div class='modal-body'>
+                              <p>¿Está seguro que desea eliminar la especie?</p>
+                            </div>
+                            <div class='modal-footer'>
+                                <button type='submit' class='btn btn-danger boton' name='eliminar'>Eliminar</button><br>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </form>
+                      ";
+                      $contador++;
+                    }
+                  }
+                  else {
+                    echo "
+                    <hr class='linea'>
+                    <div class='row'>
+                      <div class='col-lg-10 col-md-4 col-sm-4 col-xs-4 form-group'>
+                        <h5><b>No se ha encontrado datos en esta consulta</b></h5>
+                      </div>
+                    </div>
+                    ";
+                  }
+
+                }//fin de si aux es igual a 1
+
+                if($aux==2){
+                  if(pg_num_rows($resolucion)>0){
+                    //echo "  Éxito de consulta";
+                    echo "
+                    <hr class='linea'>
+                    <div class='row'>
+                      <div class='col-lg-12 col-md-10 col-sm-4 col-xs-4 form-group'>
+                        <h5>Éstas son las especies del depósito <b>$deposito_especie</b></h5>
+                      </div>
+                    </div>
+                    <div class='row'>
+                      <div class='col-lg-4 col-md-10 col-sm-4 col-xs-4 form-group'>
+                        <h5><b>ESPECIE</b></h5>
+                      </div>
+                      <div class='col-lg-4 col-md-10 col-sm-4 col-xs-4 form-group'>
+                        <h5><b>TIPO</b></h5>
+                      </div>
+                    </div>
+                    ";
+                    while($resultado=pg_fetch_assoc($resolucion)){
+                      $id_especie=$resultado['idespecie'];
+                      $id_deposito=$resultado['iddeposito'];
+                      $especie=$resultado['especie'];
+                      $tipo_especie=$resultado['tipo_especie'];
+
+                      echo"
+                      <form class='' action='modificar/modificar_especie_deposito.php' method='post'>
+                        <div class='row'>
+                          <input type='hidden'  name='id_especie' value='$id_especie'>
+                          <input type='hidden'  name='id_deposito' value='$id_deposito'>
+                          <div class='col-lg-4 col-md-10 col-sm-11 col-xs-10 form-group'>
+                            <input type='text' readonly='readonly' title='Si desea modificar la especia búsquela por su nombre' class='form-control input_consulta' id='especie_consultado' name='especie_consultado' value='$especie'>
+                          </div>
+                          <div class='col-lg-4 col-md-10 col-sm-11 col-xs-10 form-group'>
+                            <input type='text' readonly='readonly' title='Si desea modificar la especia búsquela por su nombre' class='form-control input_consulta' id='tipo_especie_consultado' name='tipo_especie_consultado' value='$tipo_especie'>
+                          </div>
+
+                        <div class='col-lg-1 col-md-10 col-xs-1 col-sm-1'>
+                          <!--<button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>-->
+                          <button type='button' title='Borra la especie del depósito' class='btn btn-danger' data-toggle='modal' data-target='#modal_eliminar$contador'>Eliminar del depósito</button>
+                        </div>
+                      </div>
+
+
+                      <div id='modal_eliminar$contador' class='modal fade' role='dialog'>
+                        <div class='modal-dialog'>
+                          <!-- Modal content-->
+                          <div class='modal-content'>
+                            <div class='modal-header'>
+                              <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                              <h4 class='modal-title'>Eliminar especie del depósito</h4>
+                            </div>
+                            <div class='modal-body'>
+                              <p>¿Está seguro que desea eliminar la especie <b>$especie</b> del depósito <b>$deposito_especie</b>?</p>
+                            </div>
+                            <div class='modal-footer'>
+                                <button type='submit' class='btn btn-danger boton' name='eliminar'>Eliminar</button><br>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </form>
+                      ";
+                      $contador++;
+                    }
+                  }
+                  else {
+                    echo "
+                    <hr class='linea'>
+                    <div class='row'>
+                      <div class='col-lg-10 col-md-4 col-sm-4 col-xs-4 form-group'>
+                        <h5><b>No se ha encontrado datos en esta consulta</b></h5>
+                      </div>
+                    </div>
+                    ";
+                  }
+
+                }//fin de si aux es igual a 2
+
+                if($aux==3){
+                  if(pg_num_rows($resolucion)>0){
+                    //echo "  Éxito de consulta";
+                    echo "
+                    <hr class='linea'>
+                    <div class='row'>
+                      <div class='col-lg-12 col-md-10 col-sm-4 col-xs-4 form-group'>
+                        <h5>Éstas son las especies del yacimiento <b>$yacimiento_especie</b></h5>
+                      </div>
+                    </div>
+                    <div class='row'>
+                      <div class='col-lg-4 col-md-10 col-sm-4 col-xs-4 form-group'>
+                        <h5><b>ESPECIE</b></h5>
+                      </div>
+                      <div class='col-lg-4 col-md-10 col-sm-4 col-xs-4 form-group'>
+                        <h5><b>TIPO</b></h5>
+                      </div>
+                    </div>
+                    ";
+                    while($resultado=pg_fetch_assoc($resolucion)){
+                      $id_especie=$resultado['idespecie'];
+                      $id_yacimiento=$resultado['idyacimiento'];
+                      $especie=$resultado['especie'];
+                      $tipo_especie=$resultado['tipo_especie'];
+
+
+
+
+                      echo"
+                      <form class='' action='modificar/modificar_especie_yacimiento.php' method='post'>
+                        <div class='row'>
+                          <input type='hidden'  name='id_especie' value='$id_especie'>
+                          <input type='hidden'  name='id_yacimiento' value='$id_yacimiento'>
+                          <div class='col-lg-4 col-md-10 col-sm-11 col-xs-10 form-group'>
+                            <input type='text' readonly='readonly' title='Si desea modificar la especia búsquela por su nombre' class='form-control input_consulta' id='especie_consultado' name='especie_consultado' value='$especie'>
+                          </div>
+                          <div class='col-lg-4 col-md-10 col-sm-11 col-xs-10 form-group'>
+                            <input type='text' readonly='readonly' title='Si desea modificar la especia búsquela por su nombre' class='form-control input_consulta' id='tipo_especie_consultado' name='tipo_especie_consultado' value='$tipo_especie'>
+                          </div>
+
+                        <div class='col-lg-1 col-md-10 col-xs-1 col-sm-1'>
+                          <!--<button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>-->
+                          <button type='button' title='Borra la especie del yacimiento' class='btn btn-danger' data-toggle='modal' data-target='#modal_eliminar$contador'>Eliminar del yacimiento</button>
+                        </div>
+                      </div>
+
+
+                      <div id='modal_eliminar$contador' class='modal fade' role='dialog'>
+                        <div class='modal-dialog'>
+                          <!-- Modal content-->
+                          <div class='modal-content'>
+                            <div class='modal-header'>
+                              <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                              <h4 class='modal-title'>Eliminar especie del yacimiento</h4>
+                            </div>
+                            <div class='modal-body'>
+                              <p>¿Está seguro que desea eliminar la especie <b>$especie</b> del yacimiento <b>$yacimiento_especie</b>?</p>
+                            </div>
+                            <div class='modal-footer'>
+                                <button type='submit' class='btn btn-danger boton' name='eliminar'>Eliminar</button><br>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      </form>
+                      ";
+                      $contador++;
+                    }
+                  }
+                  else {
+                    echo "
+                    <hr class='linea'>
+                    <div class='row'>
+                      <div class='col-lg-10 col-md-4 col-sm-4 col-xs-4 form-group'>
+                        <h5><b>No se ha encontrado datos en esta consulta</b></h5>
+                      </div>
+                    </div>
+                    ";
+                  }
+
+                }//fin de si aux es igual a 3
+                /*if(pg_num_rows($resolucion)>0){
                   //echo "  Éxito de consulta";
                   echo "
                   <hr class='linea'>
@@ -1091,7 +1349,7 @@
                     </div>
                   </div>
                   ";
-                }
+                }*/
 
 
               }//FIN DE CONSULTAS DE ESPECIE
