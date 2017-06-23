@@ -116,7 +116,7 @@
               <p tabindex='2' >A continuación, podrá añadir una valoración a yacimiento, teniendo en cuenta los criterios estipulados.</p>
               <form class="" action="add_bbdd_valoracion.php" method="post">
                 <div class="row">
-                  <div class="col-lg-2 form-group">
+                  <div class="col-lg-5 form-group">
                     <select  tabindex='2' name="Yacimientos_Valoracion" id="Yacimientos_Valoracion" class="form-control" onchange="yacimientovaloracion(this.value)">
                       <option disabled selected>YACIMIENTOS</option>
 

@@ -115,7 +115,7 @@
               <h2  tabindex='2' class="titulos">Consultar Valoración</h2>
               <p tabindex='2'>A continuación, podrá consultar o modificar la valoración de un yacimiento.</p>
                 <div class="row">
-                  <div class="col-lg-2 form-group">
+                  <div class="col-lg-5 form-group">
                     <select tabindex='2' name="Yacimientos_Valoracion" id="Yacimientos_Valoracion" class="form-control" onchange="yacimientovaloracion(this.value)">
                       <option disabled selected>YACIMIENTOS</option>
                       <?php
