@@ -475,10 +475,10 @@
 
                 <div class="row">
                   <div class="col-lg-1 col-md-3 col-xs-12 col-sm-3">
-                    <button tabindex='2' type="submit" class="btn btn-success" onclick="consultas()">Consultar</button>
+                    <button tabindex='2' title='Realizar la consulta' type="submit" class="btn btn-success" onclick="consultas()">Consultar</button>
                   </div>
                   <div class="col-lg-1 col-md-3 col-xs-12 col-sm-3">
-                    <button tabindex='2' type="submit" class="btn btn-danger" onclick="limpiar_cookie()">Limpiar</button>
+                    <button tabindex='2' title='Limpiar las consultas' type="submit" class="btn btn-danger" onclick="limpiar_cookie()">Limpiar</button>
                   </div>
                 </div>
               <!--</form>-->
