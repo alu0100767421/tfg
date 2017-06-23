@@ -950,13 +950,14 @@
 
                 elseif (($yacimiento_especie!="" || $yacimiento_especie!="NINGUNO")) {
 
-                  if($deposito_especie=="" || $deposito_especie=="NINGUNO"){
+                  //if($deposito_especie=="" || $deposito_especie=="NINGUNO"){
                     $consulta="SELECT idespecie, especie, tipo_especie, idyacimiento, yacimiento
                                FROM especie NATURAL JOIN yacimiento_has_especie NATURAL JOIN yacimiento
                                WHERE yacimiento='".$yacimiento_especie."';";
                     $aux=3;
 
-                  }/*
+                  //}
+                  /*
                   else {
 
                     $consulta="SELECT idespecie, especie, tipo_especie, idyacimiento, yacimiento, iddeposito, deposito
@@ -1096,10 +1097,10 @@
                           <input type='hidden'  name='id_especie' value='$id_especie'>
                           <input type='hidden'  name='id_deposito' value='$id_deposito'>
                           <div class='col-lg-4 col-md-10 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' readonly='readonly' title='Si desea modificar la especia búsquela por su nombre' class='form-control input_consulta' id='especie_consultado' name='especie_consultado' value='$especie'>
+                            <input type='text' readonly='readonly' title='Si desea modificar la especie búsquela por su nombre' class='form-control input_consulta' id='especie_consultado' name='especie_consultado' value='$especie'>
                           </div>
                           <div class='col-lg-4 col-md-10 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' readonly='readonly' title='Si desea modificar la especia búsquela por su nombre' class='form-control input_consulta' id='tipo_especie_consultado' name='tipo_especie_consultado' value='$tipo_especie'>
+                            <input type='text' readonly='readonly' title='Si desea modificar la especie búsquela por su nombre' class='form-control input_consulta' id='tipo_especie_consultado' name='tipo_especie_consultado' value='$tipo_especie'>
                           </div>
 
                         <div class='col-lg-1 col-md-10 col-xs-1 col-sm-1'>
@@ -1178,10 +1179,10 @@
                           <input type='hidden'  name='id_especie' value='$id_especie'>
                           <input type='hidden'  name='id_yacimiento' value='$id_yacimiento'>
                           <div class='col-lg-4 col-md-10 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' readonly='readonly' title='Si desea modificar la especia búsquela por su nombre' class='form-control input_consulta' id='especie_consultado' name='especie_consultado' value='$especie'>
+                            <input type='text' readonly='readonly' title='Si desea modificar la especie búsquela por su nombre' class='form-control input_consulta' id='especie_consultado' name='especie_consultado' value='$especie'>
                           </div>
                           <div class='col-lg-4 col-md-10 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' readonly='readonly' title='Si desea modificar la especia búsquela por su nombre' class='form-control input_consulta' id='tipo_especie_consultado' name='tipo_especie_consultado' value='$tipo_especie'>
+                            <input type='text' readonly='readonly' title='Si desea modificar la especie búsquela por su nombre' class='form-control input_consulta' id='tipo_especie_consultado' name='tipo_especie_consultado' value='$tipo_especie'>
                           </div>
 
                         <div class='col-lg-1 col-md-10 col-xs-1 col-sm-1'>
