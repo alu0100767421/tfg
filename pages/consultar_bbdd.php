@@ -313,7 +313,7 @@
                     <input tabindex='2' type="text" class="form-control" id="Tipo_y" name="tipo_y" placeholder="TIPO">
                   </div>
                   <div class="col-lg-1 form-group" id="altura">
-                    <input tabindex='2' type="number" class="form-control" id="Altura" name="altura" placeholder="ALTURA">
+                    <input tabindex='2' title='Recuerde que solo debe introducir un número' type="number" class="form-control" id="Altura" name="altura" placeholder="ALTURA">
                   </div>
                 </div>
                 <!--Fin de Yacimiento-->
@@ -464,10 +464,10 @@
 
                 <!--Publicaciones-->
                 <div style="display:none" class="row" id="consulta_deposito">
-                  <div class="col-lg-2 form-group">
+                  <div class="col-lg-4 form-group">
                     <input tabindex='2' type="text" class="form-control" id="deposito" name="deposito" placeholder="NOMBRE">
                   </div>
-                  <div class="col-lg-2 form-group">
+                  <div class="col-lg-4 form-group">
                     <input tabindex='2' type="text" class="form-control" id="pais" name="pais" placeholder="PAIS">
                   </div>
                 </div>
@@ -669,30 +669,30 @@
 
                         <input type='hidden'  name='id_yacimiento' value='$id_yacimiento'>
                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' class='form-control input_consulta'  name='yacimiento_consultado' value='$yacimiento'>
+                          <input type='text' title='$yacimiento' class='form-control input_consulta'  name='yacimiento_consultado' value='$yacimiento'>
                         </div>
                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' class='form-control input_consulta'  name='edad_consultado' value='$edad'>
+                          <input type='text' title='$edad' class='form-control input_consulta'  name='edad_consultado' value='$edad'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
-                          <input type='number' class='form-control input_consulta'  name='altura_consultado' value='$altura'>
+                          <input type='number' title='Si va a modicar la altura, recuerde que solo debe introducir un número' class='form-control input_consulta'  name='altura_consultado' value='$altura'>
                         </div>
                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' class='form-control input_consulta'  name='tipo_consultado' value='$tipo'>
+                          <input type='text' title='$tipo' class='form-control input_consulta'  name='tipo_consultado' value='$tipo'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' class='form-control input_consulta'  name='publicaciones_consultado' value='$publicaciones'>
+                          <input type='text' title='Este valor se calcula automáticamente' readonly='readonly' class='form-control input_consulta'  name='publicaciones_consultado' value='$publicaciones'>
                         </div>
                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' class='form-control input_consulta'  name='observacion_consultado' value='$observacion'>
+                          <input type='text' title='$observacion' class='form-control input_consulta'  name='observacion_consultado' value='$observacion'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
                           <!--<button type='submit' class='btn btn-info' name='modificar'>Modificar</button>-->
-                          <button type='button' class='btn btn-info' data-toggle='modal' data-target='#modal_modificar$aux'>Modificar</button>
+                          <button type='button' title='Puede modificar todos los valores del yacimiento, incluído su nombre' class='btn btn-info' data-toggle='modal' data-target='#modal_modificar$aux'>Modificar</button>
                         </div>
                         <div class='col-lg-1 col-md-10 col-xs-1 col-sm-1'>
                           <!--<button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>-->
-                          <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#modal_eliminar$aux'>Eliminar</button>
+                          <button type='button' title='Va a eliminar el yacimiento' class='btn btn-danger' data-toggle='modal' data-target='#modal_eliminar$aux'>Eliminar</button>
                         </div>
                       </div>
 
@@ -819,26 +819,26 @@
                         <input type='hidden'  name='id_yacimiento' value='$id_yacimiento'>
                         <input type='hidden'  name='id_ubicacion' value='$id_ubicacion'>
                          <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                           <input type='text' class='form-control input_consulta'  name='yacimiento_consultado' value='$yacimiento'>
+                           <input type='text' title='$yacimiento' readonly='readonly' class='form-control input_consulta'  name='yacimiento_consultado' value='$yacimiento'>
                          </div>
                          <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                           <input type='text' class='form-control input_consulta'  name='isla_consultado' value='$isla'>
+                           <input type='text' title='$isla' class='form-control input_consulta'  name='isla_consultado' value='$isla'>
                          </div>
                          <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                           <input type='text' class='form-control input_consulta'  name='municipio_consultado' value='$municipio'>
+                           <input type='text' title='$municipio' class='form-control input_consulta'  name='municipio_consultado' value='$municipio'>
                          </div>
                          <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                           <input type='text' class='form-control input_consulta'  name='localidad_consultado' value='$localidad'>
+                           <input type='text' title='$localidad' class='form-control input_consulta'  name='localidad_consultado' value='$localidad'>
                          </div>
                          <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
-                           <input type='text' class='form-control input_consulta' id='Latitud' name='latitud_consultado' value='$latitud'>
+                           <input type='text' readonly='readonly' title='Recuerde que este valor se establece con el mapa de abajo: $latitud' class='form-control input_consulta' id='Latitud' name='latitud_consultado' value='$latitud'>
                          </div>
                          <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
-                           <input type='text' class='form-control input_consulta' id='Longitud' name='longitud_consultado' value='$longitud'>
+                           <input type='text' readonly='readonly' title='Recuerde que este valor se establece con el mapa de abajo: $longitud' class='form-control input_consulta' id='Longitud' name='longitud_consultado' value='$longitud'>
                          </div>
                          <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
                            <!--<button type='submit' class='btn btn-info' name='modificar'>Modificar</button>-->
-                           <button type='button' class='btn btn-info' data-toggle='modal' data-target='#modal_modificar'>Modificar</button>
+                           <button type='button' title='Solo podrá modificar los datos relacionados con la ubicación del yacimiento $yacimiento' class='btn btn-info' data-toggle='modal' data-target='#modal_modificar'>Modificar</button>
                          </div>
                        </div>
                        <div id='modal_modificar' class='modal fade' role='dialog'>
@@ -850,7 +850,7 @@
                                <h4 class='modal-title'>Modificar ubicación</h4>
                              </div>
                              <div class='modal-body'>
-                               <p>¿Está seguro que desea modificar el yacimiento?</p>
+                               <p>¿Está seguro que desea modificar la ubicación del yacimiento?</p>
                              </div>
                              <div class='modal-footer'>
                                  <button type='submit' class='btn btn-info boton' name='modificar'>Modificar</button><br>
@@ -1227,33 +1227,33 @@
                       <div class='row'>
                         <input type='hidden'  name='id_excavacion' value='$id_excavacion'>
                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' class='form-control input_consulta' id='responsable_consultado' name='responsable_consultado' value='$responsable'>
+                          <input type='text' title='$responsable' class='form-control input_consulta' id='responsable_consultado' name='responsable_consultado' value='$responsable'>
                         </div>
                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' class='form-control input_consulta' id='financiacion_consultado' name='financiacion_consultado' value='$financiacion'>
+                          <input type='text' title='$financiacion' class='form-control input_consulta' id='financiacion_consultado' name='financiacion_consultado' value='$financiacion'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' class='form-control input_consulta' id='yacimiento_ex_consultado' name='yacimiento_ex_consultado' value='$yacimiento'>
+                          <input type='text' title='$yacimiento' class='form-control input_consulta' id='yacimiento_ex_consultado' name='yacimiento_ex_consultado' value='$yacimiento'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group data-container' >
-                          <input type='text' class='form-control input_consulta' id='fecha_ex_consultado' name='fecha_ex_consultado' value='$fecha_inicial'>
+                          <input type='text' title='$fecha_inicial' class='form-control input_consulta' id='fecha_ex_consultado' name='fecha_ex_consultado' value='$fecha_inicial'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group data-container' >
-                          <input type='text' class='form-control input_consulta' id='fecha_ex_fin_consultado' name='fecha_ex_fin_consultado' value='$fecha_final'>
+                          <input type='text' title='$fecha_final' class='form-control input_consulta' id='fecha_ex_fin_consultado' name='fecha_ex_fin_consultado' value='$fecha_final'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' class='form-control input_consulta' id='deposito_consultado' name='deposito_consultado' value='$deposito'>
+                          <input type='text' title='$deposito' class='form-control input_consulta' id='deposito_consultado' name='deposito_consultado' value='$deposito'>
                         </div>
                         <div class='col-lg-2 col-md-10 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' class='form-control input_consulta' id='observacion_excavacion' name='observacion_excavacion_consultado' value='$observacion_excavacion'>
+                          <input type='text' title='$observacion_excavacion' class='form-control input_consulta' id='observacion_excavacion' name='observacion_excavacion_consultado' value='$observacion_excavacion'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
                           <!--<button type='submit' class='btn btn-info' name='modificar'>Modificar</button>-->
-                          <button type='button' class='btn btn-info' data-toggle='modal' data-target='#modal_modificar$aux'>Modificar</button>
+                          <button type='button' title='Puede modificar cualquier campo de esta excavación' class='btn btn-info' data-toggle='modal' data-target='#modal_modificar$aux'>Modificar</button>
                         </div>
                         <div class='col-lg-1 col-md-10 col-xs-1 col-sm-1'>
                           <!--<button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>-->
-                          <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#modal_eliminar$aux'>Eliminar</button>
+                          <button type='button' title='Va a eliminar esta excavación' class='btn btn-danger' data-toggle='modal' data-target='#modal_eliminar$aux'>Eliminar</button>
                         </div>
                       </div>
 
@@ -1526,27 +1526,27 @@
                         <input type='hidden'  name='id_publicacion' value='$id_publicacion'>
                         <input type='hidden'  name='yacimiento_viejo' value='$yacimiento'>
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' class='form-control input_consulta' id='titulo_consultado' name='titulo_consultado' value='$title'>
+                          <input type='text' title='$title' class='form-control input_consulta' id='titulo_consultado' name='titulo_consultado' value='$title'>
                         </div>
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' class='form-control input_consulta' id='autor_consultado' name='autor_consultado' value='$autor'>
+                          <input type='text' title='$autor' class='form-control input_consulta' id='autor_consultado' name='autor_consultado' value='$autor'>
                         </div>
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' class='form-control input_consulta' id='yacimiento_publi_consultado' name='yacimiento_publi_consultado' value='$yacimiento'>
+                          <input type='text' title='$yacimiento' class='form-control input_consulta' id='yacimiento_publi_consultado' name='yacimiento_publi_consultado' value='$yacimiento'>
                         </div>
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' class='form-control input_consulta' id='pdf_consultado' name='pdf_consultado' value='$pdf'>
+                          <input type='text' title='$pdf' class='form-control input_consulta' id='pdf_consultado' name='pdf_consultado' value='$pdf'>
                         </div>
                         <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group data-container' >
                           <input type='text' class='form-control input_consulta' id='fecha_publi_consultado' name='fecha_publi_consultado' value='$fecha'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
                           <!--<button type='submit' class='btn btn-info' name='modificar'>Modificar</button>-->
-                          <button type='button' class='btn btn-info' data-toggle='modal' data-target='#modal_modificar$contador'>Modificar</button>
+                          <button type='button' title='Puede modificar todos los campos de la publicación' class='btn btn-info' data-toggle='modal' data-target='#modal_modificar$contador'>Modificar</button>
                         </div>
                         <div class='col-lg-1 col-md-10 col-xs-1 col-sm-1'>
                           <!--<button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>-->
-                          <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#modal_eliminar$contador'>Eliminar</button>
+                          <button type='button' title='Va a eliminar esta publicación' class='btn btn-danger' data-toggle='modal' data-target='#modal_eliminar$contador'>Eliminar</button>
                         </div>
                       </div>
 
@@ -1617,16 +1617,16 @@
                           <input type='hidden'  name='id_publicacion' value='$id_publicacion'>
                           <input type='hidden'  name='yacimiento_viejo' value='$yacimiento'>
                           <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' class='form-control input_consulta' id='titulo_consultado' name='titulo_consultado' value='$title'>
+                            <input type='text' title='$title' class='form-control input_consulta' id='titulo_consultado' name='titulo_consultado' value='$title'>
                           </div>
                           <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' class='form-control input_consulta' id='autor_consultado' name='autor_consultado' value='$autor'>
+                            <input type='text' title='$autor' class='form-control input_consulta' id='autor_consultado' name='autor_consultado' value='$autor'>
                           </div>
                           <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' class='form-control input_consulta' id='yacimiento_publi_consultado' name='yacimiento_publi_consultado' value='$yacimiento'>
+                            <input type='text' title='$yacimiento' class='form-control input_consulta' id='yacimiento_publi_consultado' name='yacimiento_publi_consultado' value='$yacimiento'>
                           </div>
                           <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' class='form-control input_consulta' id='pdf_consultado' name='pdf_consultado' value='$pdf'>
+                            <input type='text' title='$pdf' class='form-control input_consulta' id='pdf_consultado' name='pdf_consultado' value='$pdf'>
                           </div>
                           <div class='col-lg-2 col-md-4 col-sm-11 col-xs-10 form-group data-container' >
                             <input type='text' class='form-control input_consulta' id='fecha_publi_consultado' name='fecha_publi_consultado' value='$fecha'>
@@ -1634,11 +1634,11 @@
 
                           <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
                             <!--<button type='submit' class='btn btn-info' name='modificar'>Modificar</button>-->
-                            <button type='button' class='btn btn-info' data-toggle='modal' data-target='#modal_modificar$contador'>Modificar</button>
+                            <button type='button' title='Puede modificar todos los campos de la publicación' class='btn btn-info' data-toggle='modal' data-target='#modal_modificar$contador'>Modificar</button>
                           </div>
                           <div class='col-lg-1 col-md-10 col-xs-1 col-sm-1'>
                             <!--<button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>-->
-                            <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#modal_eliminar$contador'>Eliminar</button>
+                            <button type='button' title='Va a eliminar esta publicación' class='btn btn-danger' data-toggle='modal' data-target='#modal_eliminar$contador'>Eliminar</button>
                           </div>
                         </div>
 
@@ -1786,18 +1786,18 @@
                         <div class='row'>
                           <input type='hidden'  name='id_deposito' value='$id_deposito'>
                           <div class='col-lg-4 col-md-4 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' class='form-control input_consulta' id='deposito_consultado' name='deposito_consultado' value='$deposit'>
+                            <input type='text' title='$deposit' class='form-control input_consulta' id='deposito_consultado' name='deposito_consultado' value='$deposit'>
                           </div>
                           <div class='col-lg-4 col-md-4 col-sm-11 col-xs-10 form-group'>
-                            <input type='text' class='form-control input_consulta' id='pais_consultado' name='pais_consultado' value='$country'>
+                            <input type='text' title='$country' class='form-control input_consulta' id='pais_consultado' name='pais_consultado' value='$country'>
                           </div>
                           <div class='col-lg-1 col-md-10 col-xs-3 col-sm-3'>
                             <!--<button type='submit' class='btn btn-info' name='modificar'>Modificar</button>-->
-                            <button type='button' class='btn btn-info' data-toggle='modal' data-target='#modal_modificar$contador'>Modificar</button>
+                            <button type='button' title='Va a modificar el nombre o el país de este depósito' class='btn btn-info' data-toggle='modal' data-target='#modal_modificar$contador'>Modificar</button>
                           </div>
                           <div class='col-lg-1 col-md-10 col-xs-1 col-sm-1'>
                             <!--<button type='submit' class='btn btn-danger' name='eliminar'>Eliminar</button>-->
-                            <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#modal_eliminar$contador'>Eliminar</button>
+                            <button type='button' title='Va a eliminar este depósito' class='btn btn-danger' data-toggle='modal' data-target='#modal_eliminar$contador'>Eliminar</button>
                           </div>
                         </div>
 

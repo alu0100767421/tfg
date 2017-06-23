@@ -66,7 +66,7 @@
           <h5 tabindex="1" class="margen_izquierdo">Municipio:</h5>
         </div>
         <div id="municipio" class="col-xs-7 col-sm-6 col-md-4 col-lg-3 form-group">
-          <input tabindex="1" type="text" class="form-control margen_izquierdo input_municipio" id="Municipio" name="Municipio" placeholder="Seleccione un municipio">
+          <input tabindex="1" type="text" class="form-control margen_izquierdo input_municipio" readonly='readonly' id="Municipio" name="Municipio" placeholder="Pinche o colóquese en un municipio">
         </div>
       </div>
       <div class="row">

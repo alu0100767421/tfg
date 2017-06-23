@@ -277,13 +277,13 @@
                 </div>
                 <div class="row">
                   <div  id="latitud" class="col-lg-3 form-group">
-                    <input tabindex='2' type="text" class="form-control" id="Latitud" name="latitud" placeholder="LATITUD">
+                    <input tabindex='2' title='Recuerde que este valor se establece con el mapa de abajo' readonly='readonly' type="text" class="form-control" id="Latitud" name="latitud" placeholder="LATITUD">
                   </div>
                   <div  id="longitud" class="col-lg-3 form-group">
-                    <input tabindex='2' type="text" class="form-control" id="Longitud" name="longitud" placeholder="LONGITUD">
+                    <input tabindex='2' title='Recuerde que este valor se establece con el mapa de abajo' readonly='readonly' type="text" class="form-control" id="Longitud" name="longitud" placeholder="LONGITUD">
                   </div>
                   <div class="col-lg-3 form-group" id="altura">
-                    <input tabindex='2' type="number" class="form-control" id="Altura" name="altura" placeholder="ALTURA">
+                    <input tabindex='2' title='Solo debe introducir un número' type="number" class="form-control" id="Altura" name="altura" placeholder="ALTURA (EJEMPLO: 100)">
                   </div>
                   <div class="col-lg-3 form-group" id="edad">
                     <input tabindex='2' type="text" class="form-control" id="Edad" name="edad" placeholder="EDAD">
