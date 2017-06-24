@@ -100,15 +100,17 @@
           </div>
           <hr class='linea'>
           <div class="row">
-            <div class="col-lg-8 col-md-8 col-xs-12  col-sm-12">
+            <div class="col-lg-4 col-md-8 col-xs-12  col-sm-12">
               <h3>Añadir datos</h3>
-              <h5>Explicaremos a continuación que se puede añadir a la base de datos.</h5>
+              <h5 align=justify>Explicaremos a continuación qué se puede añadir a la base de datos, teniendo en cuenta que en la sección de consultar podemos modificar
+                  los datos si no los hemos puesto o hemos cometido algún error. Es importante destacar, es que algunos casos hay que introducir algunos campos
+                  para que se puedan añadir sin ningún problema.</h5>
             </div>
           </div>
           <div class="row">
             <div class="col-lg-4 col-md-8 col-xs-12  col-sm-12">
               <h4><b>Yacimientos</b></h4>
-              <h5>Como requisito mínimo en este caso, vamos a tener que <b>introducir un nombre al yacimiento</b>,
+              <h5 align=justify>Como requisito mínimo en este caso, vamos a tener que <b>introducir un nombre al yacimiento</b>,
                   el resto se podrá modificar luego en las consultas. Destacar que las coordenas de latidud
                   y longitud solo se pondrán usando el mapa de Google Maps para ser lo más preciso posible y
                   facilitar su localización.
@@ -116,7 +118,7 @@
             </div>
             <div class="col-lg-4 col-md-8 col-xs-12  col-sm-12">
               <h4><b>Especies</b></h4>
-              <h5>Para añadir especies, podemos añadir un nombre, un tipo, un yacimiento o un depósito.
+              <h5 align=justify>Para añadir especies, podemos añadir un nombre, un tipo, un yacimiento o un depósito.
                 Hay que tener claro, que como <b>mínimo debemos poner el nombre de la especie</b>. Si por ejemplo,
                 una misma especie está en varios yacimientos, solo hay que introducir su nombre y el yacimiento en
                 el que esté. Igualmente pasará con los depósitos.
@@ -124,14 +126,35 @@
             </div>
             <div class="col-lg-4 col-md-8 col-xs-12  col-sm-12">
               <h4><b>Excavación</b></h4>
-              <h5>Para añadir excavaciones, podemos añadir un nombre, un tipo, un yacimiento o un depósito.
-                Hay que tener claro, que como <b>mínimo debemos poner el nombre de la especie</b>. Si por ejemplo,
-                una misma especie está en varios yacimientos, solo hay que introducir su nombre y el yacimiento en
-                el que esté. Igualmente pasará con los depósitos.
+              <h5 align=justify>Para añadir excavaciones, podemos añadir un responsable, un organización que la financie, un yacimiento, fecha de inicio y final, un depósito
+                y una observación.Hay que tener claro, que como <b>mínimo debemos poner un yacimineto y una fecha inicial y de fin</b> para que se añada.
 
               </h5>
             </div>
           </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-8 col-xs-12  col-sm-12">
+              <h4><b>Publicación</b></h4>
+              <h5 align=justify>Como requisito mínimo en este caso, vamos a tener que <b>introducir un nombre a la publicación</b>,
+                  el resto se podrá modificar luego en las consultas.
+              </h5>
+            </div>
+            <div class="col-lg-4 col-md-8 col-xs-12  col-sm-12">
+              <h4><b>Depósito</b></h4>
+              <h5 align=justify>Como requisito mínimo en este caso, vamos a tener que <b>introducir un nombre al depósito</b>,
+                  el país se podrá modificar luego en las consultas.
+              </h5>
+            </div>
+            <div class="col-lg-4 col-md-8 col-xs-12  col-sm-12">
+              <h4><b>Valoración</b></h4>
+              <h5 align=justify>Para añadir valoraciones, debemos acudir a <i>Valoraciones/Añadir Valoración</i>. Solo nos aparecerá
+                  los yacimientos a los cuales no se le haya asignado una valoración. No es necesario poner
+                  algún valor en ningún campo, en ese caso, su valoración será 0.
+
+              </h5>
+            </div>
+          </div>
+          <hr class='linea'>
         </div>
       </div>
 
