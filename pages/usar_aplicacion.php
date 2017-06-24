@@ -54,7 +54,7 @@
         <div class="col-lg-2 col-md-4 col-xs-8 col-sm-6 ">
           <ul class="list-unstyled panel">
             <li ><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span><a title='acceder a inicio' tabindex='1' href="administracion.php">Inicio</a></li>
-            <li class="destacar"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><a title='¿cómo funciona la apliación?' tabindex='1' href="consultar_bbdd.php">¿Cómo funciona?</a></li>
+            <li class="destacar"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span><a title='¿cómo funciona la apliación?' tabindex='1' href="usar_aplicacion.php">¿Cómo funciona?</a></li>
 
             <li id="consultar"><span class="glyphicon glyphicon-search" aria-hidden="true"></span><a title='acceder a consultar base de datos' tabindex='1' href="consultar_bbdd.php">Consultar/Modificar</a></li>
             <li id="valoracion"><span class="glyphicon glyphicon-wrench" aria-hidden="true"></span><a title='acceder a valoraciones' tabindex='1' href="valoracion.php">Valoraciones</a>
@@ -93,7 +93,7 @@
             <div class="col-lg-8 col-md-8 col-xs-12  col-sm-12">
               <h5>En esta sección explicaremos como usar correctamente esta aplicación. En primer lugar,
                 hay que entender qué se puede hacer. Tenemos la posibilidad de añadir yacimentos, especies,
-                publicaciones, excavaciones y depósitos. Del mismo modo, podemos consultar cada uno de los
+                publicaciones, excavaciones y depósitos. Del mismo modo, podemos consultar, modificar y eliminar cada uno de los
                 datos que introduzcamos.</h5>
             </div>
 
@@ -155,6 +155,77 @@
             </div>
           </div>
           <hr class='linea'>
+
+
+          <div class="row">
+            <div class="col-lg-4 col-md-8 col-xs-12  col-sm-12">
+              <h3>Consultar datos</h3>
+              <h5 align=justify>Explicaremos a continuación cómo consultar datos a la base de datos. Vamos a poder
+                                modificar y eliminar datos en cada sección.</h5>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-8 col-xs-12  col-sm-12">
+              <h4><b>Yacimientos</b></h4>
+              <h5 align=justify>Vamos a poder consultar yacimientos, por isla, municipio, un yacimiento en concreto
+                                o por tipo, edad y altura. Nunca se va a poder seleccionar una convinación de estas tres últimas
+                                (por ejemplo tipo-edad o edad-altura), pero si yacimientos de una isla o municipio de un tipo, edad o altura
+                                . En el caso de la altura, al poner un número, por ejemplo
+                                300, se nos mostrarán los yacimientos con una altura entre ese número y 50 más (300-350).
+                                En cualquier caso, podemos modificar todos los valores permitidos excepto la cantidad de publicaciones,
+                                que es un valor automático. <b>Aquí es donde podremos eliminar un yacimiento</b>
+
+              </h5>
+            </div>
+            <div class="col-lg-4 col-md-8 col-xs-12  col-sm-12">
+              <h4><b>Ubicación</b></h4>
+              <h5 align=justify>Vamos a poder buscar por yacimiento. Se podrán cambiar los datos relacionados con la ubicación del yacimiento.
+              </h5>
+            </div>
+            <div class="col-lg-4 col-md-8 col-xs-12  col-sm-12">
+              <h4><b>Especies</b></h4>
+              <h5 align=justify>Vamos a poder buscar por nombre, tipo, nombre y tipo, yacimiento o depósito. Si cosultamos sin poner nada se mostrarán todas las
+                                especies que existan. Ninguna otra combinación está permitida.
+                                Para modificar una especie, solo se podrá hacer cuando no se busquen de un yacimiento o depósito. En estos dos casos
+                                solo se podrán eliminar las especies del propio yacimiento o depósito.
+              </h5>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-8 col-xs-12  col-sm-12">
+              <h4><b>Excavación</b></h4>
+              <h5 align=justify>Vamos a poder buscar por responable, financiacion, responsable y financiacion, yacimiento en concreto,
+                                una fecha exacta de inicio, o un intervalo de fechas. Si no se pone nada, se mostrarán todas las excavaciones.
+                                Se podrán modificar todos los valores y eliminar la excavación.
+
+              </h5>
+            </div>
+            <div class="col-lg-4 col-md-8 col-xs-12  col-sm-12">
+              <h4><b>Publicación</b></h4>
+              <h5 align=justify>Vamos a poder buscar por título, autor, yacimiento en concreto,
+                                una fecha exacta de publicación, o un intervalo de fechas. Si no se pone nada, se mostrarán todas las excavaciones.
+                                Se podrán modificar todos los valores y eliminar la publicación.
+              </h5>
+            </div>
+            <div class="col-lg-4 col-md-8 col-xs-12  col-sm-12">
+              <h4><b>Depósito</b></h4>
+              <h5 align=justify>Podremos buscar por nombre, país, nombre y país. También se pondrán modificar y eliminar.
+              </h5>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-lg-4 col-md-8 col-xs-12  col-sm-12">
+              <h4><b>Valoración</b></h4>
+              <h5 align=justify>En el apartado de valoraciones, se podrán consultar las valoraciones de los yacimientos que tengan una valoracion.
+                                No se podrán eliminar, pero si modificar cambiando sus valores y dándole a modificar.
+
+              </h5>
+            </div>
+
+          </div>
+
         </div>
       </div>
 
