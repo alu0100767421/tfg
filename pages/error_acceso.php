@@ -53,7 +53,7 @@
 
   <!--Footer-->
   <br><br><br><br><br>
-  <div class="navbar navbar-inverse navbar-fixed-bottom footer">
+  <div class="navbar navbar-inverse navbar-fixed-bottom footer" role='contentinfo'>
     <div class="container">
       <p class="navbar-text pull-left">© 2017 Alexander Cole Mora
         <a href="https://www.ull.es/" target="_blank" >Universidad de La Laguna</a>

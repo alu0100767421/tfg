@@ -115,7 +115,7 @@
 
     <!-- FOOTER-->
     <br><br><br><br><br>
-    <div class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="navbar navbar-inverse navbar-fixed-bottom" role='contentinfo'>
       <div class="container">
         <p tabindex='3' class="navbar-text pull-left">© 2017 Alexander Cole Mora
           <a title='acceder a la página de la Universidad de La Laguna' tabindex='3' href="https://www.ull.es/" target="_blank" >Universidad de La Laguna</a>
