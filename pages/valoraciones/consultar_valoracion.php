@@ -621,7 +621,7 @@
                             <h4  tabindex='2' class='modal-title'>Modificar valoración</h4>
                           </div>
                           <div class='modal-body'>
-                            <p tabindex='3' >¿Está seguro que desea modificar la valoración?</p>
+                            <p tabindex='3' >¿Está seguro que desea modificar la valoración del yacimiento <b>$yacimiento</b>?</p>
                           </div>
                           <div class='modal-footer'>
                               <button  tabindex='3' type='submit' class='btn btn-info boton' name='modificar'>Modificar</button><br>

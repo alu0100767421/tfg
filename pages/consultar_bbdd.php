@@ -706,7 +706,7 @@
                               <h4 class='modal-title'>Modificar yacimiento</h4>
                             </div>
                             <div class='modal-body'>
-                              <p>¿Está seguro que desea modificar el yacimiento?</p>
+                              <p>¿Está seguro que desea modificar el yacimiento <b>$yacimiento</b>?</p>
                             </div>
                             <div class='modal-footer'>
                                 <button type='submit' class='btn btn-info boton' name='modificar'>Modificar</button><br>
@@ -724,7 +724,7 @@
                               <h4 class='modal-title'>Eliminar yacimiento</h4>
                             </div>
                             <div class='modal-body'>
-                              <p>¿Está seguro que desea eliminar el yacimiento?</p>
+                              <p>¿Está seguro que desea eliminar el yacimiento <b>$yacimiento</b>?</p>
                             </div>
                             <div class='modal-footer'>
                                 <button type='submit' class='btn btn-danger boton' name='eliminar'>Eliminar</button><br>
@@ -851,7 +851,7 @@
                                <h4 class='modal-title'>Modificar ubicación</h4>
                              </div>
                              <div class='modal-body'>
-                               <p>¿Está seguro que desea modificar la ubicación del yacimiento?</p>
+                               <p>¿Está seguro que desea modificar la ubicación del yacimiento <b>$yacimiento</b>?</p>
                              </div>
                              <div class='modal-footer'>
                                  <button type='submit' class='btn btn-info boton' name='modificar'>Modificar</button><br>
@@ -1023,7 +1023,7 @@
                               <h4 class='modal-title'>Modificar especie</h4>
                             </div>
                             <div class='modal-body'>
-                              <p>¿Está seguro que desea modificar la especie?</p>
+                              <p>¿Está seguro que desea modificar la especie <b>$especie</b>?</p>
                             </div>
                             <div class='modal-footer'>
                                 <button type='submit' class='btn btn-info boton' name='modificar'>Modificar</button><br>
@@ -1041,7 +1041,7 @@
                               <h4 class='modal-title'>Eliminar especie</h4>
                             </div>
                             <div class='modal-body'>
-                              <p>¿Está seguro que desea eliminar la especie?</p>
+                              <p>¿Está seguro que desea eliminar la especie <b>$especie</b>?</p>
                             </div>
                             <div class='modal-footer'>
                                 <button type='submit' class='btn btn-danger boton' name='eliminar'>Eliminar</button><br>
@@ -1526,7 +1526,7 @@
                               <h4 class='modal-title'>Modificar excavación</h4>
                             </div>
                             <div class='modal-body'>
-                              <p>¿Está seguro que desea modificar la excavación?</p>
+                              <p>¿Está seguro que desea modificar la siguiente excavación? Responsable: <b>$responsable</b>, Financiación: <b>$financiacion</b>, Yacimiento: <b>$yacimiento</b></p>
                             </div>
                             <div class='modal-footer'>
                                 <button type='submit' class='btn btn-info boton' name='modificar'>Modificar</button><br>
@@ -1544,7 +1544,7 @@
                               <h4 class='modal-title'>Eliminar excavación</h4>
                             </div>
                             <div class='modal-body'>
-                              <p>¿Está seguro que desea eliminar la excavación?</p>
+                              <p>¿Está seguro que desea eliminar la siguiente excavación? Responsable: <b>$responsable</b>, Financiación: <b>$financiacion</b>, Yacimiento: <b>$yacimiento</b></p>
                             </div>
                             <div class='modal-footer'>
                                 <button type='submit' class='btn btn-danger boton' name='eliminar'>Eliminar</button><br>
@@ -1819,7 +1819,7 @@
                               <h4 class='modal-title'>Modificar publicación</h4>
                             </div>
                             <div class='modal-body'>
-                              <p>¿Está seguro que desea modificar la publicación?</p>
+                              <p>¿Está seguro que desea modificar la siguiente publicación? Título: <b>$title</b>, Autor: <b>$autor</b></p>
                             </div>
                             <div class='modal-footer'>
                                 <button type='submit' class='btn btn-info boton' name='modificar'>Modificar</button><br>
@@ -1837,7 +1837,7 @@
                               <h4 class='modal-title'>Eliminar publicación</h4>
                             </div>
                             <div class='modal-body'>
-                              <p>¿Está seguro que desea eliminar la publicación?</p>
+                              <p>¿Está seguro que desea eliminar la siguiente publicación? <b>$title</b>, Autor: <b>$autor</b></p>
                             </div>
                             <div class='modal-footer'>
                                 <button type='submit' class='btn btn-danger boton' name='eliminar'>Eliminar</button><br>
@@ -1911,7 +1911,7 @@
                                 <h4 class='modal-title'>Modificar publicación</h4>
                               </div>
                               <div class='modal-body'>
-                                <p>¿Está seguro que desea modificar la publicación?</p>
+                                <p>¿Está seguro que desea modificar la siguiente publicación? <b>$title</b>, Autor: <b>$autor</b></p>
                               </div>
                               <div class='modal-footer'>
                                   <button type='submit' class='btn btn-info boton' name='modificar'>Modificar</button><br>
@@ -1929,7 +1929,7 @@
                                 <h4 class='modal-title'>Eliminar publicación</h4>
                               </div>
                               <div class='modal-body'>
-                                <p>¿Está seguro que desea eliminar la publicación?</p>
+                                <p>¿Está seguro que desea eliminar la siguinete publicación? <b>$title</b>, Autor: <b>$autor</b></p>
                               </div>
                               <div class='modal-footer'>
                                   <button type='submit' class='btn btn-danger boton' name='eliminar'>Eliminar</button><br>
@@ -2070,7 +2070,7 @@
                                 <h4 class='modal-title'>Modificar depósito</h4>
                               </div>
                               <div class='modal-body'>
-                                <p>¿Está seguro que desea modificar el depósito?</p>
+                                <p>¿Está seguro que desea modificar el depósito <b>$deposit</b>?</p>
                               </div>
                               <div class='modal-footer'>
                                   <button type='submit' class='btn btn-info boton' name='modificar'>Modificar</button><br>
@@ -2088,7 +2088,7 @@
                                 <h4 class='modal-title'>Eliminar depósito</h4>
                               </div>
                               <div class='modal-body'>
-                                <p>¿Está seguro que desea eliminar el depósito?</p>
+                                <p>¿Está seguro que desea eliminar el depósito <b>$deposit</b>?</p>
                               </div>
                               <div class='modal-footer'>
                                   <button type='submit' class='btn btn-danger boton' name='eliminar'>Eliminar</button><br>
