@@ -17,6 +17,7 @@
   if($repetido == FALSE && $usuario != 'admin'){
     $consulta = "INSERT INTO usuarios (nombre, pass) VALUES ('". $usuario ."', '". $pass_encrypt ."');";
     $insertar = pg_query($link, $consulta);
+    //setcookie('MENSAJE', 'correcto',time()+3600);
     header("Location: ../gestion_usuarios.php");
 
   }else {

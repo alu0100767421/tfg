@@ -8,6 +8,11 @@
   if(isset($_SESSION['nombre'])) {
     $username = $_SESSION['nombre'];
 
+
+//echo '<script type="text/javascript">document.getElementById("mostrar_mensaje").innerHTML = "Fallo el envío del formulario.";</script>';
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -108,10 +113,16 @@
         </div>
 
         <div class=" col-lg-10 col-md-8 col-xs-12 col-sm-12">
+          <!--<div class="row">
+            <div class="col-lg-3">
+              <p id="mostrar_mensaje"></p>
+
+            </div>
+          </div>-->
           <div class="row">
 
             <!--Añadir usuario-->
-            <div class="col-lg-3 col-md-3 col-xs-12 col-sm-12">
+            <div class="col-lg-3 col-md-4 col-xs-12 col-sm-12">
               <h3 tabindex='2'>Añadir usuario</h3>
               <form  action="gestion_usuarios/add_user.php" method="post">
                 <div class="form-group">
@@ -125,6 +136,7 @@
 
                 <!--<button type='submit' class='btn btn-info' name='modificar'>Modificar</button>-->
                 <button tabindex='2' type='button' class='btn btn-success' data-toggle='modal' data-target='#modal_anadir_usuario'>Añadir usuario</button>
+
 
                 <div id='modal_anadir_usuario' class='modal fade' role='dialog'>
                   <div class='modal-dialog'>

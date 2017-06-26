@@ -10,3 +10,10 @@
   },function(){
     document.getElementById('submenu_valoracion').style.display="none";
   });
+
+/*
+  $(document).ready(function() {
+      setTimeout(function() {
+          $("#mostrar_mensaje").fadeOut(1500);
+      },3000);
+  });*/
