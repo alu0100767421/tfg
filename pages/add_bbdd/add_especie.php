@@ -50,8 +50,9 @@
        if($row == 0){
          $consulta_insertar_especie="INSERT INTO especie(especie,tipo_especie)
                     VALUES('".$especie."','".$tipo."');";
-         pg_query($link,$consulta_insertar_especie);
+         $mensaje=pg_query($link,$consulta_insertar_especie);
          echo pg_last_error();
+
        }
 
        //ahora vamos a relacionar la tabla yacimiento_has_especie
@@ -83,9 +84,11 @@
          pg_query($link,$consulta_insertar_yacimiento_has_especie);
          echo pg_last_error()."\n";
 
+         $mensaje_yacimiento='Especie añadida a yacimiento.';
        }
        else{
          echo "no ha introducido ningun yacimiento\n";
+         $mensaje_yacimiento='';
        }
 
        //ahora vamos a relacionar la tabla especie_has_deposito
@@ -114,17 +117,33 @@
                                                     VALUES('".$id_especie."','".$id_deposito."');";
          pg_query($link,$consulta_insertar_especie_has_deposito);
          echo pg_last_error()."\n";
+         $mensaje_deposito='Especie añadida a depósito.';
        }
        else{
          echo "no ha introducido ningun deposito\n";
+         $mensaje_deposito='';
        }
+
+       echo "hola";
+       if($mensaje)
+         header("Location: ../anadir/especie.php?mensaje=ok&contenido=Especie añadida correctamente. '".$mensaje_yacimiento."'".$mensaje_deposito."'");
+       else if($mensaje_deposito!='' || $mensaje_yacimiento='')
+         header("Location: ../anadir/especie.php?mensaje=ok&contenido='".$mensaje_yacimiento."'".$mensaje_deposito."'");
+       else
+         header("Location: ../anadir/especie.php?mensaje=error&contenido=Especie añadida incorrectamente");
+
      }
      else{
-       echo "no ha introducido nunguna especie\n";
+       header("Location: ../anadir/especie.php?mensaje=error&contenido=No ha añadido ninguna especie");
      }
 
-
-     header("Location: ../anadir/especie.php");
+     /*if($mensaje){
+       header("Location: ../anadir/especie.php?mensaje=ok&contenido=Especie añadida correctamente");
+     }
+     else {
+       header("Location: ../anadir/especie.php?mensaje=error&contenido=Especie añadida incorrectamente");
+     }*/
+    // header("Location: ../anadir/especie.php");
 
 
 
