@@ -47,6 +47,7 @@
        $aux=pg_query($link,$consulta_comprobacion);
        $row=pg_num_rows($aux);
        echo "Filas:$row\n";
+       $mensaje=false;
        if($row == 0){
          $consulta_insertar_especie="INSERT INTO especie(especie,tipo_especie)
                     VALUES('".$especie."','".$tipo."');";
@@ -126,9 +127,9 @@
 
        echo "hola";
        if($mensaje)
-         header("Location: ../anadir/especie.php?mensaje=ok&contenido=Especie añadida correctamente. '".$mensaje_yacimiento."'".$mensaje_deposito."'");
-       else if($mensaje_deposito!='' || $mensaje_yacimiento='')
-         header("Location: ../anadir/especie.php?mensaje=ok&contenido='".$mensaje_yacimiento."'".$mensaje_deposito."'");
+         header("Location: ../anadir/especie.php?mensaje=ok&contenido=Especie añadida correctamente. $mensaje_yacimiento$mensaje_deposito");
+       else if($mensaje_deposito!='' || $mensaje_yacimiento!='')
+         header("Location: ../anadir/especie.php?mensaje=ok&contenido=$mensaje_yacimiento $mensaje_deposito");
        else
          header("Location: ../anadir/especie.php?mensaje=error&contenido=Especie añadida incorrectamente");
 
