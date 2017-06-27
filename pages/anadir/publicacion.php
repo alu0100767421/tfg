@@ -109,6 +109,18 @@
         <!--FIN MENU LATERAL-->
         <div class="col-lg-10 col-md-8 col-xs-12 col-sm-6 contenido">
           <!--Excavacion-->
+          <div class='row'>
+            <div class='col-lg-11'>
+              <div style="display:none" id='correcto' class="correcto">
+                <p id='mostrar_mensaje_ok'></p>
+              </div>
+
+              <div style="display:none" id='incorrecto' class="incorrecto">
+                <p id='mostrar_mensaje_error'></p>
+              </div>
+            </div>
+          </div>
+
           <div class="row">
             <div class="col-lg-offset-0 col-lg-10">
               <h2  tabindex='2' class="titulos">Añadir Publicación</h2>
@@ -173,7 +185,27 @@
       </div>
     </div>
 
+    <?php
+        if($_GET['mensaje']=='ok'){
+          $contenido= $_GET['contenido'];
+          //echo $contenido;
+          echo "<script type='text/javascript'>
+          document.getElementById('correcto').style.display='block';
+          document.getElementById('mostrar_mensaje_ok').innerHTML = '".$contenido."' ;
+          </script>";
 
+          $_GET['mensaje']='';
+        }
+        if($_GET['mensaje']=='error'){
+          $contenido= $_GET['contenido'];
+          echo "<script type='text/javascript'>
+          document.getElementById('incorrecto').style.display='block';
+          document.getElementById('mostrar_mensaje_error').innerHTML = '".$contenido."' ;
+
+          </script>";
+          $_GET['mensaje']='';
+        }
+     ?>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript" src="../../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>

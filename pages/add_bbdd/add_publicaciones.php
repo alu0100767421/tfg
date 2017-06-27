@@ -90,16 +90,26 @@
                   WHERE idyacimiento='".$id_yacimiento."';";
        pg_query($link,$consulta);
        echo pg_last_error()."\n";
+
+       header("Location: ../anadir/publicacion.php?mensaje=ok&contenido=Publicación añadida correctamente");
      }
      else if($titulo!=""){
        //echo "estoy aqui";
        $consulta_insertar_publicacion="INSERT INTO publicacion(titulo,fecha,autor,pdf)
                                        VALUES('".$titulo."','".$fecha."','".$autor."','".$pdf."')";
 
-       pg_query($link,$consulta_insertar_publicacion);
+       $mensaje=pg_query($link,$consulta_insertar_publicacion);
        echo pg_last_error();
+       if($mensaje){
+         header("Location: ../anadir/publicacion.php?mensaje=ok&contenido=Publicación añadida correctamente");
+       }
+       else {
+         header("Location: ../anadir/publicacion.php?mensaje=error&contenido=Publicación añadida incorrectamente");
+       }
+
      }
-     header("Location: ../anadir/publicacion.php");
+     else
+      header("Location: ../anadir/publicacion.php?mensaje=error&contenido=Publicación añadida incorrectamente. Debe introducir un nombre");
 
  }
  else {
