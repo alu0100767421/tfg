@@ -39,12 +39,13 @@
          $consulta_modificacion="UPDATE deposito
                                  SET deposito='".$deposito."', pais='".$pais."'
                                  WHERE iddeposito='".$id_deposito."';";
-         pg_query($link,$consulta_modificacion);
+         $mensaje=pg_query($link,$consulta_modificacion);
          echo pg_last_error();
-
+         if($mensaje)
+          header("Location: ../consultar_bbdd.php?mensaje=ok&contenido=Depósito modificado correctamente");
        }
        else{
-         echo "no ha introducido ningun pais o deposito\n";
+         header("Location: ../consultar_bbdd.php?mensaje=error&contenido=Depósito modificado incorrectamente");
        }
      }
 
@@ -53,16 +54,18 @@
 
          $consulta_eliminar_deposito="DELETE FROM deposito
                                  WHERE iddeposito='".$id_deposito."';";
-         pg_query($link,$consulta_eliminar_deposito);
+         $mensaje=pg_query($link,$consulta_eliminar_deposito);
          echo pg_last_error();
-
+         if($mensaje)
+          header("Location: ../consultar_bbdd.php?mensaje=ok&contenido=Depósito eliminado correctamente");
        }
        else{
-         echo "no ha introducido ningun pais o deposito\n";
+         //echo "no ha introducido ningun pais o deposito\n";
+         header("Location: ../consultar_bbdd.php?mensaje=error&contenido=Depósito eliminado incorrectamente");
        }
      }
 
-     header("Location: ../consultar_bbdd.php");
+     //header("Location: ../consultar_bbdd.php");
 
  }
  else {

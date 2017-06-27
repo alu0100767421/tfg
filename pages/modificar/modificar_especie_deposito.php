@@ -30,15 +30,19 @@
 
       $consulta="DELETE FROM especie_has_deposito
                  WHERE idespecie='".$id_especie."' AND iddeposito='".$id_deposito."';";
-      pg_query($link,$consulta);
+      $mensaje=pg_query($link,$consulta);
       echo pg_last_error();
+      if($mensaje)
+       header("Location: ../consultar_bbdd.php?mensaje=ok&contenido=Especie eliminada del depósito correctamente");
+      else
+       header("Location: ../consultar_bbdd.php?mensaje=error&contenido=Especie eliminada del depósito incorrectamente");
      }
      else{
        echo "Sin cambios\n";
      }
 
 
-    header("Location: ../consultar_bbdd.php");
+    //header("Location: ../consultar_bbdd.php");
 
  }
  else {

@@ -73,16 +73,19 @@
        $consulta="UPDATE ubicacion
                   SET isla='".$isla."', municipio='".$municipio."', localidad='".$localidad."', latitud='".$latitud."', longitud='".$longitud."'
                   WHERE idubicacion='".$id_ubicacion."';";
-       pg_query($link,$consulta);
+       $mensaje=pg_query($link,$consulta);
        echo pg_last_error();
-
+       if($mensaje)
+        header("Location: ../consultar_bbdd.php?mensaje=ok&contenido=Ubicación del yacimiento modificada correctamente");
+       else
+        header("Location: ../consultar_bbdd.php?mensaje=error&contenido=Ubicación del yacimiento modificada incorrectamente");
     }
    else{
      echo "Sin cambios\n";
    }
 
 
-     header("Location: ../consultar_bbdd.php");
+     //header("Location: ../consultar_bbdd.php");
 
  }
  else {

@@ -67,23 +67,31 @@
        $consulta="UPDATE yacimiento
                   SET yacimiento='".$yacimiento."', edad='".$edad."', altura='".$altura."', tipo_yacimiento='".$tipo."', observacion_yacimiento='".$observacion."'
                   WHERE idyacimiento='".$id_yacimiento."';";
-       pg_query($link,$consulta);
+       $mensaje=pg_query($link,$consulta);
        echo pg_last_error();
 
+       if($mensaje)
+        header("Location: ../consultar_bbdd.php?mensaje=ok&contenido=Yacimiento modificado correctamente");
+       else
+        header("Location: ../consultar_bbdd.php?mensaje=error&contenido=Yacimiento modificado incorrectamente");
     }
 
     elseif(isset($_POST['eliminar'])){
        $consulta_eliminar="DELETE FROM yacimiento
                            WHERE idyacimiento='".$id_yacimiento."';";
-       pg_query($link,$consulta_eliminar);
+       $mensaje=pg_query($link,$consulta_eliminar);
        echo pg_last_error();
+       if($mensaje)
+        header("Location: ../consultar_bbdd.php?mensaje=ok&contenido=Yacimiento eliminado correctamente");
+       else
+        header("Location: ../consultar_bbdd.php?mensaje=error&contenido=Yacimiento eliminado incorrectamente");
      }
      else{
        echo "Sin cambios\n";
      }
 
 
-     header("Location: ../consultar_bbdd.php");
+     //header("Location: ../consultar_bbdd.php");
 
  }
  else {

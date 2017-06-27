@@ -39,8 +39,12 @@
     if(isset($_POST['eliminar'])){
       $consulta="DELETE FROM yacimiento_has_especie
                  WHERE idespecie='".$id_especie."' AND idyacimiento='".$id_yacimiento."';";
-      pg_query($link,$consulta);
+      $mensaje=pg_query($link,$consulta);
       echo pg_last_error();
+      if($mensaje)
+       header("Location: ../consultar_bbdd.php?mensaje=ok&contenido=Especie eliminada del yacimiento correctamente");
+      else
+       header("Location: ../consultar_bbdd.php?mensaje=error&contenido=Especie eliminada del yacimiento incorrectamente");
 
      }
      else{
@@ -48,7 +52,7 @@
      }
 
 
-     header("Location: ../consultar_bbdd.php");
+    // header("Location: ../consultar_bbdd.php");
 
  }
  else {

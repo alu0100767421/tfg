@@ -110,6 +110,18 @@
         </div>
         <!--FIN MENU LATERAL-->
         <div class="col-lg-10 col-md-8 col-xs-12 col-sm-6 contenido">
+          <div class='row'>
+            <div class='col-lg-11'>
+              <div style="display:none" id='correcto' class="correcto">
+                <p id='mostrar_mensaje_ok'></p>
+              </div>
+
+              <div style="display:none" id='incorrecto' class="incorrecto">
+                <p id='mostrar_mensaje_error'></p>
+              </div>
+            </div>
+          </div>
+
           <h2 tabindex='2'>Consultar datos</h2>
           <div class="row">
             <div class="col-lg-12">
@@ -1493,7 +1505,7 @@
                           <input type='text' title='$financiacion' class='form-control input_consulta' id='financiacion_consultado' name='financiacion_consultado' value='$financiacion'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group'>
-                          <input type='text' title='$yacimiento' class='form-control input_consulta' id='yacimiento_ex_consultado' name='yacimiento_ex_consultado' value='$yacimiento'>
+                          <input type='text' readonly='readonly' title='$yacimiento. Si desea cambiar el yacimiento, tendrá que eliminar y añadir de nuevo la excavación' class='form-control input_consulta' id='yacimiento_ex_consultado' name='yacimiento_ex_consultado' value='$yacimiento'>
                         </div>
                         <div class='col-lg-1 col-md-10 col-sm-11 col-xs-10 form-group data-container' >
                           <input type='text' title='$fecha_inicial' class='form-control input_consulta' id='fecha_ex_consultado' name='fecha_ex_consultado' value='$fecha_inicial'>
@@ -2134,7 +2146,27 @@
     </div>
 
 
+    <?php
+        if($_GET['mensaje']=='ok'){
+          $contenido= $_GET['contenido'];
+          //echo $contenido;
+          echo "<script type='text/javascript'>
+          document.getElementById('correcto').style.display='block';
+          document.getElementById('mostrar_mensaje_ok').innerHTML = '".$contenido."' ;
+          </script>";
 
+          $_GET['mensaje']='';
+        }
+        if($_GET['mensaje']=='error'){
+          $contenido= $_GET['contenido'];
+          echo "<script type='text/javascript'>
+          document.getElementById('incorrecto').style.display='block';
+          document.getElementById('mostrar_mensaje_error').innerHTML = '".$contenido."' ;
+
+          </script>";
+          $_GET['mensaje']='';
+        }
+     ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../bootstrap-3.3.7-dist/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>

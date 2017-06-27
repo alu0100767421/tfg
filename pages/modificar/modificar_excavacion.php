@@ -73,23 +73,30 @@
        $consulta="UPDATE excavacion
                   SET responsable='".$responsable."', financiacion='".$financiacion."', fecha_inicial='".$fecha."', fecha_final='".$fecha_fin."', deposito='".$deposito."', observacion_excavacion='".$observacion."'
                   WHERE idexcavaciones='".$id_excavacion."';";
-       pg_query($link,$consulta);
+       $mensaje=pg_query($link,$consulta);
        echo pg_last_error();
-
+       if($mensaje)
+        header("Location: ../consultar_bbdd.php?mensaje=ok&contenido=Excavación modificada correctamente");
+       else
+        header("Location: ../consultar_bbdd.php?mensaje=error&contenido=Excavación modificada incorrectamente.");
     }
 
     elseif(isset($_POST['eliminar'])){
        $consulta_eliminar="DELETE FROM excavacion
                            WHERE idexcavaciones='".$id_excavacion."';";
-       pg_query($link,$consulta_eliminar);
+       $mensaje=pg_query($link,$consulta_eliminar);
        echo pg_last_error();
+       if($mensaje)
+        header("Location: ../consultar_bbdd.php?mensaje=ok&contenido=Excavación eliminada correctamente");
+       else
+        header("Location: ../consultar_bbdd.php?mensaje=error&contenido=Excavación eliminada incorrectamente");
      }
      else{
        echo "Sin cambios\n";
      }
 
 
-     header("Location: ../consultar_bbdd.php");
+     //header("Location: ../consultar_bbdd.php");
 
  }
  else {

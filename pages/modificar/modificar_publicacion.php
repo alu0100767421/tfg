@@ -112,7 +112,6 @@
 
           }
           else{
-            echo "hola";
             $consulta_comprobar_yacimiento_nuevo="SELECT idyacimiento
                                                   FROM yacimiento
                                                   WHERE yacimiento='".$yacimiento."';";
@@ -148,8 +147,13 @@
                   WHERE idyacimiento='".$id_yacimiento_viejo."' AND idpublicaciones='".$id_publicacion."';";
 
      }
-     pg_query($link,$consulta);
+     $mensaje=pg_query($link,$consulta);
      echo pg_last_error();
+     if($mensaje)
+      header("Location: ../consultar_bbdd.php?mensaje=ok&contenido=Publicación modificada correctamente");
+
+     else
+      header("Location: ../consultar_bbdd.php?mensaje=error&contenido=Publicación modificada incorrectamente. Compruebe que el yacimiento existe.");
 
     }
 
@@ -157,16 +161,19 @@
 
        $consulta_eliminar_publicacion="DELETE FROM publicacion
                                             WHERE idpublicaciones='".$id_publicacion."';";
-       pg_query($link,$consulta_eliminar_publicacion);
+       $mensaje=pg_query($link,$consulta_eliminar_publicacion);
        echo pg_last_error();
-
+       if($mensaje)
+        header("Location: ../consultar_bbdd.php?mensaje=ok&contenido=Publicación eliminada correctamente");
+       else
+        header("Location: ../consultar_bbdd.php?mensaje=error&contenido=Publicación eliminada incorrectamente");
      }
      else{
        echo "Sin cambios\n";
      }
 
 
-     header("Location: ../consultar_bbdd.php");
+     //header("Location: ../consultar_bbdd.php");
 
  }
  else {

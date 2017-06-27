@@ -63,8 +63,12 @@
         $consulta="UPDATE especie
                    SET especie='".$especie."', tipo_especie='".$tipo_especie."'
                    WHERE idespecie='".$id_especie."';";
-       pg_query($link,$consulta);
+       $mensaje=pg_query($link,$consulta);
        echo pg_last_error();
+       if($mensaje)
+        header("Location: ../consultar_bbdd.php?mensaje=ok&contenido=Especie modificada correctamente");
+       else
+        header("Location: ../consultar_bbdd.php?mensaje=error&contenido=Especie modificada incorrectamente.");
 
     }
 
@@ -81,15 +85,19 @@
 
       $consulta="DELETE FROM especie
                  WHERE idespecie='".$id_especie."';";
-      pg_query($link,$consulta);
+      $mensaje=pg_query($link,$consulta);
       echo pg_last_error();
+      if($mensaje)
+       header("Location: ../consultar_bbdd.php?mensaje=ok&contenido=Especie eliminada correctamente");
+      else
+       header("Location: ../consultar_bbdd.php?mensaje=error&contenido=Especie eliminada incorrectamente");
      }
      else{
        echo "Sin cambios\n";
      }
 
 
-     header("Location: ../consultar_bbdd.php");
+     //header("Location: ../consultar_bbdd.php");
 
  }
  else {
