@@ -346,7 +346,7 @@
     }
 
 
-    header("Location: add_valoracion.php");
+    header("Location: add_valoracion.php?mensaje=ok&contenido=Valoracion añadida correctamente");
 
  }
  else {

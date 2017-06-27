@@ -349,7 +349,7 @@
     }
 
 
-    header("Location: consultar_valoracion.php");
+    header("Location: consultar_valoracion.php?mensaje=ok&contenido=Valoracion modificada correctamente");
 
  }
  else {
