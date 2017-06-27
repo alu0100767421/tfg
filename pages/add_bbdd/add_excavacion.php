@@ -74,14 +74,18 @@ function Mayuscula_con_tilde($aux) {
 
        $consulta_insertar_excavacion="INSERT INTO excavacion(idyacimiento,fecha_inicial,fecha_final,responsable,financiacion,deposito,observacion_excavacion)
                                       VALUES('".$id_yacimiento."','".$fecha_inicio."','".$fecha_final."','".$responsable."','".$financiacion."','".$deposito."','".$observacion."');";
-       pg_query($link,$consulta_insertar_excavacion);
-       echo pg_last_error();
+       $mensaje=pg_query($link,$consulta_insertar_excavacion);
+       //echo pg_last_error();
+       if($mensaje)
+          header("Location: ../anadir/excavacion.php?mensaje=ok&contenido=Excavación añadida correctamente");
+       else
+          header("Location: ../anadir/excavacion.php?mensaje=error&contenido=Excavación añadida incorrectamente. No ha introducido algún dato importante (nombre,yacimiento, fecha inicio y fecha final)");
      }
      else{
-       echo "no ha introducido algún valor importante\n";
+       header("Location: ../anadir/excavacion.php?mensaje=error&contenido=Excavación añadida incorrectamente. No ha introducido algún dato importante (nombre,yacimiento, fecha inicio y fecha final)");
      }
 
-     header("Location: ../anadir/excavacion.php");
+     //header("Location: ../anadir/excavacion.php");
 
 
  }

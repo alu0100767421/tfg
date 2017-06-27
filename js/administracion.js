@@ -18,5 +18,5 @@
       },3000);
       setTimeout(function() {
           $("#mostrar_mensaje_error").fadeOut(1500);
-      },3000);
+      },4000);
   });
