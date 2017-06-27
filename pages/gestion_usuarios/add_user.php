@@ -7,6 +7,7 @@
   $consulta = "SELECT nombre FROM usuarios;";
   $users = pg_query($link, $consulta);
   $repetido = FALSE;
+
   while($usu = pg_fetch_assoc($users)){
     $user = $usu['usuario'];
     if($user == $usuario){
@@ -14,16 +15,19 @@
     }
   }
   pg_free_result($users);
-  if($repetido == FALSE && $usuario != 'admin'){
+  if($repetido == FALSE && $usuario != 'admin' && $_POST['password']!=''){
     $consulta = "INSERT INTO usuarios (nombre, pass) VALUES ('". $usuario ."', '". $pass_encrypt ."');";
     $insertar = pg_query($link, $consulta);
-    //setcookie('MENSAJE', 'correcto',time()+3600);
-    header("Location: ../gestion_usuarios.php");
+    if($insertar){
+      header("Location: ../gestion_usuarios.php?mensaje=ok&contenido=Usario añadido correctamente");
+    }
+    else
+      header("Location: ../gestion_usuarios.php?mensaje=error&contenido=Error al añadir el usuario");
 
   }else {
     echo "error";
     pg_close($link);
-
+    header("Location: ../gestion_usuarios.php?mensaje=error&contenido=Error al añadir el usuario");
   }
 
 

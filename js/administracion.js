@@ -11,9 +11,12 @@
     document.getElementById('submenu_valoracion').style.display="none";
   });
 
-/*
+
   $(document).ready(function() {
       setTimeout(function() {
-          $("#mostrar_mensaje").fadeOut(1500);
+          $("#mostrar_mensaje_ok").fadeOut(1500);
       },3000);
-  });*/
+      setTimeout(function() {
+          $("#mostrar_mensaje_error").fadeOut(1500);
+      },3000);
+  });

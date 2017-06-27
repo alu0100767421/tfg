@@ -9,10 +9,6 @@
     $username = $_SESSION['nombre'];
 
 
-//echo '<script type="text/javascript">document.getElementById("mostrar_mensaje").innerHTML = "Fallo el envío del formulario.";</script>';
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -113,12 +109,21 @@
         </div>
 
         <div class=" col-lg-10 col-md-8 col-xs-12 col-sm-12">
-          <!--<div class="row">
-            <div class="col-lg-3">
-              <p id="mostrar_mensaje"></p>
+          <div class='row'>
+            <div class='col-lg-11'>
+              <div style="display:none" id='correcto' class="correcto">
+                <p id='mostrar_mensaje_ok'></p>
+              </div>
 
+              <div style="display:none" id='incorrecto' class="incorrecto">
+                <p id='mostrar_mensaje_error'></p>
+              </div>
             </div>
-          </div>-->
+          </div>
+
+
+
+
           <div class="row">
 
             <!--Añadir usuario-->
@@ -259,6 +264,28 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript" src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="../js/administracion.js"></script>
+
+    <?php
+        if($_GET['mensaje']=='ok'){
+          $contenido= $_GET['contenido'];
+          //echo $contenido;
+          echo "<script type='text/javascript'>
+          document.getElementById('correcto').style.display='block';
+          document.getElementById('mostrar_mensaje_ok').innerHTML = '".$contenido."' ;
+          </script>";
+
+          $_GET['mensaje']='';
+        }
+        if($_GET['mensaje']=='error'){
+          $contenido= $_GET['contenido'];
+          echo "<script type='text/javascript'>
+          document.getElementById('incorrecto').style.display='block';
+          document.getElementById('mostrar_mensaje_error').innerHTML = '".$contenido."' ;
+
+          </script>";
+          $_GET['mensaje']='';
+        }
+     ?>
   </body>
 </html>
 

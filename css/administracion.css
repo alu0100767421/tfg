@@ -85,3 +85,27 @@ body {
   height: 30%;
   width: 30%;
 }
+
+
+
+.correcto{
+  background-color: #a2d8a3;
+  border-radius: 2px;
+  height: 8%;
+}
+.correcto p{
+  padding-top: 0.7%;
+  margin-left: 1%;
+  color: #16450c;
+}
+
+.incorrecto{
+  background-color: #d8a2a2;
+  border-radius: 2px;
+  height: 8%;
+}
+.incorrecto p{
+  padding-top: 0.7%;
+  margin-left: 1%;
+  color: #450c0c;
+}
