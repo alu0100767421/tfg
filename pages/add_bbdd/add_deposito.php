@@ -41,18 +41,28 @@
        if($row == 0){
          $consulta_insertar_deposito="INSERT INTO deposito(deposito,pais)
                     VALUES('".$deposito."','".$pais."');";
-         pg_query($link,$consulta_insertar_deposito);
+        $mensaje=pg_query($link,$consulta_insertar_deposito);
          echo pg_last_error();
+         if($mensaje){
+           header("Location: ../anadir/deposito.php?mensaje=ok&contenido=Depósito añadido correctamente");
+         }
+         else {
+           header("Location: ../anadir/deposito.php?mensaje=error&contenido=Depósito añadido incorrectamente");
+         }
+       }
+       else {
+         header("Location: ../anadir/deposito.php?mensaje=error&contenido=Ya existe este depósito");
        }
 
 
      }
      else{
-       echo "no ha introducido ningun pais o deposito\n";
+       //echo "no ha introducido ningun pais o deposito\n";
+       header("Location: ../anadir/deposito.php?mensaje=error&contenido=No ha añadido un depósito o país");
      }
 
 
-     header("Location: ../anadir/deposito.php");
+     //header("Location: ../anadir/deposito.php");
 
 
 
