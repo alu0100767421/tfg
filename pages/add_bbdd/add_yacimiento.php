@@ -93,7 +93,7 @@
       //insertamos el yacimiento en la tabla
       $insertar_yacimiento="INSERT INTO yacimiento(yacimiento,edad,altura,tipo_yacimiento,cant_publicaciones,observacion_yacimiento)
                             VALUES('".$yacimiento."','".$edad."','".$altura."','".$tipo."','0','".$observacion."');";
-      pg_query($link,$insertar_yacimiento);
+      $mensaje= pg_query($link,$insertar_yacimiento);
       echo pg_last_error();
       //hayamos el id del yacimiento
       $consulta_id="SELECT idyacimiento
@@ -120,8 +120,10 @@
       echo "No ha introducido ningun nombre al yacimiento\n";
     }
 
-
-    header("Location: ../anadir/yacimiento.php");
+    if($mensaje)
+      header("Location: ../anadir/yacimiento.php?mensaje=ok&contenido=Yacimiento añadido correctamente");
+    else
+      header("Location: ../anadir/yacimiento.php?mensaje=error&contenido=Yacimiento añadido incorrectamente. Debe indicar un nombre.");
   }
   else {
     header("Location: ../../index.php");
