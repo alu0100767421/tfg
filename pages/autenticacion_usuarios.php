@@ -22,6 +22,7 @@
     pg_free_result($query_autentification);
     pg_close($link);
     //echo "Ha habido un error en la autenticacion: " . pg_last_error();
-    header('Location: error_acceso.php');
+    //header('Location: error_acceso.php');
+    header("Location: ../index.php?mensaje=error&contenido=Contraseña Incorrecta");
   }
  ?>

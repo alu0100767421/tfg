@@ -20,6 +20,7 @@
     <link type="text/css" rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link type="text/css" rel="stylesheet" href="css/index.css"/>
     <link type="text/css" rel="stylesheet" href="css/validar_cookie.css"/>
+    <link type="text/css" rel="stylesheet" href="css/administracion.css"/>
 
   </head>
   <body>
@@ -80,13 +81,20 @@
             </div>
             <div class="form-group">
               <label tabindex="1" for="exampleInputPassword1">Contraseña</label>
+              <div class='row'>
+                <div class='col-lg-12'>
+                  <div style="display:none" id='incorrecto' class="incorrecto">
+                    <p id='mostrar_mensaje_error'></p>
+                  </div>
+                </div>
+              </div>
               <input tabindex="1" type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Contraseña">
             </div>
             <div class="row botones-formulario">
               <div class="col-lg-1 col-md-3 col-xs-12 col-sm-7">
                 <button title='acceso al servicio de administración' tabindex="1" type="submit" class="btn btn-success">Acceder</button><br>
               </div>
-              <div class="col-lg-offset-8 col-lg-1 col-md-offset-4 col-md-3 col-xs-offset-0  col-xs-3 col-sm-3">
+              <div class="col-lg-offset-8 col-lg-1 col-md-offset-7 col-md-1 col-xs-offset-0  col-xs-3 col-sm-3">
                 <a title='acceso al mapa' tabindex="1" class="btn btn-info" href="pages/mapa.php" role="button">Mapa</a>
               </div>
             </div>
@@ -116,11 +124,32 @@
       </div>
     </div>
 
+    <?php
+        if($_GET['mensaje']=='ok'){
+          $contenido= $_GET['contenido'];
+          //echo $contenido;
+          echo "<script type='text/javascript'>
+          document.getElementById('correcto').style.display='block';
+          document.getElementById('mostrar_mensaje_ok').innerHTML = '".$contenido."' ;
+          </script>";
 
+          $_GET['mensaje']='';
+        }
+        if($_GET['mensaje']=='error'){
+          $contenido= $_GET['contenido'];
+          echo "<script type='text/javascript'>
+          document.getElementById('incorrecto').style.display='block';
+          document.getElementById('mostrar_mensaje_error').innerHTML = '".$contenido."' ;
+
+          </script>";
+          $_GET['mensaje']='';
+        }
+     ?>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script type="text/javascript" src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/index.js"></script>
   <script type="text/javascript" src="js/validar_cookies.js"></script>
+  <script type="text/javascript" src="js/administracion.js"></script>
   </body>
 </html>
